@@ -1,0 +1,13 @@
+#!/bin/bash
+################################################################################
+# minecraft_server
+#
+# Launches a 1.7.2 minecraft server with 2048MB RAM.
+#
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com?
+#  Last Updated: March 18, 2014
+################################################################################
+
+pushd $HOME/.bin/minecraft_files/minecraft_server
+java -Xmx2048M -Xms2048M -jar $HOME/.bin/minecraft_files/minecraft_server.1.7.2.jar
+popd

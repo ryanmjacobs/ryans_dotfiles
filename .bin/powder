@@ -1,0 +1,25 @@
+#!/bin/bash
+################################################################################
+# powder
+#
+# Startup script for "The Powder Toy".
+# It also temporarily unhides the config file then runs the program.
+#
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com?
+#  Last Updated: March 18, 2014
+################################################################################
+
+pushd $HOME
+
+# If the config is hidden, then unhide it
+if [ -f .powder.pref ]; then
+    mv .powder.pref powder.pref
+fi
+
+# Launch the powder toy
+.bin/powder_toy/powder64 || .bin/powder_toy/powder
+
+# Hide the config
+mv powder.pref .powder.pref
+
+popd

@@ -1,0 +1,15 @@
+#!/bin/bash
+################################################################################
+# minecraft
+#
+# Launches minecraft 1.7.2 with 2048MB RAM.
+#
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com?
+#
+# March 18, 2014 -> Original creation.
+#   May 01, 2014 -> Added workaround to use the TeamExtreme launcher.
+################################################################################
+
+#java -Xmx2048M -Xms2048M -jar $HOME/.bin/minecraft_files/Sparamoule_Launcher_v1.1.1.jar
+
+java -Xmx2048M -Xms2048M -jar $HOME/.minecraft/launcher.jar
