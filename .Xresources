@@ -1,0 +1,96 @@
+!###############################################################################
+! .Xresources
+!
+! Configuration file for X.
+! Load it with 'xrdb .Xresources'.
+!
+! Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+!
+! March 22, 2014 -> Original Creation.
+! April 15, 2014 -> Disabled terminal visual bell.
+! April 16, 2014 -> Added 'Modern Terminal Functionality'.
+!###############################################################################
+
+! Global color
+*customization: -color
+
+!###############################################################################
+! XTerm Settings
+!###############################################################################
+ 
+!###############################################################################
+! Modern Terminal Functionality
+! =============================
+!
+! Scrolling:
+!   Scroll Wheel
+!   Shift-PgUp/PgDn
+!
+! Copy/Paste:
+!   Mouse-Select        : Copy to PRIMARY
+!   Shift + Mouse-Select: Copy to CLIPBOARD
+!
+!   Middle-Click        : Paste from PRIMARY
+!   Shift + Middle-Click: Paste from CLIPBOARD
+!
+!   Ctrl+Shift+V        : Paste from CLIPBOARD
+!   Ctrl+Alt+Shift+V    : Paste from PRIMARY
+!
+! 
+*VT100.Translations: #override \
+    Shift <Key>Up:              scroll-back(1) \n\
+    Shift <Key>Down:            scroll-forw(1) \n\
+   ~Meta Shift Ctrl <Key>V:    insert-selection(CLIPBOARD) \n\
+    Meta Shift Ctrl <Key>V:    insert-selection(PRIMARY) \n\
+   ~Shift <Btn1Up>:            select-end(PRIMARY, CUT_BUFFER0) \n\
+    Shift <Btn1Up>:            select-end(CLIPBOARD, CUT_BUFFER1) \n\
+   ~Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(PRIMARY, CUT_BUFFER0) \n\
+    Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(CLIPBOARD, CUT_BUFFER1) 
+!###############################################################################
+ 
+! Remove visual bell
+XTerm*visualBell: false
+
+! Enable XTerm with 256 Colors
+XTerm*termName: xterm-256color
+
+! Enable ALT shortcuts for programs
+XTerm.metaSendsEscape: true
+
+! Enable both the PRIMARY and CLIPBOARD clipboards
+XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
+! Disable bold and use color instead
+ XTerm*colorBDMode: false
+ XTerm*colorBD: rgb:73/d2/16
+
+xterm*faceName: Monospace
+xterm*faceSize: 9
+xterm*saveLines: 32768
+xterm*scrollBar: false
+xterm*geometry: 80x24
+xterm*cursorBlink: true
+xterm*eightBitInput: false
+xterm*scrollTtyOutput: true
+
+!=======================================
+! Tango Colorscheme
+!=======================================
+XTerm*foreground: #EEEEEC
+XTerm*background: #000000
+XTerm*color0: #2e3436
+XTerm*color1: #cc0000
+XTerm*color2: #4e9a06
+XTerm*color3: #c4a000
+XTerm*color4: #3465a4
+XTerm*color5: #75507b
+XTerm*color6: #0b939b
+XTerm*color7: #d3d7cf
+XTerm*color8: #555753
+XTerm*color9: #ef2929
+XTerm*color10: #8ae234
+XTerm*color11: #fce94f
+XTerm*color12: #729fcf
+XTerm*color13: #ad7fa8
+XTerm*color14: #00f5e9
+XTerm*color15: #eeeeec

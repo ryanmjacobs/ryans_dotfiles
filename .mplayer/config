@@ -1,0 +1,12 @@
+################################################################################
+# Personal MPlayer config
+#
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+#  Last Updated: March 18, 2014
+################################################################################
+
+# Disable LIRC because we never use it, (and we hate the warning message)
+nolirc=yes
+
+# Set the starting volume at 50%
+volume=50

@@ -1,0 +1,14 @@
+################################################################################
+# Personal Git Configuration
+#
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+#  Last Updated: March 18, 2014
+################################################################################
+
+[user]
+	email = ryan.mjacobs@gmail.com
+	name = Ryan Jacobs
+[push]
+	default = simple
+[core]
+	excludesfile = .gitignore
