@@ -61,17 +61,21 @@ XTerm.metaSendsEscape: true
 XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
 
 ! Disable bold and use color instead
- XTerm*colorBDMode: false
- XTerm*colorBD: rgb:73/d2/16
+XTerm*colorBDMode: false
+XTerm*colorBD: rgb:73/d2/16
 
-xterm*faceName: Monospace
-xterm*faceSize: 9
-xterm*saveLines: 32768
-xterm*scrollBar: false
-xterm*geometry: 80x24
-xterm*cursorBlink: true
-xterm*eightBitInput: false
-xterm*scrollTtyOutput: true
+! Display newlines when highlighting text
+XTerm*highlightSelection: true
+
+! Misc. Settings
+XTerm*faceName: Monospace
+XTerm*faceSize: 9
+XTerm*saveLines: 32768
+XTerm*scrollBar: false
+XTerm*geometry: 80x24
+XTerm*cursorBlink: true
+XTerm*eightBitInput: false
+XTerm*scrollTtyOutput: true
 
 !=======================================
 ! Tango Colorscheme
