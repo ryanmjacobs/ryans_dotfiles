@@ -50,6 +50,7 @@ while true; do
     sleep $DWM_REFRESH_INT
 done &
 
-# Start the DE, WM, and File Manager
+# Start the DM and/or WM and/or Background
 #exec cinnamon-session
+feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 exec dwm
