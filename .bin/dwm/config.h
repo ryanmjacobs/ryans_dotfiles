@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h> /* For special keys */
+
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#444444";
@@ -9,12 +11,13 @@ static const char selbordercolor[]  = "#005577";
 static const char selbgcolor[]      = "#005577";
 static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 5;        /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+//static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "School", "Other", "Pref.", "Dev.", "Doc.", "MPV", "Organize", "DL" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -46,13 +49,27 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "xterm", NULL };
+static const char *dmenucmd[]        = { "dmenu_run", "-fn", font, "-nb", normbgcolor,
+                                         "-nf", normfgcolor, "-sb", selbgcolor, "-sf",
+                                         selfgcolor, NULL };
+static const char *termcmd[]         = { "xterm", NULL };
+static const char *volume_down[]     = { "amixer", "-q", "set", "Master", "2%-", "unmute", NULL };
+static const char *volume_up[]       = { "amixer", "-q", "set", "Master", "2%+", "unmute", NULL };
+static const char *mute[]            = { "amixer", "-q", "set", "Master", "toggle", NULL };
+static const char *brightness_up[]   = { "sudo", "/usr/bin/brightness.sh", "inc", "5", NULL };
+static const char *brightness_down[] = { "sudo", "/usr/bin/brightness.sh", "dec", "5", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+    { 0,        XF86XK_AudioRaiseVolume,       spawn,          {.v = volume_up } }, 
+    { 0,        XF86XK_AudioLowerVolume,       spawn,          {.v = volume_down } },
+    { 0,        XF86XK_AudioMute,              spawn,          {.v = mute } },
+    { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brightness_up } },
+    { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightness_down } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ ControlMask|ShiftMask,        XK_Return, spawn,          {.v = termcmd } },
+	{ ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
