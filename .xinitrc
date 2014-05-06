@@ -15,6 +15,8 @@ xset b off
 
 # Dwm Statusbar
 while true; do
+    sleep 0.5
+
     WIFI_DEVICE=wlp2s0
 
     # System Uptime
