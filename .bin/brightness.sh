@@ -5,25 +5,38 @@
 # Brightness control for Lenovo v570 Arch Linux install.
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#  Last Updated: March 20, 2014
+#
+# March 20, 2014 -> Creation date.
+#   May 05, 2014 -> Added get command.
 ################################################################################
+
+function help_msg() {
+    printf "Brightness control for Lenovo v570 Arch Linux install.\n"
+    printf "Usage: %s <set|inc|dec> <percentage>\n" $FUNCNAME
+    printf "                 OR                 \n"
+    printf "       %s <get>\n" $FUNCNAME
+    exit 1
+}
+
 
 if [ $(id -u) -ne 0 ]; then
     printf "Not running as root.\n"
     exit 1
 fi
 
-if [ $# != 2 ]; then
-    printf "Brightness control for Lenovo v570 Arch Linux install.\n"
-    printf "Usage: %s <set|inc|dec> <percentage>\n" $FUNCNAME
-    exit 1
+if [ $# -lt 1 ]; then
+    help_msg
 fi
 
-PERCENTAGE=$(echo $2*0.01 | bc)
-BRIGHTNESS_FILE='/sys/class/backlight/intel_backlight/brightness'
-MAX_BRIGHTNESS_FILE='/sys/class/backlight/intel_backlight/max_brightness'
-MAX_BRIGHTNESS=$(cat $MAX_BRIGHTNESS_FILE)
-CURRENT_BRIGHTNESS=$(cat $BRIGHTNESS_FILE)
+if   [ $1 == 'set' ] && [ $# -ne 2 ]; then
+    help_msg
+elif [ $1 == 'inc' ] && [ $# -ne 2 ]; then
+    help_msg
+elif [ $1 == 'dec' ] && [ $# -ne 2 ]; then
+    help_msg
+elif [ $1 == 'get' ] && [ $# -ne 1 ]; then
+    help_msg
+fi
 
 # BASH Round Function
 # Arg 1: Number to round
@@ -37,19 +50,28 @@ function round() {
     fi
 }
 
-if [ $1 == 'set' ]; then
+### Mainline ###
+BRIGHTNESS_FILE='/sys/class/backlight/intel_backlight/brightness'
+MAX_BRIGHTNESS_FILE='/sys/class/backlight/intel_backlight/max_brightness'
+MAX_BRIGHTNESS=$(cat $MAX_BRIGHTNESS_FILE)
+CURRENT_BRIGHTNESS=$(cat $BRIGHTNESS_FILE)
+if   [ $1 == 'set' ]; then
+    PERCENTAGE=$(echo $2*0.01 | bc)
     SET=$(round $(echo $MAX_BRIGHTNESS*$PERCENTAGE | bc) 0)
     NEW_VALUE=$SET
 elif [ $1 == 'inc' ]; then
+    PERCENTAGE=$(echo $2*0.01 | bc)
     INC=$(round $(echo $MAX_BRIGHTNESS*$PERCENTAGE | bc) 0)
     NEW_VALUE=$(echo $CURRENT_BRIGHTNESS+$INC | bc)
 elif [ $1 == 'dec' ]; then
+    PERCENTAGE=$(echo $2*0.01 | bc)
     DEC=$(round $(echo $MAX_BRIGHTNESS*$PERCENTAGE | bc) 0)
     NEW_VALUE=$(echo $CURRENT_BRIGHTNESS-$DEC | bc)
+elif [ $1 == 'get' ]; then
+    printf "Current Brightness: %s\n" $(round $(echo "scale=2;$CURRENT_BRIGHTNESS*100/$MAX_BRIGHTNESS" | bc) 0)
+    exit 0
 else
-    printf "Brightness control for Lenovo v570 Arch Linux install.\n"
-    printf "Usage: %s <inc|dec> <percentage>\n" $FUNCNAME
-    exit 1
+    help_msg
 fi
 
 if [ $NEW_VALUE -gt $MAX_BRIGHTNESS ]; then
