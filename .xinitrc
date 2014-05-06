@@ -46,7 +46,7 @@ while true; do
     DWM_CLOCK=$(date '+%a %b%e, %Y | %r')
 
     # Overall output command
-    DWM_STATUS="Uptime: $DWM_UPTIME WiFi: $DWM_WIFI_ESSID [$DWM_WIFI_STRENGTH] | Power: [$DWM_BATTERY] | Vol: $DWM_VOL ::: $DWM_CLOCK"
+    DWM_STATUS="Uptime: [$DWM_UPTIME] | WiFi: $DWM_WIFI_ESSID [$DWM_WIFI_STRENGTH] | Power: [$DWM_BATTERY%] | Vol: $DWM_VOL -- $DWM_CLOCK"
     xsetroot -name "$DWM_STATUS"
     sleep $DWM_REFRESH_INT
 done &
