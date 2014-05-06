@@ -1,0 +1,24 @@
+wn_window yes
+own_window_type override
+own_window_colour 000000
+own_window_transparent no
+own_window_hints undecorated below sticky skip_taskbar skip_pager
+double_buffer yes
+cpu_avg_samples 2
+net_avg_samples 2
+use_xft yes
+xftfont Ubuntu:size=10
+update_interval 1
+minimum_size 1366 0
+maximum_width 1366
+border_margin 0
+border_width 25
+draw_outline no
+default_color white
+alignment bottom_center
+use_spacer none
+no_buffers yes
+uppercase no
+
+TEXT
+${alignc}$nodename ${color #0077FF}Uptime:${color white} $uptime ${color OrangeRed} | ${color #0077FF} CPU:${color #0077FF} ${color white}${cpu}% ${color OrangeRed} | ${color #0077FF} RAM: ${color white}$mem ${color OrangeRed} | ${color #0077FF} FS: ${color lightgrey}${fs_used /}/${fs_size /} ${color OrangeRed} | ${color #0077FF} Network:${color white} ${wireless_essid wlp2s0} ${color OrangeRed} | ${color #0077FF} Down: ${color white}${downspeed wlp2s0} ${color OrangeRed} | ${color #0077FF} Up: ${color white}${upspeed wlp2s0} ${color OrangeRed} | ${color #0077FF} Battery: ${color white}${battery BAT0} ${battery_time BAT0} ${color OrangeRed} | ${color #0077FF} Volume:${color white} ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}%

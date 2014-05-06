@@ -10,11 +10,14 @@
 
 killall conky
 
-cd "$HOME/.conky/System_Rings"
-conky -c "$HOME/.conky/System_Rings/config/system_rings" &
+cd "$HOME/.conky"
+conky -c "$HOME/.conky/DWM_Conky" &
 
-cd "$HOME/.conky/CPUPanel"
-conky -c "$HOME/.conky/CPUPanel/config/CPUPanel - 4 Core CPU" &
+#cd "$HOME/.conky/System_Rings"
+#conky -c "$HOME/.conky/System_Rings/config/system_rings" &
 
-cd "$HOME/.conky/Digital_Clock"
-conky -c "$HOME/.conky/Digital_Clock/config/digital_clock" &
+#cd "$HOME/.conky/CPUPanel"
+#conky -c "$HOME/.conky/CPUPanel/config/CPUPanel - 4 Core CPU" &
+
+#cd "$HOME/.conky/Digital_Clock"
+#conky -c "$HOME/.conky/Digital_Clock/config/digital_clock" &
