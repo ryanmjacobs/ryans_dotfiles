@@ -15,12 +15,13 @@ xset b off
 
 # Dwm Statusbar
 while true; do
-    sleep 0.5
+   #sleep 0.1 #100ms
+    sleep 1
 
     WIFI_DEVICE=wlp2s0
 
     # System Uptime
-    DWM_UPTIME=$(uptime | awk '{print $1}')
+    DWM_UPTIME=$(uptime -p | sed 's/up //g' | sed 's/ hours/h/g' | sed 's/ minutes/m/g' | tr -d ',')
 
     # Power/Battery Status
     if [ "$(cat /sys/class/power_supply/AC0/online)" -eq "1" ]; then
