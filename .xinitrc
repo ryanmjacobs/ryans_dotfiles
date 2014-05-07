@@ -21,14 +21,15 @@ while true; do
     WIFI_DEVICE=wlp2s0
 
     # System Uptime
-    DWM_UPTIME=$(uptime -p | sed 's/up //g' | sed 's/ hours/h/g' | sed 's/ minutes/m/g' | tr -d ',')
+    DWM_UPTIME=$(simple_uptime) # Custom binary to give correct uptime by Ryan
 
     # Power/Battery Status
     if [ "$(cat /sys/class/power_supply/AC0/online)" -eq "1" ]; then
         DWM_BATTERY="AC"
         DWM_RENEW_INT=3
     else
-        DWM_BATTERY=$((`cat /sys/class/power_supply/BAT0/energy_now` * 100 / `cat /sys/class/power_supply/BAT0/energy_full`))
+        DWM_BATTERY=$((`cat /sys/class/power_supply/BAT0/energy_now` * 100 /\
+                       `cat /sys/class/power_supply/BAT0/energy_full`))
         DWM_RENEW_INT=30
     fi
 
@@ -37,7 +38,8 @@ while true; do
     IS_DEVICE_UP=$?
     if [ "$IS_DEVICE_UP" -eq "0" ]; then
         DWM_WIFI_ESSID=$(/sbin/iwgetid -r)
-        DWM_WIFI_STRENGTH=$(awk 'NR==3 {print $3"%"}''' /proc/net/wireless | tr -d '.')
+        DWM_WIFI_STRENGTH=$(awk 'NR==3 {print $3"%"}''' /proc/net/wireless |\
+                            tr -d '.')
     else
         DWM_WIFI_ESSID="OFF"
     fi
@@ -49,7 +51,10 @@ while true; do
     DWM_CLOCK=$(date '+%a %b%e, %Y | %r')
 
     # Overall output command
-    DWM_STATUS="Uptime: [$DWM_UPTIME] | WiFi: $DWM_WIFI_ESSID [$DWM_WIFI_STRENGTH] | Power: [$DWM_BATTERY%] | Vol: $DWM_VOL -- $DWM_CLOCK"
+    DWM_STATUS="\
+Uptime: [$DWM_UPTIME] | WiFi: $DWM_WIFI_ESSID [$DWM_WIFI_STRENGTH] | \
+Power: [$DWM_BATTERY%] | Vol: $DWM_VOL -- $DWM_CLOCK"
+
     xsetroot -name "$DWM_STATUS"
     sleep $DWM_REFRESH_INT
 done &
