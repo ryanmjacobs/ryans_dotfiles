@@ -18,8 +18,8 @@ static const Bool topbar            = True;     /* False means bottom bar */
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-/*                            1,        2,       3,       4,      5,      6,     7,          8,    9    */
-static const char *tags[] = { "School", "Other", "Pref.", "Dev.", "Doc.", "MPV", "Organize", "BG", "DL" };
+/*                            1,        2,       3,          4,      5,      6,     7,       8,    9    */
+static const char *tags[] = { "School", "Other", "Organize", "Dev.", "Doc.", "MPV", "Pref.", "BG", "DL" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
