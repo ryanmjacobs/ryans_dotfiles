@@ -48,7 +48,7 @@ while true; do
     DWM_VOL=$(amixer -c0 sget Master | awk -vORS=' ' '/Mono:/ {print($6$4)}')
 
     # Date and Time
-    DWM_CLOCK=$(date '+%a %b%e, %Y | %r')
+    DWM_CLOCK=$(date '+%a %b %d, %Y | %r')
 
     # Overall output command
     DWM_STATUS="\
