@@ -10,6 +10,9 @@ if $COLORTERM == 'gnome-terminal' || $TERM == 'xterm-256color'
   set t_Co=256
 endif
 
+" Highlight column 80
+set colorcolumn=80
+
 " Default color scheme
 colorscheme molokai
 
