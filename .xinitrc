@@ -17,7 +17,7 @@ xset b off
 synclient TapButton1=0 TapButton2=0 TapButton3=0
 
 # Dwm Statusbar
-$HOME/.bin/dwm_statusbar.sh
+$HOME/.bin/dwm_statusbar.sh &
 
 # Start the DM and/or WM and/or Background
 #exec cinnamon-session
