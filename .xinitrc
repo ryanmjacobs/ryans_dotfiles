@@ -14,7 +14,8 @@ xrdb -merge $HOME/.Xresources
 xset b off
 
 # Disable double-tap = click on touchpad
-synclient TapButton1=0 TapButton2=0 TapButton3=0
+# Causes odd bugs right now
+#synclient TapButton1=0 TapButton2=0 TapButton3=0
 
 # Dwm Statusbar
 $HOME/.bin/dwm_statusbar.sh &
