@@ -195,7 +195,7 @@ EXEC 01;32
 .mka 00;36
 .mp3 01;33
 .mpc 00;36
-.ogg 01;32
+.ogg 01;36
 .ra 00;36
 .wav 00;36
 # http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
