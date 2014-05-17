@@ -8,6 +8,6 @@
 #  Last Updated: April 30, 2014
 ################################################################################
 
-pushd $HOME/.bin/minecraft_files/minecraft_server
+pushd $HOME/.bin/minecraft_files/
 java -Xmx2048M -Xms2048M -jar $HOME/.bin/minecraft_files/minecraft_server.1.7.9.jar
 popd
