@@ -1,6 +1,6 @@
-custom_config="ryans_dwm_config.h"
-src="dwm-6.0.tar.gz"
-srcdir="dwm-6.0"
+custom_config=ryans_dwm_config.h
+src=dwm-6.0.tar.gz
+srcdir=dwm-6.0
 
 all:
 	tar zxf ${src}
@@ -17,4 +17,4 @@ clean:
 	rm -f dwm
 
 install:
-	cp ${srcdir}/dwm .
+	cp ${srcdir}/dwm ${HOME}/.bin/
