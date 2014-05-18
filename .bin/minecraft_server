@@ -15,13 +15,17 @@ MINECRAFT_FILES="$HOME/.bin/minecraft_files"
 SERVER_PATH="$MINECRAFT_FILES/minecraft_server"
 SERVER_JAR="minecraft_server.1.7.9.jar"
 
-if [ ! -f "$SERVER_PATH/$SERVER_JAR" ]; then
+if [ ! -f "$MINECRAFT_FILES/$SERVER_JAR" ]; then
     printf "The server .jar file doesn't exist!\n"
-    printf "We are trying to use '%s'.\n" "$MINECRAFT_FILES/$SERVER_JAR"
+    printf "We are trying to use '%s'.\n" "$SERVER_JAR"
     printf "Please go download it into '%s'.\n" "$MINECRAFT_FILES"
     exit 1
 fi
 
-pushd "$SERVER_PATH" || (mkdir -p "$SERVER_PATH"; pushd "$SERVER_PATH")
+if [ ! -d "$SERVER_PATH" ]; then
+    mkdir -p "$SERVER_PATH"
+fi
+
+pushd "$SERVER_PATH"
 java -Xmx2048M -Xms2048M -jar "$MINECRAFT_FILES/$SERVER_JAR"
 popd
