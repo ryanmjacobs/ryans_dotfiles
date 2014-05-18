@@ -62,6 +62,7 @@ menu "defops"
 {
     "Menu"            f.title
     "Xterm"           f.exec "exec xterm &"
+    ""                f.nop
     "Kill"            f.destroy
     "Delete"          f.delete
     ""                f.nop
