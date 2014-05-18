@@ -17,10 +17,12 @@ xset b off
 # Causes odd bugs right now
 #synclient TapButton1=0 TapButton2=0 TapButton3=0
 
+# Set the background wallpaper
+feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
+
 # Dwm Statusbar
 $HOME/.bin/dwm_statusbar.sh &
 
-# Start the DM and/or WM and/or Background
-#exec cinnamon-session
-feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
+# Start the WM
+#exec twm
 exec dwm
