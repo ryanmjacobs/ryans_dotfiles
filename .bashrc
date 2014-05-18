@@ -98,6 +98,7 @@ xtitle() {
 }
 
 # Serve a file using netcat
+# Only guaranteed to work using openbsd-netcat
 function serve() {
     if [ $# != 2 ]; then
         printf "Serves a file using netcat.\n"
