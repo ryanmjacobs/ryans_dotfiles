@@ -12,12 +12,12 @@
 ################################################################################
 
 SERVER_PATH="$HOME/.bin/minecraft_files/minecraft_server"
-SERVER_JAR="$SERVER_PATH/minecraft_server.1.7.9.jar"
+SERVER_JAR="minecraft_server.1.7.9.jar"
 
 if [ ! -f "$SERVER_PATH/$SERVER_JAR" ]; then
     printf "The server .jar file doesn't exist!\n"
     printf "We are trying to use '%s'.\n" "$SERVER_PATH/$SERVER_JAR"
-    printf "Please go download it and place it in '%s'.\n" "$SERVER_PATH"
+    printf "Please go download it into '%s'.\n" "$SERVER_PATH"
     exit 1
 fi
 
