@@ -1,3 +1,12 @@
+################################################################################
+# .profile
+#
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+#
+# May 18, 2014 -> Original creation.
+#
+################################################################################
+
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -11,11 +20,6 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
 fi
