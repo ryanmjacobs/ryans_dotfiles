@@ -18,6 +18,8 @@ if [ ! -f "$SERVER_PATH/$SERVER_JAR" ]; then
     printf "The server .jar file doesn't exist!\n"
     printf "We are trying to use '%s'.\n" "$SERVER_PATH/$SERVER_JAR"
     printf "Please go download it and place it in '%s'.\n" "$SERVER_PATH"
+    exit 1
+fi
 
 pushd "$SERVER_PATH" || (mkdir -p "$SERVER_PATH"; pushd "$SERVER_PATH")
 java -Xmx2048M -Xms2048M -jar "$SERVER_PATH/$SERVER_JAR"
