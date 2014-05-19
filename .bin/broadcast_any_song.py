@@ -28,7 +28,4 @@ json_url    = urllib2.urlopen("http://ex.fm/api/v3/song/search/%s"% "+".join(sys
 parsed_json = json.loads(json_url.read())
 song_url    = parsed_json["songs"][0]["url"]
 
-os.system("curl -#" + song_url + " | nc " + str(NC_HOST) + " " + str(NC_PORT))
-
-# Reset the terminal to fix the broken state
-os.system('reset')
+os.system("wget -O - " + song_url + " | nc " + str(NC_HOST) + " " + str(NC_PORT))
