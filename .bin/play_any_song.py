@@ -5,7 +5,7 @@
 # Uses the Exfm REST API to play song, (basically scours Tumblr for an
 # audio file matching a query).
 #
-# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com?
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 #
 # December 20, 2014 -> Creation date.
 # March 18, 2014    -> Changed from MPlayer to MPV.
