@@ -26,6 +26,15 @@ if [ ! -d "$SERVER_PATH" ]; then
     mkdir -p "$SERVER_PATH"
 fi
 
-pushd "$SERVER_PATH"
+cd "$SERVER_PATH" || {
+    printf "The path %s doesn't exist.\n" "$SERVER_PATH"
+    printf "Creating it...\n"
+
+    mkdir -p "$SERVER_PATH" && printf "Created it!\n" || {
+        printf "Failed to create path.\n"
+        exit 1
+    }
+}
+
+cd "$SERVER_PATH"
 java -Xmx2048M -Xms2048M -jar "$MINECRAFT_FILES/$SERVER_JAR"
-popd
