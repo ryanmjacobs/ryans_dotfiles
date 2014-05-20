@@ -14,8 +14,7 @@ xrdb -merge $HOME/.Xresources
 xset b off
 
 # Disable double-tap = click on touchpad
-# Causes odd bugs right now
-#synclient TapButton1=0 TapButton2=0 TapButton3=0
+synclient TapButton1=0 TapButton2=0 TapButton3=0
 
 # Set the background wallpaper
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
