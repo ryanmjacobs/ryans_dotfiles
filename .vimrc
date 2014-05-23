@@ -16,9 +16,6 @@ set colorcolumn=80
 " Default color scheme
 colorscheme molokai
 
-" Enable spell check for English
-set spell
-
 " Enable syntax highlighting, auto-indentation, and a default tab of 4 spaces
 " that convert to spaces
 syntax on
