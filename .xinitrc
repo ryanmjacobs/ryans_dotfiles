@@ -10,9 +10,6 @@
 # Merge in the user .Xresources file
 xrdb -merge $HOME/.Xresources
 
-# Disable terminal bell
-xset b off
-
 # Disable double-tap = click on touchpad
 synclient TapButton1=0 TapButton2=0 TapButton3=0
 
