@@ -13,7 +13,6 @@
 # Global Variables
 NC_HOST="gamma"
 NC_PORT=1234
-CHANNEL=94.3
 
 import os          # to execute shell commands
 import sys         # arguments
