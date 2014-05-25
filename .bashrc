@@ -50,8 +50,8 @@ shopt -s globstar
 # Keep History when BASH exits
 shopt -s histappend
 
-# History ignore duplicates and commands starting with space
-HISTCONTROL='erasedups:ignoreboth:ignorespace'
+# History ignore commands starting with space
+HISTCONTROL='ignorespace'
 HISTFILESIZE=50000000
 HISTSIZE=1000000
 
