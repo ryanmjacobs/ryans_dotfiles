@@ -42,13 +42,18 @@ alias grep='grep --colour=auto'
 export EDITOR='vim'
 
 # Include the local bin
-PATH="$HOME/.bin:$PATH"
+PATH="$PATH:$HOME/.bin:/usr/local/msp430/bin"
 
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
 
-# Don't save history of commands starting with a space
-HISTCONTROL=ignorespace
+# Keep History when BASH exits
+shopt -s histappend
+
+# History ignore duplicates and commands starting with space
+HISTCONTROL='erasedups:ignoreboth:ignorespace'
+HISTFILESIZE=50000000
+HISTSIZE=1000000
 
 ################################################################################
 # Aliases
@@ -68,8 +73,8 @@ alias ds=datestamp
 alias basic_prompt='PS1="\e[01;34m-> \e[00m"'
 
 # Allows sl (joke train program) to be interrupted with ^C
-alias LS='LS -e'
 alias sl='sl -e'
+alias LS='LS -e'
 
 ################################################################################
 # Useful Functions
