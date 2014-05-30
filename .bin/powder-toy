@@ -6,7 +6,7 @@
 # It also temporarily unhides the config file then runs the program.
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#  Last Updated: March 18, 2014
+# March 18, 2014 -> Original creation.
 ################################################################################
 
 pushd $HOME

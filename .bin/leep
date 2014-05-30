@@ -1,11 +1,11 @@
 #!/bin/bash
 ################################################################################
-# leep 'Lock and Sleep'
+# leep
 #
-# This script starts 'slock' and then calls pm-suspend.
+# Lock and Sleep. This script starts 'slock' and then calls pm-suspend.
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#  Last Updated: May 05, 2014
+# May 05, 2014 -> Original creation.
 ################################################################################
 slock &
 sudo pm-suspend

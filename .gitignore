@@ -1,3 +1,11 @@
+################################################################################
+# .gitignore
+#
+# .gitignore file for my dotfiles and bin directory.
+#
+# Maintained By: Ryan Jacob <ryan.mjacobs@gmail.com>
+# May 29, 2014 -> Original creation.
+################################################################################
 .bin/dwm
 .bin/simple_uptime
 .bin/minecraft_files/minecraft_server/

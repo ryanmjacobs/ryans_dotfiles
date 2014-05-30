@@ -1,8 +1,7 @@
 ################################################################################
-# Personal .bashrc file
+# .bashrc
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#
 # March 18, 2014 -> Original Creation.
 # April 29, 2014 -> Created doxc function.
 # April 30, 2014 -> Colorize prompt as red if root user.
@@ -42,7 +41,7 @@ alias grep='grep --colour=auto'
 export EDITOR='vim'
 
 # Include the local bin
-PATH="$PATH:$HOME/.bin:/usr/local/msp430/bin"
+PATH="$PATH:$HOME/.bin/"
 
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar

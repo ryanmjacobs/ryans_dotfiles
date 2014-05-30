@@ -5,8 +5,8 @@
 # Script to generate the statusbar for dwm.
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#
 # May 13, 2014 -> Original creation.
+# May 28, 2014 -> Fixed bug that when the battery couldn't be readm it crashed.
 ################################################################################
 
 # Global Constants
@@ -20,11 +20,11 @@ while true; do
     # Power/Battery Status
     if [ "$(cat /sys/class/power_supply/AC0/online)" == 1 ]; then
         DWM_BATTERY="AC"
-        DWM_RENEW_INT=3
-    else
+    elif [ "$(cat /sys/class/power_supply/BAT0/energy_now)" -gt "0" ]; then
         DWM_BATTERY=$((`cat /sys/class/power_supply/BAT0/energy_now` * 100 /\
                        `cat /sys/class/power_supply/BAT0/energy_full`))
-        DWM_RENEW_INT=30
+    else
+        DWM_BATTERY="NULL"
     fi
 
     # Wi-Fi eSSID

@@ -1,9 +1,6 @@
 !###############################################################################
 ! .Xresources
 !
-! Configuration file for X.
-! Load it with 'xrdb .Xresources'.
-!
 ! Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 !
 ! March 22, 2014 -> Original Creation.

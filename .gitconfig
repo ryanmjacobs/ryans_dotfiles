@@ -1,8 +1,8 @@
 ################################################################################
-# Personal Git Configuration
+# .gitconfig
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#  Last Updated: March 18, 2014
+# March 18, 2014 -> Original creation.
 ################################################################################
 
 [user]

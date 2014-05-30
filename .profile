@@ -2,9 +2,7 @@
 # .profile
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#
 # May 18, 2014 -> Original creation.
-#
 ################################################################################
 
 # ~/.profile: executed by the command interpreter for login shells.

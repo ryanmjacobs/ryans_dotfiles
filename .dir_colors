@@ -1,8 +1,8 @@
 ################################################################################
-# Personal DIRCOLORS Configuration
+# .dir_colors
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#  Last Updated: March 18, 2014
+# March 18, 2014 -> Original creation.
 ################################################################################
 
 TERM Eterm

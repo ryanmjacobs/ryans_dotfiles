@@ -4,8 +4,8 @@
 #
 # Starts up Conky, preconfigured for a 1400x900 display.
 #
-# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com?
-#  Last Updated: March 18, 2014
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+# March 18, 2014 -> Original creation.
 ################################################################################
 
 killall conky

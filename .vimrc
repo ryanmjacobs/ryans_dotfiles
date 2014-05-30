@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Personal .vimrc file
+" .vimrc
 "
 " Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-"  Last Updated: March 18, 2014
+" March 18, 2014 -> Original creation.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable 256 colors if the terminal supports it
