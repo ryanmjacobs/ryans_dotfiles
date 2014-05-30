@@ -33,7 +33,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
 	{ "mpv",      NULL,       NULL,       0x20,         True,        -1 }, // 0x20 is Tag #6
-	{ "xclock",   NULL,       NULL,       1 << 8,       True,        -1 },
+	{ "xclock",   NULL,       NULL,       0,            True,        -1 },
 };
 
 /* layout(s) */
