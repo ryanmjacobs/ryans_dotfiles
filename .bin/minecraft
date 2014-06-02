@@ -5,7 +5,7 @@
 # Launches minecraft 1.7.2 with 2048MB RAM.
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# May 29. 2-14 -> Original creation.
+# May 29. 2-14 -> Initial creation.
 ################################################################################
 
 java -Xmx2048M -Xms2048M -jar $HOME/.minecraft/launcher.jar

@@ -2,7 +2,7 @@
 # .bashrc
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# March 18, 2014 -> Original Creation.
+# March 18, 2014 -> Initial creation.
 # April 29, 2014 -> Created doxc function.
 # April 30, 2014 -> Colorize prompt as red if root user.
 ################################################################################

@@ -2,7 +2,7 @@
 " .vimrc
 "
 " Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-" March 18, 2014 -> Original creation.
+" March 18, 2014 -> Initial creation.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable 256 colors if the terminal supports it

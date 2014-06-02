@@ -4,7 +4,7 @@
 # .gitignore file for my dotfiles and bin directory.
 #
 # Maintained By: Ryan Jacob <ryan.mjacobs@gmail.com>
-# May 29, 2014 -> Original creation.
+# May 29, 2014 -> Initial creation.
 ################################################################################
 .bin/dwm
 .bin/simple_uptime

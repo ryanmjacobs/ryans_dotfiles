@@ -3,7 +3,7 @@
  *
  * Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
  *
- * May 18, 2014 -> Original creation.
+ * May 18, 2014 -> Initial creation.
  *
  */
 
