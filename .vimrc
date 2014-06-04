@@ -10,6 +10,13 @@ if $COLORTERM == 'gnome-terminal' || $TERM == 'xterm-256color'
   set t_Co=256
 endif
 
+if has("gui_running")
+    set guioptions-=T " Don't display the toolbar
+    set guifont=Inconsolata\ Medium\ 10
+    set columns=80
+    set lines=32
+endif
+
 " Highlight column 80
 set colorcolumn=80
 
@@ -42,9 +49,7 @@ function! MapF1()
     endif
 endfunction
 
-" Append modeline after last line in buffer.
-" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
-" files.
+" Append modeline after last line in buffer with <Leader>ml
 function! AppendModeline()
     let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
         \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
