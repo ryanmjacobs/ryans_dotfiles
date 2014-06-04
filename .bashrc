@@ -218,7 +218,7 @@ function defmake() {
 
     if [ $# == 0 ]; then
         printf "Create a Makefile for C projects.\n"
-        printf "Usage: %s <source1> [source2] [source3]\n" $FUNCNAME
+        printf "Usage: %s <executable_name> <source1> [source2] [source3]\n" $FUNCNAME
         return 1
     fi
 
@@ -227,6 +227,8 @@ function defmake() {
         return 1
     fi
 
+    EXECUTABLE=$1
+    shift
     SOURCES="$@"
 
     printf "################################################################################\n" >> "$FILE"
@@ -243,13 +245,17 @@ function defmake() {
     printf "LDFLAGS=\n"                                                                         >> "$FILE"
     printf "SOURCES=%s\n" "$SOURCES"                                                            >> "$FILE"
     printf "OBJECTS=\$(SOURCES:.c=.o)\n"                                                        >> "$FILE"
-    printf "EXECUTABLE=a.out\n"                                                                 >> "$FILE"
+    printf "EXECUTABLE=%s\n" "$EXECUTABLE"                                                      >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
     printf "all: \$(SOURCES) \$(EXECUTABLE)\n"                                                  >> "$FILE"
     printf "            \n"                                                                     >> "$FILE"
     printf "\$(EXECUTABLE): \$(OBJECTS) \n"                                                     >> "$FILE"
-    printf "	\$(CC) \$(LDFLAGS) \$(OBJECTS) -o \$@\n"                                        >> "$FILE"
+    printf "\t\$(CC) \$(LDFLAGS) \$(OBJECTS) -o \$@\n"                                          >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
     printf ".c.o:\n"                                                                            >> "$FILE"
-    printf "	\$(CC) \$(CFLAGS) \$< -o \$@\n"                                                 >> "$FILE"
+    printf "\t\$(CC) \$(CFLAGS) \$< -o \$@\n"                                                   >> "$FILE"
+    printf "\n"                                                                                 >> "$FILE"
+    printf "clean:\n"                                                                           >> "$FILE"
+    printf "\trm -f *.o\n"                                                                      >> "$FILE"
+    printf "\trm -f \$(EXECUTABLE)\n"                                                           >> "$FILE"
 }
