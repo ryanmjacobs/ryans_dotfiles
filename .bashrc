@@ -210,3 +210,46 @@ function doxc() {
         fi
     done
 }
+
+# Create a default Makefile for C projects
+function defmake() {
+    # Global variables
+    FILE='Makefile'
+
+    if [ $# == 0 ]; then
+        printf "Create a Makefile for C projects.\n"
+        printf "Usage: %s <source1> [source2] [source3]\n" $0
+        return 1
+    fi
+
+    if [ -f "$FILE" ]; then
+        printf "Makefile already exists! Quiting.\n"
+        return 1
+    fi
+
+    SOURCES="$@"
+
+    printf "################################################################################\n" >> "$FILE"
+    printf "# Makefile\n"                                                                       >> "$FILE"
+    printf "#\n"                                                                                >> "$FILE"
+    printf "# Credit goes to Hector Urtubia <urtubia@mrbook.org> for creating this Makefile.\n" >> "$FILE"
+    printf "# http://mrbook.org/tutorials/make/\n"                                              >> "$FILE"
+    printf "#\n"                                                                                >> "$FILE"
+    printf "# June 03, 2014\n"                                                                  >> "$FILE"
+    printf "################################################################################\n" >> "$FILE"
+    printf "\n"                                                                                 >> "$FILE"
+    printf "CC=gcc\n"                                                                           >> "$FILE"
+    printf "CFLAGS=-c -Wall\n"                                                                  >> "$FILE"
+    printf "LDFLAGS=\n"                                                                         >> "$FILE"
+    printf "SOURCES=%s\n" "$SOURCES"                                                            >> "$FILE"
+    printf "OBJECTS=\$(SOURCES:.c=.o)\n"                                                        >> "$FILE"
+    printf "EXECUTABLE=a.out\n"                                                                 >> "$FILE"
+    printf "\n"                                                                                 >> "$FILE"
+    printf "all: \$(SOURCES) \$(EXECUTABLE)\n"                                                  >> "$FILE"
+    printf "            \n"                                                                     >> "$FILE"
+    printf "\$(EXECUTABLE): \$(OBJECTS) \n"                                                     >> "$FILE"
+    printf "	\$(CC) \$(LDFLAGS) \$(OBJECTS) -o \$@\n"                                        >> "$FILE"
+    printf "\n"                                                                                 >> "$FILE"
+    printf ".c.o:\n"                                                                            >> "$FILE"
+    printf "	\$(CC) \$(CFLAGS) \$< -o \$@\n"                                                 >> "$FILE"
+}
