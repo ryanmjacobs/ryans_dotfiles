@@ -182,7 +182,7 @@ function doxc() {
 
     if [ $# == 0 ]; then
         printf "Creates C files in a Doxygen compatible format.\n"
-        printf "Usage: %s <file1> [file2] [file3]\n" $0
+        printf "Usage: %s <file1> [file2] [file3]\n" $FUNCNAME
         return 1
     fi
 
@@ -218,7 +218,7 @@ function defmake() {
 
     if [ $# == 0 ]; then
         printf "Create a Makefile for C projects.\n"
-        printf "Usage: %s <source1> [source2] [source3]\n" $0
+        printf "Usage: %s <source1> [source2] [source3]\n" $FUNCNAME
         return 1
     fi
 
