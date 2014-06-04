@@ -13,8 +13,6 @@ endif
 if has("gui_running")
     set guioptions-=T " Don't display the toolbar
     set guifont=Inconsolata\ Medium\ 10
-    set columns=80
-    set lines=32
 endif
 
 " Highlight column 80
