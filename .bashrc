@@ -237,7 +237,7 @@ function defmake() {
     printf "# Credit goes to Hector Urtubia <urtubia@mrbook.org> for creating this Makefile.\n" >> "$FILE"
     printf "# http://mrbook.org/tutorials/make/\n"                                              >> "$FILE"
     printf "#\n"                                                                                >> "$FILE"
-    printf "# June 03, 2014\n"                                                                  >> "$FILE"
+    printf "# %s\n" "$(date '+%B %d, %Y')"                                                      >> "$FILE"
     printf "################################################################################\n" >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
     printf "CC=gcc\n"                                                                           >> "$FILE"
