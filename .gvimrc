@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Personal .gvimrc file
+" .gvimrc
 "
 " Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-"  Last Updated: March 18, 2014
+" June 03, 2014 -> Initial creation.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set guifont=Inconsolata\ Medium\ 10
