@@ -3,6 +3,7 @@
 "
 " Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 " March 18, 2014 -> Initial creation.
+"  June 03, 2014 -> Moved .gvimrc into .vimrc.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable 256 colors if the terminal supports it
