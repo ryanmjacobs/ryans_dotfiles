@@ -6,6 +6,9 @@
 "  June 03, 2014 -> Moved .gvimrc into .vimrc.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Enable Pathogen
+execute pathogen#infect()
+
 " Enable 256 colors if the terminal supports it
 if $COLORTERM == 'gnome-terminal' || $TERM == 'xterm-256color'
   set t_Co=256
