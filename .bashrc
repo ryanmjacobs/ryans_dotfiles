@@ -181,7 +181,7 @@ function media_len() {
 # Create a C file template, compatible with Doxygen
 function doxc() {
     # Global Variables
-    AUTHOR="Ryan Jacobs (ryan.mjacobs@gmail.com)"
+    AUTHOR="Ryan Jacobs <ryan.mjacobs@gmail.com>"
 
     if [ $# == 0 ]; then
         printf "Creates C files in a Doxygen compatible format.\n"
