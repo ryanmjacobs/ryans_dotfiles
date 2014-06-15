@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# powder-toy
+# powder
 #
 # Startup script for "The Powder Toy".
 # It also temporarily unhides the config file then runs the program.
