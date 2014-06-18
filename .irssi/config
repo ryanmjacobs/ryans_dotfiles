@@ -5,7 +5,7 @@
 # June 18, 2014 -> Initial creation.
 ################################################################################
 servers = (
-  { 
+  {
     address = "irc.freenode.net";
     chatnet = "Freenode";
     port = "6667";
@@ -15,18 +15,13 @@ servers = (
   }
 );
 
-chatnets = {
-  Freenode = {
-    type = "IRC";
-    nick = "ryanjacobs";
-  };
-};
+chatnets = { Freenode = { type = "IRC"; nick = "ryanjacobs"; }; };
 
 channels = (
-  { name = "#archlinux";          chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#archlinux-offtopic"; chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#powder";             chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#powder-social";      chatnet = "Freenode"; autojoin = "Yes"; },
+   { name = "#archlinux";          chatnet = "Freenode"; autojoin = "Yes"; },
+   { name = "#powder";             chatnet = "Freenode"; autojoin = "Yes"; },
+   { name = "#archlinux-offtopic"; chatnet = "Freenode"; autojoin = "No"; },
+   { name = "#powder-social";      chatnet = "Freenode"; autojoin = "No"; },
 );
 
 aliases = {
@@ -191,6 +186,11 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Unknown"; user_name = "ryan"; nick = "ryan"; };
+  core = {
+    real_name = "Unknown";
+    user_name = "ryan";
+    nick = "ryan";
+    timestamp_format = "%H:%M:%S";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
 };
