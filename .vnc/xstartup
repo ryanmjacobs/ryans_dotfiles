@@ -1,0 +1,19 @@
+#!/bin/bash
+################################################################################
+# .vnc/xstartup
+#
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+# June 18, 2014 -> Initial creation.
+################################################################################
+
+# Load .Xresources file
+xrdb $HOME/.Xresources
+
+# Set the background wallpaper
+feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
+
+# Allow clipboard over VNC
+vncconfig -iconic &
+
+# Start the WM
+exec twm
