@@ -4,6 +4,7 @@
 " Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 " March 18, 2014 -> Initial creation.
 "  June 03, 2014 -> Moved .gvimrc into .vimrc.
+"  June 17, 2014 -> Always map <F1> to <Esc>.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable Pathogen
@@ -39,17 +40,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Map F1 Key to escape when in insert mode,
-" otherwise, map it to help.
+" Map F1 Key to escape
 inoremap <F1> <Esc>
-noremap <F1> :call MapF1()<CR>
-function! MapF1()
-    if &buftype == "help"
-        exec 'quit'
-    else
-        exec 'help'
-    endif
-endfunction
+noremap  <F1> <Esc>
 
 " Append modeline after last line in buffer with <Leader>ml
 function! AppendModeline()
