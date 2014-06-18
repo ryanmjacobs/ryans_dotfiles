@@ -187,9 +187,9 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "Unknown";
+    real_name = "Ryan Jacobs";
     user_name = "ryan";
-    nick = "ryan";
+    nick = "ryanjacobs";
     timestamp_format = "%H:%M:%S";
   };
   "fe-text" = { actlist_sort = "refnum"; };
