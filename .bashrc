@@ -49,6 +49,9 @@ shopt -s globstar
 # Keep History when BASH exits
 shopt -s histappend
 
+# Check window size after each command. Then, update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
 # History ignore commands starting with space
 HISTCONTROL='ignorespace'
 HISTFILESIZE=50000000
