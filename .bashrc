@@ -125,7 +125,7 @@ function serve() {
         return 1
     fi
 
-    cat "$FILE" | pv -s $(ls -l "$FILE" | awk '{print $5}') -rbpe | netcat -l $PORT
+    pv -rpbe "$FILE" | netcat -l $PORT
 }
 
 # Use google translate for locale based TTS
