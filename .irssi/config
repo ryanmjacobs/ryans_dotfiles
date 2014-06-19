@@ -18,10 +18,10 @@ servers = (
 chatnets = { Freenode = { type = "IRC"; nick = "ryanjacobs"; }; };
 
 channels = (
-   { name = "#archlinux";          chatnet = "Freenode"; autojoin = "Yes"; },
-   { name = "#powder";             chatnet = "Freenode"; autojoin = "Yes"; },
-   { name = "#archlinux-offtopic"; chatnet = "Freenode"; autojoin = "No"; },
-   { name = "#powder-social";      chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#powder"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#archlinux-offtopic"; chatnet = "Freenode"; autojoin = "No"; },
+  { name = "#powder-social"; chatnet = "Freenode"; autojoin = "No"; }
 );
 
 aliases = {
@@ -185,6 +185,7 @@ statusbar = {
     };
   };
 };
+
 settings = {
   core = {
     real_name = "Ryan Jacobs";
@@ -193,4 +194,17 @@ settings = {
     timestamp_format = "%H:%M:%S";
   };
   "fe-text" = { actlist_sort = "refnum"; };
+};
+
+# What to hilight
+hilights = ( { text = "ryanjacobs"; nick = "no"; word = "yes"; } );
+
+windows = {
+  1 = { immortal = "No"; name = "(status)"; level = "ALL"; };
+  2 = { name = "hilight"; sticky = "yes"; };
+};
+
+mainwindows = {
+  1 = { first_line = "8"; lines = "44"; };
+  2 = { first_line = "1"; lines = "7"; };
 };
