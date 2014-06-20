@@ -41,7 +41,7 @@ alias grep='grep --colour=auto'
 export EDITOR='vim'
 
 # Include the local bin
-PATH="$PATH:$HOME/.bin/"
+PATH="$PATH:$HOME/.bin:$HOME/.gem/ruby/2.1.0/bin"
 
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
