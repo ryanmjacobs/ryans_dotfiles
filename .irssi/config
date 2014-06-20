@@ -20,7 +20,11 @@ chatnets = { Freenode = { type = "IRC"; nick = "ryanjacobs"; }; };
 channels = (
   { name = "#archlinux"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#powder"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#archlinux-offtopic"; chatnet = "Freenode"; autojoin = "No"; },
+  {
+    name = "#archlinux-offtopic";
+    chatnet = "Freenode";
+    autojoin = "No";
+  },
   { name = "#powder-social"; chatnet = "Freenode"; autojoin = "No"; }
 );
 
@@ -195,11 +199,11 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "xchat"; };
+  "irc/dcc" = { dcc_autoaccept_lowports = "yes"; dcc_autoget = "yes"; };
 };
 
 # What to hilight
 hilights = (
-  { text = "ryanjacobs"; nick = "no"; word = "yes"; },
   { text = "ryan"; nick = "no"; word = "yes"; }
 );
 
