@@ -17,7 +17,7 @@ if [ -f .powder.pref ]; then
 fi
 
 # Launch The Powder Toy
-/usr/bin/powder-toy
+$HOME/.bin/powder-toy
 
 # Hide the config
 mv powder.pref .powder.pref

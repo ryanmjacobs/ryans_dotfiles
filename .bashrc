@@ -5,16 +5,23 @@
 # March 18, 2014 -> Initial creation.
 # April 29, 2014 -> Created doxc function.
 # April 30, 2014 -> Colorize prompt as red if root user.
+#   May 18, 2014 -> Updated for the Raspberry Pi (removed locale stuff).
+#                   Added alias for PiFM.
+#   May 20, 2014 -> Added path for PiFM executables.
 ################################################################################
+
+# Raspberry Pi Stuff
+alias pifm='sudo /home/ryan/PiFM/pifm'
 
 ################################################################################
 # BASH & Terminal Setup
 ################################################################################
 
 # Set the locale
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
+# Removed because of Raspberry Pi
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LANGUAGE=en_US.UTF-8
 
 # Export the terminal's ability for 256 colors
 TERM=xterm-256color
@@ -41,7 +48,7 @@ alias grep='grep --colour=auto'
 export EDITOR='vim'
 
 # Include the local bin
-PATH="$PATH:$HOME/.bin/"
+PATH="$HOME/.bin:$HOME/PiFM/executables:$PATH"
 
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
