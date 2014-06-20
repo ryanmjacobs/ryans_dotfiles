@@ -3,6 +3,7 @@
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # March 18, 2014 -> Initial creation.
+#  June 19, 2014 -> Vimdiff as default difftool.
 ################################################################################
 
 [user]
@@ -12,3 +13,5 @@
 	default = simple
 [core]
 	excludesfile = .gitignore
+[diff]
+	tool = vimdiff
