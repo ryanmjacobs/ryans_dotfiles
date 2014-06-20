@@ -49,6 +49,9 @@ shopt -s globstar
 # Keep History when BASH exits
 shopt -s histappend
 
+# Check window size after each command. Then, update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
 # History ignore commands starting with space
 HISTCONTROL='ignorespace'
 HISTFILESIZE=50000000
@@ -122,7 +125,7 @@ function serve() {
         return 1
     fi
 
-    cat "$FILE" | pv -s $(ls -l "$FILE" | awk '{print $5}') -rbpe | netcat -l $PORT
+    pv -rpbe "$FILE" | netcat -l $PORT
 }
 
 # Use google translate for locale based TTS
