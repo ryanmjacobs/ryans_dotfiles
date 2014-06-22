@@ -5,6 +5,8 @@
 " March 18, 2014 -> Initial creation.
 "  June 03, 2014 -> Moved .gvimrc into .vimrc.
 "  June 17, 2014 -> Always map <F1> to <Esc>.
+"  June 21, 2014 -> Add other style of indentation: tabs. I prefer spaces but
+"                   if a project needs to be consistent... I'll adapt.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable Pathogen
@@ -26,13 +28,29 @@ set colorcolumn=80
 " Default color scheme
 colorscheme molokai
 
-" Enable syntax highlighting, auto-indentation, and a default tab of 4 spaces
-" that convert to spaces
+" Enable syntax highlighting and auto-indentation
 syntax on
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set expandtab
+
+"""""""""" Tab Settings """"""""""
+" Pressing <Tab> = insert 4 spaces
+function! IndentSpaces()
+    set tabstop=4
+    set shiftwidth=4
+    set expandtab
+endfunction
+
+" Pressing <Tab> = insert a tab
+" Display tabs as 4 columns wide
+function! IndentTabs()
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set noexpandtab
+endfunction
+
+call IndentSpaces()
+"""""""""" End Tab Settings """"""""""
 
 " Ban the use of arrow keys (hjkl is more efficient anyways)
 noremap <Up> <NOP>
