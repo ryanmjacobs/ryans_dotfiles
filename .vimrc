@@ -7,8 +7,7 @@
 "  June 17, 2014 -> Always map <F1> to <Esc>.
 "  June 21, 2014 -> Add other style of indentation: tabs. I prefer spaces but
 "                   if a project needs to be consistent... I'll adapt.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Enable Pathogen
 execute pathogen#infect()
 
@@ -61,6 +60,9 @@ noremap <Right> <NOP>
 " Map F1 Key to escape
 inoremap <F1> <Esc>
 noremap  <F1> <Esc>
+
+" Map <leader>l to Tagbar
+noremap <leader>l :TagbarToggle<CR>
 
 " Append modeline after last line in buffer with <Leader>ml
 function! AppendModeline()
