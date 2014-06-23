@@ -45,12 +45,6 @@
     Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(CLIPBOARD, CUT_BUFFER1) 
 !###############################################################################
  
-! Remove visual bell
-XTerm*visualBell: false
-
-! Enable XTerm with 256 Colors
-XTerm*termName: xterm-256color
-
 ! Enable ALT shortcuts for programs
 XTerm.metaSendsEscape: true
 
@@ -65,6 +59,8 @@ XTerm*colorBD: rgb:73/d2/16
 XTerm*highlightSelection: true
 
 ! Misc. Settings
+XTerm*termName: xterm-256color
+XTerm*visualBell: false
 XTerm*faceName: Monospace
 XTerm*faceSize: 9
 XTerm*saveLines: 32768
@@ -75,23 +71,61 @@ XTerm*eightBitInput: false
 XTerm*scrollTtyOutput: true
 
 !=======================================
-! Tango Colorscheme
+! Tango Terminal Colors
 !=======================================
 XTerm*foreground: #EEEEEC
 XTerm*background: #000000
+! Black
 XTerm*color0: #2e3436
-XTerm*color1: #cc0000
-XTerm*color2: #4e9a06
-XTerm*color3: #c4a000
-XTerm*color4: #3465a4
-XTerm*color5: #75507b
-XTerm*color6: #0b939b
-XTerm*color7: #d3d7cf
 XTerm*color8: #555753
+! Red
+XTerm*color1: #cc0000
 XTerm*color9: #ef2929
+! Green
+XTerm*color2: #4e9a06
 XTerm*color10: #8ae234
+! Yellow
+XTerm*color3: #c4a000
 XTerm*color11: #fce94f
+! Blue
+XTerm*color4: #3465a4
 XTerm*color12: #729fcf
+! Magenta
+XTerm*color5: #75507b
 XTerm*color13: #ad7fa8
+! Cyan
+XTerm*color6: #0b939b
 XTerm*color14: #00f5e9
+! White
+XTerm*color7: #d3d7cf
 XTerm*color15: #eeeeec
+
+!=======================================
+!Jellybeans Terminal Colors
+!=======================================
+jellybeans*background: #151515
+jellybeans*foreground: #888888
+! Black
+jellybeans*color0: #1C1C1C
+jellybeans*color8: #404040
+! Red
+jellybeans*color1: #B85335
+jellybeans*color9: #CF6A4C
+! Green
+jellybeans*color2: #799D6A
+jellybeans*color10: #99AD6A
+! Yellow
+jellybeans*color3: #FFB964
+jellybeans*color11: #FAD07A
+! Blue
+jellybeans*color4: #667899
+jellybeans*color12: #8197BF
+! Magenta
+jellybeans*color5: #8787AF
+jellybeans*color13: #C6B6EE
+! Cyan
+jellybeans*color6: #668799
+jellybeans*color14: #8FBFDC
+! White
+jellybeans*color7: #888888
+jellybeans*color15: #E8E8D3
