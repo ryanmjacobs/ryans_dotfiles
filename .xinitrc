@@ -7,8 +7,8 @@
 # April 16, 2014 -> Disable terminal bell.
 ################################################################################
 
-# Merge in the user .Xresources file
-xrdb -merge $HOME/.Xresources
+# Load .Xresources file
+xrdb $HOME/.Xresources
 
 # Disable double-tap = click on touchpad
 synclient TapButton1=0 TapButton2=0 TapButton3=0
