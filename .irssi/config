@@ -203,7 +203,6 @@ settings = {
     bell_beeps = "yes";
     beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
   };
-  "irc/dcc" = { dcc_autoaccept_lowports = "yes"; dcc_autoget = "yes"; };
 };
 
 # What to hilight
