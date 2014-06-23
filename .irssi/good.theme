@@ -1,3 +1,13 @@
+################################################################################
+# .irssi/good.theme
+# 
+# A very good theme I randomly on the internet.
+# https://bbs.archlinux.org/viewtopic.php?id=143793
+# http://pastie.org/4132432
+#
+# June 22, 2014
+################################################################################
+
 # default foreground color (%N) - -1 is the "default terminal color"
 default_color = "-1";
 
@@ -257,4 +267,4 @@ formats = {
     action_public = "{pubaction $[-11]0}$1";
   };
 };
- 
+
