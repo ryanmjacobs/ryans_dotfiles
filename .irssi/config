@@ -199,7 +199,7 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
-    theme = "pbrisbin.theme";
+    theme = "good.theme";
     bell_beeps = "yes";
     beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
   };
