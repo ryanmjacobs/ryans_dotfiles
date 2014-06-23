@@ -9,9 +9,15 @@
 ################################################################################
 .bin/dwm
 .bin/simple_uptime
+
 .bin/minecraft_files/minecraft_server/
 .bin/minecraft_files/minecraft_server.1.7.9.jar
+
 .vim/.netrwhist
+
 .vnc/*log
 .vnc/*pid
 .vnc/passwd
+
+.irssi/away.log
+.irssi/config.autosave
