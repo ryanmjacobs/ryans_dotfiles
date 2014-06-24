@@ -81,6 +81,9 @@ alias LS='LS -e'
 # Resize images to fit in feh
 alias feh='feh -.'
 
+# Launch irssi with the Jellybeans theme
+alias irssi='xterm -name jellybeans -e irssi & exit'
+
 ################################################################################
 # Useful Functions
 ################################################################################
