@@ -82,7 +82,7 @@ alias LS='LS -e'
 alias feh='feh -.'
 
 # Launch irssi with the Jellybeans theme
-alias irssi='xterm -name jellybeans -e irssi & exit'
+alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 
 ################################################################################
 # Useful Functions
