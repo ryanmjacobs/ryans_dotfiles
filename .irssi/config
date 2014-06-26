@@ -209,7 +209,10 @@ settings = {
 };
 
 # What to hilight
-hilights = ( { text = "ryan"; nick = "no"; word = "yes"; } );
+hilights = (
+  { text = "ryan"; nick = "no"; word = "yes"; },
+  { text = "ryn"; nick = "no"; word = "yes"; }
+);
 
 windows = {
   1 = { immortal = "No"; name = "(status)"; level = "ALL"; };
