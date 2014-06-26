@@ -6,7 +6,7 @@
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # May 13, 2014 -> Initial creation.
-# May 28, 2014 -> Fixed bug that when the battery couldn't be readm it crashed.
+# May 28, 2014 -> Fixed bug that when the battery couldn't be read it crashed.
 ################################################################################
 
 # Global Constants
