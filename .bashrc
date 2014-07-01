@@ -84,6 +84,9 @@ alias feh='feh -.'
 # Launch irssi with the Jellybeans theme
 alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 
+# Launch web browser and exit
+alias internet='firefox -private google.com & exit'
+
 ################################################################################
 # Useful Functions
 ################################################################################
