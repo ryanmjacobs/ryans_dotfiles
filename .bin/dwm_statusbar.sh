@@ -34,8 +34,9 @@ while true; do
         DWM_WIFI_ESSID=$(/sbin/iwgetid -r)
         DWM_WIFI_STRENGTH=$(awk 'NR==3 {print $3"%"}''' /proc/net/wireless |\
                             tr -d '.')
+        DWM_WIFI="$DWM_WIFI_ESSID [$DWM_WIFI_STRENGTH]"
     else
-        DWM_WIFI_ESSID="OFF"
+        DWM_WIFI="OFF"
     fi
 
     # Volume Level
@@ -46,7 +47,7 @@ while true; do
 
     # Overall output command
     DWM_STATUS="\
-Uptime: [$DWM_UPTIME] | WiFi: $DWM_WIFI_ESSID [$DWM_WIFI_STRENGTH] | \
+Uptime: [$DWM_UPTIME] | WiFi: $DWM_WIFI | \
 Power: [$DWM_BATTERY%] | Vol: $DWM_VOL -- $DWM_CLOCK"
 
     xsetroot -name "$DWM_STATUS"
