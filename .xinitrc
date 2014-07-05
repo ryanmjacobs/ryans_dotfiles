@@ -17,7 +17,7 @@ synclient TapButton1=0 TapButton2=0 TapButton3=0
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 
 # Dwm Statusbar
-$HOME/.bin/dwm_statusbar.sh &
+$HOME/.bin/dwmstatus &
 
 # Start the WM
 #exec twm
