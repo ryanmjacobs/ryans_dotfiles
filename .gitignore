@@ -6,6 +6,7 @@
 # Maintained By: Ryan Jacob <ryan.mjacobs@gmail.com>
 #  May 29, 2014 -> Initial creation.
 # June 19, 2014 -> Ignore vnc logs, vnc pids, and vnc passwds.
+# July 05, 2014 -> Ignore Vim .swp and .swo files.
 ################################################################################
 .bin/dwm
 .bin/simple_uptime
@@ -14,6 +15,8 @@
 .bin/minecraft_files/minecraft_server.1.7.9.jar
 
 .vim/.netrwhist
+.*.swp
+.*.swo
 
 .vnc/*log
 .vnc/*pid
