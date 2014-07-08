@@ -41,7 +41,7 @@ while true; do
     fi
 
     # Volume Level
-    DWM_VOL=$(amixer -c0 sget Master | awk -vORS=' ' '/Mono:/ {print($6$4)}')
+    DWM_VOL=$(amixer -c0 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}')
 
     # Date and Time
     DWM_CLOCK=$(date '+%a %b %d, %Y | %r')
