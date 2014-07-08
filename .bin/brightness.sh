@@ -7,6 +7,7 @@
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # March 20, 2014 -> Creation date.
 #   May 05, 2014 -> Added get command.
+#  July 08, 2014 -> Remove unnecessary usage of tee.
 ################################################################################
 
 function help_msg() {
@@ -79,4 +80,4 @@ elif [ $NEW_VALUE -lt 0 ]; then
     NEW_VALUE=0
 fi
 
-echo $NEW_VALUE | tee $BRIGHTNESS_FILE &>/dev/null
+echo $NEW_VALUE > $BRIGHTNESS_FILE
