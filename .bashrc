@@ -199,25 +199,49 @@ function doxc() {
     fi
 
     for file in "$@"; do
-        printf "File: %s\n" $file
+        filename=$(basename "$file")
+        extension="${filename##*.}"
+        filename="${filename%.*}"
 
-        if [ -f $file ]; then
+        printf "File: %s\n" "$file"
+
+        if [ -f "$file" ]; then
             printf "\tFile already exists! Skipping.\n"
+        elif [ "$extension" == "h" ]; then
+            touch "$file"
+            header_name=$(echo "$(basename $file)" | tr "." "_" | tr "[:lower:]" "[:upper:]")
+            printf "/**\n"                                         >> "$file"
+            printf " * @file    %s\n" "$filename"                  >> "$file"
+            printf " * @brief   Brief description of the file.\n"  >> "$file"
+            printf " *\n"                                          >> "$file"
+            printf " * @detail\n"                                  >> "$file"
+            printf " *          Detailed description goes here,\n" >> "$file"
+            printf " *          and can extend down here.\n"       >> "$file"
+            printf " *\n"                                          >> "$file"
+            printf " * @author  %s\n" "$AUTHOR"                    >> "$file"
+            printf " * @date    %s\n" "$(date '+%B %d, %Y')"       >> "$file"
+            printf " * @bug     No known bugs.\n"                  >> "$file"
+            printf " */\n"                                         >> "$file"
+            printf "\n"                                            >> "$file"
+            printf "#ifndef %s\n" "$header_name"                   >> "$file"
+            printf "#define %s\n" "$header_name"                   >> "$file"
+            printf "\n"                                            >> "$file"
+            printf "#endif /* %s */\n" "$header_name"              >> "$file"
+            printf "\tFile created successfully!\n"
         else
-            touch $file
-            printf "/**\n"                                         >> $file
-            printf " * @file    %s\n" $file                        >> $file
-            printf " * @brief   Brief description of the file.\n"  >> $file
-            printf " *\n"                                          >> $file
-            printf " * @detail\n"                                  >> $file
-            printf " *          Detailed description goes here,\n" >> $file
-            printf " *          and can extend down here.\n"       >> $file
-            printf " *\n"                                          >> $file
-            printf " * @author  %s\n" "$AUTHOR"                    >> $file
-            printf " * @date    %s\n" "$(date '+%B %d, %Y')"       >> $file
-            printf " * @bug     No known bugs.\n"                  >> $file
-            printf " */\n"                                         >> $file
-
+            touch "$file"
+            printf "/**\n"                                         >> "$file"
+            printf " * @file    %s\n" "$file"                      >> "$file"
+            printf " * @brief   Brief description of the file.\n"  >> "$file"
+            printf " *\n"                                          >> "$file"
+            printf " * @detail\n"                                  >> "$file"
+            printf " *          Detailed description goes here,\n" >> "$file"
+            printf " *          and can extend down here.\n"       >> "$file"
+            printf " *\n"                                          >> "$file"
+            printf " * @author  %s\n" "$AUTHOR"                    >> "$file"
+            printf " * @date    %s\n" "$(date '+%B %d, %Y')"       >> "$file"
+            printf " * @bug     No known bugs.\n"                  >> "$file"
+            printf " */\n"                                         >> "$file"
             printf "\tFile created successfully!\n"
         fi
     done
@@ -226,7 +250,7 @@ function doxc() {
 # Create a default Makefile for C projects
 function defmake() {
     # Global variables
-    FILE='Makefile'
+    FILE="Makefile"
 
     if [ $# == 0 ]; then
         printf "Create a Makefile for C projects.\n"
