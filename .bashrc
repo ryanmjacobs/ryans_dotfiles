@@ -4,7 +4,8 @@
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # March 18, 2014 -> Initial creation.
 # April 29, 2014 -> Created doxc function.
-# April 30, 2014 -> Colorize prompt as red if root user.
+# April 30, 2014 -> Colorize prompt as red if user is root.
+#  July 31, 2014 -> Renamed media_len to medialen.
 ################################################################################
 
 ################################################################################
@@ -172,7 +173,7 @@ function ram_drive() {
 }
 
 # Find the total length of playable media in a directory
-function media_len() {
+function medialen() {
     if [ $# != 1 ]; then
         printf "Finds the total length of playable media in a directory.\n"
         printf "Output format is: DD:HH:MM:SS.\n\n"
