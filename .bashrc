@@ -5,7 +5,8 @@
 # March 18, 2014 -> Initial creation.
 # April 29, 2014 -> Created doxc function.
 # April 30, 2014 -> Colorize prompt as red if user is root.
-#  July 31, 2014 -> Renamed media_len to medialen.
+#  July 31, 2014 -> Renamed media_len to medialen. If no path is given default
+#                   to the current path.
 ################################################################################
 
 ################################################################################
@@ -174,14 +175,16 @@ function ram_drive() {
 
 # Find the total length of playable media in a directory
 function medialen() {
-    if [ $# != 1 ]; then
+    if   [ $# -eq 1 ]; then
+        SEARCH_PATH="$1"
+    elif [ $# -eq 0 ]; then
+        SEARCH_PATH=$PWD
+    else
         printf "Finds the total length of playable media in a directory.\n"
         printf "Output format is: DD:HH:MM:SS.\n\n"
         printf "Usage: %s <PATH>\n" $FUNCNAME
         return 1
     fi
-
-    SEARCH_PATH="$1"
 
     find "$SEARCH_PATH" -type f -print0 |\
     xargs -0  mplayer -vo dummy -ao dummy -identify 2>/dev/null |\
