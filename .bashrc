@@ -255,7 +255,7 @@ function defmake() {
 
     if [ $# == 0 ]; then
         printf "Create a Makefile for C projects.\n"
-        printf "Usage: %s <executable_name> <source1> [source2] [source3]\n" $FUNCNAME
+        printf "Usage: %s <executable_name> <source1> [source2] [source3...]\n" $FUNCNAME
         return 1
     fi
 
