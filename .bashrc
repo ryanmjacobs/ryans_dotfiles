@@ -2,11 +2,12 @@
 # .bashrc
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# March 18, 2014 -> Initial creation.
-# April 29, 2014 -> Created doxc function.
-# April 30, 2014 -> Colorize prompt as red if user is root.
-#  July 31, 2014 -> Renamed media_len to medialen. If no path is given default
-#                   to the current path.
+#  March 18, 2014 -> Initial creation.
+#  April 29, 2014 -> Created doxc function.
+#  April 30, 2014 -> Colorize prompt as red if user is root.
+#   July 31, 2014 -> Renamed media_len to medialen. If no path is given default
+#                    to the current path.
+# August 05, 2014 -> Enable BASH Completion.
 ################################################################################
 
 ################################################################################
@@ -17,6 +18,11 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
+
+# Enable BASH Completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 
 # Export the terminal's ability for 256 colors
 TERM=xterm-256color
