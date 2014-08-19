@@ -19,6 +19,9 @@ feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
 # Dwm Statusbar
 $HOME/.bin/dwmstatus &
 
+# Dunst Notification Daemon
+dunst &
+
 # Start the WM
 #exec twm
 exec dwm
