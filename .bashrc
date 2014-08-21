@@ -8,6 +8,7 @@
 #   July 31, 2014 -> Renamed media_len to medialen. If no path is given default
 #                    to the current path.
 # August 05, 2014 -> Enable BASH Completion.
+# August 20, 2014 -> Add msleep() function to sleep for n minutes.
 ################################################################################
 
 ################################################################################
@@ -41,10 +42,6 @@ elif [ "$(id -u)" -eq 0 ]; then
     PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 fi
 
-# Colorize ls and grep
-alias ls='ls --color=auto'
-alias grep='grep --colour=auto'
-
 # Default Editor
 export EDITOR='vim'
 
@@ -68,6 +65,10 @@ HISTSIZE=1000000
 ################################################################################
 # Aliases
 ################################################################################
+
+# Colorize ls and grep
+alias ls='ls --color=auto'
+alias grep='grep --colour=auto'
 
 # Don't send the 'Erase is backspace.' message on XTerm when reset.
 alias reset='reset -Q'
@@ -99,8 +100,15 @@ alias internet='firefox -private google.com & exit'
 # Useful Functions
 ################################################################################
 
+# Sleep for n minutes
+function msleep() {
+    min=$1
+    sec=$(echo "$1 * 60" | bc)
+    sleep "$sec"
+}
+
 # BASH Round Function
-round() {
+function round() {
     if [ $# != 2 ]; then
         printf "BASH Round Function.\n"
         printf "Usage: %s <Number to Round> <Places to Round>\n" $FUNCNAME
@@ -116,7 +124,7 @@ round() {
 }
 
 # Set the terminal title
-xtitle() {
+function xtitle() {
     unset PROMPT_COMMAND
     echo -ne "\033]0;${@}\007"
 }
