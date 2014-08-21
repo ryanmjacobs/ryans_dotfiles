@@ -310,6 +310,6 @@ function defmake() {
     printf "\t\$(CC) \$(CFLAGS) \$< -o \$@\n"                                                   >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
     printf "clean:\n"                                                                           >> "$FILE"
-    printf "\trm -f *.o\n"                                                                      >> "$FILE"
     printf "\trm -f \$(EXECUTABLE)\n"                                                           >> "$FILE"
+    printf "\trm -f *.o\n"                                                                      >> "$FILE"
 }
