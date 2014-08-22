@@ -219,7 +219,6 @@ function doxc() {
     for file in "$@"; do
         filename=$(basename "$file")
         extension="${filename##*.}"
-        filename="${filename%.*}"
 
         printf "File: %s\n" "$file"
 
