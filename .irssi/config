@@ -198,13 +198,20 @@ settings = {
     timestamp_format = "%H:%M:%S";
   };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "xchat"; };
-  "irc/dcc" = { dcc_autoaccept_lowports = "yes"; dcc_autoget = "yes"; };
+  "fe-common/core" = {
+    theme = "good.theme";
+    bell_beeps = "yes";
+    beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
+    beep_when_away = "yes";
+    beep_when_window_active = "yes";
+  };
+  "perl/core/scripts" = { beep_when_not_away = "yes"; };
 };
 
 # What to hilight
 hilights = (
-  { text = "ryan"; nick = "no"; word = "yes"; }
+  { text = "ryan"; nick = "no"; word = "yes"; },
+  { text = "ryn"; nick = "no"; word = "yes"; }
 );
 
 windows = {

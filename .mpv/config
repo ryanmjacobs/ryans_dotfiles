@@ -13,8 +13,7 @@ volume  = 50
 autofit = 400
 
 # Don't show MP3 album art.
-[extension.mp3]
-vo=null
+no-audio-display
 
 # Default MPV Encoding Profile
 [defaultenc]

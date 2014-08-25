@@ -2,12 +2,15 @@
 # .bashrc
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# March 18, 2014 -> Initial creation.
-# April 29, 2014 -> Created doxc function.
-# April 30, 2014 -> Colorize prompt as red if root user.
-#   May 18, 2014 -> Updated for the Raspberry Pi (removed locale stuff).
-#                   Added alias for PiFM.
-#   May 20, 2014 -> Added path for PiFM executables.
+#  March 18, 2014 -> Initial creation.
+#  April 29, 2014 -> Created doxc function.
+#  April 30, 2014 -> Colorize prompt as red if user is root.
+#    May 18, 2014 -> Raspberry Pi (removed locale stuff). Added alias for PiFM.
+#    May 20, 2014 -> Added path for PiFM executables.
+#   July 31, 2014 -> Renamed media_len to medialen. If no path is given default
+#                    to the current path.
+# August 05, 2014 -> Enable BASH Completion.
+# August 20, 2014 -> Add msleep() function to sleep for n minutes.
 ################################################################################
 
 # Raspberry Pi Stuff
@@ -22,6 +25,11 @@ alias pifm='sudo /home/ryan/PiFM/pifm'
 #export LC_ALL=en_US.UTF-8
 #export LANG=en_US.UTF-8
 #export LANGUAGE=en_US.UTF-8
+
+# Enable BASH Completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
 
 # Export the terminal's ability for 256 colors
 TERM=xterm-256color
@@ -39,10 +47,6 @@ if [ "$(id -u)" -ne 0 ]; then
 elif [ "$(id -u)" -eq 0 ]; then
     PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 fi
-
-# Colorize ls and grep
-alias ls='ls --color=auto'
-alias grep='grep --colour=auto'
 
 # Default Editor
 export EDITOR='vim'
@@ -68,6 +72,10 @@ HISTSIZE=1000000
 # Aliases
 ################################################################################
 
+# Colorize ls and grep
+alias ls='ls --color=auto'
+alias grep='grep --colour=auto'
+
 # Don't send the 'Erase is backspace.' message on XTerm when reset.
 alias reset='reset -Q'
 
@@ -88,12 +96,25 @@ alias LS='LS -e'
 # Resize images to fit in feh
 alias feh='feh -.'
 
+# Launch irssi with the Jellybeans theme
+alias irssi="xterm -name jellybeans -e 'irssi' & exit"
+
+# Launch web browser and exit
+alias internet='firefox -private google.com & exit'
+
 ################################################################################
 # Useful Functions
 ################################################################################
 
+# Sleep for n minutes
+function msleep() {
+    min=$1
+    sec=$(echo "$1 * 60" | bc)
+    sleep "$sec"
+}
+
 # BASH Round Function
-round() {
+function round() {
     if [ $# != 2 ]; then
         printf "BASH Round Function.\n"
         printf "Usage: %s <Number to Round> <Places to Round>\n" $FUNCNAME
@@ -109,7 +130,7 @@ round() {
 }
 
 # Set the terminal title
-xtitle() {
+function xtitle() {
     unset PROMPT_COMMAND
     echo -ne "\033]0;${@}\007"
 }
@@ -173,15 +194,17 @@ function ram_drive() {
 }
 
 # Find the total length of playable media in a directory
-function media_len() {
-    if [ $# != 1 ]; then
+function medialen() {
+    if   [ $# -eq 1 ]; then
+        SEARCH_PATH="$1"
+    elif [ $# -eq 0 ]; then
+        SEARCH_PATH=$PWD
+    else
         printf "Finds the total length of playable media in a directory.\n"
         printf "Output format is: DD:HH:MM:SS.\n\n"
         printf "Usage: %s <PATH>\n" $FUNCNAME
         return 1
     fi
-
-    SEARCH_PATH="$1"
 
     find "$SEARCH_PATH" -type f -print0 |\
     xargs -0  mplayer -vo dummy -ao dummy -identify 2>/dev/null |\
@@ -200,25 +223,48 @@ function doxc() {
     fi
 
     for file in "$@"; do
-        printf "File: %s\n" $file
+        filename=$(basename "$file")
+        extension="${filename##*.}"
 
-        if [ -f $file ]; then
+        printf "File: %s\n" "$file"
+
+        if [ -f "$file" ]; then
             printf "\tFile already exists! Skipping.\n"
+        elif [ "$extension" == "h" ]; then
+            touch "$file"
+            header_name=$(echo "$(basename $file)" | tr "." "_" | tr "[:lower:]" "[:upper:]")
+            printf "/**\n"                                         >> "$file"
+            printf " * @file    %s\n" "$filename"                  >> "$file"
+            printf " * @brief   Brief description of the file.\n"  >> "$file"
+            printf " *\n"                                          >> "$file"
+            printf " * @detail\n"                                  >> "$file"
+            printf " *          Detailed description goes here,\n" >> "$file"
+            printf " *          and can extend down here.\n"       >> "$file"
+            printf " *\n"                                          >> "$file"
+            printf " * @author  %s\n" "$AUTHOR"                    >> "$file"
+            printf " * @date    %s\n" "$(date '+%B %d, %Y')"       >> "$file"
+            printf " * @bug     No known bugs.\n"                  >> "$file"
+            printf " */\n"                                         >> "$file"
+            printf "\n"                                            >> "$file"
+            printf "#ifndef %s\n" "$header_name"                   >> "$file"
+            printf "#define %s\n" "$header_name"                   >> "$file"
+            printf "\n"                                            >> "$file"
+            printf "#endif /* %s */\n" "$header_name"              >> "$file"
+            printf "\tFile created successfully!\n"
         else
-            touch $file
-            printf "/**\n"                                         >> $file
-            printf " * @file    %s\n" $file                        >> $file
-            printf " * @brief   Brief description of the file.\n"  >> $file
-            printf " *\n"                                          >> $file
-            printf " * @detail\n"                                  >> $file
-            printf " *          Detailed description goes here,\n" >> $file
-            printf " *          and can extend down here.\n"       >> $file
-            printf " *\n"                                          >> $file
-            printf " * @author  %s\n" "$AUTHOR"                    >> $file
-            printf " * @date    %s\n" "$(date '+%B %d, %Y')"       >> $file
-            printf " * @bug     No known bugs.\n"                  >> $file
-            printf " */\n"                                         >> $file
-
+            touch "$file"
+            printf "/**\n"                                         >> "$file"
+            printf " * @file    %s\n" "$file"                      >> "$file"
+            printf " * @brief   Brief description of the file.\n"  >> "$file"
+            printf " *\n"                                          >> "$file"
+            printf " * @detail\n"                                  >> "$file"
+            printf " *          Detailed description goes here,\n" >> "$file"
+            printf " *          and can extend down here.\n"       >> "$file"
+            printf " *\n"                                          >> "$file"
+            printf " * @author  %s\n" "$AUTHOR"                    >> "$file"
+            printf " * @date    %s\n" "$(date '+%B %d, %Y')"       >> "$file"
+            printf " * @bug     No known bugs.\n"                  >> "$file"
+            printf " */\n"                                         >> "$file"
             printf "\tFile created successfully!\n"
         fi
     done
@@ -227,11 +273,11 @@ function doxc() {
 # Create a default Makefile for C projects
 function defmake() {
     # Global variables
-    FILE='Makefile'
+    FILE="Makefile"
 
     if [ $# == 0 ]; then
         printf "Create a Makefile for C projects.\n"
-        printf "Usage: %s <executable_name> <source1> [source2] [source3]\n" $FUNCNAME
+        printf "Usage: %s <executable_name> <source1> [source2] [source3...]\n" $FUNCNAME
         return 1
     fi
 
@@ -262,13 +308,13 @@ function defmake() {
     printf "\n"                                                                                 >> "$FILE"
     printf "all: \$(SOURCES) \$(EXECUTABLE)\n"                                                  >> "$FILE"
     printf "            \n"                                                                     >> "$FILE"
-    printf "\$(EXECUTABLE): \$(OBJECTS) \n"                                                     >> "$FILE"
+    printf "\$(EXECUTABLE): \$(OBJECTS)\n"                                                      >> "$FILE"
     printf "\t\$(CC) \$(LDFLAGS) \$(OBJECTS) -o \$@\n"                                          >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
     printf ".c.o:\n"                                                                            >> "$FILE"
     printf "\t\$(CC) \$(CFLAGS) \$< -o \$@\n"                                                   >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
     printf "clean:\n"                                                                           >> "$FILE"
-    printf "\trm -f *.o\n"                                                                      >> "$FILE"
     printf "\trm -f \$(EXECUTABLE)\n"                                                           >> "$FILE"
+    printf "\trm -f *.o\n"                                                                      >> "$FILE"
 }

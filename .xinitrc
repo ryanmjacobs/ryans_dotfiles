@@ -8,11 +8,11 @@
 #  June 15, 2014 -> Remove dwm and touchpad stuff to support Raspberry Pi.
 ################################################################################
 
-# Merge in the user .Xresources file
-xrdb -merge $HOME/.Xresources
+# Load .Xresources file
+xrdb $HOME/.Xresources
 
 # Set the background wallpaper
-feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
+feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
 
 # Start the WM
 exec twm
