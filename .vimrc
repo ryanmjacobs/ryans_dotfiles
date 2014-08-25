@@ -18,7 +18,13 @@ endif
 
 if has("gui_running")
     set guioptions-=T " Don't display the toolbar
-    set guifont=Inconsolata\ Medium\ 10
+    if has("gui_gtk2")
+        set guifont=Inconsolata\ 10
+    elseif has("gui_macvim")
+        set guifont=Menlo\ Regular:h14
+    elseif has("gui_win32")
+        set guifont=Consolas:h11:cANSI
+    endif
 endif
 
 " Highlight column 80
