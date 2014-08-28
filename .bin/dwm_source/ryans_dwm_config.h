@@ -68,6 +68,7 @@ static const char *volume_up[]       = { "amixer", "-q", "set", "Master", "2%+",
 static const char *mute[]            = { "amixer", "-q", "set", "Master", "toggle", NULL };
 static const char *brightness_up[]   = { "sudo", "/usr/bin/brightness.sh", "inc", "5", NULL };
 static const char *brightness_down[] = { "sudo", "/usr/bin/brightness.sh", "dec", "5", NULL };
+static const char *xkill[]           = { "xkill", NULL };
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -76,6 +77,7 @@ static Key keys[] = {
     { 0,        XF86XK_AudioMute,              spawn,          {.v = mute } },
     { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brightness_up } },
     { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightness_down } },
+    { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { ControlMask|ShiftMask,        XK_Return, spawn,          {.v = termcmd } },
