@@ -93,12 +93,14 @@ alias feh='feh -.'
 # Launch irssi with the Jellybeans theme
 alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 
-# Launch web browser and exit
-alias internet='firefox -private google.com & exit'
-
 ################################################################################
 # Useful Functions
 ################################################################################
+
+# Launch web browser and exit
+function internet() {
+    firefox -private google.com "$@" & exit
+}
 
 # Sleep for n minutes
 function msleep() {
