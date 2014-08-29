@@ -98,19 +98,19 @@ alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 ################################################################################
 
 # Launch web browser and exit
-function internet() {
+internet() {
     firefox -private google.com "$@" & exit
 }
 
 # Sleep for n minutes
-function msleep() {
+msleep() {
     min=$1
     sec=$(echo "$1 * 60" | bc)
     sleep "$sec"
 }
 
 # BASH Round Function
-function round() {
+round() {
     if [ $# != 2 ]; then
         printf "BASH Round Function.\n"
         printf "Usage: %s <Number to Round> <Places to Round>\n" $FUNCNAME
@@ -126,14 +126,14 @@ function round() {
 }
 
 # Set the terminal title
-function xtitle() {
+xtitle() {
     unset PROMPT_COMMAND
     echo -ne "\033]0;${@}\007"
 }
 
 # Serve a file using netcat
 # Only guaranteed to work using openbsd-netcat
-function serve() {
+serve() {
     if [ $# != 2 ]; then
         printf "Serves a file using netcat.\n"
         printf "Usage: %s <file> <port>\n" $FUNCNAME
@@ -153,7 +153,7 @@ function serve() {
 }
 
 # Use google translate for locale based TTS
-function say() {
+say() {
     if [[ "${1}" =~ -[a-z]{2} ]]; then
         local lang=${1#-}
         local text="${*#$1}"
@@ -165,7 +165,7 @@ function say() {
 }
 
 #  Toggle a temporary ram partition
-function ram_drive() {
+ram_drive() {
     if [ $# != 0 ]; then
         printf "Creates a temporary RAM partition at /mnt/RAM.\n"
         printf "Usage: %s\n" $FUNCNAME
@@ -190,7 +190,7 @@ function ram_drive() {
 }
 
 # Find the total length of playable media in a directory
-function medialen() {
+medialen() {
     if   [ $# -eq 1 ]; then
         SEARCH_PATH="$1"
     elif [ $# -eq 0 ]; then
@@ -208,7 +208,7 @@ function medialen() {
 } 
 
 # Create a C file template, compatible with Doxygen
-function doxc() {
+doxc() {
     # Global Variables
     AUTHOR="Ryan Jacobs <ryan.mjacobs@gmail.com>"
 
@@ -267,7 +267,7 @@ function doxc() {
 }
 
 # Create a default Makefile for C projects
-function defmake() {
+defmake() {
     # Global variables
     FILE="Makefile"
 
