@@ -5,7 +5,7 @@
 # Launches a 1.7.9 minecraft server with 2048MB RAM.
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# April 30, 2014 -> Initial creation.
+# April 30, 2014 -> File creation.
 #   May 18, 2014 -> If the server path doesn't exist, then create it.
 #                   And, I added a check for the server .jar file.
 ################################################################################

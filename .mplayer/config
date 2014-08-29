@@ -2,7 +2,7 @@
 # .mplayer/config
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# March 18, 2014 -> Initial creation.
+# March 18, 2014 -> File creation.
 ################################################################################
 
 # Disable LIRC because we never use it, (and we hate the warning message)

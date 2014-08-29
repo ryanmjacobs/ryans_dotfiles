@@ -2,13 +2,14 @@
 # .bashrc
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#  March 18, 2014 -> Initial creation.
+#  March 18, 2014 -> File creation.
 #  April 29, 2014 -> Created doxc function.
 #  April 30, 2014 -> Colorize prompt as red if user is root.
 #   July 31, 2014 -> Renamed media_len to medialen. If no path is given default
 #                    to the current path.
 # August 05, 2014 -> Enable BASH Completion.
 # August 20, 2014 -> Add msleep() function to sleep for n minutes.
+# August 28, 2014 -> Remove function keyword for compatibility with other shells.
 ################################################################################
 
 ################################################################################

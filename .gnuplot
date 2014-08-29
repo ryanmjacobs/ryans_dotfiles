@@ -2,7 +2,7 @@
 # .gnuplot
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# August 08, 2014 -> Initial creation.
+# August 08, 2014 -> File creation.
 ################################################################################
 
 set macros

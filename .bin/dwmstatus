@@ -5,7 +5,7 @@
 # Script to generate the statusbar for dwm.
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#  May 13, 2014 -> Initial creation.
+#  May 13, 2014 -> File creation.
 #  May 28, 2014 -> Fixed bug that when the battery couldn't be read it crashed.
 # July 04, 2014 -> Change name of script to: dwmstatus
 ################################################################################

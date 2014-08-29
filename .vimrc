@@ -2,7 +2,7 @@
 " .vimrc
 "
 " Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-" March 18, 2014 -> Initial creation.
+" March 18, 2014 -> File creation.
 "  June 03, 2014 -> Moved .gvimrc into .vimrc.
 "  June 17, 2014 -> Always map <F1> to <Esc>.
 "  June 21, 2014 -> Add other style of indentation: tabs. I prefer spaces but

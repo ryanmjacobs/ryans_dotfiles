@@ -3,7 +3,7 @@
 # Personal .xinitrc file
 #
 # Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# March 18, 2014 -> Initial creation.
+# March 18, 2014 -> File creation.
 # April 16, 2014 -> Disable terminal bell.
 ################################################################################
 
