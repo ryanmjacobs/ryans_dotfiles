@@ -94,6 +94,9 @@ alias feh='feh -.'
 # Launch irssi with the Jellybeans theme
 alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 
+# Disable BASH History
+alias historyoff="set +o history; history -c"
+
 ################################################################################
 # Useful Functions
 ################################################################################
