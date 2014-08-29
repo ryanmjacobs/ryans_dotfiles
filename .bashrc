@@ -52,7 +52,7 @@ PATH="$PATH:$HOME/.bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
 
-# Keep History when BASH exits
+# Keep history when BASH exits
 shopt -s histappend
 
 # Check window size after each command. Then, update the values of LINES and COLUMNS.
