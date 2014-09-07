@@ -30,6 +30,9 @@ endif
 " Highlight column 80
 set colorcolumn=80
 
+" Always display line numbers
+set ruler
+
 " Default color scheme
 colorscheme molokai
 
