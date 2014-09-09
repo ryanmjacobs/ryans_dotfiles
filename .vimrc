@@ -2,11 +2,13 @@
 " .vimrc
 "
 " Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
-" March 18, 2014 -> File creation.
-"  June 03, 2014 -> Moved .gvimrc into .vimrc.
-"  June 17, 2014 -> Always map <F1> to <Esc>.
-"  June 21, 2014 -> Add other style of indentation: tabs. I prefer spaces but
-"                   if a project needs to be consistent... I'll adapt.
+"     March 18, 2014 -> File creation.
+"      June 03, 2014 -> Moved .gvimrc into .vimrc.
+"      June 17, 2014 -> Always map <F1> to <Esc>.
+"      June 21, 2014 -> Add other style of indentation: tabs. I prefer spaces but
+"                       if a project needs to be consistent... I'll adapt.
+" September 06, 2014 -> Always display line numbers with `set ruler`
+" September 08, 2014 -> Force Markdown syntax on *.md & `set hlsearch`.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Enable Pathogen
 execute pathogen#infect()
@@ -39,6 +41,12 @@ colorscheme molokai
 " Enable syntax highlighting and auto-indentation
 syntax on
 filetype plugin indent on
+
+" Force Markdown syntax highlighting on *.md
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Highlight all results when searching
+set hlsearch
 
 """""""""" Tab Settings """"""""""
 " Pressing <Tab> = insert 4 spaces
