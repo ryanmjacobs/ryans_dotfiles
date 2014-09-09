@@ -69,19 +69,25 @@ static const char *mute[]            = { "amixer", "-q", "set", "Master", "toggl
 static const char *brightness_up[]   = { "sudo", "/usr/bin/brightness.sh", "inc", "5", NULL };
 static const char *brightness_down[] = { "sudo", "/usr/bin/brightness.sh", "dec", "5", NULL };
 static const char *xkill[]           = { "xkill", NULL };
+static const char *scrot[]           = { "scrot", "scrot.png", NULL };
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
+
+    /* Ryan's Shortcuts */
     { 0,        XF86XK_AudioRaiseVolume,       spawn,          {.v = volume_up } }, 
     { 0,        XF86XK_AudioLowerVolume,       spawn,          {.v = volume_down } },
     { 0,        XF86XK_AudioMute,              spawn,          {.v = mute } },
     { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brightness_up } },
     { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightness_down } },
     { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
+    { ControlMask|MODKEY,           XK_s,      spawn,          {.v = scrot } },
+    { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
+
+    /* Builtin Shortcuts */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { ControlMask|ShiftMask,        XK_Return, spawn,          {.v = termcmd } },
-    { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
