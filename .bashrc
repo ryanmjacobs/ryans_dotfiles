@@ -48,9 +48,9 @@ export EDITOR='vim'
 
 # Include the local bin
 bin_path="$HOME/.bin"
-npm_path=$(npm config get prefix)
-ruby_path=$(ruby -rubygems -e "puts Gem.user_dir")/bin
-PATH="$PATH:$bin_path:npm_path:$ruby_path"
+npm_path="$(npm config get prefix)/bin"
+ruby_path="$(ruby -rubygems -e "puts Gem.user_dir")/bin"
+PATH="$PATH:$bin_path:$npm_path:$ruby_path"
 
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
