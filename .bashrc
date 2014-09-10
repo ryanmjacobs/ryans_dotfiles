@@ -55,7 +55,7 @@ PATH="$PATH:$bin_path:$npm_path:$ruby_path"
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
 
-# Keep History when BASH exits
+# Keep history when BASH exits
 shopt -s histappend
 
 # Check window size after each command. Then, update the values of LINES and COLUMNS.
