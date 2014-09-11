@@ -9,6 +9,7 @@
 "                       if a project needs to be consistent... I'll adapt.
 " Sept. 06, 2014 -> Always display line numbers with `set ruler`
 " Sept. 08, 2014 -> Force Markdown syntax on *.md
+" Sept. 11, 2014 -> Exception handling of color scheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Enable Pathogen
 execute pathogen#infect()
@@ -35,8 +36,11 @@ set colorcolumn=80
 " Always display line numbers
 set ruler
 
-" Default color scheme
-colorscheme molokai
+" Load color schemes if possible
+try
+    colorscheme molokai
+catch
+endtry
 
 " Enable syntax highlighting and auto-indentation
 syntax on
@@ -74,9 +78,6 @@ noremap <Right> <NOP>
 " Map F1 Key to escape
 inoremap <F1> <Esc>
 noremap  <F1> <Esc>
-
-" Map <leader>l to Tagbar
-noremap <leader>l :TagbarToggle<CR>
 
 " Append modeline after last line in buffer with <Leader>ml
 function! AppendModeline()
