@@ -10,6 +10,7 @@
 # August 05, 2014 -> Enable BASH Completion.
 # August 20, 2014 -> Add msleep() function to sleep for n minutes.
 # August 28, 2014 -> Remove function keyword for compatibility with other shells.
+#  Sept. 11, 2014 -> Remove msleep(). Turns out you can do that with sleep n[m].
 ################################################################################
 
 ################################################################################
@@ -107,13 +108,6 @@ alias historyoff="set +o history; history -c"
 # Launch web browser and exit
 internet() {
     firefox -private google.com "$@" & exit
-}
-
-# Sleep for n minutes
-msleep() {
-    min=$1
-    sec=$(echo "$1 * 60" | bc)
-    sleep "$sec"
 }
 
 # BASH Round Function
