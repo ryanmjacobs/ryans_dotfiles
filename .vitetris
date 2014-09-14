@@ -1,3 +1,8 @@
+softdrop=1
+rotate=3
+height=0
+level=0
+mode=1
 [stdin]
 left=a
 right=d
@@ -12,3 +17,5 @@ p2right=RGT
 p2up=UP
 p2down=DWN
 p2hdrop=/
+[hiscore]
+àÉñ‰EflDA
