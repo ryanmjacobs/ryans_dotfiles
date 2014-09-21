@@ -103,7 +103,28 @@ alias historyoff="set +o history; history -c"
 
 # Launch web browser and exit
 internet() {
-    firefox -private google.com "$@" & exit
+    OPTIND=1 # reset getopts
+    opt_help=false
+
+    while getopts "hg:" opt; do
+        case $opt in
+            h)
+                opt_help=true
+                ;;
+        esac
+    done
+
+    if $opt_help; then
+        printf "Launch web browser and exit.\n"
+        printf "Usage: %s [site...]\n" $FUNCNAME
+        return 0
+    fi
+
+    if [ $# -gt 0 ]; then
+        firefox -private "$@" & exit
+    else
+        firefox -private google.com & exit
+    fi
 }
 
 # Sleep for n minutes
