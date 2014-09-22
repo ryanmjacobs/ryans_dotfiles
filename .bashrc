@@ -101,6 +101,11 @@ alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 # Disable BASH History
 alias historyoff="set +o history; history -c"
 
+# If colordiff is installed, use it instead of normal diff
+if hash colordiff &>/dev/null; then
+    alias diff="colordiff"
+fi
+
 ################################################################################
 # Useful Functions
 ################################################################################
