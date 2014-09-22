@@ -183,7 +183,13 @@ say() {
         local text="$*"
     fi
        
-    mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null
+    if hash "mpv"; then
+        player="mpv"
+    elif hash "mplayer"; then
+        player="mplayer"
+    fi
+
+   $player "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null
 }
 
 #  Toggle a temporary ram partition
