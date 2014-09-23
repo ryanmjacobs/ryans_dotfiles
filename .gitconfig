@@ -5,11 +5,13 @@
 #  March 18, 2014 -> File creation.
 #   June 19, 2014 -> Vimdiff as default difftool.
 #  Sept. 09, 2014 -> color.ui = true
+#  Sept. 22, 2014 -> Add GPG key.
 ################################################################################
 
 [user]
-	email = ryan.mjacobs@gmail.com
-	name = Ryan Jacobs
+	name       = Ryan Jacobs
+	email      = ryan.mjacobs@gmail.com
+    signingkey = "5F8A8181"
 [push]
 	default = simple
 [core]
