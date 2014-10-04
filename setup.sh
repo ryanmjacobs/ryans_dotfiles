@@ -10,10 +10,12 @@
 dir=$(pwd -P)
 home=$HOME
 
+config_install=(\
+    'dunst'
+)
 basic_install=(\
     '.bashrc'\ 
     '.dir_colors'\ 
-    'dunst'\ 
     '.irssi'\ 
     '.mplayer'\ 
     '.mpv'\ 
@@ -28,7 +30,6 @@ full_install=(\
     '.bashrc'\ 
     '.bin'\ 
     '.dir_colors'\ 
-    'dunst'\ 
     '.gitconfig'\ 
     '.gnuplot'\ 
     '.irssi'\ 
@@ -102,23 +103,43 @@ elif [ $full_flag = true ]; then
     files="${full_install[@]}"
 fi
 
-printf "Installing into $home...\n\n"
-cd $home
-for file in ${files[@]}; do
+# Install normal dotfiles
+printf "Installing into $home/\n\n"
+pushd "$home"
+    for file in ${files[@]}; do
+        [ $force_flag = true ] && rm -r "$home/$file"
 
-    [ $force_flag = true ] && rm -r "$home/$file"
+        if [ $copy_flag = true ]; then
+            cp --verbose --recursive "$dir/$file" "$home"
+        elif [ $symlink_flag = true ]; then
+            ln --verbose --symbolic "$dir/$file" "$home"
+        fi
 
-    if [ $copy_flag = true ]; then
-        cp --verbose --recursive "$dir/$file" "$home"
-    elif [ $symlink_flag = true ]; then
-        ln --verbose --symbolic "$dir/$file" "$home"
-    fi
+        if [ $? -ne 0 ]; then
+            printf "\nFailed to install!\nQuitting.\n"
+            exit 1
+        fi
+    done
+popd
 
-    if [ $? -ne 0 ]; then
-        printf "\nFailed to install!\nQuitting.\n"
-        exit 1
-    fi
-done
+# Install .config/ files
+printf "Installing into $home/.config/\n\n"
+pushd "$home/.config"
+    for config in ${config_install[@]}; do
+        [ $force_flag = true ] && rm -r "$config"
+
+        if [ $copy_flag = true ]; then
+            cp --verbose --recursive "$dir/.config/$config" .
+        elif [ $symlink_flag = true ]; then
+            ln --verbose --symbolic "$dir/.config/$config" .
+        fi
+
+        if [ $? -ne 0 ]; then
+            printf "\nFailed to install!\nQuitting.\n"
+            exit 1
+        fi
+    done
+popd
 
 printf "\nSuccessfully installed!\nQuitting.\n"
 exit 0
