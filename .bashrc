@@ -11,6 +11,7 @@
 # August 20, 2014 -> Add msleep() function to sleep for n minutes.
 # August 28, 2014 -> Remove function keyword for compatibility with other shells.
 #  Sept. 11, 2014 -> Remove msleep(). Turns out you can do that with sleep n[m].
+#   Oct. 03, 2014 -> Add 'When Exists' function.
 ################################################################################
 
 ################################################################################
@@ -110,6 +111,38 @@ fi
 # Useful Functions
 ################################################################################
 
+# When Exists. Loop every seconds and when file exists, return 0
+we() {
+    OPTIND=1
+    opt_help=false
+    opt_bytes=0
+    while getopts "hb:" opt; do
+        case $opt in
+            h) opt_help=true;;
+            b) opt_bytes=$OPTARG;;
+        esac
+    done
+
+    shift $((OPTIND-1))
+    file=$1
+
+    if [ -z "$file" ] || [ $opt_help == true ]; then
+        printf "Wait until the file exists, then return 0.\n"
+        printf "Usage: %s [-b bytes] <file>\n" $FUNCNAME
+        return 1
+    fi
+
+    while true; do
+        if [ -f $file ]; then
+            size=$(stat --printf="%s" $file)
+            if [ $size -ge $opt_bytes ]; then
+                return 0
+            fi
+        fi
+        sleep 1
+    done
+}
+
 # Launch web browser and exit
 internet() {
     OPTIND=1 # reset getopts
@@ -123,7 +156,7 @@ internet() {
         esac
     done
 
-    if $opt_help; then
+    if [ $opt_help == true]; then
         printf "Launch web browser and exit.\n"
         printf "Usage: %s [site...]\n" $FUNCNAME
         return 0

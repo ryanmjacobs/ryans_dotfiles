@@ -97,9 +97,9 @@ while [ $# -gt 0 ]; do
     esac
 done
 
-if [ $basic_flag = true ]; then
+if [ $basic_flag == true ]; then
     files="${basic_install[@]}"
-elif [ $full_flag = true ]; then
+elif [ $full_flag == true ]; then
     files="${full_install[@]}"
 fi
 
@@ -107,11 +107,11 @@ fi
 printf "Installing into $home/\n\n"
 pushd "$home"
     for file in ${files[@]}; do
-        [ $force_flag = true ] && rm -r "$home/$file"
+        [ $force_flag == true ] && rm -r "$home/$file"
 
-        if [ $copy_flag = true ]; then
+        if [ $copy_flag == true ]; then
             cp --verbose --recursive "$dir/$file" "$home"
-        elif [ $symlink_flag = true ]; then
+        elif [ $symlink_flag == true ]; then
             ln --verbose --symbolic "$dir/$file" "$home"
         fi
 
@@ -126,11 +126,11 @@ popd
 printf "Installing into $home/.config/\n\n"
 pushd "$home/.config"
     for config in ${config_install[@]}; do
-        [ $force_flag = true ] && rm -r "$config"
+        [ $force_flag == true ] && rm -r "$config"
 
-        if [ $copy_flag = true ]; then
+        if [ $copy_flag == true ]; then
             cp --verbose --recursive "$dir/.config/$config" .
-        elif [ $symlink_flag = true ]; then
+        elif [ $symlink_flag == true ]; then
             ln --verbose --symbolic "$dir/.config/$config" .
         fi
 
