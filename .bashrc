@@ -12,6 +12,7 @@
 # August 28, 2014 -> Remove function keyword for compatibility with other shells.
 #  Sept. 11, 2014 -> Remove msleep(). Turns out you can do that with sleep n[m].
 #   Oct. 03, 2014 -> Add 'When Exists' function.
+#   Oct. 05, 2014 -> Change browser from firefox to chrome.
 ################################################################################
 
 ################################################################################
@@ -156,16 +157,17 @@ internet() {
         esac
     done
 
-    if [ $opt_help == true]; then
+    if [ $opt_help == true ]; then
         printf "Launch web browser and exit.\n"
         printf "Usage: %s [site...]\n" $FUNCNAME
         return 0
     fi
 
     if [ $# -gt 0 ]; then
-        firefox -private "$@" & exit
+       #firefox -private "$@" & exit
+        google-chrome-stable --incognito "$@" & exit
     else
-        firefox -private google.com & exit
+        google-chrome-stable --incognito "http://www.google.com/" & exit
     fi
 }
 
