@@ -10,8 +10,10 @@
 " Sept. 06, 2014 -> Always display line numbers with `set ruler`
 " Sept. 08, 2014 -> Force Markdown syntax on *.md
 " Sept. 11, 2014 -> Exception handling of color scheme
+"  Oct. 06, 2014 -> 'filetype off' before loading pathogen.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Enable Pathogen
+filetype off
 execute pathogen#infect()
 
 " Enable 256 colors if the terminal supports it
