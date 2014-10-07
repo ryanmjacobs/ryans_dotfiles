@@ -1,6 +1,6 @@
 [submodule ".vim/bundle/vim-arduino"]
 	path = .vim/bundle/vim-arduino
-	url = git://github.com/kingbin/vim-arduino/
+	url = git://github.com/ryanmjacobs/vim-arduino
 [submodule ".vim/bundle/vim-javascript-syntax"]
 	path = .vim/bundle/vim-javascript-syntax
 	url = git://github.com/jelera/vim-javascript-syntax
