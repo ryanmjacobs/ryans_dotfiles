@@ -7,6 +7,7 @@
 #  May 29, 2014 -> File creation.
 # June 19, 2014 -> Ignore vnc logs, vnc pids, and vnc passwds.
 # July 05, 2014 -> Ignore Vim .swp and .swo files.
+# Oct. 06, 2014 -> Ignore all .vnc/ files but xstartup.
 ################################################################################
 .bin/dwm
 .bin/simple_uptime
@@ -18,9 +19,8 @@
 .*.swp
 .*.swo
 
-.vnc/*log
-.vnc/*pid
-.vnc/passwd
+.vnc/*
+!.vnc/xstartup
 
 .irssi/away.log
 .irssi/config.autosave
