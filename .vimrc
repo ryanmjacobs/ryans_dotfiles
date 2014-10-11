@@ -45,7 +45,7 @@ catch
 endtry
 
 " Enable syntax highlighting and auto-indentation
-syntax on
+syntax enable
 filetype plugin indent on
 
 " Force Markdown syntax highlighting on *.md
