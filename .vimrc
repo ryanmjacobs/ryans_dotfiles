@@ -6,7 +6,7 @@
 "  June 03, 2014 -> Moved .gvimrc into .vimrc.
 "  June 17, 2014 -> Always map <F1> to <Esc>.
 "  June 21, 2014 -> Add other style of indentation: tabs. I prefer spaces but
-"                       if a project needs to be consistent... I'll adapt.
+"                   if a project needs to be consistent... I'll adapt.
 " Sept. 06, 2014 -> Always display line numbers with `set ruler`
 " Sept. 08, 2014 -> Force Markdown syntax on *.md
 " Sept. 11, 2014 -> Exception handling of color scheme
