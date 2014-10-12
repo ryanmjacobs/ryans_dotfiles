@@ -124,6 +124,7 @@ popd
 
 # Install .config/ files
 printf "Installing into $home/.config/\n\n"
+[ ! -d "$home/.config" ] && mkdir -v "$home/.config"
 pushd "$home/.config"
     for config in ${config_install[@]}; do
         [ $force_flag == true ] && rm -r "$config"
