@@ -13,6 +13,7 @@
 #  Sept. 11, 2014 -> Remove msleep(). Turns out you can do that with sleep n[m].
 #   Oct. 03, 2014 -> Add 'When Exists' function.
 #   Oct. 05, 2014 -> Change browser from firefox to chrome.
+#   Oct. 12, 2014 -> Add '.PHONY: clean' to defmake.
 ################################################################################
 
 ################################################################################
@@ -378,6 +379,7 @@ defmake() {
     printf ".c.o:\n"                                                                            >> "$FILE"
     printf "\t\$(CC) \$(CFLAGS) \$< -o \$@\n"                                                   >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
+    printf ".PHONY: clean\n"                                                                    >> "$FILE"
     printf "clean:\n"                                                                           >> "$FILE"
     printf "\trm -f \$(EXECUTABLE)\n"                                                           >> "$FILE"
     printf "\trm -f *.o\n"                                                                      >> "$FILE"
