@@ -3,14 +3,18 @@ ryans_dotfiles
 
 A repository of Ryan's dotfiles.
 
-## Basic Install
+Basic Install
+-------------
+
 ```
 git clone https://github.com/ryanmjacobs/ryans_dotfiles
 cd ryans_dotfiles
 ./setup.sh
 ```
 
-## The setup.sh Script
+The setup.sh Script
+-------------------
+
 ```
 Usage: ./setup.sh [options]
 Installs ryans_dotfiles into your $HOME.
