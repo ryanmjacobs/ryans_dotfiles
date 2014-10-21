@@ -135,9 +135,9 @@ we() {
     fi
 
     while true; do
-        if [ -f $file ]; then
-            size=$(stat --printf="%s" $file)
-            if [ $size -ge $opt_bytes ]; then
+        if [ -f "$file" ]; then
+            size=$(stat --printf="%s" "$file")
+            if [ "$size" -ge "$opt_bytes" ]; then
                 return 0
             fi
         fi
