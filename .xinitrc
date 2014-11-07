@@ -14,7 +14,8 @@ xrdb $HOME/.Xresources
 synclient TapButton1=0 TapButton2=0 TapButton3=0
 
 # Set the background wallpaper
-feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
+#feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
+feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 
 # Dwm Statusbar
 $HOME/.bin/dwmstatus &

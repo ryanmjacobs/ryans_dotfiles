@@ -14,6 +14,7 @@
 #   Oct. 03, 2014 -> Add 'When Exists' function.
 #   Oct. 05, 2014 -> Change browser from firefox to chrome.
 #   Oct. 12, 2014 -> Add '.PHONY: clean' to defmake.
+#   Nov. 06, 2014 -> Source hhlighter script.
 ################################################################################
 
 ################################################################################
@@ -56,6 +57,9 @@ npm_path="$(npm config get prefix 2>/dev/null)/bin"
 ruby_path="$(ruby -rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
 cabal_path="$HOME/.cabal/bin"
 PATH="$bin_path:$PATH:$npm_path:$ruby_path:$cabal_path"
+
+# Source in bash functions
+source "$bin_path/h.sh"
 
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
