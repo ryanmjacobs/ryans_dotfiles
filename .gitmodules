@@ -9,4 +9,4 @@
 	url = https://github.com/kchmck/vim-coffee-script
 [submodule "third_party/hhighlighter"]
 	path = third_party/hhighlighter
-	url = https://github.com/ryanmjacobs/hhighlighter
+	url = https://github.com/paoloantinori/hhighlighter
