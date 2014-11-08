@@ -28,7 +28,7 @@ export LANGUAGE=en_US.UTF-8
 
 # Enable BASH Completion
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+    source /etc/bash_completion
 fi
 
 # Export the terminal's ability for 256 colors
