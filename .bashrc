@@ -15,6 +15,7 @@
 #   Oct. 05, 2014 -> Change browser from firefox to chrome.
 #   Oct. 12, 2014 -> Add '.PHONY: clean' to defmake.
 #   Nov. 06, 2014 -> Source hhlighter script.
+#   Nov. 11, 2014 -> Rename "google-chrome-stable" to "google-chrome".
 ################################################################################
 
 ################################################################################
@@ -171,9 +172,9 @@ internet() {
 
     if [ $# -gt 0 ]; then
        #firefox -private "$@" & exit
-        google-chrome-stable --incognito "$@" & exit
+        google-chrome --incognito "$@" & exit
     else
-        google-chrome-stable --incognito "http://www.google.com/" & exit
+        google-chrome --incognito "http://www.google.com/" & exit
     fi
 }
 
