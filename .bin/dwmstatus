@@ -16,7 +16,7 @@ REFRESH_DELAY=1
 
 while true; do
     # System Uptime
-    DWM_UPTIME=$(simple_uptime) # Custom C binary to give correct uptime by Ryan
+    DWM_UPTIME=$(simple_uptime) # Custom C binary to output uptime
 
     # Power/Battery Status
     if [ "$(cat /sys/class/power_supply/AC0/online)" == 1 ]; then
