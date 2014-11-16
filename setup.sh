@@ -14,38 +14,38 @@ config_install=(\
     'dunst'
 )
 basic_install=(\
-    '.bashrc'\ 
-    '.dir_colors'\ 
-    '.irssi'\ 
-    '.inputrc'\ 
-    '.mplayer'\ 
-    '.mpv'\ 
-    '.profile'\ 
-    '.tmux.conf'\ 
-    '.vim'\ 
-    '.vimrc'\ 
-    '.Xresources'\ 
+    '.bashrc'\
+    '.dir_colors'\
+    '.irssi'\
+    '.inputrc'\
+    '.mplayer'\
+    '.mpv'\
+    '.profile'\
+    '.tmux.conf'\
+    '.vim'\
+    '.vimrc'\
+    '.Xresources'\
 )
 full_install=(\
-    '.abcde.conf'\ 
-    '.bashrc'\ 
-    '.bin'\ 
-    '.dir_colors'\ 
-    '.gitconfig'\ 
-    '.gnuplot'\ 
-    '.irssi'\ 
-    '.inputrc'\ 
-    '.mplayer'\ 
-    '.mpv'\ 
-    '.profile'\ 
-    '.tmux.conf'\ 
-    '.twmrc'\ 
-    '.vim'\ 
-    '.vimrc'\ 
-    '.vitetris'\ 
-    '.vnc'\ 
-    '.xinitrc'\ 
-    '.Xresources'\ 
+    '.abcde.conf'\
+    '.bashrc'\
+    '.bin'\
+    '.dir_colors'\
+    '.gitconfig'\
+    '.gnuplot'\
+    '.irssi'\
+    '.inputrc'\
+    '.mplayer'\
+    '.mpv'\
+    '.profile'\
+    '.tmux.conf'\
+    '.twmrc'\
+    '.vim'\
+    '.vimrc'\
+    '.vitetris'\
+    '.vnc'\
+    '.xinitrc'\
+    '.Xresources'\
 )
 
 # Usage: help_msg
