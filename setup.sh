@@ -17,6 +17,7 @@ basic_install=(\
     '.bashrc'\ 
     '.dir_colors'\ 
     '.irssi'\ 
+    '.inputrc'\ 
     '.mplayer'\ 
     '.mpv'\ 
     '.profile'\ 
@@ -33,6 +34,7 @@ full_install=(\
     '.gitconfig'\ 
     '.gnuplot'\ 
     '.irssi'\ 
+    '.inputrc'\ 
     '.mplayer'\ 
     '.mpv'\ 
     '.profile'\ 
