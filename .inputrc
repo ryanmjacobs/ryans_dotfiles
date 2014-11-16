@@ -6,5 +6,5 @@
 ################################################################################
 
 # Press up/down arrows for previous/next matching command
-"\e[A":history-search-backward
-"\e[B":history-search-forward
+#"\e[A":history-search-backward
+#"\e[B":history-search-forward
