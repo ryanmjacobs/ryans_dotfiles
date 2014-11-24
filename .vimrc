@@ -81,6 +81,11 @@ noremap <Right> <NOP>
 inoremap <F1> <Esc>
 noremap  <F1> <Esc>
 
+" Emmet: trigger=<tab>, filetypes=html,css,etc.
+let g:user_emmet_expandabbr_key="<Tab>"
+let g:user_emmet_install_global=0
+autocmd FileType html,php,css,scss EmmetInstall
+
 " Append modeline after last line in buffer with <Leader>ml
 function! AppendModeline()
     let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",

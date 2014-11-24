@@ -10,3 +10,6 @@
 [submodule "third_party/hhighlighter"]
 	path = third_party/hhighlighter
 	url = https://github.com/paoloantinori/hhighlighter
+[submodule ".vim/bundle/emmet-vim"]
+	path = .vim/bundle/emmet-vim
+	url = git://github.com/mattn/emmet-vim
