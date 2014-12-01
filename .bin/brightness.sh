@@ -3,8 +3,8 @@
 # brightness.sh
 #
 # Brightness control for Lenovo v570 Arch Linux install.
+# Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
 #
-# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # March 20, 2014 -> Creation date.
 #   May 05, 2014 -> Added get command.
 #  July 08, 2014 -> Remove unnecessary usage of tee.

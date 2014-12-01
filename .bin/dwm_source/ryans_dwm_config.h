@@ -1,10 +1,8 @@
 /**
  * ryans_dwm_config.h
  *
- * Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
- *
+ * Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
  * May 18, 2014 -> File creation.
- *
  */
 
 #include <X11/XF86keysym.h> /* For special keys */

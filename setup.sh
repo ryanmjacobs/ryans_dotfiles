@@ -3,7 +3,7 @@
 #
 # Run './setup.sh' to intall dotfiles in home with symlinks.
 #
-# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+# Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # October 03, 2014 -> File creation.
 ################################################################################
 

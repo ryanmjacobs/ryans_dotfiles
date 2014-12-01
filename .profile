@@ -1,7 +1,7 @@
 ################################################################################
 # .profile
 #
-# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+# Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # May 18, 2014 -> File creation.
 ################################################################################
 

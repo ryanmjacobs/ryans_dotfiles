@@ -1,7 +1,8 @@
 ################################################################################
 # .gitconfig
 #
-# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+# Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
+#
 #  March 18, 2014 -> File creation.
 #   June 19, 2014 -> Vimdiff as default difftool.
 #  Sept. 09, 2014 -> color.ui = true
