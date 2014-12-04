@@ -17,6 +17,7 @@
 #   Oct. 12, 2014 -> Add '.PHONY: clean' to defmake.
 #   Nov. 06, 2014 -> Source hhlighter script.
 #   Nov. 11, 2014 -> Rename "google-chrome-stable" to "google-chrome".
+#   Dec. 03, 2014 -> Set tty for GPG and pinentry-curses.
 ################################################################################
 
 ################################################################################
@@ -52,6 +53,9 @@ fi
 
 # Default Editor
 export EDITOR='vim'
+
+# Set tty for GPG and pinentry-curses
+export GPG_TTY=$(tty)
 
 # Include the local bin
 bin_path="$HOME/.bin"
