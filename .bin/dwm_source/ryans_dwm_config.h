@@ -6,6 +6,7 @@
  *      June 01, 2014 -> Put all MPV videos into its own tag.
  *    August 28, 2014 -> Add xkill shortcut (Ctrl-Alt-X).
  * September 09, 2014 -> Add scrot shortcut (Ctrl-Alt-S).
+ *  December 03, 2014 -> Re-map the scrot shortcut to the PrintScreen button.
  */
 
 #include <X11/XF86keysym.h> /* For special keys */
@@ -26,7 +27,7 @@ static const Bool topbar            = True;     /* False means bottom bar */
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-/*                            1,        2,       3,          4,      5,      6,     7,       8,    9    */
+//                            1,        2,       3,          4,      5,      6,     7,       8,    9
 static const char *tags[] = { "School", "Other", "Organize", "Dev.", "Doc.", "MPV", "Pref.", "BG", "DL" };
 
 static const Rule rules[] = {
@@ -81,8 +82,8 @@ static Key keys[] = {
     { 0,        XF86XK_AudioMute,              spawn,          {.v = mute } },
     { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brightness_up } },
     { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightness_down } },
+    { 0,        XK_Print,                      spawn,          {.v = scrot } },
     { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
-    { ControlMask|MODKEY,           XK_s,      spawn,          {.v = scrot } },
     { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
 
     /* Builtin Shortcuts */
