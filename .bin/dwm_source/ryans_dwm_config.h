@@ -2,7 +2,10 @@
  * ryans_dwm_config.h
  *
  * Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
- * May 18, 2014 -> File creation.
+ *       May 18, 2014 -> File creation.
+ *      June 01, 2014 -> Put all MPV videos into its own tag.
+ *    August 28, 2014 -> Add xkill shortcut (Ctrl-Alt-X).
+ * September 09, 2014 -> Add scrot shortcut (Ctrl-Alt-S).
  */
 
 #include <X11/XF86keysym.h> /* For special keys */
