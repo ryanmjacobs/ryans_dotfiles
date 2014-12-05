@@ -393,8 +393,12 @@ defmake() {
     printf "install:\n"                                                                         >> "$FILE"
     printf "\tinstall -Dm 775 \$(EXECUTABLE) /usr/bin/\$(EXECUTABLE)\n"                         >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
-    printf ".PHONY: clean\n"                                                                    >> "$FILE"
+    printf "uninstall:\n"                                                                       >> "$FILE"
+    printf "\trm -f /usr/bin/\$(EXECUTABLE)\n"                                                  >> "$FILE"
+    printf "\n"                                                                                 >> "$FILE"
     printf "clean:\n"                                                                           >> "$FILE"
     printf "\trm -f \$(EXECUTABLE)\n"                                                           >> "$FILE"
     printf "\trm -f *.o\n"                                                                      >> "$FILE"
+    printf "\n"                                                                                 >> "$FILE"
+    printf ".PHONY: install uninstall clean\n"                                                  >> "$FILE"
 }
