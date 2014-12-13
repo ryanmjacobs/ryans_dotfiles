@@ -18,6 +18,7 @@
 #   Nov. 06, 2014 -> Source hhlighter script.
 #   Nov. 11, 2014 -> Rename "google-chrome-stable" to "google-chrome".
 #   Dec. 03, 2014 -> Set tty for GPG and pinentry-curses.
+#   Dec. 13, 2014 -> alias def="sdcv"
 ################################################################################
 
 ################################################################################
@@ -52,7 +53,7 @@ elif [ "$(id -u)" -eq 0 ]; then
 fi
 
 # Default Editor
-export EDITOR='vim'
+export EDITOR="vim"
 
 # Set tty for GPG and pinentry-curses
 export GPG_TTY=$(tty)
@@ -77,7 +78,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # History ignore commands starting with space
-HISTCONTROL='ignorespace'
+HISTCONTROL="ignorespace"
 HISTFILESIZE=50000000
 HISTSIZE=1000000
 
@@ -85,17 +86,20 @@ HISTSIZE=1000000
 # Aliases
 ################################################################################
 
+# General aliases
+alias def="sdcv"
+
 # Colorize ls and grep
-alias ls='ls --color=auto'
-alias grep='grep --colour=auto'
+alias ls="ls --color=auto"
+alias grep="grep --colour=auto"
 
 # Don't send the 'Erase is backspace.' message on XTerm when reset.
-alias reset='reset -Q'
+alias reset="reset -Q"
 
 # Just a timestamp/datestamp format that I prefer.
 # Useful as such: echo "hello world" > file_$(ts).txt
-alias timestamp='date +%T'
-alias datestamp='date +%F'
+alias timestamp="date +%T"
+alias datestamp="date +%F"
 alias ts=timestamp
 alias ds=datestamp
 
@@ -103,11 +107,11 @@ alias ds=datestamp
 alias basic_prompt='PS1="\e[01;34m-> \e[00m"'
 
 # Allows sl (joke train program) to be interrupted with ^C
-alias sl='sl -e'
-alias LS='LS -e'
+alias sl="sl -e"
+alias LS="LS -e"
 
 # Resize images to fit in feh
-alias feh='feh -.'
+alias feh="feh -."
 
 # Launch irssi with the Jellybeans theme
 alias irssi="xterm -name jellybeans -e 'irssi' & exit"
