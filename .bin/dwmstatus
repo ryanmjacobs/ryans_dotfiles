@@ -8,6 +8,7 @@
 #  May 13, 2014 -> File creation.
 #  May 28, 2014 -> Fixed bug that when the battery couldn't be read it crashed.
 # July 04, 2014 -> Change name of script to: dwmstatus
+# Dec. 14, 2014 -> Notify user when battery is less than 10%.
 ################################################################################
 
 # Global Constants
@@ -24,6 +25,10 @@ while true; do
     elif [ "$(cat /sys/class/power_supply/BAT0/energy_now)" -gt "0" ]; then
         DWM_BATTERY=$((`cat /sys/class/power_supply/BAT0/energy_now` * 100 /\
                        `cat /sys/class/power_supply/BAT0/energy_full`))
+        if [ $DWM_BATTERY -lt 10 ]; then
+            echo                    "Warning - Low Battery - Less than $DWM_BATTERY% left."
+            notify-send -u critical "Warning - Low Battery" "Less than $DWM_BATTERY% left."
+        fi
     else
         DWM_BATTERY="NULL"
     fi
