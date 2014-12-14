@@ -13,7 +13,7 @@
 [user]
 	name       = Ryan Jacobs
 	email      = ryan.mjacobs@gmail.com
-    signingkey = "5F8A8181"
+    signingkey = "CEED707A"
 [push]
 	default = simple
 [core]
