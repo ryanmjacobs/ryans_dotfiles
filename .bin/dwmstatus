@@ -22,7 +22,7 @@ while true; do
     # Power/Battery Status
     if [ "$(cat /sys/class/power_supply/AC0/online)" == 1 ]; then
         DWM_BATTERY="AC"
-    elif [ "$(cat /sys/class/power_supply/BAT0/energy_now)" -gt "0" ]; then
+    elif [ "$(cat /sys/class/power_supply/BAT0/energy_now)" -gt 0 ]; then
         DWM_BATTERY=$((`cat /sys/class/power_supply/BAT0/energy_now` * 100 /\
                        `cat /sys/class/power_supply/BAT0/energy_full`))
         if [ $DWM_BATTERY -lt 10 ]; then
@@ -36,7 +36,7 @@ while true; do
     # Wi-Fi eSSID
     cat /proc/net/route | grep $WIFI_DEVICE &>/dev/null
     IS_DEVICE_UP=$?
-    if [ "$IS_DEVICE_UP" -eq "0" ]; then
+    if [ "$IS_DEVICE_UP" -eq 0 ]; then
         DWM_WIFI_ESSID=$(/sbin/iwgetid -r)
         DWM_WIFI_STRENGTH=$(awk 'NR==3 {print $3"%"}''' /proc/net/wireless |\
                             tr -d '.')
