@@ -7,7 +7,7 @@
 # October 03, 2014 -> File creation.
 ################################################################################
 
-dir=$(pwd -P)
+dir=$(pwd)
 home=$HOME
 
 config_install=(\
@@ -99,50 +99,48 @@ while [ $# -gt 0 ]; do
     esac
 done
 
-if [ $basic_flag == true ]; then
+if [ "$basic_flag" == true ]; then
     files="${basic_install[@]}"
-elif [ $full_flag == true ]; then
+elif [ "$full_flag" == true ]; then
     files="${full_install[@]}"
 fi
 
 # Install normal dotfiles
 printf "Installing into $home/\n\n"
-pushd "$home"
-    for file in ${files[@]}; do
-        [ $force_flag == true ] && rm -r "$home/$file"
+for file in ${files[@]}; do
+    [ "$force_flag" == true ] && rm -r "$home/$file"
 
-        if [ $copy_flag == true ]; then
-            cp --verbose --recursive "$dir/$file" "$home"
-        elif [ $symlink_flag == true ]; then
-            ln --verbose --symbolic "$dir/$file" "$home"
-        fi
+    if [ "$copy_flag" == true ]; then
+        echo "$(readlink -e "$dir/$file")"
+        cp --verbose -Lr "$dir/$file" "$home"
+    elif [ "$symlink_flag" == true ]; then
+        ln --verbose --symbolic "$dir/$file" "$home"
+    fi
 
-        if [ $? -ne 0 ]; then
-            printf "\nFailed to install!\nQuitting.\n"
-            exit 1
-        fi
-    done
-popd
+    if [ $? -ne 0 ]; then
+        printf "\nFailed to install!\nQuitting.\n"
+        exit 1
+    fi
+done
 
 # Install .config/ files
-printf "Installing into $home/.config/\n\n"
+printf "\nInstalling into $home/.config/\n"
 [ ! -d "$home/.config" ] && mkdir -v "$home/.config"
-pushd "$home/.config"
-    for config in ${config_install[@]}; do
-        [ $force_flag == true ] && rm -r "$config"
+for file in ${config_install[@]}; do
+    [ "$force_flag" == true ] && rm -r "$home/.config/$file"
 
-        if [ $copy_flag == true ]; then
-            cp --verbose --recursive "$dir/.config/$config" .
-        elif [ $symlink_flag == true ]; then
-            ln --verbose --symbolic "$dir/.config/$config" .
-        fi
+    if [ "$copy_flag" == true ]; then
+        echo "$(readlink -e "$dir/.config/$file")"
+        cp --verbose -Lr "$dir/.config/$file" "$home/.config"
+    elif [ "$symlink_flag" == true ]; then
+        ln --verbose --symbolic "$dir/.config/$file" "$home/.config"
+    fi
 
-        if [ $? -ne 0 ]; then
-            printf "\nFailed to install!\nQuitting.\n"
-            exit 1
-        fi
-    done
-popd
+    if [ $? -ne 0 ]; then
+        printf "\nFailed to install!\nQuitting.\n"
+        exit 1
+    fi
+done
 
 printf "\nSuccessfully installed!\nQuitting.\n"
 exit 0
