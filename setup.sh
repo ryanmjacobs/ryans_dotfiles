@@ -111,7 +111,7 @@ for file in ${files[@]}; do
     [ "$force_flag" == true ] && rm -r "$home/$file"
 
     if [ "$copy_flag" == true ]; then
-        echo "$(readlink -e "$dir/$file")"
+        echo "$(readlink -f "$dir/$file")"
         cp --verbose -Lr "$dir/$file" "$home"
     elif [ "$symlink_flag" == true ]; then
         ln --verbose --symbolic "$dir/$file" "$home"
@@ -130,7 +130,7 @@ for file in ${config_install[@]}; do
     [ "$force_flag" == true ] && rm -r "$home/.config/$file"
 
     if [ "$copy_flag" == true ]; then
-        echo "$(readlink -e "$dir/.config/$file")"
+        echo "$(readlink -f "$dir/.config/$file")"
         cp --verbose -Lr "$dir/.config/$file" "$home/.config"
     elif [ "$symlink_flag" == true ]; then
         ln --verbose --symbolic "$dir/.config/$file" "$home/.config"
