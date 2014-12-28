@@ -82,6 +82,7 @@ static Key keys[] = {
     { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brightness_up } },
     { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightness_down } },
     { 0,        XK_Print,                      spawn,          {.v = scrot } },
+    { ControlMask|MODKEY,           XK_s,      spawn,          {.v = scrot } },
     { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
     { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
 
