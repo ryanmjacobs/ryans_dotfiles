@@ -36,7 +36,7 @@ while true; do
 
     # Wi-Fi eSSID
     essid=$(/sbin/iwgetid -r $WIFI_DEVICE)
-    if [ "$?" -eq 0 ]; then
+    if [ ! -z "$essid" ]; then
         strength=$(grep "$WIFI_DEVICE" /proc/net/wireless | awk '{print $3}' | tr -d .)
         DWM_WIFI="$essid [$strength%]"
     else
