@@ -389,7 +389,7 @@ defmake() {
     printf "all: \$(SOURCES) \$(EXECUTABLE)\n"                                                  >> "$FILE"
     printf "            \n"                                                                     >> "$FILE"
     printf "\$(EXECUTABLE): \$(OBJECTS)\n"                                                      >> "$FILE"
-    printf "\t\$(CC) \$(LDFLAGS) \$(OBJECTS) -o \$@\n"                                          >> "$FILE"
+    printf "\t\$(CC) \$(OBJECTS) \$(LDFLAGS) -o \$@\n"                                          >> "$FILE"
     printf "\n"                                                                                 >> "$FILE"
     printf ".c.o:\n"                                                                            >> "$FILE"
     printf "\t\$(CC) \$(CFLAGS) \$< -o \$@\n"                                                   >> "$FILE"
