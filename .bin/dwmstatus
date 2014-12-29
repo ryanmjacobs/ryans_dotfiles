@@ -23,24 +23,22 @@ while true; do
     if [ "$(cat /sys/class/power_supply/AC0/online)" == 1 ]; then
         DWM_BATTERY="AC"
     elif [ "$(cat /sys/class/power_supply/BAT0/energy_now)" -gt 0 ]; then
-        DWM_BATTERY=$((`cat /sys/class/power_supply/BAT0/energy_now` * 100 /\
-                       `cat /sys/class/power_supply/BAT0/energy_full`))
-        if [ $DWM_BATTERY -lt 10 ]; then
+        percent=$((`cat /sys/class/power_supply/BAT0/energy_now` * 100 /\
+                   `cat /sys/class/power_supply/BAT0/energy_full`))
+        if [ $percent -lt 10 ]; then
             echo                    "Warning - Low Battery - Less than $DWM_BATTERY% left."
             notify-send -u critical "Warning - Low Battery" "Less than $DWM_BATTERY% left."
         fi
+        DWM_BATTERY="$percent%"
     else
         DWM_BATTERY="NULL"
     fi
 
     # Wi-Fi eSSID
-    cat /proc/net/route | grep $WIFI_DEVICE &>/dev/null
-    IS_DEVICE_UP=$?
-    if [ "$IS_DEVICE_UP" -eq 0 ]; then
-        DWM_WIFI_ESSID=$(/sbin/iwgetid -r)
-        DWM_WIFI_STRENGTH=$(awk 'NR==3 {print $3"%"}''' /proc/net/wireless |\
-                            tr -d '.')
-        DWM_WIFI="$DWM_WIFI_ESSID [$DWM_WIFI_STRENGTH]"
+    essid=$(/sbin/iwgetid -r $WIFI_DEVICE)
+    if [ "$?" -eq 0 ]; then
+        strength=$(grep "$WIFI_DEVICE" /proc/net/wireless | awk '{print $3}' | tr -d .)
+        DWM_WIFI="$essid [$strength%]"
     else
         DWM_WIFI="OFF"
     fi
@@ -52,9 +50,7 @@ while true; do
     DWM_CLOCK=$(date '+%a %b %d, %Y | %r')
 
     # Overall output command
-    DWM_STATUS="\
-Uptime: [$DWM_UPTIME] | WiFi: $DWM_WIFI | \
-Power: [$DWM_BATTERY%] | Vol: $DWM_VOL -- $DWM_CLOCK"
+    DWM_STATUS="Uptime: [$DWM_UPTIME] | WiFi: $DWM_WIFI | Power: [$DWM_BATTERY] | Vol: $DWM_VOL -- $DWM_CLOCK"
 
     xsetroot -name "$DWM_STATUS"
     sleep $REFRESH_DELAY
