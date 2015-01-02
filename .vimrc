@@ -33,8 +33,9 @@ if has("gui_running")
     endif
 endif
 
-" Highlight column 80
+" Highlight column 80, (72 for git)
 set colorcolumn=80
+autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set colorcolumn=72
 
 " Always display line numbers
 set ruler
