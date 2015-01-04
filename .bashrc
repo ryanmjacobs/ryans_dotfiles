@@ -406,3 +406,28 @@ defmake() {
     printf "\n"                                                                                 >> "$FILE"
     printf ".PHONY: install uninstall clean\n"                                                  >> "$FILE"
 }
+
+# beet play
+beet() {
+    playlist="/tmp/beets.pls"
+    if [ "$1" == "play" ]; then
+        shift
+        if [ $# -eq 0 ]; then
+            echo "Usage: beet play <search terms>"
+            return 1
+        fi
+
+        command beet list -p "$@" > "$playlist"
+
+        if [ ! -s "$playlist" ]; then
+            echo "error: 0 matches"
+            return 1
+        fi
+
+        echo "$(wc -l < "$playlist") matches"
+        mpv --playlist="$playlist"
+        rm "$playlist"
+    else
+        command beet "$@"
+    fi
+}
