@@ -3,6 +3,11 @@
 # dwmstatus
 #
 # Script to generate the statusbar for dwm.
+#
+# ArchLinux Deps:
+#     - alsa-utils     for /usr/bin/alsamixers
+#     - wireless_tools for /usr/bin/iwgetid
+#
 # Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
 #
 #  May 13, 2014 -> File creation.
