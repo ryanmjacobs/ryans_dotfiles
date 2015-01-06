@@ -105,6 +105,9 @@ elif [ "$full_flag" == true ]; then
     files="${full_install[@]}"
 fi
 
+# Pull in submodules
+git pull --recurse-submodules
+
 # Install normal dotfiles
 printf "Installing into $home/\n\n"
 for file in ${files[@]}; do

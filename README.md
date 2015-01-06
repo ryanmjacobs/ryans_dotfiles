@@ -6,9 +6,9 @@ A repository of Ryan's dotfiles.
 Basic Install
 -------------
 ```
-git clone --recursive --depth=1 https://github.com/ryanmjacobs/ryans_dotfiles
-cd ryans_dotfiles
-./setup.sh
+$ git clone --depth=1 https://github.com/ryanmjacobs/ryans_dotfiles
+$ cd ryans_dotfiles
+$ ./setup.sh
 ```
 
 setup.sh options
