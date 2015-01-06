@@ -8,19 +8,20 @@
 # March 20, 2014 -> Creation date.
 #   May 05, 2014 -> Added get command.
 #  July 08, 2014 -> Remove unnecessary usage of tee.
+#   Jan 06, 2014 -> Replace $FUNCNAME w/ $0.
 ################################################################################
 
 function help_msg() {
     printf "Brightness control for Lenovo v570 Arch Linux install.\n"
-    printf "Usage: %s <set|inc|dec> <percentage>\n" $FUNCNAME
+    printf "Usage: %s <set|inc|dec> <percentage>\n" $0
     printf "                 OR                 \n"
-    printf "       %s <get>\n" $FUNCNAME
+    printf "       %s <get>\n" $0
     exit 1
 }
 
 
 if [ $(id -u) -ne 0 ]; then
-    printf "Not running as root.\n"
+    printf "please run as root.\n"
     exit 1
 fi
 
