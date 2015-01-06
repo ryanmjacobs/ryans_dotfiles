@@ -106,7 +106,8 @@ elif [ "$full_flag" == true ]; then
 fi
 
 # Pull in submodules
-git pull --recurse-submodules
+git submodule init
+git submodule update --recursive
 
 # Install normal dotfiles
 printf "Installing into $home/\n\n"
