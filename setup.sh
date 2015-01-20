@@ -5,6 +5,7 @@
 #
 # Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # October 03, 2014 -> File creation.
+# January 20, 2014 -> Add .toprc
 ################################################################################
 
 dir=$(pwd)
@@ -22,6 +23,7 @@ basic_install=(\
     '.mpv'\
     '.profile'\
     '.tmux.conf'\
+    '.toprc'\
     '.vim'\
     '.vimrc'\
     '.Xresources'\
@@ -39,6 +41,7 @@ full_install=(\
     '.mpv'\
     '.profile'\
     '.tmux.conf'\
+    '.toprc'\
     '.twmrc'\
     '.vim'\
     '.vimrc'\
