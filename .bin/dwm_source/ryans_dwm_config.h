@@ -77,12 +77,12 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
 
     /* Ryan's Shortcuts */
-    { 0,        XF86XK_AudioRaiseVolume,       spawn,          {.v = volume_up } }, 
-    { 0,        XF86XK_AudioLowerVolume,       spawn,          {.v = volume_down } },
-    { 0,        XF86XK_AudioMute,              spawn,          {.v = mute } },
-    { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brightness_up } },
-    { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightness_down } },
-    { 0,        XK_Print,                      spawn,          {.v = scrot } },
+    { 0,                            XK_F10,    spawn,          {.v = volume_up } },
+    { 0,                            XK_F9,     spawn,          {.v = volume_down } },
+    { 0,                            XK_F8,     spawn,          {.v = mute } },
+    { 0,                            XK_F7,     spawn,          {.v = brightness_up } },
+    { 0,                            XK_F6,     spawn,          {.v = brightness_down } },
+    { 0,                            XK_Print,  spawn,          {.v = scrot } },
     { ControlMask|MODKEY,           XK_s,      spawn,          {.v = scrot } },
     { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
     { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
