@@ -17,7 +17,7 @@
 ################################################################################
 
 # Global Constants
-WIFI_DEVICE=wlp2s0
+WIFI_DEVICE=wlp1s0
 REFRESH_DELAY=1
 
 while true; do
@@ -27,11 +27,10 @@ while true; do
     # Power/Battery Status
     if [ "$(cat /sys/class/power_supply/AC0/online)" == 1 ]; then
         DWM_BATTERY="AC"
-    elif [ "$(cat /sys/class/power_supply/BAT0/energy_now)" -gt 0 ]; then
-        percent=$((`cat /sys/class/power_supply/BAT0/energy_now` * 100 /\
-                   `cat /sys/class/power_supply/BAT0/energy_full`))
+    elif [ "$(cat /sys/class/power_supply/BAT0/charge_now)" -gt 0 ]; then
+        percent=$((`cat /sys/class/power_supply/BAT0/charge_now` * 100 /\
+                   `cat /sys/class/power_supply/BAT0/charge_full`))
         if [ $percent -lt 10 ]; then
-            echo                    "Warning - Low Battery - Less than $DWM_BATTERY% left."
             notify-send -u critical "Warning - Low Battery" "Less than $DWM_BATTERY% left."
         fi
         DWM_BATTERY="$percent%"
