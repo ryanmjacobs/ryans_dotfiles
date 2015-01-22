@@ -19,6 +19,7 @@
 #   Nov. 11, 2014 -> Rename "google-chrome-stable" to "google-chrome".
 #   Dec. 03, 2014 -> Set tty for GPG and pinentry-curses.
 #   Dec. 13, 2014 -> alias def="sdcv"
+#   Jan. 20, 2014 -> Add builds_path.
 ################################################################################
 
 ################################################################################
@@ -60,10 +61,11 @@ export GPG_TTY=$(tty)
 
 # Include the local bin
 bin_path="$HOME/.bin"
+builds_path="$HOME/builds/install/bin"
 npm_path="$(npm config get prefix 2>/dev/null)/bin"
 ruby_path="$(ruby -rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
 cabal_path="$HOME/.cabal/bin"
-PATH="$bin_path:$PATH:$npm_path:$ruby_path:$cabal_path"
+PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path"
 
 # Source in bash functions
 source "$bin_path/h.sh"
