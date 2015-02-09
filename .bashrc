@@ -338,48 +338,27 @@ defmake() {
         return 1
     fi
 
-    if [ -f "$FILE" ]; then
-        printf "Makefile already exists! Quiting.\n"
-        return 1
-    fi
-
-    EXECUTABLE=$1
-    shift
+    EXECUTABLE=$1; shift
     SOURCES="$@"
 
-   #printf "################################################################################\n" >> "$FILE"
-   #printf "# Makefile\n"                                                                       >> "$FILE"
-   #printf "#\n"                                                                                >> "$FILE"
-   #printf "# Credit goes to Hector Urtubia <urtubia@mrbook.org> for creating this Makefile.\n" >> "$FILE"
-   #printf "# http://mrbook.org/tutorials/make/\n"                                              >> "$FILE"
-   #printf "#\n"                                                                                >> "$FILE"
-   #printf "# %s\n" "$(date '+%B %d, %Y')"                                                      >> "$FILE"
-   #printf "################################################################################\n" >> "$FILE"
-   #printf "\n"                                                                                 >> "$FILE"
     printf "CC=gcc\n"                                                                           >> "$FILE"
     printf "CFLAGS=-c -Wall\n"                                                                  >> "$FILE"
     printf "LDFLAGS=\n"                                                                         >> "$FILE"
     printf "SOURCES=%s\n" "$SOURCES"                                                            >> "$FILE"
     printf "OBJECTS=\$(SOURCES:.c=.o)\n"                                                        >> "$FILE"
     printf "EXECUTABLE=%s\n" "$EXECUTABLE"                                                      >> "$FILE"
-    printf "\n"                                                                                 >> "$FILE"
-    printf "all: \$(SOURCES) \$(EXECUTABLE)\n"                                                  >> "$FILE"
-    printf "            \n"                                                                     >> "$FILE"
+
+    printf "all: \$(SOURCES) \$(EXECUTABLE)\n\n"                                                >> "$FILE"
+
     printf "\$(EXECUTABLE): \$(OBJECTS)\n"                                                      >> "$FILE"
-    printf "\t\$(CC) \$(OBJECTS) \$(LDFLAGS) -o \$@\n"                                          >> "$FILE"
-    printf "\n"                                                                                 >> "$FILE"
+    printf "\t\$(CC) \$(OBJECTS) \$(LDFLAGS) -o \$@\n\n"                                        >> "$FILE"
+
     printf ".c.o:\n"                                                                            >> "$FILE"
-    printf "\t\$(CC) \$(CFLAGS) \$< -o \$@\n"                                                   >> "$FILE"
-    printf "\n"                                                                                 >> "$FILE"
-    printf "install:\n"                                                                         >> "$FILE"
-    printf "\tinstall -Dm 775 \$(EXECUTABLE) /usr/bin/\$(EXECUTABLE)\n"                         >> "$FILE"
-    printf "\n"                                                                                 >> "$FILE"
-    printf "uninstall:\n"                                                                       >> "$FILE"
-    printf "\trm -f /usr/bin/\$(EXECUTABLE)\n"                                                  >> "$FILE"
-    printf "\n"                                                                                 >> "$FILE"
+    printf "\t\$(CC) \$(CFLAGS) \$< -o \$@\n\n"                                                 >> "$FILE"
+
     printf "clean:\n"                                                                           >> "$FILE"
     printf "\trm -f \$(EXECUTABLE)\n"                                                           >> "$FILE"
-    printf "\trm -f *.o\n"                                                                      >> "$FILE"
-    printf "\n"                                                                                 >> "$FILE"
-    printf ".PHONY: install uninstall clean\n"                                                  >> "$FILE"
+    printf "\trm -f *.o\n\n"                                                                    >> "$FILE"
+
+    printf ".PHONY: clean\n"                                                                    >> "$FILE"
 }
