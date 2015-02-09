@@ -14,17 +14,12 @@ $ ./setup.sh
 setup.sh options
 ----------------
 ```
-Usage: ./setup.sh [options]
-Installs ryans_dotfiles into your $HOME.
+Usage: ./setup.sh [-h] [-fuc]
 
-  --help     Display this help message.
-  --basic    Install only the basics.
-  --full     Install everything!
-  --copy     Copy files instead of symlinking.
-  --symlink  Symlink files instead of copying.
-  --force    Overwrite existing files.
-
-Default run: ./setup.sh --basic --copy
+  -h    Show this help message.
+  -f    Force install.
+  -u    Install *all* config files.
+  -c    Copy files instead of using symlinking.
 
 Report bugs to <ryan.mjacobs@gmail.com>.
 ```

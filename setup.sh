@@ -1,152 +1,101 @@
-#!/bin/bash
+#!/bin/sh
 ################################################################################
 # setup.sh
 #
-# Run './setup.sh' to intall dotfiles in home with symlinks.
+# Run './setup.sh' to intall dotfiles into $HOME.
 #
 # Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
 # October 03, 2014 -> File creation.
-# January 20, 2014 -> Add .toprc
+# January 20, 2015 -> Add .toprc
+# Febuary 18, 2015 -> Refactor script; it looks so much cleaner!
 ################################################################################
 
+set -o posix
+
 dir=$(pwd)
-home=$HOME
 
-config_install=(\
-    'dunst'
-)
-basic_install=(\
-    '.bashrc'\
-    '.dir_colors'\
-    '.irssi'\
-    '.inputrc'\
-    '.mplayer'\
-    '.mpv'\
-    '.profile'\
-    '.tmux.conf'\
-    '.toprc'\
-    '.vim'\
-    '.vimrc'\
-    '.Xresources'\
-)
-full_install=(\
-    '.abcde.conf'\
-    '.bashrc'\
-    '.bin'\
-    '.dir_colors'\
-    '.gitconfig'\
-    '.gnuplot'\
-    '.irssi'\
-    '.inputrc'\
-    '.mplayer'\
-    '.mpv'\
-    '.profile'\
-    '.tmux.conf'\
-    '.toprc'\
-    '.twmrc'\
-    '.vim'\
-    '.vimrc'\
-    '.vitetris'\
-    '.vnc'\
-    '.xinitrc'\
-    '.Xresources'\
-)
-
-# Usage: help_msg
-help_msg() {
-    printf "Usage: $0 [options]\n"
-    printf "Installs ryans_dotfiles into your \$HOME.\n\n"
-    printf "  --help     Display this help message.\n"
-    printf "  --basic    Install only the basics.\n"
-    printf "  --full     Install everything!\n"
-    printf "  --copy     Copy files instead of symlinking.\n"
-    printf "  --symlink  Symlink files instead of copying.\n"
-    printf "  --force    Overwrite existing files.\n"
-
-    printf "\nDefault run: $0 --basic --copy\n"
-
-    printf "\nReport bugs to <ryan.mjacobs@gmail.com>.\n"
+show_help() {
+    echo -e "Usage: $0 [-h] [-fuc]\n"
+    echo "  -h    Show this help message."
+    echo "  -f    Force install."
+    echo "  -u    Install *all* config files."
+    echo "  -c    Copy files instead of using symlinking."
+    echo -e "\nReport bugs to <ryan.mjacobs@gmail.com>."
+    exit 0
 }
 
-# Get arguments
-basic_flag=true
-full_flag=false
-copy_flag=true
-symlink_flag=false
-force_flag=false
-while [ $# -gt 0 ]; do
-    case "$1" in
-        -h|--help)
-            help_msg
-            exit 0;;
-        --basic)
-            basic_flag=true
-            full_flag=false
-            shift;;
-        --full)
-            full_flag=true
-            basic_flag=false
-            shift;;
-        --copy)
-            copy_flag=true
-            symlink_flag=false
-            shift;;
-        --symlink)
-            symlink_flag=true
-            copy_flag=false
-            shift;;
-        --force)
-            force_flag=true
-            shift;;
-        *)
-            break;;
+force=false
+full=false
+tool="ln -srv"
+
+# Grab arguments
+while getopts "h?fuc" opt; do
+    case "$opt" in
+        h|\?) show_help ;;
+        f)   force=true ;;
+        u)    full=true ;;
+        c)    tool="cp -rv --parents" ;;
     esac
 done
 
-if [ "$basic_flag" == true ]; then
-    files="${basic_install[@]}"
-elif [ "$full_flag" == true ]; then
-    files="${full_install[@]}"
-fi
+# Check for dependencies
+echo "# Checking for dependencies..."
+deps=("git" "ln" "cp")
+for d in ${deps[@]}; do
+    if ! type "$d"; then
+        echo "error: $d is required to run $0."
+    fi
+done
 
-# Pull in submodules
+# Update submodules
+echo -e "\n# Updating submodules..."
 git submodule init
 git submodule update --recursive
 
-# Install normal dotfiles
-printf "Installing into $home/\n\n"
-for file in ${files[@]}; do
-    [ "$force_flag" == true ] && rm -r "$home/$file"
+# Create basic $HOME structure
+mkdir -vp "$HOME/.bin"
+mkdir -vp "$HOME/.config"
 
-    if [ "$copy_flag" == true ]; then
-        cp --verbose -Lr "$dir/$file" "$home"
-    elif [ "$symlink_flag" == true ]; then
-        ln --verbose --symbolic "$dir/$file" "$home"
+# Basic Install
+basic_install=(\
+    ".bashrc"\
+    ".dir_colors"\
+    ".mplayer"\
+    ".mpv"\
+    ".profile"\
+    ".tmux.conf"\
+    ".toprc"\
+    ".twmrc"
+    ".vim"\
+    ".vimrc"\
+    ".Xresources"\
+)
+
+# Full Install
+full_install=(\
+    ${basic_install[@]}\
+    ".abcde.conf"\
+    ".irssi"\
+    ".toprc"\
+    ".vitetris"\
+    ".xinitrc"\
+
+    ".config/dunst/dunstrc"\
+)
+
+# What array will we use?
+if [ $full == "true" ]; then
+    array=${full_install[@]}
+else
+    array=${basic_install[@]}
+fi
+
+# Copy/Symlink the files
+[ "$tool" == "cp -rv --parents" ] && echo -e "\n# Copying files..." || echo -e "\n# Symlinking files..."
+for f in ${array[@]}; do
+    if [ $force == "true" ]; then
+        rm -r "$HOME/$f"
     fi
 
-    if [ $? -ne 0 ]; then
-        printf "\nFailed to install!\nQuitting.\n"
-        exit 1
-    fi
+    $tool "$f" "$HOME"
 done
-
-# Install .config/ files
-printf "\nInstalling into $home/.config/\n"
-[ ! -d "$home/.config" ] && mkdir -v "$home/.config"
-for file in ${config_install[@]}; do
-    [ "$force_flag" == true ] && rm -r "$home/.config/$file"
-
-    if [ "$copy_flag" == true ]; then
-        cp --verbose -Lr "$dir/.config/$file" "$home/.config"
-    elif [ "$symlink_flag" == true ]; then
-        ln --verbose --symbolic "$dir/.config/$file" "$home/.config"
-    fi
-
-    if [ $? -ne 0 ]; then
-        printf "\nFailed to install!\nQuitting.\n"
-        exit 1
-    fi
-done
-
-printf "\nSuccessfully installed!\nQuitting.\n"
-exit 0
