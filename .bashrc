@@ -250,31 +250,6 @@ say() {
    $player "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null
 }
 
-#  Toggle a temporary ram partition
-ram_drive() {
-    if [ $# != 0 ]; then
-        printf "Creates a temporary RAM partition at /mnt/RAM.\n"
-        printf "Usage: %s\n" $FUNCNAME
-        return 1
-    fi
-
-    MOUNT="/mnt/RAM"
-    SIZE="3072M"
-
-    cat /proc/mounts | grep "$MOUNT" > /dev/null
-
-    if [ $? -eq 0 ]; then
-        read -p "Press <ENTER> to Remove RAM Partition:"
-        sudo umount "$MOUNT" &&\
-        printf "%s -> OFF\n" "$MOUNT" ||\
-        printf "Error: couldn't unmount the RAM partition\n"
-    else
-        sudo mount -t tmpfs tmpfs "$MOUNT" -o size=$SIZE &&\
-        printf "%s -> ON\n" "$MOUNT" ||\
-        printf "Error: couldn't mount the RAM partition\n"
-    fi
-}
-
 # Find the total length of playable media in a directory
 medialen() {
     if   [ $# -eq 1 ]; then
