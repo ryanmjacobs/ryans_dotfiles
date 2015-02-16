@@ -24,6 +24,9 @@ $HOME/.bin/dwmstatus &
 # Dunst Notification Daemon
 dunst &
 
+# Keep the colors pleasing
+redshift &
+
 # Start the WM
 #exec twm
 exec dwm
