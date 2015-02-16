@@ -32,9 +32,8 @@ static const char *tags[] = { "School", "Other", "Organize", "Dev.", "Doc.", "MP
 
 static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
-    { "Gimp",     NULL,       NULL,       0,            True,        -1 },
-    { "Firefox",  NULL,       NULL,       0,            False,       -1 },
-    { "mpv",      NULL,       NULL,       1 << 5,       True,        -1 },
+    { "gimp",     NULL,       NULL,       0,            True,        -1 },
+    { "mpv",      NULL,       NULL,       1 << 5,       True,        -1 }
 };
 
 /* layout(s) */
