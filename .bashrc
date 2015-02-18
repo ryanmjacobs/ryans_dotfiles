@@ -61,7 +61,7 @@ export GPG_TTY=$(tty)
 
 # Include the local bin
 bin_path="$HOME/.bin"
-builds_path="$HOME/builds/install/bin"
+builds_path="$HOME/builds/usr/bin"
 npm_path="$(npm config get prefix 2>/dev/null)/bin"
 ruby_path="$(ruby -rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
 cabal_path="$HOME/.cabal/bin"
