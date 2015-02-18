@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/emmet-vim"]
 	path = .vim/bundle/emmet-vim
 	url = git://github.com/mattn/emmet-vim
+[submodule ".vim/bundle/syntax"]
+	path = .vim/bundle/syntax
+	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
