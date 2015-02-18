@@ -44,7 +44,10 @@ set ruler
 try
     colorscheme molokai
 catch
+    colorscheme default
 endtry
+
+set background=dark
 
 " Enable syntax highlighting and auto-indentation
 syntax enable
@@ -71,6 +74,8 @@ function! IndentTabs()
 endfunction
 
 call IndentSpaces()
+command! IndentSpaces call IndentSpaces()
+command! IndentTabs   call IndentTabs()
 """""""""" End Tab Settings """"""""""
 
 " Ban the use of arrow keys (hjkl is more efficient anyways)
