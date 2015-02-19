@@ -66,6 +66,7 @@ npm_path="$(npm config get prefix 2>/dev/null)/bin"
 ruby_path="$(ruby -rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
 cabal_path="$HOME/.cabal/bin"
 PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path"
+LD_LIBRARY_PATH="$HOME/builds/usr/lib:$LD_LIBRARY_PATH"
 
 # Source in bash functions
 source "$bin_path/h.sh"
