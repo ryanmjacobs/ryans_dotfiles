@@ -73,6 +73,7 @@ basic_install=(\
 full_install=(\
     ${basic_install[@]}\
     ".abcde.conf"\
+    ".gemrc"\
     ".irssi"\
     ".toprc"\
     ".vitetris"\

@@ -1,0 +1,13 @@
+################################################################################
+# .gemrc
+#
+# Maintained By: Ryan Jacobs <ryan.mjacobs@gmail.com>
+#
+# Febuary 18, 2015
+################################################################################
+
+# Install to $HOME/.gem/ with NO documentation
+gem: --user-install --no-document
+
+# Install to /usr/... with NO documentation
+gem: --no-user-install --no-document
