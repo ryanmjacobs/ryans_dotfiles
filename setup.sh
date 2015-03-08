@@ -25,7 +25,7 @@ show_help() {
 
 force=false
 full=false
-tool="ln -sv"
+tool="ln"
 
 # Grab arguments
 while getopts "h?fuc" opt; do
@@ -33,7 +33,7 @@ while getopts "h?fuc" opt; do
         h|\?) show_help ;;
         f)   force=true ;;
         u)    full=true ;;
-        c)    tool="cp -rv" ;;
+        c)    tool="cp" ;;
     esac
 done
 
@@ -53,8 +53,8 @@ git submodule init
 git submodule update --recursive
 
 # Create basic $HOME structure
-mkdir -vp "$HOME/.bin"
-mkdir -vp "$HOME/.config"
+mkdir -p "$HOME/.bin"
+mkdir -p "$HOME/.config"
 
 # Basic Install
 basic_install=(\
@@ -82,6 +82,7 @@ full_install=(\
     ".xinitrc"\
 
     ".config/dunst/dunstrc"\
+    .bin/*\
 )
 
 # What array will we use?
@@ -92,12 +93,17 @@ else
 fi
 
 # Copy/Symlink the files
-[ "$tool" == "cp -rv" ] && echo -e "\n# Copying files..." || echo -e "\n# Symlinking files..."
+[ "$tool" == "cp" ] && echo -e "\n# Copying files..." || echo -e "\n# Symlinking files..."
 for f in ${array[@]}; do
     [ $force == "true" ] && rm -rf "$HOME/$f"
 
+    if [ "$tool" == "cp" ]; then
+        cp -rv "$(readlink -f "$f")" "$HOME/$f"
+    elif [ "$tool" == "ln" ]; then
+        ln -sv "$dir/$f" "$HOME/$(dirname "$f")"
+    fi
+
     mkdir -p "$(dirname "$f")"
-    $tool "$dir/$f" "$HOME/$(dirname "$f")"
 done
 
 # Update Vundle packages
