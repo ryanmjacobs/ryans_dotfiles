@@ -41,12 +41,12 @@ autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set colorcolumn=72
 set ruler
 
 " Load color schemes if possible
+let g:solarized_termcolors=256
 try
     colorscheme molokai
 catch
     colorscheme default
 endtry
-
 set background=dark
 
 " Enable syntax highlighting and auto-indentation
