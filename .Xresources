@@ -69,6 +69,7 @@ XTerm*geometry: 80x24
 XTerm*cursorBlink: true
 XTerm*eightBitInput: false
 XTerm*scrollTtyOutput: true
+XTerm*cursorColor: white
 
 !=======================================
 ! Tango Terminal Colors
