@@ -40,6 +40,9 @@ autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set colorcolumn=72
 " Always display line numbers
 set ruler
 
+" Stop skipping 8s and 9s when incrementing with Ctrl-A
+set nrformats-=octal
+
 " Load color schemes if possible
 let g:solarized_termcolors=256
 try
