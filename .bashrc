@@ -163,33 +163,6 @@ we() {
     done
 }
 
-# Launch web browser and exit
-internet() {
-    OPTIND=1 # reset getopts
-    opt_help=false
-
-    while getopts "hg:" opt; do
-        case $opt in
-            h)
-                opt_help=true
-                ;;
-        esac
-    done
-
-    if [ $opt_help == true ]; then
-        printf "Launch web browser and exit.\n"
-        printf "Usage: %s [site...]\n" $FUNCNAME
-        return 0
-    fi
-
-    if [ $# -gt 0 ]; then
-       #firefox -private "$@" & exit
-        google-chrome --incognito "$@" & exit
-    else
-        google-chrome --incognito "http://www.google.com/" & exit
-    fi
-}
-
 # BASH Round Function
 round() {
     if [ $# != 2 ]; then
