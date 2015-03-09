@@ -39,7 +39,7 @@ endif
 
 " Colorscheme
 let g:solarized_termcolors=256
-colorscheme molokai
+silent !colorscheme molokai
 set background=dark
 
 " Syntax highlighting and auto-indentation
