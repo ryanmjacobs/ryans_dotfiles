@@ -1,24 +1,28 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " .vimrc
 "
-" Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
-"
-" March 18, 2014 -> File creation.
-"  June 03, 2014 -> Moved .gvimrc into .vimrc.
-"  June 17, 2014 -> Always map <F1> to <Esc>.
-"  June 21, 2014 -> Add other style of indentation: tabs. I prefer spaces but
-"                   if a project needs to be consistent... I'll adapt.
-" Sept. 06, 2014 -> Always display line numbers with `set ruler`
-" Sept. 08, 2014 -> Force Markdown syntax on *.md
-" Sept. 11, 2014 -> Exception handling of color scheme
-"  Oct. 06, 2014 -> 'filetype off' before loading pathogen.
+" Author:  Ryan Jacobs <ryan.mjacobs@gmail.com>
+" Updated: March 08, 2015
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" Enable Pathogen
-filetype off
-execute pathogen#infect()
 
-" Enable 256 colors if the terminal supports it
-if $COLORTERM == 'gnome-terminal' || $TERM == 'xterm-256color'
+" Required for Vundle
+set nocompatible
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+
+" Plugins
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tomasr/molokai'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mattn/emmet-vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'wting/rust.vim'
+Plugin 'cespare/vim-toml'
+call vundle#end()
+
+if $TERM == 'xterm-256color'
     set t_Co=256
 endif
 
@@ -33,52 +37,26 @@ if has("gui_running")
     endif
 endif
 
-" Highlight column 80, (72 for git)
-set colorcolumn=80
-autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set colorcolumn=72
-
-" Always display line numbers
-set ruler
-
-" Load color schemes if possible
-try
-    colorscheme molokai
-catch
-    colorscheme default
-endtry
-
+" Colorscheme
+let g:solarized_termcolors=256
+colorscheme molokai
 set background=dark
 
-" Enable syntax highlighting and auto-indentation
+" Syntax highlighting and auto-indentation
 syntax enable
 filetype plugin indent on
 
-" Force Markdown syntax highlighting on *.md
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" Misc. Options
+set ruler            " Always display line numbers
+set colorcolumn=80   " Highlight column 80
+set nrformats-=octal " Stop skipping 8s and 9s when incrementing with Ctrl-A
 
-"""""""""" Tab Settings """"""""""
-" Pressing <Tab> = insert 4 spaces
-function! IndentSpaces()
-    set tabstop=4
-    set shiftwidth=4
-    set expandtab
-endfunction
+" Press <Tab> = insert 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
-" Pressing <Tab> = insert a tab
-" Display tabs as 4 columns wide
-function! IndentTabs()
-    set tabstop=4
-    set softtabstop=4
-    set shiftwidth=4
-    set noexpandtab
-endfunction
-
-call IndentSpaces()
-command! IndentSpaces call IndentSpaces()
-command! IndentTabs   call IndentTabs()
-"""""""""" End Tab Settings """"""""""
-
-" Ban the use of arrow keys (hjkl is more efficient anyways)
+" Ban the use of arrow keys!
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -88,16 +66,11 @@ noremap <Right> <NOP>
 inoremap <F1> <Esc>
 noremap  <F1> <Esc>
 
-" Emmet: trigger=<tab>, filetypes=html,css,etc.
+" File specific settings
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set colorcolumn=72
+
+" Emmet: trigger=<tab>
 let g:user_emmet_expandabbr_key="<Tab>"
 let g:user_emmet_install_global=0
 autocmd FileType html,php,css,scss EmmetInstall
-
-" Append modeline after last line in buffer with <Leader>ml
-function! AppendModeline()
-    let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
-        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-    let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
-    call append(line("$"), l:modeline)
-endfunction
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>

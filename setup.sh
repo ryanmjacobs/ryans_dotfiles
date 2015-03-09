@@ -8,9 +8,10 @@
 # October 03, 2014 -> File creation.
 # January 20, 2015 -> Add .toprc
 # Febuary 18, 2015 -> Refactor script; it looks so much cleaner!
+#   March 08, 2015 -> Fix 'ln -s' bug. Use BASH not just any shell.
 ################################################################################
 
-dir=$(pwd)
+dir="$(pwd)"
 
 show_help() {
     echo -e "Usage: $0 [-h] [-fuc]\n"
@@ -24,7 +25,7 @@ show_help() {
 
 force=false
 full=false
-tool="ln -srv"
+tool="ln"
 
 # Grab arguments
 while getopts "h?fuc" opt; do
@@ -32,16 +33,17 @@ while getopts "h?fuc" opt; do
         h|\?) show_help ;;
         f)   force=true ;;
         u)    full=true ;;
-        c)    tool="cp -rv --parents" ;;
+        c)    tool="cp" ;;
     esac
 done
 
-# Check for dependencies
-echo "# Checking for dependencies..."
+# Check dependencies
+echo "# Checking dependencies..."
 deps=("git" "ln" "cp")
 for d in ${deps[@]}; do
     if ! type "$d"; then
         echo "error: $d is required to run $0."
+        exit 1
     fi
 done
 
@@ -51,8 +53,8 @@ git submodule init
 git submodule update --recursive
 
 # Create basic $HOME structure
-mkdir -vp "$HOME/.bin"
-mkdir -vp "$HOME/.config"
+mkdir -p "$HOME/.bin"
+mkdir -p "$HOME/.config"
 
 # Basic Install
 basic_install=(\
@@ -77,9 +79,11 @@ full_install=(\
     ".irssi"\
     ".toprc"\
     ".vitetris"\
+    ".vnc"\
     ".xinitrc"\
 
     ".config/dunst/dunstrc"\
+    .bin/*\
 )
 
 # What array will we use?
@@ -90,11 +94,20 @@ else
 fi
 
 # Copy/Symlink the files
-[ "$tool" == "cp -rv --parents" ] && echo -e "\n# Copying files..." || echo -e "\n# Symlinking files..."
+[ "$tool" == "cp" ] && echo -e "\n# Copying files..." || echo -e "\n# Symlinking files..."
 for f in ${array[@]}; do
-    if [ $force == "true" ]; then
-        rm -r "$HOME/$f"
+    [ $force == "true" ] && rm -rf "$HOME/$f"
+
+    if [ "$tool" == "cp" ]; then
+        cp -rv "$(readlink -f "$f")" "$HOME/$f"
+    elif [ "$tool" == "ln" ]; then
+        ln -sv "$dir/$f" "$HOME/$(dirname "$f")"
     fi
 
-    $tool "$f" "$HOME"
+    mkdir -p "$(dirname "$f")"
 done
+
+# Update Vundle packages
+if type vim &>/dev/null; then
+    vim -c BundleInstall -c qa
+fi

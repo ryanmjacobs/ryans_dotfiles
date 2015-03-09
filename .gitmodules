@@ -1,18 +1,6 @@
-[submodule ".vim/bundle/vim-arduino"]
-	path = .vim/bundle/vim-arduino
-	url = git://github.com/ryanmjacobs/vim-arduino
-[submodule ".vim/bundle/vim-javascript-syntax"]
-	path = .vim/bundle/vim-javascript-syntax
-	url = git://github.com/jelera/vim-javascript-syntax
-[submodule ".vim/bundle/vim-coffee-script"]
-	path = .vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
 [submodule "third_party/hhighlighter"]
 	path = third_party/hhighlighter
 	url = https://github.com/paoloantinori/hhighlighter
-[submodule ".vim/bundle/emmet-vim"]
-	path = .vim/bundle/emmet-vim
-	url = git://github.com/mattn/emmet-vim
-[submodule ".vim/bundle/syntax"]
-	path = .vim/bundle/syntax
-	url = https://github.com/octol/vim-cpp-enhanced-highlight.git

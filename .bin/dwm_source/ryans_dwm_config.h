@@ -7,6 +7,7 @@
  *    August 28, 2014 -> Add xkill shortcut (Ctrl-Alt-X).
  * September 09, 2014 -> Add scrot shortcut (Ctrl-Alt-S).
  *  December 03, 2014 -> Re-map the scrot shortcut to the PrintScreen button.
+ *   Febuary 22, 2015 -> Map Alt-P to "slock & pm-suspend".
  */
 
 #include <X11/XF86keysym.h> /* For special keys */
@@ -28,7 +29,7 @@ static const Bool topbar            = True;     /* False means bottom bar */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 //                            1,        2,       3,          4,      5,      6,     7,       8,    9
-static const char *tags[] = { "School", "Other", "Organize", "Dev.", "Doc.", "MPV", "Pref.", "BG", "DL" };
+static const char *tags[] = { "Chrome", "Other", "Organize", "Dev.", "Doc.", "MPV", "Pref.", "BG", "DL" };
 
 static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
@@ -71,6 +72,7 @@ static const char *brightness_up[]   = { "sudo", "/usr/bin/brightness.sh", "inc"
 static const char *brightness_down[] = { "sudo", "/usr/bin/brightness.sh", "dec", "5", NULL };
 static const char *xkill[]           = { "xkill", NULL };
 static const char *scrot[]           = { "scrot", "scrot.png", NULL };
+static const char *sleepcmd[]        = { "sh", "-c", "slock & sudo pm-suspend", NULL };
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -85,9 +87,10 @@ static Key keys[] = {
     { ControlMask|MODKEY,           XK_s,      spawn,          {.v = scrot } },
     { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
     { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
+    { MODKEY,                       XK_p,      spawn,          {.v = sleepcmd } },
 
     /* Builtin Shortcuts */
-    { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+  //{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { ControlMask|ShiftMask,        XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
