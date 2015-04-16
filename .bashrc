@@ -65,7 +65,10 @@ builds_path="$HOME/builds/usr/bin"
 npm_path="$(npm config get prefix 2>/dev/null)/bin"
 ruby_path="$(ruby -rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
 cabal_path="$HOME/.cabal/bin"
-PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path"
+export GOPATH="$HOME/.go"
+go_path="$GOPATH/bin"
+
+PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path:$go_path"
 LD_LIBRARY_PATH="$HOME/builds/usr/lib:$LD_LIBRARY_PATH"
 
 # Source in bash functions
@@ -119,9 +122,6 @@ alias feh="feh -."
 # Launch irssi with the Jellybeans theme
 alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 
-# Disable BASH History
-alias historyoff="set +o history; history -c"
-
 # If colordiff is installed, use it instead of normal diff
 if hash colordiff &>/dev/null; then
     alias diff="colordiff"
@@ -130,38 +130,6 @@ fi
 ################################################################################
 # Useful Functions
 ################################################################################
-
-# When Exists. Loop every seconds and when file exists, return 0
-we() {
-    OPTIND=1
-    opt_help=false
-    opt_bytes=0
-    while getopts "hb:" opt; do
-        case $opt in
-            h) opt_help=true;;
-            b) opt_bytes=$OPTARG;;
-        esac
-    done
-
-    shift $((OPTIND-1))
-    file=$1
-
-    if [ -z "$file" ] || [ $opt_help == true ]; then
-        printf "Wait until the file exists, then return 0.\n"
-        printf "Usage: %s [-b bytes] <file>\n" $FUNCNAME
-        return 1
-    fi
-
-    while true; do
-        if [ -f "$file" ]; then
-            size=$(stat --printf="%s" "$file")
-            if [ "$size" -ge "$opt_bytes" ]; then
-                return 0
-            fi
-        fi
-        sleep 1
-    done
-}
 
 # BASH Round Function
 round() {
@@ -303,36 +271,33 @@ doxc() {
 
 # Create a default Makefile for C projects
 defmake() {
-    # Global variables
-    FILE="Makefile"
-
-    if [ $# == 0 ]; then
-        printf "Create a Makefile for C projects.\n"
-        printf "Usage: %s <executable_name> <source1> [source2] [source3...]\n" $FUNCNAME
+    if [ $# -gt 1 ]; then
+        echo "Create a Makefile for C projects."
+        echo "Usage: $FUNCNAME [executable_name]"
         return 1
     fi
 
-    EXECUTABLE=$1; shift
-    SOURCES="$@"
+    [ -n "$1" ] && executable="$1" || executable=a.out
+    [ ! -d src ] && mkdir src
 
-    printf "CC=gcc\n"                                                                           >> "$FILE"
-    printf "CFLAGS=-c -Wall\n"                                                                  >> "$FILE"
-    printf "LDFLAGS=\n"                                                                         >> "$FILE"
-    printf "SOURCES=%s\n" "$SOURCES"                                                            >> "$FILE"
-    printf "OBJECTS=\$(SOURCES:.c=.o)\n"                                                        >> "$FILE"
-    printf "EXECUTABLE=%s\n" "$EXECUTABLE"                                                      >> "$FILE"
+    >>Makefile echo -e "CC=gcc"
+    >>Makefile echo -e "CFLAGS=-c -Wall"
+    >>Makefile echo -e "LDFLAGS="
+    >>Makefile echo -e "SOURCES=\$(shell find src/ -type f -name '*.c')"
+    >>Makefile echo -e "OBJECTS=\$(SOURCES:.c=.o)"
+    >>Makefile echo -e "EXECUTABLE=$executable\n"
 
-    printf "all: \$(SOURCES) \$(EXECUTABLE)\n\n"                                                >> "$FILE"
+    >>Makefile echo -e "all: \$(SOURCES) \$(EXECUTABLE)\n"
 
-    printf "\$(EXECUTABLE): \$(OBJECTS)\n"                                                      >> "$FILE"
-    printf "\t\$(CC) \$(OBJECTS) \$(LDFLAGS) -o \$@\n\n"                                        >> "$FILE"
+    >>Makefile echo -e "\$(EXECUTABLE): \$(OBJECTS)"
+    >>Makefile echo -e "\t\$(CC) \$(OBJECTS) \$(LDFLAGS) -o \$@\n"
 
-    printf ".c.o:\n"                                                                            >> "$FILE"
-    printf "\t\$(CC) \$(CFLAGS) \$< -o \$@\n\n"                                                 >> "$FILE"
+    >>Makefile echo -e ".c.o:"
+    >>Makefile echo -e "\t\$(CC) \$(CPPFLAGS) \$(CFLAGS) \$< -o \$@\n"
 
-    printf "clean:\n"                                                                           >> "$FILE"
-    printf "\trm -f \$(EXECUTABLE)\n"                                                           >> "$FILE"
-    printf "\trm -f *.o\n\n"                                                                    >> "$FILE"
+    >>Makefile echo -e "clean:"
+    >>Makefile echo -e "\trm -f \$(EXECUTABLE)"
+	>>Makefile echo -e "\t@find src/ -type f -name '*.o' -exec rm -vf {} \\;\n"
 
-    printf ".PHONY: clean\n"                                                                    >> "$FILE"
+    >>Makefile echo -e ".PHONY: clean"
 }
