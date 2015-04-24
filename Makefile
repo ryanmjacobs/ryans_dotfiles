@@ -13,6 +13,6 @@ $(EXE): $(SOURCES)
 	$(STRIP) $@
 
 clean:
-	rm -f simple_uptime
+	rm -f $(EXE)
 
 .PHONY: clean
