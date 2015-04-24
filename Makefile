@@ -1,14 +1,16 @@
 CC?=gcc
-CFLAGS+=-Wall
+STRIP?=strip
+CFLAGS+=-Wall -O2
 
 SOURCES=$(shell find src/ -type f -name '*.c')
 EXE:=$(subst src,.,$(SOURCES))
 EXE:=$(subst .c,,$(EXE))
 
-all: simple_uptime
+all: $(EXE)
 
 $(EXE): $(SOURCES)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< -o $@
+	$(STRIP) $@
 
 clean:
 	rm -f simple_uptime
