@@ -6,13 +6,15 @@ SOURCES=$(shell find src/ -type f -name '*.c')
 EXE:=$(subst src,.,$(SOURCES))
 EXE:=$(subst .c,,$(EXE))
 
-all: $(EXE)
+all: $(EXE) strip
 
 $(EXE): $(SOURCES)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< -o $@
-	$(STRIP) $@
+
+strip:
+	$(STRIP) $(EXE)
 
 clean:
 	rm -f $(EXE)
 
-.PHONY: clean
+.PHONY: strip clean
