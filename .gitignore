@@ -1,3 +1,10 @@
+# Compiled binaries
 /simple_uptime
 /we
+/dwm
+
+# Vim
+.*.sw[op]
+
+# dwm source
 /src/dwm/dwm-6.0
