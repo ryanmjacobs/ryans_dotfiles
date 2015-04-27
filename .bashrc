@@ -71,9 +71,6 @@ go_path="$GOPATH/bin"
 PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path:$go_path"
 LD_LIBRARY_PATH="$HOME/builds/usr/lib:$LD_LIBRARY_PATH"
 
-# Source in bash functions
-source "$bin_path/h.sh"
-
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
 
@@ -280,7 +277,7 @@ defmake() {
     [ -n "$1" ] && executable="$1" || executable=a.out
     [ ! -d src ] && mkdir src
 
-    >>Makefile echo -e "CC=gcc"
+     >Makefile echo -e "CC=gcc"
     >>Makefile echo -e "CFLAGS=-c -Wall"
     >>Makefile echo -e "LDFLAGS="
     >>Makefile echo -e "SOURCES=\$(shell find src/ -type f -name '*.c')"
