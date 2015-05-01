@@ -37,7 +37,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Export the terminal's ability for 256 colors
-TERM=xterm-256color
+#    Commented out because tmux complains:
+#     http://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux
+#export TERM=xterm-256color
 
 # Colorize with .dir_colors or /etc/DIR_COLORS
 if [ -f "$HOME/.dir_colors" ]; then
