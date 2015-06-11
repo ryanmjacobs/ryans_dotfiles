@@ -1,22 +1,23 @@
 CC?=gcc
 STRIP?=strip
-CFLAGS+=-Wall -O2
 
-SOURCES=$(shell find src/ -type f -name '*.c')
-EXE:=$(subst src,.,$(SOURCES))
-EXE:=$(subst .c,,$(EXE))
+EXE=we dwmstatus simple_uptime
 
-all: $(EXE) dwm strip
-
-$(EXE): $(SOURCES)
-	$(CC) $(CPPFLAGS) $(CFLAGS) $< -o $@
+all: dwm strip we dwmstatus simple_uptime
 
 dwm:
 	make -C./src/dwm
 	mv ./src/dwm/dwm .
 	make -C./src/dwm clean
 
-strip:
+we:
+	$(CC) -Wall -O2 -std=c89 -pedantic src/we.c -o we
+dwmstatus:
+	$(CC) -Wall -O2 -std=c89 -pedantic src/dwmstatus.c -lX11 -o dwmstatus
+simple_uptime:
+	$(CC) -Wall -O2 -std=c89 -pedantic src/simple_uptime.c -o simple_uptime
+
+strip: dwm $(EXE)
 	$(STRIP) $(EXE) dwm
 
 clean:

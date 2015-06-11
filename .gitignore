@@ -1,7 +1,8 @@
 # Compiled binaries
-/simple_uptime
-/we
 /dwm
+/we
+/dwmstatus
+/simple_uptime
 
 # Vim
 .*.sw[op]
