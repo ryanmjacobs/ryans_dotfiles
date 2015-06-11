@@ -29,7 +29,8 @@ endif
 if has("gui_running")
     set guioptions-=T " Don't display the toolbar
     if has("gui_gtk2")
-        set guifont=Inconsolata\ 10
+       "set guifont=Inconsolata\ 10
+        set guifont=Monospace\ 9
     elseif has("gui_macvim")
         set guifont=Menlo\ Regular:h14
     elseif has("gui_win32")
