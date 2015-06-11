@@ -52,6 +52,11 @@ echo -e "\n# Updating submodules..."
 git submodule init
 git submodule update --recursive
 
+# Build rbin
+pushd .bin/rbin
+make
+popd
+
 # Create basic $HOME structure
 mkdir -p "$HOME/.bin"
 mkdir -p "$HOME/.config"
