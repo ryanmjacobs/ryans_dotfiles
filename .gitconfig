@@ -11,17 +11,17 @@
 ################################################################################
 
 [user]
-	name       = Ryan Jacobs
-	email      = ryan.mjacobs@gmail.com
+    name       = Ryan Jacobs
+    email      = ryan.mjacobs@gmail.com
     signingkey = "CEED707A"
 [push]
-	default = simple
+    default = simple
 [core]
-	excludesfile = .gitignore
+    excludesfile = .gitignore
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [color]
     ui = true
 [alias]
