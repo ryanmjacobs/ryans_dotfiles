@@ -78,7 +78,6 @@ full_install=(\
     ".gemrc"\
     ".irssi"\
     ".toprc"\
-    ".vitetris"\
     ".vnc"\
     ".xinitrc"\
 
