@@ -107,9 +107,12 @@ char *getwifi(void) {
     pclose(fp);
     free(cmd);
 
-    /* TODO: catch if WiFi is off.
-    return smprintf("OFF");
-    */
+    /**
+     * I have no idea why a newline is represented by -48.
+     * But this works, so I guess I'll keep it.
+     */
+    if (essid[0] == -48)
+        return smprintf("OFF");
 
     cmd = smprintf("grep %s /proc/net/wireless | cut -d' ' -f5", dev_name);
     fp = popen(cmd, "r");
