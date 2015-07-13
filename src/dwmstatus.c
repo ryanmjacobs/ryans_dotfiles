@@ -161,6 +161,11 @@ char *getpower(void) {
 
 	perc = ((float)energy_now * 1000 / (float)voltage_now) * 100 / ((float)energy_full * 1000 / (float)voltage_now);
 
+    if (perc < 20) {
+        /* TODO: use libnotify instead */
+        system("notify-send -u critical 'Warning: Low Battery!'");
+    }
+
     return smprintf("%d", perc);
 }
 
