@@ -10,11 +10,11 @@ dwm:
 	mv ./src/dwm/dwm .
 	make -C./src/dwm clean
 
-we:
+we: src/we.c
 	$(CC) -Wall -O2 -std=c89 -pedantic src/we.c -o we
-dwmstatus:
+dwmstatus: src/dwmstatus.c
 	$(CC) -Wall -O2 -std=c89 -pedantic src/dwmstatus.c -lX11 -o dwmstatus
-simple_uptime:
+simple_uptime: src/simple_uptime.c
 	$(CC) -Wall -O2 -std=c89 -pedantic src/simple_uptime.c -o simple_uptime
 
 strip: dwm $(EXE)
