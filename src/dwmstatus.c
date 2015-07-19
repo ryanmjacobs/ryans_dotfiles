@@ -108,10 +108,10 @@ char *getwifi(void) {
     free(cmd);
 
     /**
-     * I have no idea why a newline is represented by -48.
+     * I have no idea why a newline is represented by -48 or 32.
      * But this works, so I guess I'll keep it.
      */
-    if (essid[0] == -48)
+    if (essid[0] == -48 || essid[0] == 32)
         return smprintf("OFF");
 
     cmd = smprintf("grep %s /proc/net/wireless | cut -d' ' -f5", dev_name);
