@@ -25,6 +25,8 @@ char *getwifi(void);
 char *getpower(void);
 char *getvol(void);
 
+int on_ac_power(void);
+
 static Display *dpy;
 
 static volatile int STOP = 0;
@@ -187,6 +189,12 @@ char *getvol(void) {
     return smprintf("%s", buf);
 }
 
+int on_ac_power(void) {
+    int ret = system("on_ac_power");
+
+    return (ret ? 0 : 1);
+}
+
 char *getdate(char *fmt) {
 	char buf[129];
 	time_t tim;
@@ -242,10 +250,12 @@ int main(void) {
     signal(SIGINT, sigint_handler);
 
 	for (;;sleep(1)) {
+        const char *ac;
+
         if (STOP) break;
 
-		avgs = loadavg();
-
+        ac     = on_ac_power() ? "AC " : "";
+		avgs   = loadavg();
         uptime = getuptime();
         wifi   = getwifi();
         power  = getpower();
@@ -254,8 +264,8 @@ int main(void) {
 
 		status = smprintf(
             "Uptime: [%s] | Wifi: %s | "
-            "Power: [%s%] | Vol: %s -- %s",
-            uptime, wifi, power, vol, time
+            "Power: %s[%s%] | Vol: %s -- %s",
+            uptime, wifi, ac, power, vol, time
         );
         puts(status);
 		setstatus(status);
