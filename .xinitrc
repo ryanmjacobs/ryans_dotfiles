@@ -28,7 +28,7 @@ xrdb $HOME/.Xresources
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 
 # Dwm Statusbar
-$HOME/.bin/dwmstatus &
+dwmstatus &
 
 # Dunst Notification Daemon
 dunst &
