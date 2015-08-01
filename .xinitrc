@@ -9,12 +9,16 @@
 ################################################################################
 
 # Dual monitors
-if ! $(xrandr --output HDMI1 | grep "not found"); then
-    xrandr --output HDMI1 --mode 1280x1024 --pos 1366x0 --rotate normal\
+if ! $(xrandr --output VGA1 | grep "not found"); then
+    # 1280x1024 VGA Screen
+    xrandr --output VGA1 --mode 1280x1024 --pos 1366x0 --rotate normal\
            --output LVDS1 --mode 1366x768 --pos 0x256 --rotate normal\
            --output VIRTUAL1 --off\
            --output DP1 --off\
            --output VGA1 --off
+
+    # 1080p HDMI Screen
+    #xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output LVDS1 --mode 1366x768 --pos 0x1080 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output VGA1 --off
 fi
 
 # Disable double-tap = click on touchpad
