@@ -121,6 +121,9 @@ char *getwifi(void) {
             break;
     }
 
+    if (essid[0] < 0)
+        return smprintf("OFF");
+
     cmd = smprintf("grep %s /proc/net/wireless | cut -d' ' -f5", dev_name);
     fp = popen(cmd, "r");
     if (fp == NULL) {
