@@ -20,6 +20,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'wting/rust.vim'
 Plugin 'cespare/vim-toml'
+Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
@@ -75,3 +77,13 @@ autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set colorcolumn=72
 let g:user_emmet_expandabbr_key="<Tab>"
 let g:user_emmet_install_global=0
 autocmd FileType html,php,css,scss EmmetInstall
+
+" vim-go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" disable neovim default status bar
+set laststatus=1
