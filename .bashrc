@@ -62,16 +62,16 @@ export EDITOR="vim"
 export GPG_TTY=$(tty)
 
 # Include the local bin
-bin_path="$HOME/.bin:$HOME/.bin/rbin"
-builds_path="$HOME/builds/usr/bin"
-npm_path="$(npm config get prefix 2>/dev/null)/bin"
-ruby_path="$(ruby -rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
-cabal_path="$HOME/.cabal/bin"
-export GOPATH="$HOME/.go"
-go_path="$GOPATH/bin"
-
-PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path:$go_path"
-LD_LIBRARY_PATH="$HOME/builds/usr/lib:$LD_LIBRARY_PATH"
+#bin_path="$HOME/.bin:$HOME/.bin/rbin"
+#builds_path="$HOME/builds/usr/bin"
+#npm_path="$(npm config get prefix 2>/dev/null)/bin"
+#ruby_path="$(ruby -rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
+#cabal_path="$HOME/.cabal/bin"
+#export GOPATH="$HOME/go"
+#go_path="$GOPATH/bin"
+#
+#PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path:$go_path"
+#LD_LIBRARY_PATH="$HOME/builds/usr/lib:$LD_LIBRARY_PATH"
 
 # Enable recursive globbing, (available in BASH v4 and above)
 shopt -s globstar
@@ -242,7 +242,6 @@ doxc() {
             printf " *\n"                                          >> "$file"
             printf " * @author  %s\n" "$AUTHOR"                    >> "$file"
             printf " * @date    %s\n" "$(date '+%B %d, %Y')"       >> "$file"
-            printf " * @bug     No known bugs.\n"                  >> "$file"
             printf " */\n"                                         >> "$file"
             printf "\n"                                            >> "$file"
             printf "#ifndef %s\n" "$header_name"                   >> "$file"
@@ -301,3 +300,9 @@ defmake() {
 
     >>Makefile echo -e ".PHONY: clean"
 }
+
+PATH="/home/ryan/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/ryan/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ryan/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ryan/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ryan/perl5"; export PERL_MM_OPT;
