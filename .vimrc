@@ -85,5 +85,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" disable neovim default status bar
+" disable neovim defaults
 set laststatus=1
+set nohlsearch
