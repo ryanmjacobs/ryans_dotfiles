@@ -261,7 +261,6 @@ doxc() {
             printf " *\n"                                          >> "$file"
             printf " * @author  %s\n" "$AUTHOR"                    >> "$file"
             printf " * @date    %s\n" "$(date '+%B %d, %Y')"       >> "$file"
-            printf " * @bug     No known bugs.\n"                  >> "$file"
             printf " */\n"                                         >> "$file"
             printf "\tFile created successfully!\n"
         fi
