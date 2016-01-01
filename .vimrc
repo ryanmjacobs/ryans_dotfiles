@@ -88,3 +88,4 @@ let g:go_highlight_build_constraints = 1
 " disable neovim defaults
 set laststatus=1
 set nohlsearch
+set mouse=
