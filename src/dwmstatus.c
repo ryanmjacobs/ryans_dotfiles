@@ -85,9 +85,9 @@ char *getuptime(void) {
 char *getwifi(void) {
     FILE *fp;
     char *cmd;
-    char dev_name[1024];
-    char essid[1024];
     char perc[1024];
+    char essid[1024];
+    char dev_name[1024];
 
     fp = popen("iwgetid | head -n1 | cut -d' ' -f1", "r");
     if (fp == NULL) {
@@ -110,18 +110,10 @@ char *getwifi(void) {
     free(cmd);
 
     /**
-     * I have no idea why a newline is represented by -48, -2, or 32.
-     * But this works, so I guess I'll keep it.
+     * If the first character of the ESSID is not ASCII-printable,
+     * then we probably aren't connected...
      */
-    switch (essid[0]) {
-        case -48:
-        case -2:
-        case 32:
-            return smprintf("OFF");
-            break;
-    }
-
-    if (essid[0] < 0)
+    if (essid[0] < 32 || essid[0] >= 127)
         return smprintf("OFF");
 
     cmd = smprintf("grep %s /proc/net/wireless | cut -d' ' -f5", dev_name);
