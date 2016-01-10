@@ -242,7 +242,7 @@ char *loadavg(void) {
 
 int main(void) {
     char *status;
-    char *avgs;
+    char *load;
     char *time;
 
     char *power;
@@ -263,7 +263,7 @@ int main(void) {
         if (STOP) break;
 
         ac     = on_ac_power() ? "AC " : "";
-        avgs   = loadavg();
+        load   = loadavg();
         uptime = getuptime();
         wifi   = getwifi();
         power  = getpower();
@@ -284,7 +284,7 @@ int main(void) {
         free(vol);
         free(time);
 
-        free(avgs);
+        free(load);
 
         free(status);
     }
