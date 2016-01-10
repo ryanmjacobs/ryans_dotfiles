@@ -35,25 +35,25 @@ void sigint_handler(int sig) {
 }
 
 char *smprintf(char *fmt, ...) {
-	va_list fmtargs;
-	char *ret;
-	int len;
+    va_list fmtargs;
+    char *ret;
+    int len;
 
-	va_start(fmtargs, fmt);
-	len = vsnprintf(NULL, 0, fmt, fmtargs);
-	va_end(fmtargs);
+    va_start(fmtargs, fmt);
+    len = vsnprintf(NULL, 0, fmt, fmtargs);
+    va_end(fmtargs);
 
-	ret = malloc(++len);
-	if (ret == NULL) {
-		perror("malloc");
-		exit(1);
-	}
+    ret = malloc(++len);
+    if (ret == NULL) {
+        perror("malloc");
+        exit(1);
+    }
 
-	va_start(fmtargs, fmt);
-	vsnprintf(ret, len, fmt, fmtargs);
-	va_end(fmtargs);
+    va_start(fmtargs, fmt);
+    vsnprintf(ret, len, fmt, fmtargs);
+    va_end(fmtargs);
 
-	return ret;
+    return ret;
 }
 
 char *getuptime(void) {
@@ -132,37 +132,37 @@ char *getwifi(void) {
 }
 
 char *getpower(void) {
-	FILE *fd;
+    FILE *fd;
     static int bat_samples = 0;
-	int perc, energy_now, energy_full, voltage_now;
+    int perc, energy_now, energy_full, voltage_now;
 
-	fd = fopen("/sys/class/power_supply/BAT0/energy_now", "r");
-	if(fd == NULL) {
-		fprintf(stderr, "Error opening energy_now.\n");
-		return NULL;
-	}
-	fscanf(fd, "%d", &energy_now);
-	fclose(fd);
-
-
-	fd = fopen("/sys/class/power_supply/BAT0/energy_full", "r");
-	if(fd == NULL) {
-		fprintf(stderr, "Error opening energy_full.\n");
-		return NULL;
-	}
-	fscanf(fd, "%d", &energy_full);
-	fclose(fd);
+    fd = fopen("/sys/class/power_supply/BAT0/energy_now", "r");
+    if(fd == NULL) {
+        fprintf(stderr, "Error opening energy_now.\n");
+        return NULL;
+    }
+    fscanf(fd, "%d", &energy_now);
+    fclose(fd);
 
 
-	fd = fopen("/sys/class/power_supply/BAT0/voltage_now", "r");
-	if(fd == NULL) {
-		fprintf(stderr, "Error opening voltage_now.\n");
-		return NULL;
-	}
-	fscanf(fd, "%d", &voltage_now);
-	fclose(fd);
+    fd = fopen("/sys/class/power_supply/BAT0/energy_full", "r");
+    if(fd == NULL) {
+        fprintf(stderr, "Error opening energy_full.\n");
+        return NULL;
+    }
+    fscanf(fd, "%d", &energy_full);
+    fclose(fd);
 
-	perc = ((float)energy_now * 1000 / (float)voltage_now) * 100 / ((float)energy_full * 1000 / (float)voltage_now);
+
+    fd = fopen("/sys/class/power_supply/BAT0/voltage_now", "r");
+    if(fd == NULL) {
+        fprintf(stderr, "Error opening voltage_now.\n");
+        return NULL;
+    }
+    fscanf(fd, "%d", &voltage_now);
+    fclose(fd);
+
+    perc = ((float)energy_now * 1000 / (float)voltage_now) * 100 / ((float)energy_full * 1000 / (float)voltage_now);
 
     /**
      * Only notify user of low battery if the percentage
@@ -204,92 +204,92 @@ int on_ac_power(void) {
 }
 
 char *getdate(char *fmt) {
-	char buf[129];
-	time_t tim;
-	struct tm *timtm;
+    char buf[129];
+    time_t tim;
+    struct tm *timtm;
 
-	memset(buf, 0, sizeof(buf));
-	tim = time(NULL);
-	timtm = localtime(&tim);
-	if (timtm == NULL) {
-		perror("localtime");
-		exit(1);
-	}
+    memset(buf, 0, sizeof(buf));
+    tim = time(NULL);
+    timtm = localtime(&tim);
+    if (timtm == NULL) {
+        perror("localtime");
+        exit(1);
+    }
 
-	if (!strftime(buf, sizeof(buf)-1, fmt, timtm)) {
-		fprintf(stderr, "strftime == 0\n");
-		exit(1);
-	}
+    if (!strftime(buf, sizeof(buf)-1, fmt, timtm)) {
+        fprintf(stderr, "strftime == 0\n");
+        exit(1);
+    }
 
-	return smprintf("%s", buf);
+    return smprintf("%s", buf);
 }
 
 void setstatus(char *str) {
-	XStoreName(dpy, DefaultRootWindow(dpy), str);
-	XSync(dpy, False);
+    XStoreName(dpy, DefaultRootWindow(dpy), str);
+    XSync(dpy, False);
 }
 
 char *loadavg(void) {
-	double avgs[3];
+    double avgs[3];
 
-	if (getloadavg(avgs, 3) < 0) {
-		perror("getloadavg");
-		exit(1);
-	}
+    if (getloadavg(avgs, 3) < 0) {
+        perror("getloadavg");
+        exit(1);
+    }
 
-	return smprintf("%.2f %.2f %.2f", avgs[0], avgs[1], avgs[2]);
+    return smprintf("%.2f %.2f %.2f", avgs[0], avgs[1], avgs[2]);
 }
 
 int main(void) {
-	char *status;
-	char *avgs;
-	char *time;
+    char *status;
+    char *avgs;
+    char *time;
 
     char *power;
     char *uptime;
     char *vol;
     char *wifi;
 
-	if (!(dpy = XOpenDisplay(NULL))) {
-		fprintf(stderr, "dwmstatus: cannot open display.\n");
-		return 1;
-	}
+    if (!(dpy = XOpenDisplay(NULL))) {
+        fprintf(stderr, "dwmstatus: cannot open display.\n");
+        return 1;
+    }
 
     signal(SIGINT, sigint_handler);
 
-	for (;;sleep(1)) {
+    for (;;sleep(1)) {
         const char *ac;
 
         if (STOP) break;
 
         ac     = on_ac_power() ? "AC " : "";
-		avgs   = loadavg();
+        avgs   = loadavg();
         uptime = getuptime();
         wifi   = getwifi();
         power  = getpower();
         vol    = getvol();
-		time   = getdate("%a %b %d, %Y | %r");
+        time   = getdate("%a %b %d, %Y | %r");
 
-		status = smprintf(
+        status = smprintf(
             "Uptime: [%s] | Wifi: %s | "
             "Power: %s[%s%] | Vol: %s -- %s",
             uptime, wifi, ac, power, vol, time
         );
         puts(status);
-		setstatus(status);
+        setstatus(status);
 
         free(uptime);
         free(wifi);
-		free(power);
+        free(power);
         free(vol);
-		free(time);
+        free(time);
 
-		free(avgs);
+        free(avgs);
 
-		free(status);
-	}
+        free(status);
+    }
 
-	XCloseDisplay(dpy);
+    XCloseDisplay(dpy);
 
-	return 0;
+    return 0;
 }
