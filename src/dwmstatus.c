@@ -133,6 +133,7 @@ char *getwifi(void) {
 
 char *getpower(void) {
 	FILE *fd;
+    static int bat_samples = 0;
 	int perc, energy_now, energy_full, voltage_now;
 
 	fd = fopen("/sys/class/power_supply/BAT0/energy_now", "r");
@@ -163,9 +164,16 @@ char *getpower(void) {
 
 	perc = ((float)energy_now * 1000 / (float)voltage_now) * 100 / ((float)energy_full * 1000 / (float)voltage_now);
 
+    /**
+     * Only notify user of low battery if the percentage
+     * is under 20% for 10 samples in a row.
+     * TODO: use libnotify instead of system()
+     */
     if (perc < 20) {
-        /* TODO: use libnotify instead */
-        system("notify-send -u critical 'Warning: Low Battery!'");
+        if (++bat_samples >= 10)
+            system("notify-send -u critical 'Warning: Low Battery!'");
+    } else {
+        bat_samples = 0;
     }
 
     return smprintf("%d", perc);
