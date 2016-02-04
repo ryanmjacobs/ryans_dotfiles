@@ -22,6 +22,7 @@ Plugin 'wting/rust.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'fatih/vim-go'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'elixir-lang/vim-elixir'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
@@ -89,3 +90,7 @@ let g:go_highlight_build_constraints = 1
 set laststatus=1
 set nohlsearch
 set mouse=
+
+" nginx conf
+" https://arian.io/vim-syntax-highlighting-for-nginx/
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx.conf if &ft == '' | setfiletype nginx | endif
