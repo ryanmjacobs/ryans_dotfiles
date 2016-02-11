@@ -23,6 +23,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'fatih/vim-go'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'JuliaLang/julia-vim'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
