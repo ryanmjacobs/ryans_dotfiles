@@ -12,7 +12,6 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 
 " Plugins
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kchmck/vim-coffee-script'
