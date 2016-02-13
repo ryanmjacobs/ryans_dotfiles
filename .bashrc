@@ -96,7 +96,7 @@ alias def="sdcv"
 alias vim="nvim"
 
 # Colorize ls and grep
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --quoting-style=literal"
 alias grep="grep --colour=auto"
 
 # Don't send the 'Erase is backspace.' message on XTerm when reset.
