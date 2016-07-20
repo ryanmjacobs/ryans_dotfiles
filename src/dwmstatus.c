@@ -87,8 +87,9 @@ char *getwifi(void) {
     char *cmd;
     char perc[1024];
     char essid[1024];
-    char dev_name[1024];
+    char dev_name[1024] = "wlp2s0";
 
+    /* old code to figure out interface name
     fp = popen("iwgetid | head -n1 | cut -d' ' -f1", "r");
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get wifi device name\n");
@@ -97,6 +98,7 @@ char *getwifi(void) {
     fgets(dev_name, sizeof(dev_name)-1, fp);
     strtok(dev_name, "\n");
     pclose(fp);
+    */
 
     cmd = smprintf("iwgetid -r %s", dev_name);
     fp = popen(cmd, "r");
@@ -113,7 +115,7 @@ char *getwifi(void) {
      * If the first character of the ESSID is not ASCII-printable,
      * then we probably aren't connected...
      */
-    if (essid[0] < 32 || essid[0] >= 127)
+    if (strlen(essid) == 0 || essid[0] < 32 || essid[0] >= 127)
         return smprintf("OFF");
 
     cmd = smprintf("grep %s /proc/net/wireless | cut -d' ' -f5", dev_name);
