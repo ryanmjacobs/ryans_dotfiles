@@ -13,17 +13,18 @@
 #include <X11/XF86keysym.h> /* For special keys */
 
 /* appearance */
-static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
+static const char *fonts[]          = { "monospace:size=10" };
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;        /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
+
+/* colors */
+static const char *colors[SchemeLast][3]      = {
+	/*               fg         bg         border   */
+	[SchemeNorm] = { "#bbbbbb", "#222222", "#444444" },
+	[SchemeSel] =  { "#eeeeee", "#005577", "#005577" },
+};
 
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -60,10 +61,11 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+/* dmenu stuff (we don't use it, but dwm won't compile w/o it) */
+static char dmenumon[2] = "0";
+static const char *dmenucmd[] = { "dmenu_run", "-m", 0, NULL };
+
 /* commands */
-static const char *dmenucmd[]        = { "dmenu_run", "-fn", font, "-nb", normbgcolor,
-                                         "-nf", normfgcolor, "-sb", selbgcolor, "-sf",
-                                         selfgcolor, NULL };
 static const char *termcmd[]         = { "xterm", NULL };
 static const char *volume_down[]     = { "amixer", "-q", "set", "Master", "2%-", "unmute", NULL };
 static const char *volume_up[]       = { "amixer", "-q", "set", "Master", "2%+", "unmute", NULL };
