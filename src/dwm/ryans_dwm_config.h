@@ -13,7 +13,7 @@
 #include <X11/XF86keysym.h> /* For special keys */
 
 /* appearance */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "monospace:size=8" };
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;        /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
