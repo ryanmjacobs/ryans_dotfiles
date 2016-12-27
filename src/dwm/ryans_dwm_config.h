@@ -74,7 +74,7 @@ static const char *brightness_up[]   = { "sudo", "/usr/bin/brightness.sh", "inc"
 static const char *brightness_down[] = { "sudo", "/usr/bin/brightness.sh", "dec", "5", NULL };
 static const char *xkill[]           = { "xkill", NULL };
 static const char *scrot[]           = { "scrot", "scrot.png", NULL };
-static const char *sleepcmd[]        = { "sh", "-c", "slock & sudo pm-suspend", NULL };
+static const char *sleepcmd[]        = { "sh", "-c", "slock & systemctl suspend", NULL };
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
