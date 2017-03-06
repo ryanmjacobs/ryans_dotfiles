@@ -13,7 +13,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 " Plugins
 call vundle#begin()
 Plugin 'tomasr/molokai'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -24,6 +24,9 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'ryanmjacobs/vim-arduino'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'kien/rainbow_parentheses.vim'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
@@ -62,10 +65,10 @@ set shiftwidth=4
 set expandtab
 
 " Ban the use of arrow keys!
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+"noremap <Up> <NOP>
+"noremap <Down> <NOP>
+"noremap <Left> <NOP>
+"noremap <Right> <NOP>
 
 " Map F1 Key to escape
 inoremap <F1> <Esc>
@@ -95,3 +98,11 @@ set mouse=
 " nginx conf
 " https://arian.io/vim-syntax-highlighting-for-nginx/
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx.conf if &ft == '' | setfiletype nginx | endif
+
+" markdown textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
