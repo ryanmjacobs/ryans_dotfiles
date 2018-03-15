@@ -27,6 +27,8 @@ Plugin 'ryanmjacobs/vim-arduino'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'posva/vim-vue'
+Plugin 'tomlion/vim-solidity'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
@@ -81,7 +83,7 @@ autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set colorcolumn=72
 " Emmet: trigger=<tab>
 let g:user_emmet_expandabbr_key="<Tab>"
 let g:user_emmet_install_global=0
-autocmd FileType html,php,css,scss EmmetInstall
+autocmd FileType html,php,css,scss,vue EmmetInstall
 
 " vim-go
 let g:go_highlight_functions = 1
