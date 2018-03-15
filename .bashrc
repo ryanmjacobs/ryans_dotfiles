@@ -65,9 +65,7 @@ alias feh="feh -."
 alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 
 # If colordiff is installed, use it instead of normal diff
-if hash colordiff &>/dev/null; then
-    alias diff="colordiff"
-fi
+hash colordiff &>/dev/null && alias diff="colordiff"
 
 ################################################################################
 # Useful Functions
