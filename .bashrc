@@ -51,13 +51,6 @@ alias grep="grep --colour=auto"
 # Don't send the 'Erase is backspace.' message on XTerm when reset.
 alias reset="reset -Q"
 
-# Just a timestamp/datestamp format that I prefer.
-# Useful as such: echo "hello world" > file_$(ts).txt
-alias timestamp="date +%T"
-alias datestamp="date +%F"
-alias ts=timestamp
-alias ds=datestamp
-
 # Basic Bash prompt
 alias basic_prompt='PS1="\e[01;34m$ \e[00m"'
 
