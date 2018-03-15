@@ -174,24 +174,6 @@ serve() {
     pv -rpbe "$FILE" | netcat -l $PORT
 }
 
-# Use google translate for locale based TTS
-say() {
-    if [[ "${1}" =~ -[a-z]{2} ]]; then
-        local lang=${1#-}
-        local text="${*#$1}"
-    else local lang=${LANG%_*}
-        local text="$*"
-    fi
-       
-    if hash "mpv"; then
-        player="mpv"
-    elif hash "mplayer"; then
-        player="mplayer"
-    fi
-
-   $player "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null
-}
-
 # Find the total length of playable media in a directory
 medialen() {
     if   [ $# -eq 1 ]; then
