@@ -153,27 +153,6 @@ xtitle() {
     echo -ne "\033]0;${@}\007"
 }
 
-# Serve a file using netcat
-# Only guaranteed to work using openbsd-netcat
-serve() {
-    if [ $# != 2 ]; then
-        printf "Serves a file using netcat.\n"
-        printf "Usage: %s <file> <port>\n" $FUNCNAME
-        return 1
-    fi
-
-    FILE="$1"
-    PORT="$2"
-
-    # Check the file even exists
-    if [ ! -f "$FILE" ]; then
-        printf "The file '%s' doesn't exist!\n" "$FILE"
-        return 1
-    fi
-
-    pv -rpbe "$FILE" | netcat -l $PORT
-}
-
 # Find the total length of playable media in a directory
 medialen() {
     if   [ $# -eq 1 ]; then
