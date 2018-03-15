@@ -154,13 +154,13 @@ doxc() {
 
 # Create a default Makefile for C projects
 defmake() {
-    if [ $# -gt 1 ]; then
+    if [ $# -ne 1 ]; then
         echo "Create a Makefile for C projects."
-        echo "Usage: $FUNCNAME [executable_name]"
+        echo "Usage: $FUNCNAME <executable_name>"
         return 1
     fi
 
-    [ -n "$1" ] && executable="$1" || executable=a.out
+    exe="$1"
     [ ! -d src ] && mkdir src
 
      >Makefile echo -e "CC=gcc"
@@ -168,7 +168,7 @@ defmake() {
     >>Makefile echo -e "LDFLAGS="
     >>Makefile echo -e "SOURCES=\$(shell find src/ -type f -name '*.c')"
     >>Makefile echo -e "OBJECTS=\$(SOURCES:.c=.o)"
-    >>Makefile echo -e "EXECUTABLE=$executable\n"
+    >>Makefile echo -e "EXECUTABLE=$exe\n"
 
     >>Makefile echo -e "all: \$(SOURCES) \$(EXECUTABLE)\n"
 
@@ -185,6 +185,18 @@ defmake() {
     >>Makefile echo -e ".PHONY: clean"
 }
 
+# neat looping utilities
+# examples:
+#   $ 2x echo hello
+#   hello
+#   hello
+#
+#   $ x2 echo hello
+#   hello
+#   hello
+#
+#   $ x3 echo -n world
+#   world world world
 for n in {2..20}; do
     eval "${n}x() { for n in `seq -s' ' $n`; do" '$@; done }'
     eval "x${n}() { for n in `seq -s' ' $n`; do" '$@; done }'
