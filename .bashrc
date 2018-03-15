@@ -131,22 +131,6 @@ fi
 # Useful Functions
 ################################################################################
 
-# BASH Round Function
-round() {
-    if [ $# != 2 ]; then
-        printf "BASH Round Function.\n"
-        printf "Usage: %s <Number to Round> <Places to Round>\n" $FUNCNAME
-        return 1
-    fi
-
-    if [ $2 -gt 64 ]; then
-        printf "Unable to round further than 64 decimal places, defaulting to 64 places:\n\n"
-        echo $(printf %.64f $(echo "scale=64;(((10^64)*$1)+0.5)/(10^64)" | bc))
-    else
-        echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)/(10^$2)" | bc))
-    fi
-}
-
 # Set the terminal title
 xtitle() {
     unset PROMPT_COMMAND
