@@ -77,24 +77,6 @@ xtitle() {
     echo -ne "\033]0;${@}\007"
 }
 
-# Find the total length of playable media in a directory
-medialen() {
-    if   [ $# -eq 1 ]; then
-        SEARCH_PATH="$1"
-    elif [ $# -eq 0 ]; then
-        SEARCH_PATH=$PWD
-    else
-        printf "Finds the total length of playable media in a directory.\n"
-        printf "Output format is: DD:HH:MM:SS.\n\n"
-        printf "Usage: %s <PATH>\n" $FUNCNAME
-        return 1
-    fi
-
-    find "$SEARCH_PATH" -type f -print0 |\
-    xargs -0  mplayer -vo dummy -ao dummy -identify 2>/dev/null |\
-    perl -nle '/ID_LENGTH=([0-9\.]+)/ && ($t += $1) && printf "%02d:%02d:%02d:%02d\n",$t/86400,$t/3600%24,$t/60%60,$t%60'
-} 
-
 # Create a C file template, compatible with Doxygen
 doxc() {
     # Global Variables
