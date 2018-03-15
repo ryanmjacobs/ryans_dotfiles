@@ -169,16 +169,9 @@ defmake() {
 
 # neat looping utilities
 # examples:
-#   $ 2x echo hello
-#   hello
-#   hello
-#
-#   $ x2 echo hello
-#   hello
-#   hello
-#
-#   $ x3 echo -n world
-#   world world world
+#   $ 2x echo hello    $ x2 echo hello    $ x3 echo -n world
+#   hello              hello              world world world
+#   hello              hello
 for n in {2..20}; do
     eval "${n}x() { for n in `seq -s' ' $n`; do" '$@; done }'
     eval "x${n}() { for n in `seq -s' ' $n`; do" '$@; done }'
