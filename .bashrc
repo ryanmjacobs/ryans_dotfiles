@@ -1,45 +1,14 @@
-################################################################################
-# .bashrc
-#
-# Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
-#
-#  March 18, 2014 -> File creation.
-#  April 29, 2014 -> Created doxc function.
-#  April 30, 2014 -> Colorize prompt as red if user is root.
-#   July 31, 2014 -> Renamed media_len to medialen. If no path is given default
-#                    to the current path.
-# August 05, 2014 -> Enable BASH Completion.
-# August 20, 2014 -> Add msleep() function to sleep for n minutes.
-# August 28, 2014 -> Remove function keyword for compatibility with other shells.
-#  Sept. 11, 2014 -> Remove msleep(). Turns out you can do that with sleep n[m].
-#   Oct. 03, 2014 -> Add 'When Exists' function.
-#   Oct. 05, 2014 -> Change browser from firefox to chrome.
-#   Oct. 12, 2014 -> Add '.PHONY: clean' to defmake.
-#   Nov. 06, 2014 -> Source hhlighter script.
-#   Nov. 11, 2014 -> Rename "google-chrome-stable" to "google-chrome".
-#   Dec. 03, 2014 -> Set tty for GPG and pinentry-curses.
-#   Dec. 13, 2014 -> alias def="sdcv"
-#   Jan. 20, 2014 -> Add builds_path.
-################################################################################
-
-################################################################################
-# BASH & Terminal Setup
-################################################################################
-
 # Set the locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-# Enable BASH Completion
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    source /etc/bash_completion
-fi
+# enable terminal colors
+[ -z "$TERM" ] && export TERM=xterm-256color
 
-# Export the terminal's ability for 256 colors
-#    Commented out because tmux complains:
-#     http://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux
-export TERM=xterm-256color
+# bash completion
+[ -r /usr/share/bash-completion/bash_completion ] &&\
+   . /usr/share/bash-completion/bash_completion
 
 # Colorize with .dir_colors or /etc/DIR_COLORS
 if [ -f "$HOME/.dir_colors" ]; then
