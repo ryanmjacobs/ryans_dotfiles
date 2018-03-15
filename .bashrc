@@ -73,14 +73,9 @@ export GPG_TTY=$(tty)
 #PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path:$go_path"
 #LD_LIBRARY_PATH="$HOME/builds/usr/lib:$LD_LIBRARY_PATH"
 
-# Enable recursive globbing, (available in BASH v4 and above)
-shopt -s globstar
-
-# Keep history when BASH exits
-shopt -s histappend
-
-# Check window size after each command. Then, update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+shopt -s globstar     # recursive globbing
+shopt -s histappend   # keep history when BASH exits
+shopt -s checkwinsize # resize window after each command
 
 # History ignore commands starting with space
 HISTCONTROL="ignorespace"
