@@ -59,7 +59,7 @@ alias ts=timestamp
 alias ds=datestamp
 
 # Basic Bash prompt
-alias basic_prompt='PS1="\e[01;34m-> \e[00m"'
+alias basic_prompt='PS1="\e[01;34m$ \e[00m"'
 
 # Allows sl (joke train program) to be interrupted with ^C
 alias sl="sl -e"
