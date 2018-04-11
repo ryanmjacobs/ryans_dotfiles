@@ -167,4 +167,4 @@ defmake() {
     >>Makefile echo -e ".PHONY: clean"
 }
 
-. agent
+[ -e ~/agent ] && . ~/agent
