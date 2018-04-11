@@ -42,7 +42,7 @@ HISTSIZE=1000000
 
 # General aliases
 alias def="sdcv"
-alias vim="nvim"
+#alias vim="nvim"
 
 # Colorize ls and grep
 alias ls="ls --color=auto --quoting-style=literal"
@@ -166,3 +166,5 @@ defmake() {
 
     >>Makefile echo -e ".PHONY: clean"
 }
+
+. agent

@@ -8,9 +8,9 @@
 ################################################################################
 
 # Default MPV Playback Options
-vo      = xv
+#vo      = xv
 ao      = alsa
-volume  = 50
+volume  = 80
 autofit = 400
 
 # Don't show MP3 album art.
