@@ -74,6 +74,7 @@ basic_install=(\
     ".vim"\
     ".vimrc"\
     ".Xresources"\
+    ".gitconfig"\
 )
 
 # Full Install
