@@ -7,8 +7,12 @@ all: dwm strip we dwmstatus simple_uptime dns
 
 dwm:
 	make -C./src/dwm
-	mv ./src/dwm/dwm .
+	install -Dm 775 ./src/dwm/dwm ./dwm
 	make -C./src/dwm clean
+slock:
+	make -C./src/slock
+	install -Dm 775 ./src/slock/slock ./slock
+	make -C./src/slock clean
 
 we: src/we.c
 	$(CC) -Wall -O2 -std=c89 -pedantic src/we.c -o we
