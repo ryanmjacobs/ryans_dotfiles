@@ -8,27 +8,27 @@
  * September 09, 2014 -> Add scrot shortcut (Ctrl-Alt-S).
  *  December 03, 2014 -> Re-map the scrot shortcut to the PrintScreen button.
  *   Febuary 22, 2015 -> Map Alt-P to "slock & pm-suspend".
+ *      June 03, 2018 -> Update for dwm 6.1
  */
 
 #include <X11/XF86keysym.h> /* For special keys */
 
 /* appearance */
-static const char *fonts[]          = { "monospace:size=7.5" };
+static const char *fonts[]          = {"monospace:size=8"};
+static const char dmenufont[]       = "monospace:size=8";
+static const char normbordercolor[] = "#444444";
+static const char normbgcolor[]     = "#222222";
+static const char normfgcolor[]     = "#bbbbbb";
+static const char selbordercolor[]  = "#005577";
+static const char selbgcolor[]      = "#005577";
+static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 5;        /* snap pixel */
-static const Bool showbar           = True;     /* False means no bar */
-static const Bool topbar            = True;     /* False means bottom bar */
-
-/* colors */
-static const char *colors[SchemeLast][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { "#bbbbbb", "#222222", "#444444" },
-	[SchemeSel] =  { "#eeeeee", "#005577", "#005577" },
-};
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-//static const char *tags[] = { "Chrome", "Other", "Organize", "Dev.", "Doc.", "MPV", "Pref.", "BG", "DL" };
 
 static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
@@ -37,9 +37,9 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster      = 1;    /* number of clients in master area */
-static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster     = 1;    /* number of clients in master area */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
