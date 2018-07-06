@@ -87,7 +87,7 @@ char *getwifi(void) {
     char *cmd;
     char perc[1024];
     char essid[1024];
-    char dev_name[1024] = "wlp2s0";
+    char dev_name[1024] = "wlp3s0";
 
     /* old code to figure out interface name
     fp = popen("iwgetid | head -n1 | cut -d' ' -f1", "r");
