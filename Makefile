@@ -3,7 +3,7 @@ STRIP?=strip
 
 EXE=we dwmstatus simple_uptime
 
-all: dwm strip we dwmstatus simple_uptime dns
+all: dwm slock strip we dwmstatus simple_uptime dns
 
 dwm:
 	make -C./src/dwm
