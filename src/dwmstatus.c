@@ -185,7 +185,7 @@ char *getvol(void) {
     FILE *fp;
     char buf[1024];
 
-    fp = popen("amixer -c0 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
+    fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
 
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get volume");
