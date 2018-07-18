@@ -87,7 +87,7 @@ full_install=(\
     ".vnc"\
     ".xinitrc"\
 
-    ".config/dunst/dunstrc"\
+    ".config/dunst"\
     .bin/*\
 )
 
