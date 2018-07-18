@@ -14,8 +14,8 @@
 #include <X11/XF86keysym.h> /* For special keys */
 
 /* appearance */
-static const char *fonts[]          = {"monospace:size=8"};
-static const char dmenufont[]       = "monospace:size=8";
+static const char *fonts[]          = {"monospace:size=9"};
+static const char dmenufont[]       = "monospace:size=9";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
