@@ -27,7 +27,7 @@
 xrdb $HOME/.Xresources
 
 # Dwm Statusbar
-dwmstatus &
+dwmstatus.sh &
 
 # Dunst Notification Daemon
 dunst &
