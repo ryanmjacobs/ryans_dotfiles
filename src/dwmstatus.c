@@ -15,6 +15,7 @@
 
 #include <X11/Xlib.h>
 
+int read_int(const char *fname);
 char *smprintf(char *fmt, ...);
 char *getdate(char *fmt);
 void setstatus(char *str);
@@ -32,6 +33,21 @@ static Display *dpy;
 static volatile int STOP = 0;
 void sigint_handler(int sig) {
     STOP = 1;
+}
+
+int read_int(const char *fname) {
+    int x;
+    FILE *fp = fopen(fname, "r");
+
+    if (fp == NULL) {
+        perror("fopen");
+        return -1;
+    }
+
+    fscanf(fp, "%d", &x);
+    fclose(fp);
+
+    return x;
 }
 
 char *smprintf(char *fmt, ...) {
@@ -134,55 +150,29 @@ char *getwifi(void) {
 }
 
 char *getpower(void) {
-    FILE *fd;
-    static int bat_samples = 0;
-    double hours;
-    int perc, energy_now, energy_full, voltage_now, power_now;
+    // read in data points
+    int power_now   = read_int("/sys/class/power_supply/BAT0/power_now");
+    int energy_now  = read_int("/sys/class/power_supply/BAT0/energy_now");
+    int energy_full = read_int("/sys/class/power_supply/BAT0/energy_full");
+    int voltage_now = read_int("/sys/class/power_supply/BAT0/voltage_now");
 
-    fd = fopen("/sys/class/power_supply/BAT0/energy_now", "r");
-    if(fd == NULL) {
-        fprintf(stderr, "Error opening energy_now.\n");
-        return NULL;
+    // percent of battery left
+    int perc = (energy_now*1000.0 / voltage_now)*100.0 / (energy_full*1000.0 / voltage_now);
+
+    // hours remaining (either to discharge or to finish charging)
+    float hours;
+    if (on_ac_power()) {
+        hours = 4;
+    } else {
+        hours = (float)energy_now / (float)power_now;
     }
-    fscanf(fd, "%d", &energy_now);
-    fclose(fd);
-
-
-    fd = fopen("/sys/class/power_supply/BAT0/energy_full", "r");
-    if(fd == NULL) {
-        fprintf(stderr, "Error opening energy_full.\n");
-        return NULL;
-    }
-    fscanf(fd, "%d", &energy_full);
-    fclose(fd);
-
-
-    fd = fopen("/sys/class/power_supply/BAT0/voltage_now", "r");
-    if(fd == NULL) {
-        fprintf(stderr, "Error opening voltage_now.\n");
-        return NULL;
-    }
-    fscanf(fd, "%d", &voltage_now);
-    fclose(fd);
-
-    perc = (energy_now*1000.0 / voltage_now)*100.0 / (energy_full*1000.0 / voltage_now);
-
-    // get power (wattage)
-    fd = fopen("/sys/class/power_supply/BAT0/power_now", "r");
-    if(fd == NULL) {
-        fprintf(stderr, "Error opening power_now.\n");
-        return NULL;
-    }
-    fscanf(fd, "%d", &power_now);
-    fclose(fd);
-
-    hours = (float)energy_now / (float)power_now;
 
     /**
      * Only notify user of low battery if the percentage
      * is under 20% for 10 samples in a row.
      * TODO: use libnotify instead of system()
      */
+    static int bat_samples = 0;
     if (perc < 20) {
         if (++bat_samples >= 10)
             system("notify-send -u critical 'Warning: Low Battery!'");
