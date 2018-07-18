@@ -219,12 +219,10 @@ int on_ac_power(void) {
     fp = fopen("/sys/class/power_supply/AC/online", "r");
     if(fp == NULL) {
         fprintf(stderr, "Error opening /sys/class/power_supply/AC/online.\n");
-        return NULL;
+        return -1;
     }
     fscanf(fp, "%d", &ac_online);
     fclose(fp);
-
-    printf("ac online: %d\n", ac_online);
 
     return (ac_online ? 1 : 0);
 }
