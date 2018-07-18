@@ -202,7 +202,7 @@ char *getvol(void) {
 int on_ac_power(void) {
     int ret = system("on_ac_power");
 
-    return (ret ? 0 : 1);
+    return (ret ? 1 : 0);
 }
 
 char *getdate(char *fmt) {

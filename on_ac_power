@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if grep "off-line" <<< acpi -a; then
+if acpi -a |& grep "off-line" &>/dev/null; then
     exit 0
 else
     exit 1
