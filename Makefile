@@ -19,7 +19,7 @@ we: src/we.c
 dns: src/dns.c
 	$(CC) -Wall -O2 -std=c89 -pedantic src/dns.c -o dns
 dwmstatus: src/dwmstatus.c
-	$(CC) -Wall -O2 -std=c89 -pedantic src/dwmstatus.c -lX11 -o dwmstatus
+	$(CC) -Wall -O2 -std=c99 -pedantic src/dwmstatus.c -lX11 -o dwmstatus
 simple_uptime: src/simple_uptime.c
 	$(CC) -Wall -O2 -std=c89 -pedantic src/simple_uptime.c -o simple_uptime
 
