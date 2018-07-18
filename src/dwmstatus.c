@@ -212,9 +212,21 @@ char *getvol(void) {
 }
 
 int on_ac_power(void) {
-    int ret = system("on_ac_power");
+    FILE *fp;
+    int ac_online;
 
-    return (ret ? 1 : 0);
+    // get power (wattage)
+    fp = fopen("/sys/class/power_supply/AC/online", "r");
+    if(fp == NULL) {
+        fprintf(stderr, "Error opening /sys/class/power_supply/AC/online.\n");
+        return NULL;
+    }
+    fscanf(fp, "%d", &ac_online);
+    fclose(fp);
+
+    printf("ac online: %d\n", ac_online);
+
+    return (ac_online ? 1 : 0);
 }
 
 char *getdate(char *fmt) {
