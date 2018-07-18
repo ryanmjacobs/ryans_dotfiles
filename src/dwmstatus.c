@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <strings.h>
+#include <math.h>
 #include <time.h>
 #include <ctype.h>
 
@@ -153,6 +154,10 @@ char *getpower(void) {
     else
         hours = energy_now/power_now;
 
+    // convert time to H:MM
+    double minutes = (hours-floor(hours)) * 60;
+    char *charge_str = smprintf("%0.0f:%02.0f", charge_str, floor(hours), minutes);
+
     /**
      * Only notify user of low battery if the percentage
      * is under 20% for 10 samples in a row.
@@ -166,7 +171,7 @@ char *getpower(void) {
         bat_samples = 0;
     }
 
-    return smprintf("[%d%][%0.1f W][%0.2f hours]", perc, power_now/1.0e6, hours);
+    return smprintf("[%d%][%0.1f W][%s]", perc, power_now/1.0e6, charge_str);
 }
 
 char *getvol(void) {
