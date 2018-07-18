@@ -259,10 +259,11 @@ int main(void) {
 
     signal(SIGINT, sigint_handler);
 
-    for (;;sleep(1)) {
+  //for (;;sleep(1)) {
+    {
         const char *ac;
 
-        if (STOP) break;
+      //if (STOP) break;
 
         ac     = on_ac_power() ? "AC " : "";
         load   = loadavg();
