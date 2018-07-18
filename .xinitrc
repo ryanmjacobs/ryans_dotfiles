@@ -21,7 +21,7 @@
 #fi
 
 # Disable double-tap = click on touchpad
-synclient TapButton1=0 TapButton2=0 TapButton3=0
+#synclient TapButton1=0 TapButton2=0 TapButton3=0
 
 # Load .Xresources file
 xrdb $HOME/.Xresources
