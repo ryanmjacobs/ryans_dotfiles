@@ -62,7 +62,7 @@ XTerm*highlightSelection: true
 XTerm*termName: xterm-256color
 XTerm*visualBell: false
 XTerm*faceName: Terminus
-XTerm*faceSize: 9
+XTerm*faceSize: 10
 XTerm*saveLines: 32768
 XTerm*scrollBar: false
 XTerm*geometry: 80x24
