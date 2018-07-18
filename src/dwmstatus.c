@@ -52,14 +52,12 @@ int read_int(const char *fname) {
 
 char *smprintf(char *fmt, ...) {
     va_list fmtargs;
-    char *ret;
-    int len;
 
     va_start(fmtargs, fmt);
-    len = vsnprintf(NULL, 0, fmt, fmtargs);
+    int len = vsnprintf(NULL, 0, fmt, fmtargs);
     va_end(fmtargs);
 
-    ret = malloc(++len);
+    char *ret = malloc(++len);
     if (ret == NULL) {
         perror("malloc");
         exit(1);
@@ -104,17 +102,6 @@ char *getwifi(void) {
     char perc[1024];
     char essid[1024];
     char dev_name[1024] = "wlp3s0";
-
-    /* old code to figure out interface name
-    fp = popen("iwgetid | head -n1 | cut -d' ' -f1", "r");
-    if (fp == NULL) {
-        fprintf(stderr, "error: cannot get wifi device name\n");
-        exit(1);
-    }
-    fgets(dev_name, sizeof(dev_name)-1, fp);
-    strtok(dev_name, "\n");
-    pclose(fp);
-    */
 
     cmd = smprintf("iwgetid -r %s", dev_name);
     fp = popen(cmd, "r");
@@ -183,10 +170,9 @@ char *getpower(void) {
 }
 
 char *getvol(void) {
-    FILE *fp;
     char buf[1024];
 
-    fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
+    FILE *fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
 
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get volume");
@@ -194,22 +180,19 @@ char *getvol(void) {
     }
 
     fgets(buf, sizeof(buf)-1, fp);
-
     pclose(fp);
 
     return smprintf("%s", buf);
 }
 
 int on_ac_power(void) {
-    FILE *fp;
-    int ac_online;
-
-    // get power (wattage)
-    fp = fopen("/sys/class/power_supply/AC/online", "r");
+    FILE *fp = fopen("/sys/class/power_supply/AC/online", "r");
     if(fp == NULL) {
         fprintf(stderr, "Error opening /sys/class/power_supply/AC/online.\n");
         return -1;
     }
+
+    int ac_online;
     fscanf(fp, "%d", &ac_online);
     fclose(fp);
 
