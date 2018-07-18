@@ -237,15 +237,6 @@ char *loadavg(void) {
 }
 
 int main(void) {
-    char *status;
-    char *load;
-    char *time;
-
-    char *power;
-    char *uptime;
-    char *vol;
-    char *wifi;
-
     if (!(dpy = XOpenDisplay(NULL))) {
         fprintf(stderr, "dwmstatus: cannot open display.\n");
         return 1;
@@ -253,21 +244,16 @@ int main(void) {
 
     signal(SIGINT, sigint_handler);
 
-  //for (;;sleep(1)) {
-    {
-        const char *ac;
+    while (1) {
+        char *ac     = on_ac_power() ? "AC " : "";
+        char *load   = loadavg();
+        char *uptime = getuptime();
+        char *wifi   = getwifi();
+        char *power  = getpower();
+        char *vol    = getvol();
+        char *time   = getdate("%a %b %d, %Y | %r");
 
-      //if (STOP) break;
-
-        ac     = on_ac_power() ? "AC " : "";
-        load   = loadavg();
-        uptime = getuptime();
-        wifi   = getwifi();
-        power  = getpower();
-        vol    = getvol();
-        time   = getdate("%a %b %d, %Y | %r");
-
-        status = smprintf(
+        char *status = smprintf(
             "Uptime: [%s] | Wifi: %s | "
             "Power: %s%s | Vol: %s -- %s",
             uptime, wifi, ac, power, vol, time
@@ -280,10 +266,16 @@ int main(void) {
         free(power);
         free(vol);
         free(time);
-
         free(load);
-
         free(status);
+
+        // hard-coded, oneshot
+        STOP = 1;
+
+        if (STOP = 1)
+            break;
+        else
+            sleep(1);
     }
 
     XCloseDisplay(dpy);
