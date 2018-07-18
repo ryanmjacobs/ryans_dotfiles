@@ -136,6 +136,7 @@ char *getwifi(void) {
 char *getpower(void) {
     FILE *fd;
     static int bat_samples = 0;
+    double hours;
     int perc, energy_now, energy_full, voltage_now, power_now;
 
     fd = fopen("/sys/class/power_supply/BAT0/energy_now", "r");
@@ -164,7 +165,7 @@ char *getpower(void) {
     fscanf(fd, "%d", &voltage_now);
     fclose(fd);
 
-    perc = ((float)energy_now * 1000 / (float)voltage_now) * 100 / ((float)energy_full * 1000 / (float)voltage_now);
+    perc = (energy_now*1000.0 / voltage_now)*100.0 / (energy_full*1000.0 / voltage_now);
 
     // get power (wattage)
     fd = fopen("/sys/class/power_supply/BAT0/power_now", "r");
@@ -174,6 +175,8 @@ char *getpower(void) {
     }
     fscanf(fd, "%d", &power_now);
     fclose(fd);
+
+    hours = (float)energy_now / (float)power_now;
 
     /**
      * Only notify user of low battery if the percentage
@@ -187,7 +190,7 @@ char *getpower(void) {
         bat_samples = 0;
     }
 
-    return smprintf("[%d%][%0.1f W]", perc, power_now/1.0e6);
+    return smprintf("[%d%][%0.1f W][%0.2f hours]", perc, power_now/1.0e6, hours);
 }
 
 char *getvol(void) {
