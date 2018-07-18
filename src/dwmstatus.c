@@ -151,21 +151,20 @@ char *getwifi(void) {
 
 char *getpower(void) {
     // read in data points
-    int power_now   = read_int("/sys/class/power_supply/BAT0/power_now");
-    int energy_now  = read_int("/sys/class/power_supply/BAT0/energy_now");
-    int energy_full = read_int("/sys/class/power_supply/BAT0/energy_full");
-    int voltage_now = read_int("/sys/class/power_supply/BAT0/voltage_now");
+    double power_now   = read_int("/sys/class/power_supply/BAT0/power_now");
+    double energy_now  = read_int("/sys/class/power_supply/BAT0/energy_now");
+    double energy_full = read_int("/sys/class/power_supply/BAT0/energy_full");
+    double voltage_now = read_int("/sys/class/power_supply/BAT0/voltage_now");
 
     // percent of battery left
     int perc = (energy_now*1000.0 / voltage_now)*100.0 / (energy_full*1000.0 / voltage_now);
 
     // hours remaining (either to discharge or to finish charging)
-    float hours;
-    if (on_ac_power()) {
-        hours = 4;
-    } else {
-        hours = (float)energy_now / (float)power_now;
-    }
+    double hours;
+    if (on_ac_power())
+        hours = (energy_full-energy_now) / power_now;
+    else
+        hours = energy_now/power_now;
 
     /**
      * Only notify user of low battery if the percentage
