@@ -136,7 +136,7 @@ char *getwifi(void) {
 char *getpower(void) {
     FILE *fd;
     static int bat_samples = 0;
-    int perc, energy_now, energy_full, voltage_now;
+    int perc, energy_now, energy_full, voltage_now, power_now;
 
     fd = fopen("/sys/class/power_supply/BAT0/energy_now", "r");
     if(fd == NULL) {
@@ -166,6 +166,15 @@ char *getpower(void) {
 
     perc = ((float)energy_now * 1000 / (float)voltage_now) * 100 / ((float)energy_full * 1000 / (float)voltage_now);
 
+    // get power (wattage)
+    fd = fopen("/sys/class/power_supply/BAT0/power_now", "r");
+    if(fd == NULL) {
+        fprintf(stderr, "Error opening power_now.\n");
+        return NULL;
+    }
+    fscanf(fd, "%d", &power_now);
+    fclose(fd);
+
     /**
      * Only notify user of low battery if the percentage
      * is under 20% for 10 samples in a row.
@@ -178,7 +187,7 @@ char *getpower(void) {
         bat_samples = 0;
     }
 
-    return smprintf("%d", perc);
+    return smprintf("[%d%][%0.1f W]", perc, power_now/1.0e6);
 }
 
 char *getvol(void) {
@@ -275,7 +284,7 @@ int main(void) {
 
         status = smprintf(
             "Uptime: [%s] | Wifi: %s | "
-            "Power: %s[%s%] | Vol: %s -- %s",
+            "Power: %s%s | Vol: %s -- %s",
             uptime, wifi, ac, power, vol, time
         );
         puts(status);
