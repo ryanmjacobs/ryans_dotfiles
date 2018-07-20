@@ -67,6 +67,9 @@ alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 # If colordiff is installed, use it instead of normal diff
 hash colordiff &>/dev/null && alias diff="colordiff"
 
+# quick torrenting (for linux ISOs
+alias torrent="transmission-cli -w ."
+
 ################################################################################
 # Useful Functions
 ################################################################################
