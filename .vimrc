@@ -29,6 +29,7 @@ Plugin 'guns/vim-clojure-highlight'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'posva/vim-vue'
 Plugin 'tomlion/vim-solidity'
+Plugin 'joukevandermaas/vim-ember-hbs'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
