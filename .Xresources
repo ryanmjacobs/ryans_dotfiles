@@ -44,6 +44,11 @@
    ~Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(PRIMARY, CUT_BUFFER0) \n\
     Shift ~Ctrl ~Meta <Btn2Up>:insert-selection(CLIPBOARD, CUT_BUFFER1) 
 !###############################################################################
+
+! Hotkeys for increasing/decresing font-size
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font()
  
 ! Enable ALT shortcuts for programs
 XTerm.metaSendsEscape: true
@@ -62,7 +67,7 @@ XTerm*highlightSelection: true
 XTerm*termName: xterm-256color
 XTerm*visualBell: false
 XTerm*faceName: Terminus
-XTerm*faceSize: 10
+XTerm*faceSize: 12
 XTerm*saveLines: 32768
 XTerm*scrollBar: false
 XTerm*geometry: 80x24
@@ -100,33 +105,3 @@ XTerm*color14: #00f5e9
 ! White
 XTerm*color7: #d3d7cf
 XTerm*color15: #eeeeec
-
-!=======================================
-!Jellybeans Terminal Colors
-!=======================================
-jellybeans*background: #151515
-jellybeans*foreground: #888888
-! Black
-jellybeans*color0: #1C1C1C
-jellybeans*color8: #404040
-! Red
-jellybeans*color1: #B85335
-jellybeans*color9: #CF6A4C
-! Green
-jellybeans*color2: #799D6A
-jellybeans*color10: #99AD6A
-! Yellow
-jellybeans*color3: #FFB964
-jellybeans*color11: #FAD07A
-! Blue
-jellybeans*color4: #667899
-jellybeans*color12: #8197BF
-! Magenta
-jellybeans*color5: #8787AF
-jellybeans*color13: #C6B6EE
-! Cyan
-jellybeans*color6: #668799
-jellybeans*color14: #8FBFDC
-! White
-jellybeans*color7: #888888
-jellybeans*color15: #E8E8D3
