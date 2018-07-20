@@ -45,6 +45,12 @@ wmname LG3D
 #feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 
+# Allow the Super (windows/command keys) to be used as Alt
+xmodmap -e "remove mod4 = Super_L"
+xmodmap -e "remove mod4 = Super_R"
+xmodmap -e "add mod1 = Super_L"
+xmodmap -e "add mod1 = Super_R"
+
 # Start the WM
 #exec twm
 exec dwm
