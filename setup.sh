@@ -88,6 +88,7 @@ full_install=(\
     ".xinitrc"\
 
     ".config/dunst"\
+    ".config/mpv"\
     .bin/*\
 )
 
