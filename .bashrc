@@ -42,7 +42,7 @@ HISTSIZE=1000000
 
 # General aliases
 alias def="sdcv"
-#alias vim="nvim"
+hash nvim &>/dev/null && alias vim="nvim"
 
 # Colorize ls and grep
 alias ls="ls --color=auto --quoting-style=literal"
