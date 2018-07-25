@@ -170,4 +170,9 @@ defmake() {
     >>Makefile echo -e ".PHONY: clean"
 }
 
-#source /opt/Xilinx/14.7/ISE_DS/settings64.sh
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
