@@ -88,6 +88,7 @@ static Key keys[] = {
     { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
     { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_p,      spawn,          {.v = sleepcmd } },
+    { MODKEY|ShiftMask,             XK_Return, zoom,           {0} }, // fix for my stupid keyboard
 
     /* Builtin Shortcuts */
   //{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -142,4 +143,3 @@ static Button buttons[] = {
     { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
     { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
