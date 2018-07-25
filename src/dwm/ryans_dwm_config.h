@@ -91,7 +91,7 @@ static Key keys[] = {
 
     /* Builtin Shortcuts */
   //{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-    { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+  //{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { ControlMask|ShiftMask,        XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
