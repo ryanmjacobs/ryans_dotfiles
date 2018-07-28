@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cmd="uptime"
+[ "$#" -ne 0 ] && cmd="$@"
+
+parallel -j9 "echo -n '{} '; ssh jacobs@lnxsrv{}.seas.ucla.edu '$cmd'" ::: {01..09}
