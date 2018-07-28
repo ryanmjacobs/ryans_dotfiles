@@ -8,4 +8,4 @@ fi
 username=ryanmjacobs
 repo="$1"
 
-curl -u "ryanmjacobs" https://api.github.com/user/repos -d "{\"name\":\"$repo\"}"
+curl -u "ryanmjacobs" https://api.github.com/user/repos -d "{\"name\":\"$repo\",\"private\":true}"
