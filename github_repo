@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    >&2 echo "usage: $(basename $0) <repository name>"
+    exit 1
+fi
+
+username=ryanmjacobs
+repo="$1"
+
+curl -u "ryanmjacobs" https://api.github.com/user/repos -d "{\"name\":\"$repo\"}"
