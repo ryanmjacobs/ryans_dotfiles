@@ -72,6 +72,7 @@ static const char *brightness_up[]   = { "/usr/bin/xbacklight", "-inc", "5", "-t
 static const char *brightness_down[] = { "/usr/bin/xbacklight", "-dec", "5", "-time", "0", NULL};
 static const char *xkill[]           = { "xkill", NULL };
 static const char *scrot[]           = { "scrot", "scrot.png", NULL };
+static const char *maim[]            = { "maim", "-s", "maim.png", NULL };
 static const char *sleepcmd[]        = { "sh", "-c", "slock & systemctl suspend", NULL };
 
 static Key keys[] = {
@@ -85,6 +86,7 @@ static Key keys[] = {
     { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightness_down } },
     { 0,        XK_Print,                      spawn,          {.v = scrot } },
     { ControlMask|MODKEY,           XK_s,      spawn,          {.v = scrot } },
+    { ControlMask|MODKEY,           XK_m,      spawn,          {.v = maim } },
     { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
     { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
     { MODKEY,                       XK_p,      spawn,          {.v = sleepcmd } },
