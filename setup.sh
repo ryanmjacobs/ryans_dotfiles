@@ -89,6 +89,7 @@ full_install=(\
 
     ".config/dunst"\
     ".config/mpv"\
+    ".config/termite"\
     .bin/*\
 )
 
