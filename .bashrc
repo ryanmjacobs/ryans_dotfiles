@@ -1,12 +1,10 @@
-export TERM=xterm-color
-
 # Set the locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
 # enable terminal colors
-[ -z "$TERM" ] && export TERM=xterm-256color
+export TERM=xterm-256color
 
 # bash completion
 [ -r /usr/share/bash-completion/bash_completion ] &&\
@@ -26,7 +24,8 @@ elif [ "$(id -u)" -eq 0 ]; then
     PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 fi
 
-export EDITOR="vim"
+export EDITOR=vim
+export BROWSER=chrome
 export GPG_TTY=$(tty) # enable tty for GPG and pinentry-curses
 
 shopt -s globstar     # recursive globbing
@@ -46,9 +45,10 @@ HISTSIZE=1000000
 alias def="sdcv"
 hash nvim &>/dev/null && alias vim="nvim"
 
-# Colorize ls and grep
+# Colorize ls, grep, and watch
 alias ls="ls --color=auto --quoting-style=literal"
 alias grep="grep --colour=auto"
+alias watch="watch --color"
 
 # Don't send the 'Erase is backspace.' message on XTerm when reset.
 alias reset="reset -Q"
@@ -178,3 +178,5 @@ defmake() {
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+
+source /etc/profile.d/vte.sh
