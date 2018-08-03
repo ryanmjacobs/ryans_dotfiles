@@ -15,6 +15,7 @@
 #include <sys/sysinfo.h>
 
 #include <X11/Xlib.h>
+#include <libnotify/notify.h>
 
 int read_int(const char *fname);
 char *smprintf(char *fmt, ...);
@@ -137,6 +138,15 @@ char *getwifi(void) {
     return smprintf("%s [%s%]", essid, perc);
 }
 
+void libnotify_critical(const char *msg) {
+    notify_init("dwmstatus.c");
+	NotifyNotification *n = notify_notification_new (msg, "", "dialog-critical");
+    notify_notification_set_urgency(n, NOTIFY_URGENCY_CRITICAL);
+	notify_notification_show(n, NULL);
+	g_object_unref(G_OBJECT(n));
+	notify_uninit();
+}
+
 char *getpower(void) {
     // read in data points
     double power_now   = read_int("/sys/class/power_supply/BAT0/power_now");
@@ -158,18 +168,9 @@ char *getpower(void) {
     double minutes = (hours-floor(hours)) * 60;
     char *charge_str = smprintf("%0.0f:%02.0f", charge_str, floor(hours), minutes);
 
-    /**
-     * Only notify user of low battery if the percentage
-     * is under 20% for 10 samples in a row.
-     * TODO: use libnotify instead of system()
-     */
-    static int bat_samples = 0;
-    if (perc < 20) {
-        if (++bat_samples >= 10)
-            system("notify-send -u critical 'Warning: Low Battery!'");
-    } else {
-        bat_samples = 0;
-    }
+    // notify user of low battery
+    if (perc < 20)
+        libnotify_critical("Warning: Low Battery");
 
     return smprintf("[%d%][%0.1f W][%s]", perc, power_now/1.0e6, charge_str);
 }
