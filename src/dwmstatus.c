@@ -141,6 +141,7 @@ char *getwifi(void) {
 void libnotify_critical(const char *msg) {
     notify_init("dwmstatus.c");
 	NotifyNotification *n = notify_notification_new (msg, "", "dialog-critical");
+    notify_notification_set_timeout(n, 5000);
     notify_notification_set_urgency(n, NOTIFY_URGENCY_CRITICAL);
 	notify_notification_show(n, NULL);
 	g_object_unref(G_OBJECT(n));
@@ -166,7 +167,10 @@ char *getpower(void) {
 
     // convert time to H:MM
     double minutes = (hours-floor(hours)) * 60;
-    char *charge_str = smprintf("%0.0f:%02.0f", charge_str, floor(hours), minutes);
+    char *charge_str = smprintf("%0.0f:%02.0f",
+        charge_str,
+        minutes == 60 ? ceil(hours) : floor(hours),
+        minutes == 60 ? 0 : minutes);
 
     // notify user of low battery
     if (perc < 20)
