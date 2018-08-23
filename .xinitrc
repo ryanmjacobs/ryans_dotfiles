@@ -39,7 +39,7 @@ redshift &
 wmname LG3D
 
 # start compositor
-#compton -CG &
+compton -CG -D 0
 
 # Set the background wallpaper
 #feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
