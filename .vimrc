@@ -31,6 +31,8 @@ Plugin 'posva/vim-vue'
 Plugin 'tomlion/vim-solidity'
 Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'hashivim/vim-terraform'
+Plugin 'b4b4r07/vim-hcl'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
@@ -78,6 +80,9 @@ set expandtab
 inoremap <F1> <Esc>
 noremap  <F1> <Esc>
 
+" Shortcut for dumping yy register
+nnoremap L "0p
+
 " File specific settings
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set colorcolumn=72
@@ -97,7 +102,11 @@ let g:go_highlight_build_constraints = 1
 " disable neovim defaults
 set laststatus=1
 set nohlsearch
-set mouse=
+
+" disable scrolling via mousa
+set mouse=a
+map <ScrollWheelUp> <nop>
+map <ScrollWheelDown> <nop>
 
 " nginx conf
 " https://arian.io/vim-syntax-highlighting-for-nginx/
