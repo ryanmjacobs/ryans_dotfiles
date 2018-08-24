@@ -32,10 +32,10 @@ shopt -s globstar     # recursive globbing
 shopt -s histappend   # keep history when BASH exits
 shopt -s checkwinsize # resize window after each command
 
-# History ignore commands starting with space
+HISTSIZE=10000000
+HISTFILESIZE=500000000
 HISTCONTROL="ignorespace"
-HISTFILESIZE=50000000
-HISTSIZE=1000000
+HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 
 ################################################################################
 # Aliases
