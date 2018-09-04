@@ -32,7 +32,8 @@ dwmstatus.sh &
 dunst &
 
 # Keep the colors pleasing
-redshift &
+#redshift &
+redshift -l 38:-121 &
 
 # nice java windows
 wmname LG3D
