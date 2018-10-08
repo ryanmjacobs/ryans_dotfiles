@@ -54,3 +54,4 @@ xmodmap -e "add mod1 = Super_R"
 # Start the WM
 #exec twm
 exec dwm
+#exec icewm
