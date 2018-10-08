@@ -1,0 +1,9 @@
+#!/bin/bash
+
+bin=/usr/bin/$(basename "$0")
+
+#start=$SECONDS
+"$bin"; ret=$?
+[ "$ret" -ne 0 ] && "$bin"
+#runtime=$((SECONDS - start))
+#[ $runtime -lt 60 ] && "$bin"
