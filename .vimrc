@@ -33,6 +33,7 @@ Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'hashivim/vim-terraform'
 Plugin 'b4b4r07/vim-hcl'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
