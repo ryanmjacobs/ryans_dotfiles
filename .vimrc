@@ -122,3 +122,5 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 "au Syntax * RainbowParenthesesLoadBraces
 map <Tab> <C-W>
 map <Tab><Tab> <C-W>w
+
+map S <Leader>c<Space>
