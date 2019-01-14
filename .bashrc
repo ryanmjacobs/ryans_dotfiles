@@ -48,6 +48,7 @@ hash nvim &>/dev/null && alias vim="nvim"
 # Colorize ls, grep, and watch
 alias ls="ls --color=auto --quoting-style=literal"
 alias grep="grep --colour=auto"
+alias egrep="egrep --colour=auto"
 alias watch="watch --color"
 
 # Don't send the 'Erase is backspace.' message on XTerm when reset.
