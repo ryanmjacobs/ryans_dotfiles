@@ -123,4 +123,5 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 map <Tab> <C-W>
 map <Tab><Tab> <C-W>w
 
-map S <Leader>c<Space>
+map S  <Leader>c<Space>
+map cc <Leader>c<Space>
