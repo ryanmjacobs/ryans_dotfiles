@@ -8,18 +8,6 @@
 # April 16, 2014 -> Disable terminal bell.
 ################################################################################
 
-# Dual monitors
-#if ! $(xrandr --output HDMI1 | grep "not found"); then
-    # 1280x1024 HDMI Screen
-   #xrandr --output HDMI1 --mode 1280x1024 --pos 1366x0 --rotate normal\
-   #       --output LVDS1 --mode 1366x768 --pos 0x256 --rotate normal\
-   #       --output VIRTUAL1 --off\
-   #       --output DP1 --off
-
-    # 1080p HDMI Screen
-   #xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output LVDS1 --mode 1366x768 --pos 0x1080 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output VGA1 --off
-#fi
-
 xrdb $HOME/.Xresources
 
 # Disable double-tap = click on touchpad
@@ -44,6 +32,16 @@ compton -CG -D 0 &
 # Set the background wallpaper
 #feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
+
+# triple monitor setup
+#if ! $(xrandr --output DP2-2 | grep "not found"); then
+#    sleep 2
+#    xrandr --output eDP1  --mode 1920x1080 --pos 0x1800 --rotate normal --scale 1.5x1.5\
+#           --output DP2-2 --mode 3840x2160 --pos 2880x0 --rotate normal --primary\
+#           --output DP2-3 --mode 1440x900  --pos 0x0    --rotate normal --scale 2x2
+#
+#    feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg
+#fi &
 
 # Allow the Super (windows/command keys) to be used as Alt
 xmodmap -e "remove mod4 = Super_L"
