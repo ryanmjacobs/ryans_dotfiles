@@ -25,7 +25,7 @@ elif [ "$(id -u)" -eq 0 ]; then
 fi
 
 export EDITOR=vim
-export BROWSER=chrome
+export BROWSER='firefox -private'
 export GPG_TTY=$(tty) # enable tty for GPG and pinentry-curses
 
 shopt -s globstar     # recursive globbing
