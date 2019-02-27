@@ -123,5 +123,8 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 map <Tab> <C-W>
 map <Tab><Tab> <C-W>w
 
+" nerdcommenter
 map S  <Leader>c<Space>
 map cc <Leader>c<Space>
+let g:NERDAltDelims_c = 1
+let g:NERDAltDelims_javascript = 1
