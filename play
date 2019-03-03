@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
         strcat(cmd, " ");
     }
     cmd[strlen(cmd)-1] = '\0';
-    strcat(cmd, "' -o - | mpv -");
+    strcat(cmd, "' -o - | mpv --vo=null --cache=$((1024*1024)) -");
 
     return system(cmd);
 }
