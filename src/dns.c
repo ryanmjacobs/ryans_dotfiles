@@ -23,6 +23,7 @@ int main(int argc, char **argv) {
         while (*ia) printf("%s\n", inet_ntoa(**(ia++)));
     } else {
         printf("%s\n", hstrerror(h_errno));
+        return 1;
     }
 
     return 0;
