@@ -10,6 +10,7 @@ void ensure_bin(const char *bin) {
     const char *root = "&>/dev/null hash ";
 
     cmd = malloc(strlen(root) + strlen(bin) + 1);
+    assert(cmd);
     strcat(cmd, root);
     strcat(cmd, bin);
 
@@ -28,20 +29,17 @@ int main(int argc, char **argv) {
     ensure_bin("mpv");
     ensure_bin("youtube-dl");
 
-    char *cmd = NULL;
-    const char *ytdl = "youtube-dl --default-search=auto '";
-    cmd = malloc(strlen(ytdl) + 1);
-    assert(cmd);
-    strcat(cmd, ytdl);
+    char cmd[512] = {0};
+    strcat(cmd, "youtube-dl --default-search=auto '");
 
     for (int i = 1; i < argc; i++) {
-        cmd = realloc(cmd, strlen(cmd) + strlen(argv[i]) + 1);
-        assert(cmd);
         strcat(cmd, argv[i]);
         strcat(cmd, " ");
     }
-    cmd[strlen(cmd)-1] = '\0';
-    strcat(cmd, "' -o - | mpv --vo=null --cache=$((1024*1024)) -");
+    strcat(cmd, "' -o - | mpv - --vo=null --cache=$((1024*1024))");
+
+    if (basename(argv[0])[0] == '_')
+        strcat(cmd, " --loop=inf");
 
     return system(cmd);
 }
