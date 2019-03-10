@@ -36,10 +36,12 @@ int main(int argc, char **argv) {
         strcat(cmd, argv[i]);
         strcat(cmd, " ");
     }
-    strcat(cmd, "' -o - | mpv - --vo=null --cache=$((1024*1024))");
+    strcat(cmd, "' -o - | mpv - --cache=$((1024*1024))");
 
-    if (basename(argv[0])[0] == '_')
-        strcat(cmd, " --loop=inf");
+    // other versions of play
+    char fc = basename(argv[0])[0];
+         if (fc == '_') strcat(cmd, " --loop=inf"); // _play plays forever
+    else if (fc != 'v') strcat(cmd, " --vo=null");  // vplay plays video too
 
     return system(cmd);
 }
