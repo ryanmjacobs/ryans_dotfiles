@@ -1,6 +1,6 @@
 custom_config=ryans_dwm_config.h
-src=dwm-6.1.tar.gz
-srcdir=dwm-6.1
+src=dwm-6.2.tar.gz
+srcdir=dwm-6.2
 
 all:
 	tar zxf $(src)
