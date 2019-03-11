@@ -25,8 +25,9 @@ elif [ "$(id -u)" -eq 0 ]; then
 fi
 
 export EDITOR=vim
-export BROWSER='firefox -private'
+export BROWSER='firefox'
 export GPG_TTY=$(tty) # enable tty for GPG and pinentry-curses
+export BUNDLE_PATH="$HOME/.bundle/install"
 
 shopt -s globstar     # recursive globbing
 shopt -s histappend   # keep history when BASH exits
@@ -44,6 +45,8 @@ HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 # General aliases
 alias def="sdcv"
 hash nvim &>/dev/null && alias vim="nvim"
+
+alias bat="bat --paging=never"
 
 # Colorize ls, grep, and watch
 alias ls="ls --color=auto --quoting-style=literal"
@@ -181,3 +184,31 @@ defmake() {
 [ -f /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
 
 source /etc/profile.d/vte.sh
+
+# https://medium.com/@pczarkowski/easily-install-uninstall-helm-on-rbac-kubernetes-8c3c0e22d0d7
+helmins() {
+    kubectl -n kube-system create serviceaccount tiller
+    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+    helm init --service-account=tiller
+}
+
+helmdel() {
+    kubectl -n kube-system delete deployment tiller-deploy
+    kubectl delete clusterrolebinding tiller
+    kubectl -n kube-system delete serviceaccount tiller
+}
+
+PATH="$HOME/webfpga-cli:$PATH"
+
+# Wasmer
+export WASMER_DIR="$HOME/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"  # This loads wasmer
+
+PATH="$PATH:/usr/lib/emscripten"
+
+# highlights the provided string via stdin
+h() {
+    str="$1"
+    [ -z "$str" ] && { >&2 echo "usage: ${FUNCNAME[0]} <string>"; return 1; }
+    </dev/stdin grep --color -E '^|'"$str"
+}
