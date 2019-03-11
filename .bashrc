@@ -210,5 +210,5 @@ PATH="$PATH:/usr/lib/emscripten"
 h() {
     str="$1"
     [ -z "$str" ] && { >&2 echo "usage: ${FUNCNAME[0]} <string>"; return 1; }
-    </dev/stdin grep --color -E '^|'"$str"
+    </dev/stdin grep --color -E "$str"'|'
 }
