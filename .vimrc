@@ -14,6 +14,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'tomasr/molokai'
 Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -34,6 +35,11 @@ Plugin 'digitaltoad/vim-pug'
 Plugin 'hashivim/vim-terraform'
 Plugin 'b4b4r07/vim-hcl'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'rhysd/vim-crystal'
+Plugin 'mxw/vim-jsx'
+"Plugin 'guns/vim-sexp'
+Plugin 'vim-perl/vim-perl6'
+Plugin 'wlangstroth/vim-racket'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
@@ -127,4 +133,14 @@ map <Tab><Tab> <C-W>w
 map S  <Leader>c<Space>
 map cc <Leader>c<Space>
 let g:NERDAltDelims_c = 1
+let g:NERDAltDelims_js = 1
 let g:NERDAltDelims_javascript = 1
+"let g:NERDDefaultAlign = 'right'
+
+" require JSX pragma for syntax highlighting
+" don't want to affect javascript syntax highlighting
+let g:jsx_pragma_required = 1
+
+" set <space> to leader key (mainly for vim-sexp)
+nnoremap <Space> <Nop>
+let maplocalleader=" "
