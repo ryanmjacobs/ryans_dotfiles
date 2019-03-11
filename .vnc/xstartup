@@ -16,4 +16,5 @@ feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 vncconfig -iconic &
 
 # Start the WM
-exec twm
+termite &
+exec dwm
