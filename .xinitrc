@@ -34,14 +34,18 @@ compton -CG -D 0 &
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 
 # triple monitor setup
-#if ! $(xrandr --output DP2-2 | grep "not found"); then
-#    sleep 2
-#    xrandr --output eDP1  --mode 1920x1080 --pos 0x1800 --rotate normal --scale 1.5x1.5\
-#           --output DP2-2 --mode 3840x2160 --pos 2880x0 --rotate normal --primary\
-#           --output DP2-3 --mode 1440x900  --pos 0x0    --rotate normal --scale 2x2
-#
-#    feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg
-#fi &
+if ! $(xrandr --output DP2-2 | grep "not found"); then
+    sleep 2
+
+    #--output eDP1  --mode 1920x1080 --pos 0x1800 --rotate normal --scale 1.5x1.5\
+
+    xrandr \
+        --output eDP1 --off \
+        --output DP2-1 --off \
+        --output DP2-2 --primary --mode 3840x2160 --pos 2880x0 --rotate normal \
+        --output DP2-3 --mode 1920x1080 --pos 0x0 --rotate normal --scale 1.5x1.5
+    feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg
+fi &
 
 # Allow the Super (windows/command keys) to be used as Alt
 xmodmap -e "remove mod4 = Super_L"
