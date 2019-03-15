@@ -183,7 +183,7 @@ defmake() {
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
 
-source /etc/profile.d/vte.sh
+#source /etc/profile.d/vte.sh
 
 # https://medium.com/@pczarkowski/easily-install-uninstall-helm-on-rbac-kubernetes-8c3c0e22d0d7
 helmins() {
@@ -211,4 +211,22 @@ h() {
     str="$1"
     [ -z "$str" ] && { >&2 echo "usage: ${FUNCNAME[0]} <string>"; return 1; }
     </dev/stdin grep --color -E "$str"'|'
+}
+
+# 'git commit -m' with all arguments concatted
+# e.g. 'cm one two three'
+cm() {
+    git commit -m "$*"
+}
+alias gp="git push"
+alias ga="git add ."
+gc() {
+    git clone --depth=1 "$1"
+    cd "$(basename "$1")"
+}
+gcr() {
+    gc git@github.com:ryanmjacobs/"$1"
+}
+ff() {
+    firefox "$@" & exit
 }
