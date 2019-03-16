@@ -183,7 +183,7 @@ defmake() {
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/ryan/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
 
-#source /etc/profile.d/vte.sh
+[ -e /etc/profile.d/vte.sh ] && source /etc/profile.d/vte.sh
 
 # https://medium.com/@pczarkowski/easily-install-uninstall-helm-on-rbac-kubernetes-8c3c0e22d0d7
 helmins() {
