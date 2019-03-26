@@ -53,12 +53,16 @@ void print_valid_terms(char *prefix) {
 
     char buf[256];
     while (fgets(buf, 256, fp)) {
-        // chomp the md5sum away
+        // chomp the md5sum away and remove newline
         char *term = buf;
         while (*term++ != ' ') continue;
+        term[strlen(term)-1] = '\0';
 
-        if (!strncmp(prefix, term, strlen(prefix)))
-            fputs(term, stdout);
+        int same = !strcmp(prefix, term);
+        int has_prefix = !strncmp(prefix, term, strlen(prefix));
+
+        if (!same && has_prefix)
+            puts(term);
     }
 
     fclose(fp);
