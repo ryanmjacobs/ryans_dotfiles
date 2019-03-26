@@ -12,7 +12,7 @@ char *create_prefix(int argc, char **argv);
 void print_valid_terms(char *prefix);
 
 int main(int argc, char **argv) {
-    // usage: ./helper play.sh <search term goes here>
+    // usage: ./helper play <search term goes here>
     if (argc <= 2) return 1;
 
     char *prefix = create_prefix(argc, argv);
