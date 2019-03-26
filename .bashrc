@@ -231,8 +231,6 @@ ff() {
     firefox -private "$@" & exit
 }
 
-alias play=play.sh
-
 # TODO: check for path first (in case rbin or bin not installed...)
 for f in ~/.bin/rbin/bash-completions/*.bash; do
     source "$f"
