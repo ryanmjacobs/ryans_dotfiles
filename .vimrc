@@ -40,6 +40,7 @@ Plugin 'mxw/vim-jsx'
 "Plugin 'guns/vim-sexp'
 Plugin 'vim-perl/vim-perl6'
 Plugin 'wlangstroth/vim-racket'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
@@ -144,3 +145,6 @@ let g:jsx_pragma_required = 1
 " set <space> to leader key (mainly for vim-sexp)
 nnoremap <Space> <Nop>
 let maplocalleader=" "
+
+" tabstop=2 for YAML files
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
