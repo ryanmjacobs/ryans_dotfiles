@@ -20,8 +20,8 @@ dwmstatus.sh &
 dunst &
 
 # Keep the colors pleasing
-#redshift &
-redshift -l 38:-121 &
+redshift &
+#redshift -l 38:-121 &
 
 # nice java windows
 wmname LG3D
@@ -34,7 +34,7 @@ compton -CG -D 0 &
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 
 # triple monitor setup
-if ! $(xrandr --output DP2-2 | grep "not found"); then
+if ! xrandr --output DP2-2 |& grep "not found"; then
     sleep 2
 
     #--output eDP1  --mode 1920x1080 --pos 0x1800 --rotate normal --scale 1.5x1.5\
