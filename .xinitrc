@@ -8,7 +8,16 @@
 # April 16, 2014 -> Disable terminal bell.
 ################################################################################
 
-xrdb $HOME/.Xresources
+is_triple_monitor_setup() {
+    xrandr --output DP2-2 |& grep "not found" && return 1 && return 0
+}
+
+# modify X scaling based on triple monitor setup
+tmpxr="$(mktemp)"
+cp "$HOME/.Xresources" "$tmpxr"
+is_triple_monitor_setup || grep -v Xft "$HOME/.Xresources" > "$tmpxr"
+xrdb "$tmpxr"
+rm "$tmpxr"
 
 # Disable double-tap = click on touchpad
 #synclient TapButton1=0 TapButton2=0 TapButton3=0
@@ -34,10 +43,8 @@ compton -CG -D 0 &
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 
 # triple monitor setup
-if ! xrandr --output DP2-2 |& grep "not found"; then
+if is_triple_monitor_setup; then
     sleep 2
-
-    #--output eDP1  --mode 1920x1080 --pos 0x1800 --rotate normal --scale 1.5x1.5\
 
     xrandr \
         --output eDP1 --off \
@@ -46,6 +53,12 @@ if ! xrandr --output DP2-2 |& grep "not found"; then
         --output DP2-3 --mode 1920x1080 --pos 0x0 --rotate normal --scale 1.5x1.5
     feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg
 fi &
+
+# continuosly set bg in case resolution ever changes
+while true; do
+    feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg
+    sleep 60
+done &
 
 # Allow the Super (windows/command keys) to be used as Alt
 xmodmap -e "remove mod4 = Super_L"
