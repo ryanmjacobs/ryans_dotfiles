@@ -227,11 +227,12 @@ gc() {
 gcr() {
     gc git@github.com:ryanmjacobs/"$1"
 }
-ff() {
-    firefox -private "$@" & exit
-}
 
 # TODO: check for path first (in case rbin or bin not installed...)
 for f in ~/.bin/rbin/bash-completions/*.bash; do
     source "$f"
 done
+alias kc=kubectl
+alias kcn="kubectl -n kube-system"
+alias kca="kc get all"
+alias kcna="kcn get all"
