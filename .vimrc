@@ -148,3 +148,4 @@ let maplocalleader=" "
 
 " tabstop=2 for YAML files
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType toml setlocal shiftwidth=2 softtabstop=2 expandtab
