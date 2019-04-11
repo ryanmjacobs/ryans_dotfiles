@@ -9,7 +9,7 @@
 ################################################################################
 
 is_triple_monitor_setup() {
-    xrandr --output DP2-2 |& grep "not found" && return 1 && return 0
+    xrandr --output DP2-2 |& grep "not found" && return 1 || return 0
 }
 
 # modify X scaling based on triple monitor setup
