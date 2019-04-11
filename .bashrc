@@ -70,8 +70,7 @@ alias feh="feh -."
 # Launch irssi with the Jellybeans theme
 alias irssi="xterm -name jellybeans -e 'irssi' & exit"
 
-# If colordiff is installed, use it instead of normal diff
-hash colordiff &>/dev/null && alias diff="colordiff"
+alias diff="diff --color=auto"
 
 # quick torrenting (for linux ISOs
 alias torrent="transmission-cli -w ."
@@ -232,7 +231,12 @@ gcr() {
 for f in ~/.bin/rbin/bash-completions/*.bash; do
     source "$f"
 done
+alias kt=kubectx
 alias kc=kubectl
 alias kcn="kubectl -n kube-system"
+alias kcd="kubectl describe"
 alias kca="kc get all"
 alias kcna="kcn get all"
+alias dka='docker kill `docker ps -q`'
+
+export KUBECONFIG=$HOME/.kube/hyper.yaml
