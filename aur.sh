@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
 
-git clone https://aur.archlinux.org/yay.git && cd yay
+tmp="$(mktemp -d)"
+trap "rm -rf $tmp" EXIT INT TERM
+
+git clone --depth=1 https://aur.archlinux.org/yay.git "$tmp" && cd "$tmp"
 makepkg -si
