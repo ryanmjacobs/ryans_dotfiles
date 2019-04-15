@@ -1,8 +1,13 @@
 #!/bin/bash
 set -e
 
-tmp="$(mktemp -d)"
-trap "rm -rf $tmp" EXIT INT TERM
+# install yay
+if ! hash yay; then
+    tmp="$(mktemp -d)"
+    trap "rm -rf $tmp" EXIT INT TERM
+    git clone --depth=1 https://aur.archlinux.org/yay.git "$tmp" && cd "$tmp"
+    makepkg -si --noconfirm
+fi
 
-git clone --depth=1 https://aur.archlinux.org/yay.git "$tmp" && cd "$tmp"
-makepkg -si --noconfirm
+# install peervpn
+yay -S peervpn --noconfirm
