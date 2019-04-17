@@ -61,8 +61,13 @@ void print_valid_terms(char *prefix) {
         int same = !strcmp(prefix, term);
         int has_prefix = !strncmp(prefix, term, strlen(prefix));
 
-        if (!same && has_prefix)
+        if (!same && has_prefix) {
+            // chomp term until prefix is gone
+            //size_t i = 0;
+            //while (*term++ == prefix[i]) i++;
+
             puts(term);
+        }
     }
 
     fclose(fp);

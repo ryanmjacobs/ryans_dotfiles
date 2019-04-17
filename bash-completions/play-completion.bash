@@ -6,6 +6,8 @@ _play_completion() {
     [ ! -e "$HOME/.ytc/lookup.txt" ] && return
 
     while read valid_term; do
+        #escaped="$(printf '%q' "$valid_term")"
+        #COMPREPLY+=("$escaped")
         COMPREPLY+=("$valid_term")
     done < <("$DIR/play-completion-helper.c" "${COMP_WORDS[@]}")
 }
