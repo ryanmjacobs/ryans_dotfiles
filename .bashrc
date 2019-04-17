@@ -219,6 +219,7 @@ cm() {
 }
 alias gp="git push"
 alias ga="git add ."
+alias gpt="git push --tags"
 gc() {
     git clone --depth=1 "$1"
     cd "$(basename "$1")"
@@ -239,4 +240,15 @@ alias kca="kc get all"
 alias kcna="kcn get all"
 alias dka='docker kill `docker ps -q`'
 
-export KUBECONFIG=$HOME/.kube/hyper.yaml
+reload_kt() {
+    KUBECONFIG=""
+    for f in "$HOME"/.kube/*.yaml; do
+        KUBECONFIG+="$f:"
+    done
+    export KUBECONFIG
+}
+reload_kt
+
+alias eth="nc mir.rmj.us 3293"
+
+PATH="$HOME/.rbenv/bin:$PATH"
