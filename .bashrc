@@ -250,5 +250,3 @@ reload_kt() {
 reload_kt
 
 alias eth="nc mir.rmj.us 3293"
-
-PATH="$HOME/.rbenv/bin:$PATH"
