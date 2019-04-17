@@ -75,6 +75,8 @@ basic_install=(\
     ".vimrc"\
     ".Xresources"\
     ".gitconfig"\
+
+    ".gnupg/gpg-agent.conf"
 )
 
 # Full Install
