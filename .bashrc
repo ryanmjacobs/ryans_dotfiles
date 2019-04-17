@@ -236,7 +236,7 @@ done
 alias kt=kubectx
 alias kc=kubectl
 alias kcn="kubectl -n kube-system"
-alias kcd="kubectl describe"
+alias kd="kubectl describe"
 alias kca="kc get all"
 alias kcna="kcn get all"
 alias dka='docker kill `docker ps -q`'
