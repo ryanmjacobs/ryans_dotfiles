@@ -228,10 +228,11 @@ gcr() {
     gc git@github.com:ryanmjacobs/"$1"
 }
 
-# TODO: check for path first (in case rbin or bin not installed...)
+# custom bash-completion
 for f in ~/.bin/rbin/bash-completions/*.bash; do
-    source "$f"
+    [ -e "$f" ] && source "$f"
 done
+
 alias kt=kubectx
 alias kc=kubectl
 alias kcn="kubectl -n kube-system"
