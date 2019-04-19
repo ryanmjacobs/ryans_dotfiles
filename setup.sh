@@ -97,6 +97,7 @@ full_install=(\
 
 # What array will we use?
 if [ $full == "true" ]; then
+    mkdir -p ~/.gnupg
     array=${full_install[@]}
 else
     array=${basic_install[@]}
