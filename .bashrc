@@ -25,7 +25,7 @@ elif [ "$(id -u)" -eq 0 ]; then
 fi
 
 export EDITOR=vim
-export BROWSER='firefox'
+export BROWSER=firefox
 export GPG_TTY=$(tty) # enable tty for GPG and pinentry-curses
 export BUNDLE_PATH="$HOME/.bundle/install"
 
@@ -253,3 +253,5 @@ reload_kt() {
 reload_kt
 
 alias eth="nc mir.rmj.us 3293"
+alias ff="firefox -private"
+alias firefox="firefox -private"
