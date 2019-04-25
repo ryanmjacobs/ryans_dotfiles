@@ -19,7 +19,7 @@
 bin_path="$HOME/.bin:$HOME/.bin/rbin"
 builds_path="$HOME/builds/usr/bin"
 npm_path="$(npm config get prefix 2>/dev/null)/bin"
-ruby_path="$(ruby -rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
+ruby_path="$(ruby -r rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
 cabal_path="$HOME/.cabal/bin"
 export GOPATH="$HOME/go"
 go_path="$GOPATH/bin"
