@@ -73,6 +73,7 @@ basic_install=(\
     ".twmrc"
     ".vim"\
     ".vimrc"\
+    ".npmrc"\
     ".Xresources"\
     ".gitconfig"\
 
