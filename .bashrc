@@ -221,6 +221,7 @@ alias gp="git push"
 alias ga="git add ."
 alias gip="git pull"
 alias gpi="git pull"
+alias gat="git status"
 alias gpt="git push --tags"
 gc() {
     git clone --depth=1 "$1"
