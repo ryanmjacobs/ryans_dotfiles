@@ -67,8 +67,8 @@ xmodmap -e "add mod1 = Super_L"
 xmodmap -e "add mod1 = Super_R"
 
 # Edge-scrolling instead of two-finger
-xinput set-prop 12 294 1, 1, 1
-xinput set-prop 12 295 0, 0
+xinput set-prop 13 297 1, 1, 1 # edge-srolling
+xinput set-prop 13 298 0, 0    # two-finger scrolling
 
 # Start the WM
 exec dwm
