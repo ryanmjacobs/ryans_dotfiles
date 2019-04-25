@@ -244,6 +244,9 @@ alias kdn="kubectl describe -n kube-system"
 alias kca="kc get all"
 alias kcna="kcn get all"
 alias dka='docker kill `docker ps -q`'
+kce() {
+    kubectl exec -it "$1" bash
+}
 
 reload_kt() {
     KUBECONFIG=""
