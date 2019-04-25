@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$#" -ne 0 ]; then
-    google-chrome-unstable --incognito "$@" &>/dev/null
+    google-chrome-stable --incognito "$@" &>/dev/null
 else
-    google-chrome-unstable --incognito google.com &>/dev/null
+    google-chrome-stable --incognito google.com &>/dev/null
 fi
