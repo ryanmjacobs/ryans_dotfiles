@@ -118,6 +118,10 @@ for f in ${array[@]}; do
     mkdir -p "$(dirname "$f")"
 done
 
+# nvim config (symlink to .vim)
+mkdir -p ~/.config
+ln -s ~/.vim ~/.config/nvim
+
 # Update Vundle packages
 if type vim &>/dev/null; then
     vim -c BundleInstall -c qa
