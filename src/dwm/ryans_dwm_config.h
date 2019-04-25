@@ -88,10 +88,10 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
 
     /* Ryan's Shortcuts */
-    { 0,        XF86XK_AudioRaiseVolume,       spawn,          {.v = volume_up } }, 
-    { MODKEY,   XK_e,                          spawn,          {.v = volume_up } }, 
-    { MODKEY,   XK_w,                          spawn,          {.v = volume_down } },
     { 0,        XF86XK_AudioLowerVolume,       spawn,          {.v = volume_down } },
+    { MODKEY,   XK_q,                          spawn,          {.v = volume_down } },
+    { MODKEY,   XK_w,                          spawn,          {.v = volume_up } }, 
+    { 0,        XF86XK_AudioRaiseVolume,       spawn,          {.v = volume_up } }, 
     { 0,        XF86XK_AudioMute,              spawn,          {.v = mute } },
     { 0,        XF86XK_MonBrightnessUp,        spawn,          {.v = brightness_up } },
     { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightness_down } },
