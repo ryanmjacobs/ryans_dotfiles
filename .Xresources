@@ -8,7 +8,7 @@
 ! April 16, 2014 -> Added 'Modern Terminal Functionality'.
 !###############################################################################
 
-Xcursor.size: 32
+Xcursor.size: 16
 
 ! Global color
 *customization: -color
