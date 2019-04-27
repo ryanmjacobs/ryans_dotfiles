@@ -17,6 +17,7 @@
 #include <X11/Xlib.h>
 #include <libnotify/notify.h>
 
+int dir_exists(const char *directory);
 int read_int(const char *fname);
 char *smprintf(char *fmt, ...);
 char *getdate(char *fmt);
@@ -148,6 +149,16 @@ void libnotify_critical(const char *msg) {
 	notify_uninit();
 }
 
+// returns 1 if the directory exists
+int dir_exists(const char *directory) {
+    DIR *dir = opendir(directory);
+    if (dir) {
+        closedir(dir);
+        return 1;
+    }
+    return 0;
+}
+
 char *getpower(void) {
     // read in data points
     double power_now   = read_int("/sys/class/power_supply/BAT0/power_now");
@@ -157,7 +168,7 @@ char *getpower(void) {
 
     // if power draw is 0, then we must be on BAT1
     // (for dual battery systems)
-    if (power_now == 0) {
+    if (power_now == 0 && dir_exists("/sys/class/power_supply/BAT1")) {
         power_now   = read_int("/sys/class/power_supply/BAT1/power_now");
         energy_now  = read_int("/sys/class/power_supply/BAT1/energy_now");
         energy_full = read_int("/sys/class/power_supply/BAT1/energy_full");
