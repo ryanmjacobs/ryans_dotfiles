@@ -155,6 +155,15 @@ char *getpower(void) {
     double energy_full = read_int("/sys/class/power_supply/BAT0/energy_full");
     double voltage_now = read_int("/sys/class/power_supply/BAT0/voltage_now");
 
+    // if power draw is 0, then we must be on BAT1
+    // (for dual battery systems)
+    if (power_now == 0) {
+        power_now   = read_int("/sys/class/power_supply/BAT1/power_now");
+        energy_now  = read_int("/sys/class/power_supply/BAT1/energy_now");
+        energy_full = read_int("/sys/class/power_supply/BAT1/energy_full");
+        voltage_now = read_int("/sys/class/power_supply/BAT1/voltage_now");
+    }
+
     // percent of battery left
     int perc = (energy_now*1000.0 / voltage_now)*100.0 / (energy_full*1000.0 / voltage_now);
 
