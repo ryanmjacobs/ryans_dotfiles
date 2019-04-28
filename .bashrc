@@ -25,7 +25,7 @@ elif [ "$(id -u)" -eq 0 ]; then
 fi
 
 export EDITOR=vim
-export BROWSER='firefox'
+export BROWSER=firefox
 export GPG_TTY=$(tty) # enable tty for GPG and pinentry-curses
 export BUNDLE_PATH="$HOME/.bundle/install"
 
@@ -219,6 +219,9 @@ cm() {
 }
 alias gp="git push"
 alias ga="git add ."
+alias gip="git pull"
+alias gpi="git pull"
+alias gat="git status"
 alias gpt="git push --tags"
 gc() {
     git clone --depth=1 "$1"
@@ -241,6 +244,9 @@ alias kdn="kubectl describe -n kube-system"
 alias kca="kc get all"
 alias kcna="kcn get all"
 alias dka='docker kill `docker ps -q`'
+kce() {
+    kubectl exec -it "$1" bash
+}
 
 reload_kt() {
     KUBECONFIG=""
@@ -252,3 +258,5 @@ reload_kt() {
 reload_kt
 
 alias eth="nc mir.rmj.us 3293"
+alias ff="firefox -private"
+alias firefox="firefox -private"

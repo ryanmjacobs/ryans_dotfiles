@@ -146,6 +146,7 @@ let g:jsx_pragma_required = 1
 nnoremap <Space> <Nop>
 let maplocalleader=" "
 
-" tabstop=2 for YAML files
+" custom language tabstops
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType toml setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType ruby setlocal shiftwidth=4 softtabstop=4 expandtab
