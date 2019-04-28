@@ -224,11 +224,16 @@ alias gpi="git pull"
 alias gat="git status"
 alias gpt="git push --tags"
 gc() {
-    git clone --depth=1 "$1"
-    cd "$(basename "$1")"
+    git clone --depth=1 "$1"; cd "$(basename "$1")"
+}
+_gc() {
+    git clone --depth=1 "$1"; cd "$(basename "$1")"
 }
 gcr() {
     gc git@github.com:ryanmjacobs/"$1"
+}
+_gcr() {
+    _gc git@github.com:ryanmjacobs/"$1"
 }
 
 # custom bash-completion
