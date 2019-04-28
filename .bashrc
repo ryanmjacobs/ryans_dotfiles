@@ -227,7 +227,7 @@ gc() {
     git clone --depth=1 "$1"; cd "$(basename "$1")"
 }
 _gc() {
-    git clone --depth=1 "$1"; cd "$(basename "$1")"
+    git clone "$1"; cd "$(basename "$1")"
 }
 gcr() {
     gc git@github.com:ryanmjacobs/"$1"
