@@ -283,10 +283,15 @@ int main(void) {
         char *vol    = getvol();
         char *time   = getdate("%a %b %d, %Y | %r");
 
+        char *power_str =
+            dir_exists("/sys/class/power_supply/BAT0")
+            ? smprintf("Power: %s%s |", ac, power)
+            : "";
+
         char *status = smprintf(
             "Uptime: [%s] | Wifi: %s | "
-            "Power: %s%s | Vol: %s -- %s",
-            uptime, wifi, ac, power, vol, time
+            "%sVol: %s -- %s",
+            uptime, wifi, power_str, vol, time
         );
         puts(status);
         setstatus(status);
@@ -294,6 +299,7 @@ int main(void) {
         free(uptime);
         free(wifi);
         free(power);
+        free(power_str);
         free(vol);
         free(time);
         free(load);
