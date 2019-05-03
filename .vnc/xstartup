@@ -6,8 +6,12 @@
 # June 18, 2014 -> File creation.
 ################################################################################
 
-# Load .Xresources file
-xrdb $HOME/.Xresources
+# Load .Xresources file (without high-DPI scaling)
+tmpxr="$(mktemp)"
+cp "$HOME/.Xresources" "$tmpxr"
+grep -v Xft "$HOME/.Xresources" > "$tmpxr"
+xrdb "$tmpxr"
+rm "$tmpxr"
 
 # Set the background wallpaper
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
