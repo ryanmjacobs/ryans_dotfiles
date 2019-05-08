@@ -186,7 +186,7 @@ char *getpower(void) {
         hours = energy_now/power_now;
 
     // convert time to H:MM
-    double minutes = (hours-floor(hours)) * 60;
+    int minutes = (hours-floor(hours)) * 60;
     char *charge_str = smprintf("%0.0f:%02.0f",
         charge_str,
         minutes == 60 ? ceil(hours) : floor(hours),
