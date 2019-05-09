@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 ################################################################################
 # Personal .xinitrc file
 #
@@ -34,6 +35,7 @@ redshift &
 
 # nice java windows
 wmname LG3D
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # start compositor
 compton -CG -D 0 &
@@ -67,8 +69,8 @@ xmodmap -e "add mod1 = Super_L"
 xmodmap -e "add mod1 = Super_R"
 
 # Edge-scrolling instead of two-finger
-xinput set-prop 13 297 1, 1, 1 # edge-srolling
-xinput set-prop 13 298 0, 0    # two-finger scrolling
+#xinput set-prop 13 297 1, 1, 1 # edge-srolling
+#xinput set-prop 13 298 0, 0    # two-finger scrolling
 
 # Start the WM
 exec dwm
