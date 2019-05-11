@@ -185,7 +185,7 @@ char *getpower(void) {
         hours = energy_now/power_now;
 
     // convert time to H:MM
-    double minutes = (hours-floor(hours)) * 60;
+    int minutes = (hours-floor(hours)) * 60;
     char *charge_str = smprintf("%0.0f:%02.0f",
         charge_str,
         minutes == 60 ? ceil(hours) : floor(hours),
@@ -282,10 +282,15 @@ int main(void) {
         char *vol    = getvol();
         char *time   = getdate("%a %b %d, %Y | %r");
 
+        char *power_str =
+            dir_exists("/sys/class/power_supply/BAT0")
+            ? smprintf("Power: %s%s |", ac, power)
+            : "";
+
         char *status = smprintf(
             "Uptime: [%s] | Wifi: %s | "
-            "Power: %s%s | Vol: %s -- %s",
-            uptime, wifi, ac, power, vol, time
+            "%sVol: %s -- %s",
+            uptime, wifi, power_str, vol, time
         );
         puts(status);
         setstatus(status);
@@ -293,6 +298,7 @@ int main(void) {
         free(uptime);
         free(wifi);
         free(power);
+        free(power_str);
         free(vol);
         free(time);
         free(load);
