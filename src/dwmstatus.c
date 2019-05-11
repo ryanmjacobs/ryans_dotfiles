@@ -104,9 +104,8 @@ char *getwifi(void) {
     char *cmd;
     char perc[1024];
     char essid[1024];
-    char dev_name[1024] = "wlp0s20u2";
 
-    cmd = smprintf("iwgetid -r %s", dev_name);
+    cmd = smprintf("iwgetid -r | head -n1");
     fp = popen(cmd, "r");
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get wifi AP name\n");
@@ -124,7 +123,7 @@ char *getwifi(void) {
     if (strlen(essid) == 0 || essid[0] < 32 || essid[0] >= 127)
         return smprintf("OFF");
 
-    cmd = smprintf("grep %s /proc/net/wireless | cut -d' ' -f5", dev_name);
+    cmd = smprintf("grep wlp /proc/net/wireless | grep wlp | awk '{print $3}' | head -n1");
     fp = popen(cmd, "r");
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get wifi power\n");
