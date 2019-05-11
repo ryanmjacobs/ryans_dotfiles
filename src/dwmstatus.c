@@ -104,7 +104,7 @@ char *getwifi(void) {
     char *cmd;
     char perc[1024];
     char essid[1024];
-    char dev_name[1024] = "wlp3s0";
+    char dev_name[1024] = "wlp0s20u2";
 
     cmd = smprintf("iwgetid -r %s", dev_name);
     fp = popen(cmd, "r");
