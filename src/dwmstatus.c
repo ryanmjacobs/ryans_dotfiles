@@ -198,18 +198,19 @@ char *getpower(void) {
     return smprintf("[%d%][%0.1f W][%s]", perc, power_now/1.0e6, charge_str);
 }
 
-char *hostname(void) {
-    char hn[512];
+void get_hostname(char *hostname) {
     FILE *fp = fopen("/etc/hostname", "r");
-    fscanf(fp, "%s", hn);
-    return hn;
+    fscanf(fp, "%s", hostname);
+    fclose(fp);
 }
 
 char *getvol(void) {
     FILE *fp;
     char buf[1024];
 
-    if (strncmp(hostname(), "roz", 3))
+    char hostname[256];
+    get_hostname(hostname);
+    if (strncmp(hostname, "roz", 3) == 0)
         fp = popen("amixer -c2 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
     else
         fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
@@ -285,18 +286,20 @@ int main(void) {
     signal(SIGINT, sigint_handler);
 
     while (1) {
-        char *ac     = on_ac_power() ? "AC " : "";
         char *load   = loadavg();
         char *uptime = getuptime();
         char *wifi   = getwifi();
-        char *power  = getpower();
         char *vol    = getvol();
         char *time   = getdate("%a %b %d, %Y | %r");
 
-        char *power_str =
-            dir_exists("/sys/class/power_supply/BAT0")
-            ? smprintf("Power: %s%s |", ac, power)
-            : "";
+        char *ac    = NULL;
+        char *power = NULL;
+        char *power_str = "";
+        if (dir_exists("/sys/class/power_supply/BAT0")) {
+            power = getpower();
+            ac    = on_ac_power() ? "AC " : "";
+            power_str = smprintf("Power: %s%s |", ac, power);
+        }
 
         char *status = smprintf(
             "Uptime: [%s] | Wifi: %s | "
@@ -308,8 +311,10 @@ int main(void) {
 
         free(uptime);
         free(wifi);
-        free(power);
-        free(power_str);
+        if (power) {
+            free(power);
+            free(power_str);
+        }
         free(vol);
         free(time);
         free(load);
