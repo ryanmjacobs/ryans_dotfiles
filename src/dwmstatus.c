@@ -199,10 +199,21 @@ char *getpower(void) {
     return smprintf("[%d%][%0.1f W][%s]", perc, power_now/1.0e6, charge_str);
 }
 
+char *hostname(void) {
+    char hn[512];
+    FILE *fp = fopen("/etc/hostname", "r");
+    fscanf(fp, "%s", hn);
+    return hn;
+}
+
 char *getvol(void) {
+    FILE *fp;
     char buf[1024];
 
-    FILE *fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
+    if (strncmp(hostname(), "roz", 3))
+        fp = popen("amixer -c2 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
+    else
+        fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
 
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get volume");
