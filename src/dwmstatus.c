@@ -99,11 +99,18 @@ char *getuptime(void) {
         return smprintf("%u days, %02u:%02u:%02u", days, hours, minutes, seconds);
 }
 
+int wifi_is_connected(void) {
+    return !system("iwgetid");
+}
+
 char *getwifi(void) {
     FILE *fp;
     char *cmd;
     char perc[1024];
     char essid[1024];
+
+    if (!wifi_is_connected())
+        return smprintf("OFF");
 
     cmd = smprintf("iwgetid -r | head -n1");
     fp = popen(cmd, "r");
@@ -115,13 +122,6 @@ char *getwifi(void) {
     strtok(essid, "\n");
     pclose(fp);
     free(cmd);
-
-    /**
-     * If the first character of the ESSID is not ASCII-printable,
-     * then we probably aren't connected...
-     */
-    if (strlen(essid) == 0 || essid[0] < 32 || essid[0] >= 127)
-        return smprintf("OFF");
 
     cmd = smprintf("grep wlp /proc/net/wireless | grep wlp | awk '{print $3}' | head -n1");
     fp = popen(cmd, "r");
