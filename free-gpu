@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+SAMPLES=5
+THRESHOLD=10
+STDERR.puts "Locating a free GPU (under #{THRESHOLD}% util)..."
+
+avgs=[0, 0]
+STDERR.puts "Instantaneous utilization:"
+SAMPLES.times do
+    # grab in stannous GPU utilization
+    util = `nvidia-smi | grep '%' | awk '{print $13}'`
+    util = util.split(" ").map {|x| x.to_i}
+    pp util
+
+    # increment per-GPU counters
+    avgs[0] += util[0]
+    avgs[1] += util[1]
+
+    sleep 0.5
+end
+
+# solve average
+STDERR.puts "Average utilization:"
+avgs[0] /= SAMPLES
+avgs[1] /= SAMPLES
+avgs.each_with_index do |avg, index|
+    STDERR.puts "GPU ##{index}: #{avg.to_s.rjust(3)}% util"
+end
+avgs.each_with_index do |avg, index|
+    if (avg <= THRESHOLD) then
+        STDERR.puts "GPU #{index} is free."
+        puts index
+        exit 0
+    end
+end
+
+STDERR.puts "Unable to locate a free GPU, (under #{THRESHOLD}% util...)"
+puts -1
+exit 1
