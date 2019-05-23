@@ -10,7 +10,7 @@ SAMPLES.times do
     # grab in stannous GPU utilization
     util = `nvidia-smi | grep '%' | awk '{print $13}'`
     util = util.split(" ").map {|x| x.to_i}
-    pp util
+    STDERR.puts util.join(", ")
 
     # increment per-GPU counters
     avgs[0] += util[0]
