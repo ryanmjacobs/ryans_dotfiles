@@ -26,7 +26,7 @@ avgs[1] /= SAMPLES
 avgs.each_with_index do |avg, index|
     STDERR.puts "GPU ##{index}: #{avg.to_s.rjust(3)}% util"
 end
-avgs.each_with_index do |avg, index|
+avgs.to_enum.with_index.reverse_each do |avg, index|
     if (avg <= THRESHOLD) then
         STDERR.puts "GPU #{index} is free."
         puts index
