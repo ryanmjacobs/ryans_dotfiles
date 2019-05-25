@@ -26,9 +26,12 @@ avgs[1] /= SAMPLES
 avgs.each_with_index do |avg, index|
     STDERR.puts "GPU ##{index}: #{avg.to_s.rjust(3)}% util"
 end
+$index = nil
 avgs.to_enum.with_index.reverse_each do |avg, index|
     if (avg <= THRESHOLD) then
-        STDERR.puts "GPU #{index} is free."
+        STDERR.puts "\nGPU #{index} is free."
+        STDERR.puts "You can instruct TensorFlow to to use this GPU with:"
+        STDERR.puts "$ export CUDA_VISIBLE_DEVICES=#{index}\n\n"
         puts index
         exit 0
     end
