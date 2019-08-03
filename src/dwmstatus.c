@@ -160,6 +160,7 @@ int dir_exists(const char *directory) {
 
 char *getpower(void) {
     // read in data points
+    int bat = 0;
     double power_now   = read_int("/sys/class/power_supply/BAT0/power_now");
     double energy_now  = read_int("/sys/class/power_supply/BAT0/energy_now");
     double energy_full = read_int("/sys/class/power_supply/BAT0/energy_full");
@@ -168,6 +169,7 @@ char *getpower(void) {
     // if power draw is 0, then we must be on BAT1
     // (for dual battery systems)
     if (power_now == 0 && dir_exists("/sys/class/power_supply/BAT1")) {
+        bat = 1;
         power_now   = read_int("/sys/class/power_supply/BAT1/power_now");
         energy_now  = read_int("/sys/class/power_supply/BAT1/energy_now");
         energy_full = read_int("/sys/class/power_supply/BAT1/energy_full");
@@ -184,6 +186,11 @@ char *getpower(void) {
     else
         hours = energy_now/power_now;
 
+    printf("enow=%f, pnow=%f, div_h=%f, div_m=%f\n",
+            energy_now, power_now,
+            energy_now/power_now,
+            energy_now/power_now*60);
+
     // convert time to H:MM
     int minutes = (hours-floor(hours)) * 60;
     char *charge_str = smprintf("%0.0f:%02.0f",
@@ -195,7 +202,8 @@ char *getpower(void) {
     if (perc < 20)
         libnotify_critical("Warning: Low Battery");
 
-    return smprintf("[%d%][%0.1f W][%s]", perc, power_now/1.0e6, charge_str);
+    return smprintf("B%d [%d%][%0.1f W][%s]",
+                     bat, perc, power_now/1.0e6, charge_str);
 }
 
 char *getvol(void) {
