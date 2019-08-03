@@ -80,9 +80,11 @@ static const char *xkill[]           = { "xkill", NULL };
 static const char *scrot[]           = { "scrot", "scrot.png", NULL };
 static const char *maim[]            = { "maim", "-s", "maim.png", NULL };
 
-static const char *sleepcmd[]        = { "sh", "-c", "slock & { sleep 1; systemctl suspend; }", NULL };
-static const char *hibernatecmd[]    = { "sh", "-c", "slock & { sleep 1; sudo s2disk; }", NULL };
-static const char *hybridcmd[]       = { "sh", "-c", "slock & { sleep 1; sudo s2both; }", NULL };
+/* lock, sleep, hibernate, (or some combination thereof)
+static const char *lockcmd[]      = { "sh", "-c", "slock", NULL };
+static const char *sleepcmd[]     = { "sh", "-c", "slock & { sleep 1; systemctl suspend; }", NULL };
+static const char *hibernatecmd[] = { "sh", "-c", "slock & { sleep 1; sudo s2disk; }", NULL };
+static const char *hybridcmd[]    = { "sh", "-c", "slock & { sleep 1; sudo s2both; }", NULL };
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -101,6 +103,7 @@ static Key keys[] = {
     { ControlMask|MODKEY,           XK_x,      spawn,          {.v = xkill } },
     { ControlMask|MODKEY,           XK_t,      spawn,          {.v = termcmd } },
 
+    { MODKEY,                       XK_o,             spawn,   {.v = lockcmd } },
     { MODKEY,                       XK_p,             spawn,   {.v = sleepcmd } },
     { MODKEY,                       XK_bracketleft,   spawn,   {.v = hibernatecmd } },
     { MODKEY,                       XK_bracketright,  spawn,   {.v = hybridcmd } },
