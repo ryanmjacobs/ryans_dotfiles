@@ -99,11 +99,18 @@ char *getuptime(void) {
         return smprintf("%u days, %02u:%02u:%02u", days, hours, minutes, seconds);
 }
 
+int wifi_is_connected(void) {
+    return !system("iwgetid");
+}
+
 char *getwifi(void) {
     FILE *fp;
     char *cmd;
     char perc[1024];
     char essid[1024];
+
+    if (!wifi_is_connected())
+        return smprintf("OFF");
 
     cmd = smprintf("iwgetid -r | head -n1");
     fp = popen(cmd, "r");
@@ -115,13 +122,6 @@ char *getwifi(void) {
     strtok(essid, "\n");
     pclose(fp);
     free(cmd);
-
-    /**
-     * If the first character of the ESSID is not ASCII-printable,
-     * then we probably aren't connected...
-     */
-    if (strlen(essid) == 0 || essid[0] < 32 || essid[0] >= 127)
-        return smprintf("OFF");
 
     cmd = smprintf("grep wlp /proc/net/wireless | grep wlp | awk '{print $3}' | head -n1");
     fp = popen(cmd, "r");
@@ -206,10 +206,22 @@ char *getpower(void) {
                      bat, perc, power_now/1.0e6, charge_str);
 }
 
+void get_hostname(char *hostname) {
+    FILE *fp = fopen("/etc/hostname", "r");
+    fscanf(fp, "%s", hostname);
+    fclose(fp);
+}
+
 char *getvol(void) {
+    FILE *fp;
     char buf[1024];
 
-    FILE *fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
+    char hostname[256];
+    get_hostname(hostname);
+    if (strncmp(hostname, "roz", 3) == 0)
+        fp = popen("amixer -c2 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
+    else
+        fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
 
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get volume");
@@ -282,18 +294,20 @@ int main(void) {
     signal(SIGINT, sigint_handler);
 
     while (1) {
-        char *ac     = on_ac_power() ? "AC " : "";
         char *load   = loadavg();
         char *uptime = getuptime();
         char *wifi   = getwifi();
-        char *power  = getpower();
         char *vol    = getvol();
         char *time   = getdate("%a %b %d, %Y | %r");
 
-        char *power_str =
-            dir_exists("/sys/class/power_supply/BAT0")
-            ? smprintf("Power: %s%s |", ac, power)
-            : "";
+        char *ac    = NULL;
+        char *power = NULL;
+        char *power_str = "";
+        if (dir_exists("/sys/class/power_supply/BAT0")) {
+            power = getpower();
+            ac    = on_ac_power() ? "AC " : "";
+            power_str = smprintf("Power: %s%s |", ac, power);
+        }
 
         char *status = smprintf(
             "Uptime: [%s] | Wifi: %s | "
@@ -305,8 +319,10 @@ int main(void) {
 
         free(uptime);
         free(wifi);
-        free(power);
-        free(power_str);
+        if (power) {
+            free(power);
+            free(power_str);
+        }
         free(vol);
         free(time);
         free(load);
