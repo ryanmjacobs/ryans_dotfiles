@@ -80,7 +80,7 @@ static const char *xkill[]           = { "xkill", NULL };
 static const char *scrot[]           = { "scrot", "scrot.png", NULL };
 static const char *maim[]            = { "maim", "-s", "maim.png", NULL };
 
-/* lock, sleep, hibernate, (or some combination thereof)
+/* lock, sleep, hibernate, (or some combination thereof) */
 static const char *lockcmd[]      = { "sh", "-c", "slock", NULL };
 static const char *sleepcmd[]     = { "sh", "-c", "slock & { sleep 1; systemctl suspend; }", NULL };
 static const char *hibernatecmd[] = { "sh", "-c", "slock & { sleep 1; sudo s2disk; }", NULL };
