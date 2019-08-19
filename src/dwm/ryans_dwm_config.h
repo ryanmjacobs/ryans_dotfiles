@@ -71,8 +71,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", 0, NULL };
 
 /* commands */
 static const char *termcmd[]         = { "termite", NULL };
-static const char *volume_down[]     = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
-static const char *volume_up[]       = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+static const char *volume_down[]     = { "amixer", "-q", "set", "Master", "2%-", "unmute", NULL };
+static const char *volume_up[]       = { "amixer", "-q", "set", "Master", "2%+", "unmute", NULL };
 static const char *mute[]            = { "amixer", "-q", "set", "Master", "toggle", NULL };
 static const char *brightness_up[]   = { "/usr/bin/light", "-A", "5", NULL};
 static const char *brightness_down[] = { "/usr/bin/light", "-U", "5", NULL};
