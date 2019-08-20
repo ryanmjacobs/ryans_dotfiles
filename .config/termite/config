@@ -1,5 +1,6 @@
 [options]
 font = Monospace 9
+#font = Monospace 12
 scrollback_lines = 100000
 
 [colors]
