@@ -26,9 +26,7 @@ dwmstatus.sh &
 dunst &
 
 # Keep the colors pleasing
-#redshift &
-#redshift -l 38:-121 & # not sure...
-redshift -l 44:-79 &   # toronto
+redshift -l 39:-121 & # Newcastle
 
 # nice java windows
 wmname LG3D
