@@ -9,10 +9,6 @@ set -e
 # April 16, 2014 -> Disable terminal bell.
 ################################################################################
 
-is_triple_monitor_setup() {
-    xrandr --output DP2-2 |& grep "not found" && return 1 || return 0
-}
-
 # modify X scaling based on triple monitor setup
 tmpxr="$(mktemp)"
 cp "$HOME/.Xresources" "$tmpxr"
@@ -30,8 +26,9 @@ dwmstatus.sh &
 dunst &
 
 # Keep the colors pleasing
-redshift &
-#redshift -l 38:-121 &
+#redshift &
+#redshift -l 38:-121 & # not sure...
+redshift -l 44:-79 &   # toronto
 
 # nice java windows
 wmname LG3D
@@ -45,16 +42,9 @@ compton -CG -D 0 &
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
 
 # triple monitor setup
-if is_triple_monitor_setup; then
-    sleep 2
-
-    xrandr \
-        --output eDP1 --off \
-        --output DP2-1 --off \
-        --output DP2-2 --primary --mode 3840x2160 --pos 2880x0 --rotate normal \
-        --output DP2-3 --mode 1920x1080 --pos 0x0 --rotate normal --scale 1.5x1.5
-    feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg
-fi &
+xrandr \
+    --output eDP1 --off \
+    --output DP1 --primary --mode 3840x2160 --scale 1.5x1.5
 
 # continuosly set bg in case resolution ever changes
 while true; do
