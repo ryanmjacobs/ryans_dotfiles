@@ -217,6 +217,7 @@ h() {
 cm() {
     git commit -m "$*"
 }
+alias cma="git commit --amend"
 alias gp="git push"
 alias ga="git add ."
 alias gip="git pull"
