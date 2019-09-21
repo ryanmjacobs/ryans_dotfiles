@@ -123,6 +123,9 @@ au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx.conf if &ft == 
 " markdown textwidth=80
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
+" .marko files are html (mainly)
+au BufRead,BufNewFile *.marko setlocal syntax=html
+
 "au VimEnter * RainbowParenthesesToggle
 "au Syntax * RainbowParenthesesLoadRound
 "au Syntax * RainbowParenthesesLoadSquare
