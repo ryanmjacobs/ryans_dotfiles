@@ -9,13 +9,6 @@ set -e
 # April 16, 2014 -> Disable terminal bell.
 ################################################################################
 
-# modify X scaling based on triple monitor setup
-tmpxr="$(mktemp)"
-cp "$HOME/.Xresources" "$tmpxr"
-is_triple_monitor_setup || grep -v Xft "$HOME/.Xresources" > "$tmpxr"
-xrdb "$tmpxr"
-rm "$tmpxr"
-
 # Disable double-tap = click on touchpad
 #synclient TapButton1=0 TapButton2=0 TapButton3=0
 
@@ -38,11 +31,6 @@ compton -CG -D 0 &
 # Set the background wallpaper
 #feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
 feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
-
-# triple monitor setup
-xrandr \
-    --output eDP1 --off \
-    --output DP1 --primary --mode 3840x2160 --scale 1.5x1.5
 
 # continuosly set bg in case resolution ever changes
 while true; do
