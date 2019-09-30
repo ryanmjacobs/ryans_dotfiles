@@ -15,13 +15,3 @@ autofit = 400
 
 # Don't show MP3 album art.
 no-audio-display
-
-# Default MPV Encoding Profile
-[defaultenc]
-ovc         = libx264
-ovcopts-add = preset=slower
-ovcopts-add = crf=20
-ovcopts-add = level=4.0
-ovcopts-add = profile=high
-oac         = aac
-oacopts-add = ab=160k
