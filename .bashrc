@@ -283,3 +283,17 @@ alias sx=startx
 alias xs=sx
 alias l="light -S"
 alias e=exit
+
+sf() {
+    host="$1"
+    port="$2"
+
+    if [ -z "$host" ] || [ -z "$port" ]; then
+        echo "error: host/port must be defined"
+        echo "usage: $0 <host> <port>"
+        return 1
+    fi
+
+    echo "host=$host, port=$port"
+    ssh -nNT -L "$port:localhost:$port" "$host"
+}
