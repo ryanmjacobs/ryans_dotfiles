@@ -42,7 +42,7 @@ Plugin 'vim-perl/vim-perl6'
 Plugin 'wlangstroth/vim-racket'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'BeneCollyridam/futhark-vim'
-Bundle 'lepture/vim-jinja'
+Plugin 'ElmCast/elm-vim'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
