@@ -217,6 +217,7 @@ h() {
 cm() {
     git commit -m "$*"
 }
+alias cma="git commit --amend"
 alias gp="git push"
 alias ga="git add ."
 alias gip="git pull"
@@ -224,10 +225,10 @@ alias gpi="git pull"
 alias gat="git status"
 alias gpt="git push --tags"
 gc() {
-    git clone --depth=1 "$1"; cd "$(basename "$1")"
+    git clone --depth=1 "$1" && cd "$(basename "$1")"
 }
 _gc() {
-    git clone "$1"; cd "$(basename "$1")"
+    git clone "$1" && cd "$(basename "$1")"
 }
 gcr() {
     gc git@github.com:ryanmjacobs/"$1"
@@ -265,3 +266,34 @@ reload_kt
 alias eth="nc mir.rmj.us 3293"
 alias ff="firefox -private"
 alias firefox="firefox -private"
+
+alias rb=reboot
+alias br=reboot
+
+de() { date --date=@"$1";}
+
+
+git config --global alias.dad '!curl https://icanhazdadjoke.com/ && echo && git add'
+
+alias eb="ssh -i $HOME/eternalist/backend/deploy/id_rsa -o StrictHostKeyChecking=no core@db.eternalist.io"
+alias be="ssh -i $HOME/eternalist/backend/deploy/id_rsa -o StrictHostKeyChecking=no core@db.eternalist.io"
+alias yt=youtube-dl
+alias ty=yt
+alias sx=startx
+alias xs=sx
+alias l="light -S"
+alias e=exit
+
+sf() {
+    host="$1"
+    port="$2"
+
+    if [ -z "$host" ] || [ -z "$port" ]; then
+        echo "error: host/port must be defined"
+        echo "usage: $0 <host> <port>"
+        return 1
+    fi
+
+    echo "host=$host, port=$port"
+    ssh -nNT -L "$port:localhost:$port" "$host"
+}
