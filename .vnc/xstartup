@@ -21,4 +21,6 @@ vncconfig -iconic &
 
 # Start the WM
 termite &
-exec dwm
+#exec dwm
+tint2 &
+exec openbox
