@@ -21,11 +21,16 @@ elif [ "$(id -u)" -eq 0 ]; then
     PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 fi
 
-eval `dircolors /etc/DIR_COLORS`
 alias ls="ls --color=auto --quoting-style=literal"
 alias grep="grep --color=auto"
 [ -r /usr/share/bash-completion/bash_completion ] &&\
    . /usr/share/bash-completion/bash_completion
+
+if [ -r /etc/DIR_COLORS ]; then
+    eval `dircolors /etc/DIR_COLORS`
+elif [ -r .dir_colors ]; then
+    eval `dircolors .dir_colors`
+fi
 
 EDITOR=vim
 PATH="$HOME/.bin:$PATH"
