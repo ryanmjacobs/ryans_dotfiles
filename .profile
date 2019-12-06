@@ -69,9 +69,10 @@ done
 #    fi
 #}
 #create_ssh_agent &>/dev/null
-if [ -z "$SSH_AGENT_PID" ]; then
-    eval `ssh-agent`
-fi
+#if [ -z "$SSH_AGENT_PID" ]; then
+#    eval `ssh-agent`
+#fi
+[ -f ~/agent ] && source ~/agent
 
 [ -e ~/torch/install/bin/torch-activate ] &&\
    . ~/torch/install/bin/torch-activate
