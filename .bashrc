@@ -231,9 +231,6 @@ _gc() {
     git clone "$1" && cd "$(basename "$1")"
 }
 gcr() {
-    gc git@github.com:ryanmjacobs/"$1"
-}
-_gcr() {
     _gc git@github.com:ryanmjacobs/"$1"
 }
 
