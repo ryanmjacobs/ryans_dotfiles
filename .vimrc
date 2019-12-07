@@ -43,6 +43,7 @@ Plugin 'wlangstroth/vim-racket'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'BeneCollyridam/futhark-vim'
 Plugin 'ElmCast/elm-vim'
+Plugin 'lifepillar/pgsql.vim'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
@@ -117,6 +118,9 @@ set nohlsearch
 set mouse=a
 map <ScrollWheelUp> <nop>
 map <ScrollWheelDown> <nop>
+
+" syntax highlight .sql files as PostgreSQL
+let g:sql_type_default = 'pgsql'
 
 " nginx conf
 " https://arian.io/vim-syntax-highlighting-for-nginx/
