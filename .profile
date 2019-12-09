@@ -49,30 +49,3 @@ for n in {2..20}; do
     eval "${n}x() { for n in `seq -s' ' $n`; do" '$@; done }'
     eval "x${n}() { for n in `seq -s' ' $n`; do" '$@; done }'
 done
-
-#create_ssh_agent() {
-#    # ssh-agent not found
-#    if ! ssh-add -l; then
-#        ssh_agent_fname="/tmp/ssh-agent.$(whoami)"
-#
-#        # agent file exists -> load it
-#        if [ -e "$ssh_agent_fname" ]; then
-#            source "$ssh_agent_fname"
-#        fi
-#
-#        # agent file was invalid
-#        if ! ssh-add -l; then
-#            ssh-agent > "$ssh_agent_fname"
-#            chmod 600 "$ssh_agent_fname"
-#            source "$ssh_agent_fname"
-#        fi
-#    fi
-#}
-#create_ssh_agent &>/dev/null
-#if [ -z "$SSH_AGENT_PID" ]; then
-#    eval `ssh-agent`
-#fi
-[ -f ~/agent ] && source ~/agent
-
-[ -e ~/torch/install/bin/torch-activate ] &&\
-   . ~/torch/install/bin/torch-activate

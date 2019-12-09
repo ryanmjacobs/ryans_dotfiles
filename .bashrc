@@ -295,3 +295,7 @@ sf() {
     echo "host=$host, port=$port"
     ssh -nNT -L "$port:localhost:$port" "$host"
 }
+
+[ -f ~/agent ] && source ~/agent
+[ -e ~/.ssh/id_rsa ] && ssh-add ~/.ssh/id_rsa
+[ -e ~/.ssh/mick ] && ssh-add ~/.ssh/mick
