@@ -297,5 +297,3 @@ sf() {
 }
 
 [ -f ~/agent ] && source ~/agent
-[ -e ~/.ssh/id_rsa ] && ssh-add ~/.ssh/id_rsa
-[ -e ~/.ssh/mick ] && ssh-add ~/.ssh/mick
