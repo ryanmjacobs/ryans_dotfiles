@@ -46,6 +46,7 @@ HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 alias def="sdcv"
 hash nvim &>/dev/null && alias vim="nvim"
 
+hash mdcat && alias cat=mdcat
 alias bat="bat --paging=never"
 
 # Colorize ls, grep, and watch
