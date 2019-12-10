@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
         strcat(cmd, argv[i]);
         strcat(cmd, " ");
     }
-    strcat(cmd, "' -o - | mpv - --cache=$((1024*1024))");
+    strcat(cmd, "' -o - | mpv - --cache-secs=300");
 
     // other versions of play
     char fc = basename(argv[0])[0];
