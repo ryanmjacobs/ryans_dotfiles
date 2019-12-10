@@ -42,6 +42,8 @@ HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 # Aliases
 ################################################################################
 
+alias brave="brave --incognito"
+
 # General aliases
 alias def="sdcv"
 hash nvim &>/dev/null && alias vim="nvim"
