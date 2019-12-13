@@ -160,5 +160,6 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType toml setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType ruby setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sql setlocal shiftwidth=2 softtabstop=2 expandtab
