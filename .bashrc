@@ -230,6 +230,7 @@ alias gip="git pull"
 alias gpi="git pull"
 alias gat="git status"
 alias gpt="git push --tags"
+alias gd="git checkout --detach"
 gc() {
     git clone --depth=1 "$1" && cd "$(basename "$1")"
 }
