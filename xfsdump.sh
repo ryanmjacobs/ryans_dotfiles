@@ -5,9 +5,8 @@ case "$HOSTNAME" in
         device=/dev/sda1
         media="ryans thinkpad x250 internal 500 gb ssd samsung evo";;
     delta)
-        >&2 echo "error: host not supported"
-        exit 1
-        ;;
+        device=/dev/sdc1
+        media="ryans thinkpad t440p home disk";;
     *)
         >&2 echo "error: host not supported"
         exit 1
