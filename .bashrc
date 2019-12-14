@@ -3,6 +3,8 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+export SWEETHOME3D_JAVA3D=1.5
+
 # enable terminal colors
 export TERM=xterm-256color
 
@@ -43,6 +45,7 @@ HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 ################################################################################
 
 alias brave="brave --incognito"
+alias b="brave"
 
 # General aliases
 alias def="sdcv"
