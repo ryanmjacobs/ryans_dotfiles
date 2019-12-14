@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$HOSTNAME" != "mu2"]; then
+if [ "$HOSTNAME" != "mu2" ]; then
     >&2 echo "error: host not supported"
     exit 1
 fi
