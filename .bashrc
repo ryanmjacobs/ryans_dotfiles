@@ -286,7 +286,6 @@ alias ty=yt
 alias sx=startx
 alias xs=sx
 alias l="light -S"
-alias e=exit
 
 sf() {
     host="$1"
