@@ -163,3 +163,5 @@ autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sql setlocal shiftwidth=2 softtabstop=2 expandtab
+
+au BufRead,BufNewFile *.md setlocal textwidth=80 formatoptions+=t
