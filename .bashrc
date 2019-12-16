@@ -51,7 +51,6 @@ alias b="brave"
 alias def="sdcv"
 hash nvim &>/dev/null && alias vim="nvim"
 
-hash mdcat && alias cat=mdcat
 alias bat="bat --paging=never"
 
 # Colorize ls, grep, and watch
@@ -223,8 +222,14 @@ h() {
 cm() {
     git commit -m "$*"
 }
+acm() {
+    git add .
+    git commit -m "$*"
+}
 alias cma="git commit --amend"
 alias gp="git push"
+alias gpe="git push & exit"
+alias wip="git add .; git commit -m wip; git push & exit"
 alias ga="git add ."
 alias gip="git pull"
 alias gpi="git pull"
