@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ $# -ne 1 ]; then
+    >&2 echo "usage: $(basename $0) <dump_level>"
+    exit 1
+fi
+level="$1"
+
 case "$HOSTNAME" in
     mu2)
         device=/dev/sda1
@@ -12,5 +18,5 @@ case "$HOSTNAME" in
         exit 1
 esac
 
-label="$HOSTNAME.l1.$(date +%Y%m%d).xfsdump"
-time xfsdump -p10 -l1 -L "$label" -f "$label" -M "$media" "$device"
+label="$HOSTNAME.l${level}.$(date +%Y%m%d).xfsdump"
+time xfsdump -p10 -l $level -L "$label" -f "$label" -M "$media" "$device"
