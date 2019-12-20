@@ -1,0 +1,4 @@
+#!/bin/bash
+
+. ~/read_only_cred
+psql < ~/radious-pg/get_three_balance.sql
