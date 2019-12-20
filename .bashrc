@@ -228,7 +228,6 @@ acm() {
 }
 alias cma="git commit --amend"
 alias gp="git push"
-alias gpe="git push & exit"
 alias wip="git add .; git commit -m wip; git push & exit"
 alias ga="git add ."
 alias gip="git pull"
@@ -236,6 +235,13 @@ alias gpi="git pull"
 alias gat="git status"
 alias gpt="git push --tags"
 alias gd="git checkout --detach"
+gpe() {
+    {
+        git push
+        notify-send "git push : ret=$?"
+    } & exit
+}
+alias gpp="cd ~/.password-store; gpe"
 gc() {
     git clone --depth=1 "$1" && cd "$(basename "$1")"
 }
