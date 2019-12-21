@@ -222,6 +222,9 @@ h() {
 cm() {
     git commit -m "$*"
 }
+cmv() {
+    git commit --no-verify -m "$*"
+}
 acm() {
     git add .
     git commit -m "$*"
