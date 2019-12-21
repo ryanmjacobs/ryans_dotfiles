@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -ne 1 ]; then
-    >&2 echo "usage: $(basename $0) <dump_level>"
+    >&2 echo "usage: $(basename "$0") <dump_level>"
     exit 1
 fi
 level="$1"
