@@ -15,7 +15,10 @@ sync() {
    #nmcli connection modify "$conn" ipv6.dns 2606:4700:4700::1111
 
     nmcli connection up "$conn"
-    echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf
+    cat <<EOF | sudo tee /etc/resolv.conf
+nameserver 1.1.1.1
+nameserver 2606:4700:4700::1111
+EOF
 }
 
 for n in `seq 3`; do
