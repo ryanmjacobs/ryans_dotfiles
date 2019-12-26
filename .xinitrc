@@ -42,16 +42,6 @@ while true; do
     sleep 60
 done &
 
-# Allow the Super (windows/command keys) to be used as Alt
-xmodmap -e "remove mod4 = Super_L"
-xmodmap -e "remove mod4 = Super_R"
-xmodmap -e "add mod1 = Super_L"
-xmodmap -e "add mod1 = Super_R"
-
-# Edge-scrolling instead of two-finger
-#xinput set-prop 13 297 1, 1, 1 # edge-srolling
-#xinput set-prop 13 298 0, 0    # two-finger scrolling
-
 # Start the WM
 exec dwm
 #exec twm
