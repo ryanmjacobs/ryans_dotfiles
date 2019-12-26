@@ -42,6 +42,10 @@ while true; do
     sleep 60
 done &
 
+if [ "$HOSTNAME" == "mu2" ]; then
+    disable_trackpoint.sh
+fi
+
 # Start the WM
 exec dwm
 #exec twm
