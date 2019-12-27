@@ -43,8 +43,9 @@ while true; do
 done &
 
 if [ "$HOSTNAME" == "mu2" ]; then
+    :
     #disable_trackpoint.sh
-    calibrate_sticky_trackpoint.sh
+    #calibrate_sticky_trackpoint.sh
 fi
 
 # Start the WM
