@@ -20,6 +20,8 @@ prune() {
 
     a=""
     for b in *; do
+        [ ! -f "$b" ] && continue
+
         if [ -n "$a" ]; then
             if cmp -s "$a" "$b"; then
                 rm "$b"
