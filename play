@@ -25,7 +25,7 @@ prune() {
         if [ -n "$a" ]; then
             if cmp -s "$a" "$b"; then
                 rm "$b"
-                ln "$a" "$b"
+                ln -sv "$a" "$b"
             fi
         fi
 
