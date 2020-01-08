@@ -299,7 +299,7 @@ alias yt=youtube-dl
 alias ty=yt
 alias sx=startx
 alias xs=sx
-alias l="light -S"
+alias mc=mcli
 
 sf() {
     host="$1"
@@ -316,3 +316,4 @@ sf() {
 }
 
 [ -f ~/agent ] && source ~/agent
+[ -f ~/read_only_cred ] && source ~/read_only_cred
