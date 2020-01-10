@@ -40,7 +40,7 @@ _play # attempt to play cached file and exit
 # otherwise download
 youtube-dl --default-search=auto "$*" -o "$HOME/.ytc/$h" -f bestaudio
 echo "$h $*" >> "$HOME/.ytc/lookup.txt"
-prune
+#prune
 
 # then play and exit
 _play
