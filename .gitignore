@@ -27,3 +27,4 @@
 .irssi/default.theme
 
 .vim/bundle/**
+.env
