@@ -33,9 +33,8 @@ int on_ac_power(void);
 
 static Display *dpy;
 
-static volatile int STOP = 0;
 void sigint_handler(int sig) {
-    STOP = 1;
+    exit(1);
 }
 
 int read_int(const char *fname) {
@@ -327,13 +326,7 @@ int main(void) {
         free(load);
         free(status);
 
-        // hard-coded, oneshot
-        STOP = 1;
-
-        if (STOP)
-            break;
-        else
-            sleep(1);
+        sleep(1);
     }
 
     XCloseDisplay(dpy);
