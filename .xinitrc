@@ -26,11 +26,7 @@ wmname LG3D
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # start compositor
-compton -CG -D 0 &
-
-xrandr --output HDMI-1 --scale 1.5x1.5
-xrandr --output USB-C-0 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-5 --off --output DP-4 --mode 3840x2160 --pos 2880x0 --rotate normal --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --off
-xrandr --output HDMI-0 --scale 1.5x1.5
+picom -CG -D 0 &
 
 # Set the background wallpaper
 #feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
