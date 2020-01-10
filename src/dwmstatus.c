@@ -194,7 +194,6 @@ char *getpower(void) {
     // convert time to H:MM
     int minutes = (hours-floor(hours)) * 60;
     char *charge_str = smprintf("%0.0f:%02.0f",
-        charge_str,
         minutes == 60 ? ceil(hours) : floor(hours),
         minutes == 60 ? 0 : minutes);
 
