@@ -7,6 +7,9 @@ fi
 level="$1"
 
 case "$HOSTNAME" in
+    mu)
+        device=/dev/sda1
+        media="ryans thinkpad x240 internal ssd - newcastle server supervisor";;
     mu2)
         device=/dev/sda1
         media="ryans thinkpad x250 internal 500 gb ssd samsung evo";;
