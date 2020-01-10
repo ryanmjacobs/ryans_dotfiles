@@ -330,7 +330,7 @@ int main(void) {
         // hard-coded, oneshot
         STOP = 1;
 
-        if (STOP = 1)
+        if (STOP)
             break;
         else
             sleep(1);
