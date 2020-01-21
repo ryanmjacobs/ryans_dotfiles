@@ -285,9 +285,6 @@ alias eth="nc mir.rmj.us 3293"
 alias ff="firefox -private"
 alias firefox="firefox -private"
 
-alias rb=reboot
-alias br=reboot
-
 de() { date --date=@"$1";}
 
 
@@ -317,3 +314,5 @@ sf() {
 
 [ -f ~/agent ] && source ~/agent
 [ -f ~/read_only_cred ] && source ~/read_only_cred
+
+source /home/ryan/.config/broot/launcher/bash/br
