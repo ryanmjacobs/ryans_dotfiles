@@ -315,4 +315,4 @@ sf() {
 [ -f ~/agent ] && source ~/agent
 [ -f ~/read_only_cred ] && source ~/read_only_cred
 
-source /home/ryan/.config/broot/launcher/bash/br
+#source /home/ryan/.config/broot/launcher/bash/br
