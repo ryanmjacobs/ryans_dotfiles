@@ -34,4 +34,5 @@ fi
 
 EDITOR=vim
 PATH="$HOME/.bin:$PATH"
+PATH="$HOME/.bin/rbin:$PATH"
 PATH="$HOME/.npm-packges/bin:$PATH"
