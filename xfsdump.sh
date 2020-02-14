@@ -16,6 +16,9 @@ case "$HOSTNAME" in
     delta)
         device=/dev/sdc1
         media="ryans thinkpad t440p home disk";;
+    xi)
+        device=/dev/sda1
+        media="ryans thinkpad x250 with fpga root disk";;
     *)
         >&2 echo "error: host not supported"
         exit 1
