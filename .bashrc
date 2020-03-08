@@ -288,9 +288,6 @@ alias firefox="firefox -private"
 
 de() { date --date=@"$1";}
 
-
-git config --global alias.dad '!curl https://icanhazdadjoke.com/ && echo && git add'
-
 alias eb="ssh -i $HOME/eternalist/backend/deploy/id_rsa -o StrictHostKeyChecking=no core@db.eternalist.io"
 alias be="ssh -i $HOME/eternalist/backend/deploy/id_rsa -o StrictHostKeyChecking=no core@db.eternalist.io"
 alias yt=youtube-dl
