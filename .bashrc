@@ -7,6 +7,7 @@ export SWEETHOME3D_JAVA3D=1.5
 
 # enable terminal colors
 export TERM=xterm-256color
+export CLICOLOR=true
 
 # bash completion
 [ -r /usr/share/bash-completion/bash_completion ] &&\

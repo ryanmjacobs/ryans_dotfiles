@@ -8,6 +8,7 @@ export LANGUAGE=en_US.UTF-8
 
 # terminal colors
 export TERM=xterm-256color
+export CLICOLOR=true
 
 # history
 HISTCONTROL="ignorespace"
