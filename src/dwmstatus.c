@@ -109,7 +109,7 @@ char *getwifi(void) {
     char essid[1024];
 
     if (!wifi_is_connected())
-        return "";
+        return smprintf("");
 
     cmd = smprintf("iwgetid -r | head -n1");
     fp = popen(cmd, "r");
