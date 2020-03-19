@@ -307,10 +307,17 @@ int main(void) {
             power_str = smprintf("Power: %s%s |", ac, power);
         }
 
+        const char *wifi_prefix =
+            strlen(wifi)
+            ? " | Wifi: "
+            : "";
+
         char *status = smprintf(
-            "Uptime: [%s] | Wifi: %s | "
+            "Uptime: [%s]%s%s | "
             "%sVol: %s -- %s",
-            uptime, wifi, power_str, vol, time
+            uptime,
+            wifi_prefix, wifi,
+            power_str, vol, time
         );
         puts(status);
         setstatus(status);
