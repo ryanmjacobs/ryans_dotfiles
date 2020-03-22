@@ -13,7 +13,7 @@ set -e
 #synclient TapButton1=0 TapButton2=0 TapButton3=0
 
 # Dwm Statusbar
-dwmstatus.sh &
+dwmstatus &
 
 # Dunst Notification Daemon
 dunst &
