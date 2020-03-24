@@ -310,7 +310,10 @@ sf() {
     ssh -nNT -L "$port:localhost:$port" "$host"
 }
 
-[ -f ~/agent ] && source ~/agent
+[ ! -f ~/agent ] && ssh-agent > ~/agent
+source ~/agent
+kill -0 "$SSH_AGENT_PID" || { ssh-agent > ~/agent; source ~/agent; }
+
 [ -f ~/read_only_cred ] && source ~/read_only_cred
 
 #source /home/ryan/.config/broot/launcher/bash/br
