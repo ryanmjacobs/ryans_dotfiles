@@ -47,6 +47,9 @@ HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 
 alias brave="brave --incognito"
 alias b="brave"
+alias ipl="ip --brief --color link"
+alias ipr="ip --brief --color route"
+alias ipa="ip --brief --color address"
 
 # General aliases
 alias def="sdcv"
