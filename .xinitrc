@@ -46,4 +46,5 @@ fi
 
 # Start the WM
 exec dwm
+#exec startlxde
 #exec twm
