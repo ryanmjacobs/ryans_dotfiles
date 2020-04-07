@@ -28,7 +28,7 @@ elif [ "$(id -u)" -eq 0 ]; then
 fi
 
 export EDITOR=vim
-export BROWSER=firefox
+export BROWSER="firefox -private"
 export GPG_TTY=$(tty) # enable tty for GPG and pinentry-curses
 export BUNDLE_PATH="$HOME/.bundle/install"
 
@@ -45,6 +45,10 @@ HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 # Aliases
 ################################################################################
 
+alias t="tree&"
+alias tb="thunderbird &"
+alias lq="vncviewer -QualityLevel 0 -CompressLevel 6 -CustomCompressLevel -AutoSelect=0 -LowColorLevel=1 -FullColor=0 localhost:1234"
+alias dr="docker run -it --rm"
 alias brave="brave --incognito"
 alias b="brave"
 alias ipl="ip --brief --color link"

@@ -44,6 +44,8 @@ if [ "$HOSTNAME" == "mu2" ]; then
     #calibrate_sticky_trackpoint.sh
 fi
 
+xrdb -load ~/.Xresources
+
 # Start the WM
 exec dwm
 #exec startlxde
