@@ -239,6 +239,7 @@ acm() {
 }
 alias cma="git commit --amend"
 alias gp="git push"
+alias gpu='git push --set-upstream origin $(git symbolic-ref --short -q HEAD)'
 alias wip="git add .; git commit -m wip; git push & exit"
 alias ga="git add ."
 alias gip="git pull"
