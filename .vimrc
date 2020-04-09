@@ -1,13 +1,6 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" .vimrc
-"
-" Author:  Ryan Jacobs <ryan.mjacobs@gmail.com>
-" Updated: March 08, 2015
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-
 " Required for Vundle
-set nocompatible
 filetype off
+set nocompatible
 set runtimepath+=~/.vim/bundle/Vundle.vim
 
 " Plugins
@@ -63,9 +56,8 @@ if has("gui_running")
 endif
 
 " Colorscheme
-let g:solarized_termcolors=256
-silent! colorscheme molokai
 set background=dark
+silent! colorscheme molokai
 
 " Syntax highlighting and auto-indentation
 syntax enable
