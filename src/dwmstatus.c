@@ -216,10 +216,7 @@ char *getvol(void) {
 
     char hostname[256];
     get_hostname(hostname);
-    if (strncmp(hostname, "roz", 3) == 0)
-        fp = popen("amixer -c2 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
-    else
-        fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
+    fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
 
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get volume");
