@@ -1,15 +1,4 @@
 #!/bin/bash
-################################################################################
-# setup.sh
-#
-# Run './setup.sh' to intall dotfiles into $HOME.
-#
-# Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
-# October 03, 2014 -> File creation.
-# January 20, 2015 -> Add .toprc
-# Febuary 18, 2015 -> Refactor script; it looks so much cleaner!
-#   March 08, 2015 -> Fix 'ln -s' bug. Use BASH not just any shell.
-################################################################################
 
 dir="$(pwd)"
 
@@ -19,7 +8,6 @@ show_help() {
     echo "  -f    Force install."
     echo "  -u    Install *all* config files."
     echo "  -c    Copy files instead of using symlinking."
-    echo -e "\nReport bugs to <ryan.mjacobs@gmail.com>."
     exit 0
 }
 
