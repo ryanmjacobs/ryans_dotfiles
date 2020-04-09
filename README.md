@@ -20,6 +20,4 @@ Usage: ./setup.sh [-h] [-fuc]
   -f    Force install.
   -u    Install *all* config files.
   -c    Copy files instead of using symlinking.
-
-Report bugs to <ryan.mjacobs@gmail.com>.
 ```
