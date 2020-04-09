@@ -319,9 +319,9 @@ sf() {
 }
 
 if hash ssh-agent; then
-    [ ! -f ~/agent ] && ssh-agent > ~/agent
-    source ~/agent
-    kill -0 "$SSH_AGENT_PID" || { ssh-agent > ~/agent; source ~/agent; }
+    [ ! -f ~/.agent ] && ssh-agent > ~/.agent
+    source ~/.agent
+    kill -0 "$SSH_AGENT_PID" || { ssh-agent > ~/.agent; source ~/.agent; }
 fi
 
 [ -f ~/read_only_cred ] && source ~/read_only_cred

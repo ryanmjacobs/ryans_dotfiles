@@ -35,9 +35,9 @@ elif [ -r .dir_colors ]; then
 fi
 
 if hash ssh-agent; then
-    [ ! -f ~/agent ] && ssh-agent > ~/agent
-    source ~/agent
-    kill -0 "$SSH_AGENT_PID" || { ssh-agent > ~/agent; source ~/agent; }
+    [ ! -f ~/.agent ] && ssh-agent > ~/.agent
+    source ~/.agent
+    kill -0 "$SSH_AGENT_PID" || { ssh-agent > ~/.agent; source ~/.agent; }
 fi
 
 EDITOR=vim
