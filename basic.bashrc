@@ -36,8 +36,8 @@ fi
 
 if hash ssh-agent; then
     [ ! -f ~/.agent ] && ssh-agent > ~/.agent
-    source ~/.agent
-    kill -0 "$SSH_AGENT_PID" || { ssh-agent > ~/.agent; source ~/.agent; }
+    >/dev/null . ~/.agent
+    kill -0 "$SSH_AGENT_PID" || { ssh-agent > ~/.agent; >/dev/null . ~/.agent; }
 fi
 
 EDITOR=vim
