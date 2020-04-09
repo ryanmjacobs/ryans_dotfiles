@@ -14,4 +14,5 @@ cat <<EOF > index.html
 <html>
     <head>
         <meta http-equiv="refresh" content="0; '$url'">
+        <a href="$href">$href</a>
 EOF
