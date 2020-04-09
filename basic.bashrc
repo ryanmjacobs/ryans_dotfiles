@@ -34,6 +34,12 @@ elif [ -r .dir_colors ]; then
     eval `dircolors .dir_colors`
 fi
 
+if hash ssh-agent; then
+    [ ! -f ~/agent ] && ssh-agent > ~/agent
+    source ~/agent
+    kill -0 "$SSH_AGENT_PID" || { ssh-agent > ~/agent; source ~/agent; }
+fi
+
 EDITOR=vim
 PATH="$HOME/.bin:$PATH"
 PATH="$HOME/.bin/rbin:$PATH"
