@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+SAMPLES=5
+THRESHOLD=10
+STDERR.puts "Locating a free GPU (under #{THRESHOLD}% util)..."
+
+avgs=[0, 0]
+STDERR.puts "Instantaneous utilization:"
+SAMPLES.times do
+    # grab in stannous GPU utilization
+    util = `nvidia-smi | grep '%' | awk '{print $13}'`
+    util = util.split(" ").map {|x| x.to_i}
+    STDERR.puts util.join(", ")
+
+    # increment per-GPU counters
+    avgs[0] += util[0]
+    avgs[1] += util[1]
+
+    sleep 0.5
+end
+
+# solve average
+STDERR.puts "Average utilization:"
+avgs[0] /= SAMPLES
+avgs[1] /= SAMPLES
+avgs.each_with_index do |avg, index|
+    STDERR.puts "GPU ##{index}: #{avg.to_s.rjust(3)}% util"
+end
+$index = nil
+avgs.to_enum.with_index.reverse_each do |avg, index|
+    if (avg <= THRESHOLD) then
+        STDERR.puts "\nGPU #{index} is free."
+        STDERR.puts "You can instruct TensorFlow to to use this GPU with:"
+        STDERR.puts "$ export CUDA_VISIBLE_DEVICES=#{index}\n\n"
+        puts index
+        exit 0
+    end
+end
+
+STDERR.puts "Unable to locate a free GPU, (under #{THRESHOLD}% util...)"
+puts -1
+exit 1

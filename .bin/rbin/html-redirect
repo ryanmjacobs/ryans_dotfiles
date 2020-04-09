@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    >&2 echo "usage: $(basename "$0") <url>"
+    exit 1
+fi
+url="$1"
+
+if [ -f index.html ]; then
+    >&2 echo "error: index.html already exists"
+fi
+
+cat <<EOF > index.html
+<html>
+    <head>
+        <meta http-equiv="refresh" content="0; '$url'">
+EOF

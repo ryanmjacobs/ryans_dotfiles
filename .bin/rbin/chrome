@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$#" -ne 0 ]; then
+    google-chrome-stable --incognito "$@" &>/dev/null
+else
+    google-chrome-stable --incognito google.com &>/dev/null
+fi

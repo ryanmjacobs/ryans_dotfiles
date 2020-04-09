@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "usage: $0 <seconds>"
+    exit 1
+fi
+
+seconds="$1"
+while [ "$seconds" -gt 0 ]; do
+    echo "$seconds seconds remaining..."
+    sleep 1
+    let seconds--
+done

@@ -1,0 +1,13 @@
+#!/bin/bash
+################################################################################
+# leep
+#
+# Lock and Sleep. This script starts 'slock' and then calls pm-suspend.
+#
+# Author: Ryan Jacobs <ryan.mjacobs@gmail.com>
+# May 05, 2014 -> File creation.
+################################################################################
+
+slock &
+sleep 1
+systemctl suspend

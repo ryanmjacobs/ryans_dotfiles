@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$#" -eq 0 ]; then
+    echo "usage: `basename $0` <program>"
+    exit 1
+fi
+
+echo "Blocking until '$@' completes..."
+
+while true; do
+    pgrep "$@" || exit 0
+    sleep 1
+done
