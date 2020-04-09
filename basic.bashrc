@@ -11,6 +11,9 @@ export LANGUAGE=en_US.UTF-8
 export CLICOLOR=true
 export TERM=xterm-256color
 
+# VTE support (mainly for ctrl-shift-t on termite)
+[ -e /etc/profile.d/vte.sh ] && source /etc/profile.d/vte.sh
+
 # History
 HISTSIZE=10000000
 HISTFILESIZE=500000000
