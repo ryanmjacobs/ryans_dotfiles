@@ -12,7 +12,8 @@ fi
 
 cat <<EOF > index.html
 <html>
-    <head>
-        <meta http-equiv="refresh" content="0; '$url'">
-        <a href="$url">$url</a>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; '$url'">
+    <a href="$url">$url</a>
 EOF
