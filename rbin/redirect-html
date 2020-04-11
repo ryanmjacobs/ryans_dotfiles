@@ -6,10 +6,6 @@ if [ $# -ne 1 ]; then
 fi
 url="$1"
 
-if [ -f index.html ]; then
-    >&2 echo "error: index.html already exists"
-fi
-
 cat <<EOF > index.html
 <html>
   <head>
