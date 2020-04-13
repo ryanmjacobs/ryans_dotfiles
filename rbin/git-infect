@@ -2,5 +2,6 @@
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
 for remote in $(git remote); do
+    echo -ne "$remote/$branch\t"
     git push "$remote" "$branch"
 done
