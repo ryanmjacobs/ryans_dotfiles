@@ -1,2 +1,6 @@
 #!/bin/bash
-echo todo
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+for remote in $(git remote); do
+    git push "$remote" "$branch"
+done
