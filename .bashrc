@@ -28,3 +28,10 @@ alias f=_gforth
 otp() {
     pass otp -c otp/"$1"
 }
+
+alias gi=git-infect
+
+em() {
+    mkdir -p ~/_enc
+    encfs --extpass "pass encfs-$HOSTNAME" ~/.encfs ~/_enc
+}
