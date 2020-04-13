@@ -17,4 +17,14 @@ alias ipa="ip --brief --color address"
 # minio
 alias mc=mcli
 
+_gforth() {
+    gforth "$@" -e bye
+}
+alias 4=_gforth
+alias f=_gforth
+
 [ -f ~/read_only_cred ] && source ~/read_only_cred
+
+otp() {
+    pass otp -c otp/"$1"
+}
