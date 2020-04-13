@@ -29,9 +29,14 @@ otp() {
     pass otp -c otp/"$1"
 }
 
-alias gi=git-infect
+alias ginf=git-infect
+alias inf=git-infect
 
 em() {
     mkdir -p ~/_enc
     encfs --extpass "pass encfs-$HOSTNAME" ~/.encfs ~/_enc
+}
+
+rot13() {
+    tr "A-Za-z" "N-ZA-Mn-za-m"
 }
