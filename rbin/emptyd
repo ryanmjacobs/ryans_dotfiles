@@ -1,0 +1,20 @@
+#!/bin/bash
+
+empty() {
+    cnt=$(ls -A "$1" | wc -l)
+    test $cnt -eq 0 
+    return $?
+}
+
+exists() {
+    test -d "$1"
+    return $?
+}
+
+while sleep 1; do
+    for dir in Downloads Desktop; do
+        if exists ~/"$dir" && empty ~/"$dir"; then
+            rmdir ~/"$dir"
+        fi
+    done
+done
