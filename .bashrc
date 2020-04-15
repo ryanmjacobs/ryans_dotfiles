@@ -3,6 +3,8 @@
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
 
+export TERMINAL=termite
+
 alias tb="thunderbird &"
 alias lq="vncviewer -QualityLevel 0 -CompressLevel 6 -CustomCompressLevel -AutoSelect=0 -LowColorLevel=1 -FullColor=0 localhost:1234"
 alias ff="firefox -private"
@@ -31,6 +33,7 @@ otp() {
 
 alias ginf=git-infect
 alias inf=git-infect
+alias infe="git-infect & exit"
 
 em() {
     mkdir -p ~/_enc
