@@ -2,10 +2,8 @@
 Description=Remove empty home directories (Desktop/Downloads)
 
 [Service]
-ExecStart=/usr/bin/env emptyd
+ExecStart=/home/ryan/.bin/rbin/emptyd
 Restart=on-abort
-User=%i
-Group=users
 
 [Install]
 WantedBy=multi-user.target
