@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    >&2 echo "usage: $0 <host> [host...] < hash-list.txt"
+fi
+
+# TODO; check if stdin is open
+
+while read qm_line; do
+    for qm in $qm_line; do
+        for host in $@; do
+            ssh "$host" -tt time ipfs pin add --progress "$qm"
+        done
+    done
+done
