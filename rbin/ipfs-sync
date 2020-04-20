@@ -1,10 +1,9 @@
 #!/bin/bash
 
-if [ $# -eq 0 ]; then
+if [ $# -eq 0 ] || [ -t 0 ]; then
     >&2 echo "usage: $0 <host> [host...] < hash-list.txt"
+    exit 1
 fi
-
-# TODO; check if stdin is open
 
 while read qm_line; do
     for qm in $qm_line; do
