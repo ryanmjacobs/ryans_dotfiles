@@ -41,7 +41,7 @@ _play # attempt to play cached file and exit
 # also save youtube id and word hash id to log
 id="$(youtube-dl --default-search=auto --get-id "$*")"
 echo "$h $id" >> "$HOME/.ytc/lookup_yt.txt"
-youtube-dl -o "$HOME/.ytc/$h" -f bestaudio https://youtube.com/watch/?v="$id"
+youtube-dl -o "$HOME/.ytc/$h" -f bestaudio "$id"
 echo "$h $*" >> "$HOME/.ytc/lookup.txt"
 #prune
 
