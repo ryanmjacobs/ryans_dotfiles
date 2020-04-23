@@ -53,7 +53,7 @@ fi
 
 # Default applications
 export EDITOR=vim
-export BROWSER="firefox -private"
+export BROWSER=firefox
 
 # Application-specific configuration
 alias feh="feh -."

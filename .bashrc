@@ -43,3 +43,6 @@ em() {
 rot13() {
     tr "A-Za-z" "N-ZA-Mn-za-m"
 }
+
+alias sd=spacedtime
+alias asd="spacedtime recall"
