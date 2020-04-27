@@ -10,9 +10,7 @@ trap "pkill -P $$" INT TERM EXIT
 while read qm_line; do
     for qm in $qm_line; do
         for host in $@; do
-            ssh "$host" -T "bash -lc 'ipfs pin add --progress $qm; echo -e \\n\\n\$SECONDS ; hostname; echo'" &
+            ssh "$host" -T "bash -lc 'ipfs pin add --progress $qm; echo -e \\n\\n\$SECONDS ; hostname; echo'"
         done
     done
 done
-
-wait
