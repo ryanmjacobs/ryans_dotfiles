@@ -1,0 +1,54 @@
+#!/usr/bin/c
+// vim: set syntax=c expandtab ai ts=4 sw=4 tw=0 :
+// ms -- multi-ssh
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <libgen.h>
+
+char *hosts[8];
+char command[128];
+
+void parse(int argc, char **argv) {
+    int cmd = 0;
+    int hcnt = 0;
+
+    for (int i = 1; i < argc; i++) {
+        char *arg = argv[i];
+
+        if (!strcmp("--", arg)) {
+            cmd = 1;
+            continue;
+        }
+
+        if (cmd) {
+            strcat(command, arg);
+            if (i < argc-1)
+                strcat(command, " ");
+        } else {
+            hosts[hcnt++] = arg;
+        }
+    }
+
+    if (!cmd) help(argv[0]);
+
+    for (int i = 0; i < hcnt; i++) {
+        char cmd[128];
+        sprintf(cmd, "ssh %s -tt '%s'", hosts[i], command);
+        puts(cmd);
+        system(cmd);
+    }
+}
+
+void help(char *argv0) {
+    printf("usage: %s <hosts ...> -- <command>\n", basename(argv0));
+    exit(1);
+}
+
+int main(int argc, char **argv) {
+    if (argc == 1) help(argv[0]);
+    parse(argc, argv);
+
+    return 0;
+}

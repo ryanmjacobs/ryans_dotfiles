@@ -1,0 +1,10 @@
+#!/usr/bin/c
+// vim: set syntax=c expandtab ai ts=4 sw=4 tw=0 :
+
+#include <stdio.h>
+#define VERSION 0.0.1
+
+int main(void) {
+    puts("mush " VERSION);
+    return 0;
+}
