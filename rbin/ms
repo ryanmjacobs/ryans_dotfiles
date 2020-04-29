@@ -42,7 +42,7 @@ void parse(int argc, char **argv) {
     for (int i = 0; i < hcnt; i++) {
         char cmd[128];
         sprintf(cmd, "ssh -qtt %s '%s'", hosts[i], command);
-        puts(cmd);
+        //puts(cmd);
         system(cmd);
     }
 }
