@@ -10,6 +10,11 @@
 char *hosts[8];
 char command[128];
 
+void help(char *argv0) {
+    printf("usage: %s <hosts ...> -- <command>\n", basename(argv0));
+    exit(1);
+}
+
 void parse(int argc, char **argv) {
     int cmd = 0;
     int hcnt = 0;
@@ -41,14 +46,8 @@ void parse(int argc, char **argv) {
     }
 }
 
-void help(char *argv0) {
-    printf("usage: %s <hosts ...> -- <command>\n", basename(argv0));
-    exit(1);
-}
-
 int main(int argc, char **argv) {
     if (argc == 1) help(argv[0]);
     parse(argc, argv);
-
     return 0;
 }
