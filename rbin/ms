@@ -23,6 +23,7 @@ void parse(int argc, char **argv) {
         char *arg = argv[i];
 
         if (!strcmp("--", arg)) {
+            if (i == argc-1) help(argv[0]);
             cmd = 1;
             continue;
         }
