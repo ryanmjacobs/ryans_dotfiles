@@ -6,7 +6,8 @@ source ~/.rd/.bash_functions
 export TERMINAL=termite
 
 alias tb="thunderbird &"
-alias lq="vncviewer -QualityLevel 0 -CompressLevel 6 -CustomCompressLevel -AutoSelect=0 -LowColorLevel=1 -FullColor=0 localhost:1234"
+alias lq="vncviewer -QualityLevel 0 -CompressLevel 6 -CustomCompressLevel -AutoSelect=0 -LowColorLevel=1 -FullColor=0 -passwd ~/.vncp localhost:1234"
+alias lqe="lq&exit"
 alias ff="firefox -private"
 alias firefox="firefox -private"
 alias brave="brave --incognito"
