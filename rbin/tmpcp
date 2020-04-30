@@ -1,0 +1,54 @@
+#!/usr/bin/c -Wall --
+// vim: set syntax=c expandtab ai ts=4 sw=4 tw=0 :
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <fcntl.h>
+#include <libgen.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/sendfile.h>
+
+void fail(char *str) {
+    perror(str);
+    exit(1);
+}
+
+#define src  argv[1]
+#define dest argv[2]
+
+int main(int argc, char **argv) {
+    int ifd=0, ofd=0;
+    if (argc != 3) return fputs("usage: tmpcp <src> <dest>", stderr);
+
+    // Open source file
+    if ((ifd = open(src, O_RDONLY)) == -1) fail("open");
+
+    // If the destination is a directory,
+    // set our destination path to `dest_directory`/`src`
+    struct stat ost = {0};
+    stat(dest, &ost);
+    char *dst = dest;
+    if (S_ISDIR(ost.st_mode)) {
+        dst = malloc(strlen(dest)+strlen(basename(src))+strlen("/")+1);
+        sprintf(dst, "%s/%s", dest, basename(src));
+    }
+
+    // Create destination file
+    printf("%s -> %s\n", src, dst);
+    if ((ofd = creat(dst, 0660)) == -1) fail("creat");
+
+    // Retrieve source file length
+    off_t len = 0;
+    struct stat ist = {0};
+    fstat(ifd, &ist);
+
+    // Perform the copy. Remove the file after one hour.
+    if (sendfile(ofd, ifd, &len, ist.st_size) == -1) fail("sendfile");
+    if (!fork()) {
+        sleep(3600);
+        unlink(dst);
+    }
+    return 0;
+}
