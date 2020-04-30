@@ -99,7 +99,7 @@ char *getuptime(void) {
 }
 
 int wifi_is_connected(void) {
-    return !system("iwgetid");
+    return ((access("/usr/bin/amixer", F_OK) != -1) && !system("iwgetid"));
 }
 
 char *getwifi(void) {
@@ -204,23 +204,17 @@ char *getpower(void) {
                      bat, perc, power_now/1.0e6, charge_str);
 }
 
-void get_hostname(char *hostname) {
-    FILE *fp = fopen("/etc/hostname", "r");
-    fscanf(fp, "%s", hostname);
-    fclose(fp);
-}
-
 char *getvol(void) {
     FILE *fp;
     char buf[1024];
 
-    char hostname[256];
-    get_hostname(hostname);
+    if (access("/usr/bin/amixer", F_OK) == -1)
+        return smprintf("");
+
     fp = popen("amixer -c1 sget Master | awk -vORS='' '/Mono:/ {print($6$4)}'", "r");
 
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get volume");
-        exit(1);
     }
 
     fgets(buf, sizeof(buf)-1, fp);
@@ -301,7 +295,7 @@ int main(void) {
         if (dir_exists("/sys/class/power_supply/BAT0")) {
             power = getpower();
             ac    = on_ac_power() ? "AC " : "";
-            power_str = smprintf("Power: %s%s |", ac, power);
+            power_str = smprintf(" | Power: %s%s", ac, power);
         }
 
         const char *wifi_prefix =
@@ -309,12 +303,18 @@ int main(void) {
             ? " | Wifi: "
             : "";
 
+        const char *vol_prefix =
+            strlen(vol)
+            ? " | Vol: "
+            : "";
+
         char *status = smprintf(
-            "Uptime: [%s]%s%s | "
-            "%sVol: %s -- %s",
+            "Uptime: [%s]%s%s"
+            "%s%s%s -- %s",
             uptime,
             wifi_prefix, wifi,
-            power_str, vol, time
+            power_str,
+            vol_prefix, vol, time
         );
         puts(status);
         setstatus(status);
