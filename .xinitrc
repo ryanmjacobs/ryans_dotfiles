@@ -29,8 +29,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 picom -CG -D 0 &
 
 # Set the background wallpaper
-#feh --bg-scale $HOME/.bin/wallpapers/Sea_Fury.jpg &
-feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg &
+feh --bg-scale $HOME/.bin/bl.jpg &
 
 # continuosly set bg in case resolution ever changes
 while true; do
