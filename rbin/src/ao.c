@@ -1,4 +1,3 @@
-#!/usr/bin/c
 /* vim: set syntax=c cindent: */
 
 /**
