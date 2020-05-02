@@ -9,11 +9,11 @@ font:
 
 colors:
   primary:
-    background: '#000000'
     foreground: '#eeeeec'
+    background: '#000000'
 
   cursor:
-    text:   '#eeeeec'
+    text: '#eeeeec'
     cursor: '#eeeeec'
 
   selection:
