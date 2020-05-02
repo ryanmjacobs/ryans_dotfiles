@@ -8,7 +8,7 @@
 ################################################################################
 
 # Default MPV Playback Options
-#vo      = xv
+vo      = xv
 #ao      = alsa
 volume  = 80
 autofit = 400
