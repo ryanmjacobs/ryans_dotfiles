@@ -1,35 +1,26 @@
 CC?=cc
 
-EXE=dwm slock we dwmstatus simple_uptime ao dns
+EXE=we dwmstatus simple_uptime ao dns
 
-all: $(EXE)
+all: $(EXE) dwm slock
 
 dwm:
 	make -C./src/dwm
 	install -Dm 775 ./src/dwm/dwm ./dwm
 	make -C./src/dwm clean
-
 slock:
 	make -C./src/slock
 	install -Dm 775 ./src/slock/slock ./slock
 	make -C./src/slock clean
 
-we: src/we.c
-	$(CC) -Wall -O2 -std=c89 -pedantic src/we.c -o we
-
-dns: src/dns.c
-	$(CC) -Wall -O2 -std=c89 -pedantic src/dns.c -o dns
-
 dwmstatus: src/dwmstatus.c
-	$(CC) -Wall -O2 -std=c99 -pedantic src/dwmstatus.c -lX11 `pkg-config --cflags --libs libnotify` -o dwmstatus
+	$(CC) -Wall -O2 -std=c99 -pedantic $^\
+		-lX11 `pkg-config --cflags --libs libnotify` -o $@
 
-simple_uptime: src/simple_uptime.c
-	$(CC) -Wall -O2 -std=c89 -pedantic src/simple_uptime.c -o simple_uptime
-
-ao:
-	$(CC) -Wall -O2 -std=c99 -pedantic src/ao.c -o ao
+%: src/%.c
+	$(CC) -Wall -O2 -std=c99 -pedantic $^ -o $@
 
 clean:
-	rm -f $(EXE)
+	rm -f $(EXE) dwm slock
 
-.PHONY: strip clean dwm
+.PHONY: clean
