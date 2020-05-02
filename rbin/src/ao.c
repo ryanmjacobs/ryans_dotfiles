@@ -3,14 +3,16 @@
 /**
  * ao - set file to append-only
  *
- * This is equivalent to `chattr +a <File>`, but
- * we use setcap to allow all users to do this.
+ * This is equivalent to `chattr +a <file>`.
+ * Use setcap to allow unpermissioned users to run this program.
+ *
+ * $ setcap cap_linux_immutable+ep $(which ao)
  *
  * Note: This is a one-way operation! You will end up
  * with a undeletable file! Unless you have sudo access,
  * this will not be reversable.
  *
- * $ setcap cap_linux_immutable+ep $(which ao)
+ * To reset permissions, run `sudo chattr -a <file>`.
  */
 
 #include <err.h>
