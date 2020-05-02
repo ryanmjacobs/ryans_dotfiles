@@ -8,13 +8,14 @@
 ! April 16, 2014 -> Added 'Modern Terminal Functionality'.
 !###############################################################################
 
+Xcursor.theme: Adwaita
+Xcursor.size: 16px
+
 *VT100*translations:      #override \n\
     Shift <Key>Home:    copy-selection(SELECT) \n\
     Shift <Key>Insert:  copy-selection(SELECT) \n\
     Ctrl Shift <Key>C:  copy-selection(SELECT) \n\
     Ctrl Shift <Key>V:  insert-selection(SELECT)
-
-Xcursor.size: 16
 
 ! Global color
 *customization: -color
