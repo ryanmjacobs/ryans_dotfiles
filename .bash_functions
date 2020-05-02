@@ -80,6 +80,10 @@ _gc() {
 gcr() {
     _gc git@github.com:ryanmjacobs/"$1"
 }
+gra() {
+    ssh "$1" git init --bare _enc/"$2".git
+    git remote add "$1" "$1":_enc/"$2".git
+}
 
 # Create a default Makefile for C projects
 defmake() {
