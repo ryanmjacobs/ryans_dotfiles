@@ -158,8 +158,6 @@ int dir_exists(const char *directory) {
 }
 
 char *getpower(void) {
-    return strdup("?");
-
     // read in data points
     int bat = 0;
     double power_now   = read_int("/sys/class/power_supply/BAT0/power_now");
