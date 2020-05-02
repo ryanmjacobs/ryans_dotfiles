@@ -12,6 +12,7 @@ alias ff="firefox -private"
 alias firefox="firefox -private"
 alias brave="brave --incognito"
 alias b="brave"
+alias x="xterm &>/dev/null &"
 
 # xbps
 alias  v="vpsm"

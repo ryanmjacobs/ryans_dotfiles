@@ -9,7 +9,7 @@
 
 # Default MPV Playback Options
 vo      = xv
-ao      = alsa
+#ao      = alsa
 volume  = 80
 autofit = 400
 
