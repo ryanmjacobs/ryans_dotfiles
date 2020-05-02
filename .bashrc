@@ -14,6 +14,7 @@ alias brave="brave --incognito"
 alias b="brave"
 
 # xbps
+alias  v="vpsm"
 alias xq="xbps-query -Rs"
 alias xr="sudo xbps-remove -R"
 alias xi="sudo xbps-install"
