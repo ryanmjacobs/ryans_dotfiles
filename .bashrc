@@ -14,10 +14,10 @@ alias brave="brave --incognito"
 alias b="brave"
 
 # xbps
-alias xq="xbps-query -Rs"
-alias xr="sudo xbps-remove -R"
-alias xi="sudo xbps-install"
-alias xs="sudo xbps-install -Suv"
+alias  xq="xbps-query -Rs"
+alias  xr="sudo xbps-remove -R"
+alias xin="sudo xbps-install"
+alias  xs="sudo xbps-install -Suv"
 
 alias ipl="ip --brief --color link"
 alias ipr="ip --brief --color route"
