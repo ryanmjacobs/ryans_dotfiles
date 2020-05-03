@@ -3,7 +3,7 @@
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
 
-export TERMINAL=termite
+#export TERMINAL=termite
 
 alias tb="(thunderbird &)"
 alias lq="vncviewer -QualityLevel 0 -CompressLevel 6 -CustomCompressLevel -AutoSelect=0 -LowColorLevel=1 -FullColor=0 -passwd ~/.vncp localhost:1234"
