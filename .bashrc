@@ -15,7 +15,6 @@ alias b="brave"
 alias x="(xterm &)"
 
 # xbps
-alias  v="vpsm"
 alias xq="xbps-query -Rs"
 alias xr="sudo xbps-remove -R"
 alias xi="sudo xbps-install"
@@ -24,6 +23,11 @@ alias xs="sudo xbps-install -Suv"
 alias xii="/usr/bin/xi"
 alias zzz="sudo zzz"
 
+# vspm
+alias  v="vpsm"
+alias vss="v ss"
+
+# ip
 alias ipl="ip --brief --color link"
 alias ipr="ip --brief --color route"
 alias ipa="ip --brief --color address"
