@@ -21,6 +21,7 @@ alias xr="sudo xbps-remove -R"
 alias xi="sudo xbps-install"
 alias xs="sudo xbps-install -Suv"
 alias xii="/usr/bin/xi"
+alias zzz="sudo zzz"
 
 alias ipl="ip --brief --color link"
 alias ipr="ip --brief --color route"
