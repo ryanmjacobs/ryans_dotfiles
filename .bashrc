@@ -11,6 +11,7 @@ alias lqe="lq&exit"
 alias ff="firefox -private"
 alias firefox="firefox -private"
 alias brave="brave --incognito"
+alias chrom="chromium --incognito"
 alias b="brave"
 alias x="(xterm &)"
 
