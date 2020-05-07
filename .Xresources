@@ -11,11 +11,18 @@
 Xcursor.theme: Adwaita
 Xcursor.size: 16px
 
-*VT100*translations:      #override \n\
-    Shift <Key>Home:    copy-selection(SELECT) \n\
-    Shift <Key>Insert:  copy-selection(SELECT) \n\
-    Ctrl Shift <Key>C:  copy-selection(SELECT) \n\
-    Ctrl Shift <Key>V:  insert-selection(SELECT)
+!*VT100*translations:      #override \n\
+!    Shift <Key>Home:    copy-selection(SELECT) \n\
+!    Shift <Key>Insert:  copy-selection(SELECT) \n\
+!    Ctrl Shift <Key>C:  copy-selection(SELECT) \n\
+!    Ctrl Shift <Key>V:  insert-selection(SELECT)
+
+XTerm*VT100.Translations: #override \
+     Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+     Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+
+! Enable both the PRIMARY and CLIPBOARD clipboards
+!XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
 
 ! Global color
 *customization: -color
@@ -68,9 +75,6 @@ Xcursor.size: 16px
  
 ! Enable ALT shortcuts for programs
 XTerm.metaSendsEscape: true
-
-! Enable both the PRIMARY and CLIPBOARD clipboards
-!XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
 
 ! Disable bold and use color instead
 XTerm*colorBDMode: false

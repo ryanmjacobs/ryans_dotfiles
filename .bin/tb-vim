@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xterm -e /bin/bash -l -c "vim $@"
