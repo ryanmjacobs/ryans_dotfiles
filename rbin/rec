@@ -1,0 +1,4 @@
+#!/bin/bash
+ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i $DISPLAY  \
+       -vcodec libx264 -preset ultrafast -qp 0 -pix_fmt yuv444p \
+       video.mkv
