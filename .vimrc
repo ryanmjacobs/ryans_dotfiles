@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'harenome/vim-mipssyntax'
 Plugin 'tomasr/molokai'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'sirtaj/vim-openscad'
 "Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
