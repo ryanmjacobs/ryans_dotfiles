@@ -1,4 +1,4 @@
 #!/bin/bash
 
-awk '{ print strftime("%s: "), $0; fflush(); }'\
+awk '{ print strftime("%s:"), $0; fflush(); }'\
   | tee -a "$(date +%s).log"
