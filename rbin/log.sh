@@ -2,4 +2,4 @@
 
 cat\
   | awk '{ print strftime("%s: "), $0; fflush(); }'\
-  | tee log
+  | tee -a "$(date +%s).log"
