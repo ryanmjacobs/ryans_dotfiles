@@ -2,4 +2,4 @@ delta delta:_enc/private.git
 kk kk:_enc/rd.git
 mir mir:_enc/rd.git
 origin git@github.com:ryanmjacobs/ryans_dotfiles
-roz roz:_enc/private.git
+roz roz:_enc/rd.git
