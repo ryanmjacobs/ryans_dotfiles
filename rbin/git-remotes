@@ -17,7 +17,7 @@ ingest() {
     while read remote; do
         2>/dev/null git remote add $remote || git remote set-url $remote
         echo "$remote"
-    done < remotes.txt
+    done
 }
 
 case "$1" in
