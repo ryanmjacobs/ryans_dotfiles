@@ -1,5 +1,5 @@
 delta delta.red:_enc/rd.git
 kk 10.0.0.18:_enc/rd.git
-mir mir:_enc/rd.git
+mir ssh://ryan@rp.webfpga.com:223/home/ryan/_enc/rd.git
 mu mu.red:_enc/rd.git
 roz roz.red:_enc/rd.git
