@@ -15,7 +15,7 @@ list() {
 
 ingest() {
     while read remote; do
-        git remote add $remote
+        2>/dev/null git remote add $remote || git remote set-url $remote
     done < remotes.txt
 }
 
