@@ -1,0 +1,3 @@
+#!/bin/bash
+
+while read remote; do git remote add $remote; done < remotes.txt
