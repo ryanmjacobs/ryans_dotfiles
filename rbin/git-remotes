@@ -1,0 +1,27 @@
+#!/bin/bash
+
+usage() {
+    >&"$1" echo "usage: $(basename "$0") <list|ingest>"
+}
+
+if [ $# -eq 0 ]; then
+    usage 2
+    exit 1
+fi
+
+list() {
+    git remote -v | grep push | awk '{print $1, $2}'
+}
+
+ingest() {
+    while read remote; do
+        git remote add $remote
+    done < remotes.txt
+}
+
+case "$1" in
+    "-h") usage 1; exit 0;;
+    list) list;;
+    ingest) ingest;;
+    *) >&2 echo "error: unknown option"; exit 1;;
+esac
