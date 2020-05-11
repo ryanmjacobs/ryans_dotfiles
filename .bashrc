@@ -50,6 +50,7 @@ otp() {
 
 alias ginf=git-infect
 alias inf=git-infect
+alias gru="git remote update"
 alias infe="git-infect & exit"
 
 em() {
