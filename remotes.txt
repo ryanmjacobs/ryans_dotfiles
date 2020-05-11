@@ -1,3 +1,4 @@
 kk kk:_enc/rd.git
 mir mir:_enc/rd.git
 origin git@github.com:ryanmjacobs/ryans_dotfiles
+roz roz:_enc/private.git
