@@ -25,7 +25,8 @@ alias xii="/usr/bin/xi"
 alias zzz="sudo zzz"
 
 # vspm
-alias  v="vpsm"
+alias   v="vpsm"
+alias  vi="v i"
 alias vss="v ss"
 
 # ip
