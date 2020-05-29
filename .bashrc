@@ -15,6 +15,9 @@ alias chrom="chromium --incognito"
 alias b="brave"
 alias x="(xterm &)"
 
+# yum/dnf
+alias dq="dnf search"
+
 # xbps
 alias xq="xbps-query -Rs"
 alias xr="sudo xbps-remove -R"
