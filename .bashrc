@@ -20,6 +20,7 @@ alias x="(xterm &)"
 
 # yum/dnf
 alias dq="dnf search"
+alias di="sudo dnf install"
 
 # xbps
 alias xq="xbps-query -Rs"
