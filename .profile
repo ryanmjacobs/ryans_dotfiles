@@ -26,7 +26,7 @@ vivado_path="/opt/Xilinx/Vivado/2018.3/bin"
 export GOPATH="$HOME/go"
 go_path="$GOPATH/bin"
 export N_PREFIX=$HOME/.n
-export PATH=$N_PREFIX/bin:$PATH
+export PATH=$N_PREFIX/bin:/opt/bin:$PATH
 
 PATH="$bin_path:$builds_path:$PATH:$npm_path:$ruby_path:$cabal_path:$go_path:$vivado_path"
 LD_LIBRARY_PATH="$HOME/builds/usr/lib:$LD_LIBRARY_PATH:$vivado_path/../lib/lnx64.o"
