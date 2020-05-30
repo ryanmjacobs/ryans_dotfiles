@@ -17,6 +17,7 @@ alias brave="brave --incognito"
 alias chrom="chromium --incognito"
 alias b="brave"
 alias x="(xterm &)"
+alias dr="docker run -it --rm"
 
 # xbps
 alias xq="xbps-query -Rs"
