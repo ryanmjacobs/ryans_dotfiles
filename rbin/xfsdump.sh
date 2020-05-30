@@ -19,6 +19,9 @@ case "$HOSTNAME" in
     xi)
         device=/dev/sda1
         media="ryans thinkpad x250 with fpga root disk";;
+    kk)
+        device=/dev/sda1
+        media="ryans thinkpad x250 void linux internal ssd";;
     *)
         >&2 echo "error: host not supported"
         exit 1
