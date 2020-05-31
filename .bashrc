@@ -18,6 +18,7 @@ alias chrom="chromium --incognito"
 alias b="brave"
 alias x="(xterm &)"
 alias dr="docker run -it --rm"
+alias sshr="ssh-keygen -R"
 
 # xbps
 alias xq="xbps-query -Rs"
