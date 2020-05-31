@@ -18,8 +18,8 @@
 # Set $PATH
 bin_path="$HOME/.bin:$HOME/.bin/rbin:$HOME/.local/bin"
 builds_path="$HOME/builds/usr/bin"
-npm_path="$(npm config get prefix 2>/dev/null)/bin"
-npm_path="/home/ryan/.npm-packages"
+#npm_path="$(npm config get prefix 2>/dev/null)/bin"
+npm_path="/home/$HOME/.npm-packages/bin"
 ruby_path="$(ruby -r rubygems -e "puts Gem.user_dir" 2>/dev/null)/bin"
 cabal_path="$HOME/.cabal/bin"
 vivado_path="/opt/Xilinx/Vivado/2018.3/bin"
