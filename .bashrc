@@ -70,3 +70,5 @@ rot13() {
 
 alias sd=spacedtime
 alias asd="spacedtime recall"
+
+PATH=$PATH:~/.npm/bin
