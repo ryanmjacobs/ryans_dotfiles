@@ -77,7 +77,7 @@ static const char *mute[]            = { "amixer", "-q", "set", "Master", "toggl
 static const char *brightness_up[]   = { "/usr/bin/light", "-A", "5", NULL};
 static const char *brightness_down[] = { "/usr/bin/light", "-U", "5", NULL};
 static const char *xkill[]           = { "xkill", NULL };
-static const char *scrot[]           = { "scrot", "--overwrite", "scrot.png", NULL };
+static const char *scrot[]           = { "scrot", "--overwrite", "screenshot.png", NULL };
 static const char *maim[]            = { "maim", "-s", "maim.png", NULL };
 
 /* lock, sleep, hibernate, (or some combination thereof) */
