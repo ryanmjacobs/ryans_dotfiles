@@ -5,7 +5,6 @@ source ~/.rd/.bash_functions
 
 #export TERMINAL=termite
 
-alias s="(slack &)"
 alias t="tb"
 alias tb="(thunderbird &)"
 alias vm="virt-manager"
