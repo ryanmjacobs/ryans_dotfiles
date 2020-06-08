@@ -206,7 +206,7 @@ char *getpower(void) {
 
 char *getvol(void) {
     FILE *fp;
-    char buf[1024];
+    char buf[1024] = {0};
 
     if (access("/usr/bin/amixer", F_OK) == -1)
         return smprintf("");
@@ -215,13 +215,12 @@ char *getvol(void) {
 
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get volume");
-        return smprintf("NA");
     }
 
     fgets(buf, sizeof(buf)-1, fp);
     pclose(fp);
 
-    return smprintf("%s", buf);
+    return smprintf("%s", (!*buf) ? "" : buf);
 }
 
 int on_ac_power(void) {
