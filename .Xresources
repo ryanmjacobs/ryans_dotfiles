@@ -86,7 +86,7 @@ XTerm*highlightSelection: true
 ! Misc. Settings
 XTerm*termName: xterm-256color
 XTerm*visualBell: false
-XTerm*faceName: Terminus
+XTerm*faceName: DejaVu Sans Mono
 XTerm*faceSize: 9
 XTerm*saveLines: 32768
 XTerm*scrollBar: false
