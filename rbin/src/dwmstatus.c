@@ -215,6 +215,7 @@ char *getvol(void) {
 
     if (fp == NULL) {
         fprintf(stderr, "error: cannot get volume");
+        return smprintf("NA");
     }
 
     fgets(buf, sizeof(buf)-1, fp);
