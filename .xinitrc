@@ -30,7 +30,7 @@ picom -CG -D 0 &
 
 # Continuosly set the background wallpaper,
 # in case resolution ever changes
-bgsrc="$HOME/.bin/bl.jpg"
+bgsrc="$HOME/.bin/rbin/bl.jpg"
 while true; do
     feh --bg-scale "$bgsrc" &
     sleep 60
