@@ -78,7 +78,7 @@ static const char *brightness_up[]   = { "/usr/bin/light", "-A", "5", NULL};
 static const char *brightness_down[] = { "/usr/bin/light", "-U", "5", NULL};
 static const char *xkill[]           = { "xkill", NULL };
 static const char *scrot[]           = { "scrot", "--overwrite", "screenshot.png", NULL };
-static const char *maim[]            = { "maim", "-s", "maim.png", NULL };
+static const char *maim[]            = { "maim", "-s", "screenshot.png", NULL };
 
 /* lock, sleep, hibernate, (or some combination thereof) */
 static const char *lockcmd[]      = { "sh", "-c", "slock", NULL };
