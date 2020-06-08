@@ -28,12 +28,11 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # start compositor
 picom -CG -D 0 &
 
-# Set the background wallpaper
-feh --bg-scale $HOME/.bin/bl.jpg &
-
-# continuosly set bg in case resolution ever changes
+# Continuosly set the background wallpaper,
+# in case resolution ever changes
+bgsrc="$HOME/.bin/bl.jpg"
 while true; do
-    feh --bg-scale $HOME/.bin/wallpapers/blue_lagoon.jpg
+    feh --bg-scale "$bgsrc" &
     sleep 60
 done &
 
