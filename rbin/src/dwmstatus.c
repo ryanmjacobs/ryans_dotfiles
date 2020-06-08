@@ -99,7 +99,7 @@ char *getuptime(void) {
 }
 
 int wifi_is_connected(void) {
-    return ((access("/usr/bin/amixer", F_OK) != -1) && !system("iwgetid"));
+    return ((access("/usr/bin/iwgetid", F_OK) != -1) && !system("iwgetid"));
 }
 
 char *getwifi(void) {
