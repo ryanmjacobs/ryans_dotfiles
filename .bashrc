@@ -72,7 +72,7 @@ rot13() {
     tr "A-Za-z" "N-ZA-Mn-za-m"
 }
 
-# ll
-alias lnt="yarn lint --cache --fix"
+alias sd=spacedtime
+alias asd="spacedtime recall"
 
 PATH=$PATH:~/.npm/bin
