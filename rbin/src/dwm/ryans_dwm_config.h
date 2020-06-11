@@ -70,7 +70,7 @@ static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-m", 0, NULL };
 
 /* commands */
-static const char *termcmd[]         = { "sh", "-c", "hash termite && termite || xterm", NULL };
+static const char *termcmd[]         = { "/usr/bin/xterm", NULL };
 static const char *volume_down[]     = { "amixer", "-q", "set", "Master", "2%-", "unmute", NULL };
 static const char *volume_up[]       = { "amixer", "-q", "set", "Master", "2%+", "unmute", NULL };
 static const char *mute[]            = { "amixer", "-q", "set", "Master", "toggle", NULL };
