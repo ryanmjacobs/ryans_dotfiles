@@ -67,6 +67,10 @@ em() {
     mkdir -p ~/_enc
     encfs --extpass "pass encfs-$HOSTNAME" ~/.encfs ~/_enc
 }
+emp() {
+    mkdir -p ~/_enc
+    encfs ~/.encfs ~/_enc
+}
 
 rot13() {
     tr "A-Za-z" "N-ZA-Mn-za-m"
@@ -76,3 +80,6 @@ alias sd=spacedtime
 alias asd="spacedtime recall"
 
 PATH=$PATH:~/.npm/bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
