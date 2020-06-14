@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for f in .bashrc .bash_profile .dir_colors .tmux.conf; do
+    ln -vsf "~/.rd/$f" "$HOME/$f"
+done
