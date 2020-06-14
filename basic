@@ -3,3 +3,6 @@
 for f in .bashrc .bash_profile .dir_colors .tmux.conf; do
     ln -vsf "$HOME/.rd/$f" "$HOME/$f"
 done
+
+mkdir -p $HOME/.ssh
+ln -vs $HOME/.rd/.ssh/* $HOME/.ssh/
