@@ -21,7 +21,7 @@ alias sshr="ssh-keygen -R"
 
 # yum/dnf
 alias dq="dnf search"
-alias di="sudo dnf install"
+alias di="sudo dnf install -y"
 
 # xbps
 alias xq="xbps-query -Rs"
