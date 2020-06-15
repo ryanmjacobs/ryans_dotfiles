@@ -51,7 +51,7 @@ _gforth() {
 alias 4=_gforth
 alias f=_gforth
 
-[ -f ~/read_only_cred ] && source ~/read_only_cred
+#[ -f ~/read_only_cred ] && source ~/read_only_cred
 
 otp() {
     pass otp -c otp/"$1"
@@ -80,6 +80,3 @@ rot13() {
 alias lnt="yarn lint --cache --fix"
 
 PATH=$PATH:~/.npm/bin
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
