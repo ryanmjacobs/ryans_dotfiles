@@ -56,6 +56,7 @@ alias f=_gforth
 otp() {
     pass otp -c otp/"$1"
 }
+alias p="pass -c"
 
 alias ginf=git-infect
 alias inf=git-infect
