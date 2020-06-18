@@ -57,6 +57,9 @@ otp() {
     pass otp -c otp/"$1"
 }
 alias p="pass -c"
+pe() {
+    pass -c encfs-"$1"
+}
 
 alias ginf=git-infect
 alias inf=git-infect
