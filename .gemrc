@@ -8,7 +8,7 @@
 
 # Install to $HOME/.gem/ with NO documentation
 # commented out for RVM support
-#gem: --user-install --no-document
+gem: --user-install --no-document
 
 # Install to /usr/... with NO documentation
 #gem: --no-user-install --no-document

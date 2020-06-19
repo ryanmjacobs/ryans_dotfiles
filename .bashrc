@@ -18,6 +18,7 @@ alias b="brave"
 alias x="(xterm &)"
 alias dr="docker run -it --rm"
 alias sshr="ssh-keygen -R"
+alias fu="journalctl -fu"
 
 # yum/dnf
 alias dq="dnf search"
