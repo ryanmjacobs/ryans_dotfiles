@@ -21,7 +21,7 @@ alias sshr="ssh-keygen -R"
 
 # yum/dnf
 alias dq="dnf search"
-alias di="sudo dnf install"
+alias di="sudo dnf install -y"
 
 # xbps
 alias xq="xbps-query -Rs"
@@ -51,10 +51,14 @@ _gforth() {
 alias 4=_gforth
 alias f=_gforth
 
-[ -f ~/read_only_cred ] && source ~/read_only_cred
+#[ -f ~/read_only_cred ] && source ~/read_only_cred
 
 otp() {
     pass otp -c otp/"$1"
+}
+alias p="pass -c"
+pe() {
+    pass -c encfs-"$1"
 }
 
 alias ginf=git-infect
@@ -66,6 +70,10 @@ alias infe="git-infect & exit"
 em() {
     mkdir -p ~/_enc
     encfs --extpass "pass encfs-$HOSTNAME" ~/.encfs ~/_enc
+}
+emp() {
+    mkdir -p ~/_enc
+    encfs ~/.encfs ~/_enc
 }
 
 rot13() {

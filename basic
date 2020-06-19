@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for f in .bashrc .bash_profile .dir_colors .tmux.conf; do
+    ln -vsf "$HOME/.rd/$f" "$HOME/$f"
+done
+
+umask 077
+mkdir -p $HOME/.ssh
+cp -v $HOME/.rd/.ssh/authorized_keys $HOME/.ssh/
