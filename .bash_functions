@@ -58,7 +58,6 @@ cm() {
     # e.g. 'cm one two three'
     git commit -m "$*"
 }
-alias gac="ga; cm"
 cmv() {
     git commit --no-verify -m "$*"
 }
