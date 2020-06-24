@@ -88,3 +88,10 @@ rot13() {
 alias lnt="yarn lint --cache --fix"
 
 PATH=$PATH:~/.npm/bin
+
+us() {
+    [ ! -e "$1" ] && echo "usage: us <executable>"
+    chown root "$1"
+    chmod +x "$1"
+    chmod u+s "$1"
+}
