@@ -91,7 +91,7 @@ PATH=$PATH:~/.npm/bin
 
 us() {
     [ ! -e "$1" ] && { echo "usage: us <executable>"; return 1; }
-    chown root "$1"
-    chmod +x "$1"
-    chmod u+s "$1"
+    sudo chown root "$1"
+    sudo chmod +x "$1"
+    sudo chmod u+s "$1"
 }
