@@ -90,7 +90,7 @@ alias lnt="yarn lint --cache --fix"
 PATH=$PATH:~/.npm/bin
 
 us() {
-    [ ! -e "$1" ] && echo "usage: us <executable>"
+    [ ! -e "$1" ] && { echo "usage: us <executable>"; return 1; }
     chown root "$1"
     chmod +x "$1"
     chmod u+s "$1"
