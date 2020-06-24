@@ -16,7 +16,7 @@
 #umask 022
 
 # Set $PATH
-bin_path="$HOME/.bin:$HOME/.bin/rbin:$HOME/.local/bin"
+bin_path="$HOME/.bin:$HOME/.bin/rbin:$HOME/.bin/pbin:$HOME/.local/bin"
 builds_path="$HOME/builds/usr/bin"
 #npm_path="$(npm config get prefix 2>/dev/null)/bin"
 npm_path="/home/$HOME/.npm-packages/bin"

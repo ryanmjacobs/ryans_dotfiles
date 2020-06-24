@@ -19,6 +19,10 @@ alias x="(xterm &)"
 alias dr="docker run -it --rm"
 alias sshr="ssh-keygen -R"
 alias k="killall"
+alias fu="journalctl -fu"
+
+# qemu/libvirt
+alias qas='virsh -c qemu:///system list --name | while read domain; do virsh -c qemu:///system autostart "$domain"; done'
 
 # yum/dnf
 alias dq="dnf search"
@@ -85,3 +89,10 @@ rot13() {
 alias lnt="yarn lint --cache --fix"
 
 PATH=$PATH:~/.npm/bin
+
+us() {
+    [ ! -e "$1" ] && { echo "usage: us <executable>"; return 1; }
+    sudo chown root "$1"
+    sudo chmod +x "$1"
+    sudo chmod u+s "$1"
+}
