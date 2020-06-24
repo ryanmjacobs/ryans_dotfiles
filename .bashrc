@@ -20,6 +20,9 @@ alias dr="docker run -it --rm"
 alias sshr="ssh-keygen -R"
 alias fu="journalctl -fu"
 
+# qemu/libvirt
+alias qas='virsh -c qemu:///system list --name | while read domain; do virsh -c qemu:///system autostart "$domain"; done'
+
 # yum/dnf
 alias dq="dnf search"
 alias di="sudo dnf install -y"
