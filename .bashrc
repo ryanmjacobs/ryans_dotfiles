@@ -19,6 +19,7 @@ alias x="(xterm &)"
 alias dr="docker run -it --rm"
 alias sshr="ssh-keygen -R"
 alias fu="journalctl -fu"
+alias k=killall
 
 # qemu/libvirt
 alias qas='virsh -c qemu:///system list --name | while read domain; do virsh -c qemu:///system autostart "$domain"; done'
