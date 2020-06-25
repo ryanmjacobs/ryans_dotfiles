@@ -23,7 +23,8 @@ alias fu="journalctl -fu"
 alias k=killall
 
 # qemu/libvirt
-alias qas='virsh -c qemu:///system list --name | while read domain; do virsh -c qemu:///system autostart "$domain"; done'
+alias  qas='virsh -c qemu:///system list --name | while read domain; do virsh -c qemu:///system autostart "$domain"; done'
+alias qras='virsh -c qemu:///system list --inactive | while read domain; do virsh -c qemu:///system autostart "$domain" --disable; done'
 
 # yum/dnf
 alias dq="dnf search"
