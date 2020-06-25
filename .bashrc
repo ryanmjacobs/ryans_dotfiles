@@ -18,6 +18,7 @@ alias b="brave"
 alias x="(xterm &)"
 alias dr="docker run -it --rm"
 alias sshr="ssh-keygen -R"
+alias k="killall"
 alias fu="journalctl -fu"
 alias k=killall
 
