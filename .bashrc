@@ -25,6 +25,7 @@ alias k=killall
 # qemu/libvirt
 alias  qas='virsh -c qemu:///system list --name | while read domain; do virsh -c qemu:///system autostart "$domain"; done'
 alias qras='virsh -c qemu:///system list --name --inactive | while read domain; do virsh -c qemu:///system autostart "$domain" --disable; done'
+alias vari="cd /var/lib/libvirt/images"
 
 # yum/dnf
 alias dq="dnf search"
