@@ -54,7 +54,7 @@ alias ipa="ip --brief --color address"
 alias mc=mcli
 
 # other
-alias np="date >> ~/private/np"
+alias np="date +%s >> ~/private/np"
 
 _gforth() {
     gforth "$@" -e bye
