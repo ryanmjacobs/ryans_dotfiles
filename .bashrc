@@ -53,8 +53,9 @@ alias ipa="ip --brief --color address"
 # minio
 alias mc=mcli
 
-# other
-alias np="date +%s >> ~/private/np"
+# logs
+alias np="date +%s | tee -a ~/private/np"
+alias meds="date +%s | tee -a ~/private/meds.txt"
 
 _gforth() {
     gforth "$@" -e bye
