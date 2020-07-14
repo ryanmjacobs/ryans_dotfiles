@@ -50,6 +50,9 @@ alias ipa="ip --brief --color address"
 # minio
 alias mc=mcli
 
+# sql
+alias lc=litectl
+
 _gforth() {
     gforth "$@" -e bye
 }
