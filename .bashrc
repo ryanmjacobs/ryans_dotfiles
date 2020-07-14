@@ -20,9 +20,12 @@ alias dr="docker run -it --rm"
 alias sshr="ssh-keygen -R"
 alias k="killall"
 alias fu="journalctl -fu"
+alias k=killall
 
 # qemu/libvirt
-alias qas='virsh -c qemu:///system list --name | while read domain; do virsh -c qemu:///system autostart "$domain"; done'
+alias  qas='virsh -c qemu:///system list --name | while read domain; do [ -n "$domain" ] && virsh -c qemu:///system autostart "$domain"; done'
+alias qras='virsh -c qemu:///system list --name --inactive | while read domain; do [ -n "$domain" ] && virsh -c qemu:///system autostart "$domain" --disable; done'
+alias vari="cd /var/lib/libvirt/images"
 
 # yum/dnf
 alias dq="dnf search"
@@ -52,6 +55,10 @@ alias mc=mcli
 
 # sql
 alias lc=litectl
+
+# logs
+alias np="date +%s | tee -a ~/private/np"
+alias meds="date +%s | tee -a ~/private/meds.txt"
 
 _gforth() {
     gforth "$@" -e bye
