@@ -54,7 +54,7 @@ alias ipa="ip --brief --color address"
 alias mc=mcli
 
 # sql
-alias lc=litectl
+alias lc=litecli
 
 # logs
 alias np="date +%s | tee -a ~/private/np"
