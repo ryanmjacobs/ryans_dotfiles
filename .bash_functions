@@ -51,6 +51,7 @@ alias ga="git add ."
 alias gip="git pull"
 alias gpi="git pull"
 alias gg="git status"
+alias gst="git status"
 alias gpt="git push --tags"
 alias gd="git checkout --detach"
 cm() {
