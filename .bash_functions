@@ -50,7 +50,7 @@ alias wip="git add .; git commit -m wip; git push & exit"
 alias ga="git add ."
 alias gip="git pull"
 alias gpi="git pull"
-alias gat="git status"
+alias gg="git status"
 alias gpt="git push --tags"
 alias gd="git checkout --detach"
 cm() {
