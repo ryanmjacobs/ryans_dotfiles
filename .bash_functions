@@ -54,6 +54,7 @@ alias gg="git status"
 alias gst="git status"
 alias gpt="git push --tags"
 alias gd="git checkout --detach"
+alias gdh="git diff HEAD"
 cm() {
     # 'git commit -m' with all arguments concatenated
     # e.g. 'cm one two three'
