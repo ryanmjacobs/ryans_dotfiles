@@ -130,3 +130,11 @@ for n in {2..20}; do
     eval "${n}x() { for n in `seq -s' ' $n`; do" '$@; done }'
     eval "x${n}() { for n in `seq -s' ' $n`; do" '$@; done }'
 done
+
+# do something every 5 minutes
+5m() {
+    while true; do
+        "$@"
+        sleep 5m
+    done
+}
