@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    >&2 echo "usage: alpr <image.jpg>"
+    exit 1
+fi
+
+docker run -it --rm -v $(pwd):/data:ro openalpr "$1"
