@@ -2,6 +2,9 @@
 
 if [ "$#" -ne 1 ]; then
     >&2 echo "usage: alpr <image.jpg>"
+    >&2 echo
+    >&2 echo "make sure to build first:"
+    >&2 echo "  docker build -t openalpr https://github.com/openalpr/openalpr.git"
     exit 1
 fi
 
