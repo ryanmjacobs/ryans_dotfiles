@@ -49,6 +49,7 @@ alias gpu='git push --set-upstream origin $(git symbolic-ref --short -q HEAD)'
 alias wip="git add .; git commit -m wip; git push & exit"
 alias ga="git add ."
 alias gip="git pull"
+alias gipp="git pull --no-edit && git push"
 alias gii="git pull --no-edit"
 alias gpi="git pull"
 alias gg="git status"
