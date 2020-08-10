@@ -49,7 +49,7 @@ alias gpu='git push --set-upstream origin $(git symbolic-ref --short -q HEAD)'
 alias wip="git add .; git commit -m wip; git push & exit"
 alias ga="git add ."
 alias gip="git pull"
-alias gipp="git pull --no-edit && git push"
+alias gpp="git pull --no-edit && git push"
 alias gii="git pull --no-edit"
 alias gpi="git pull"
 alias gg="git status"
@@ -74,7 +74,6 @@ gpe() {
         notify-send "git push : ret=$?"
     } & exit
 }
-alias gpp="cd ~/.password-store; gpe"
 gc() {
     git clone --depth=1 "$1" && cd "$(basename "$1")"
 }
