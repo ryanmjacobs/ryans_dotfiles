@@ -163,3 +163,5 @@ au BufRead,BufNewFile *.md setlocal textwidth=80 formatoptions+=t
 "command HR 'r ! c hr.c'
 "cnoreabbrev hr HR
 nnoremap <C-b> :center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>YppVr#kk.
+
+set tabpagemax=50
