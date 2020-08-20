@@ -5,6 +5,8 @@ source ~/.rd/.bash_functions
 
 #export TERMINAL=termite
 
+alias pavu="pavucontrol &"
+
 alias t="tb"
 alias tb="(thunderbird &)"
 alias vm="virt-manager"
