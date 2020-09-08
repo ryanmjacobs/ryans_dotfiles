@@ -87,8 +87,7 @@ XTerm*highlightSelection: true
 XTerm*termName: xterm-256color
 XTerm*visualBell: false
 XTerm*faceName: DejaVu Sans Mono
-! XTerm*faceSize: 9 (good for 1080p)
-XTerm*faceSize: 12
+XTerm*faceSize: 9 (good for 1080p)
 XTerm*saveLines: 32768
 XTerm*scrollBar: false
 XTerm*geometry: 80x24
@@ -127,7 +126,8 @@ XTerm*color14: #00f5e9
 XTerm*color7: #d3d7cf
 XTerm*color15: #eeeeec
 
-Xft.dpi: 96
+! dpi = 96 for 1080p
+Xft.dpi: 157
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
