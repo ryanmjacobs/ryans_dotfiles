@@ -20,8 +20,8 @@ case "$HOSTNAME" in
         device=/dev/sda1
         media="ryans thinkpad x250 with fpga root disk";;
     kk)
-        device=/dev/sda1
-        media="ryans thinkpad x250 void linux internal ssd";;
+        device=/dev/nvme0n1p1
+        media="ryans ryzen desktop kk void linux internal nvme ssd";;
     *)
         >&2 echo "error: host not supported"
         exit 1
