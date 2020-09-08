@@ -87,7 +87,7 @@ XTerm*highlightSelection: true
 XTerm*termName: xterm-256color
 XTerm*visualBell: false
 XTerm*faceName: DejaVu Sans Mono
-XTerm*faceSize: 9 (good for 1080p)
+XTerm*faceSize: 9
 XTerm*saveLines: 32768
 XTerm*scrollBar: false
 XTerm*geometry: 80x24
