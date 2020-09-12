@@ -29,9 +29,9 @@ shopt -s checkwinsize # resize window after each command
 
 # Colorize the prompt, green for user and red for root
 if [ "$(id -u)" -ne 0 ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\u@\H\[\033[01;34m\] \w \$\[\033[00m\] '
 else
-    PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+    PS1='\[\033[01;31m\]\u@\H\[\033[01;34m\] \w \$\[\033[00m\] '
 fi
 
 # Colorize commands by default
