@@ -23,7 +23,7 @@ case "$HOSTNAME" in
         device=/dev/nvme0n1p1
         media="ryans ryzen desktop kk void linux internal nvme ssd";;
     roz)
-        device=/dev/nvme0n1p1
+        device=/
         media="roz 2700x desktop";;
     *)
         >&2 echo "error: host not supported"
