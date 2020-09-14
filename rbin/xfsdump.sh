@@ -27,5 +27,5 @@ case "$HOSTNAME" in
         exit 1
 esac
 
-label="$HOSTNAME.l${level}.$(date +%Y%m%d).xfsdump"
-time xfsdump -p10 -l $level -L "$label" -f "$label" -M "$media" "$device"
+label="$HOSTNAME.l${level}.$(date +%Y%m%d).xfsdump.gz"
+time xfsdump -p10 -l $level -L "$label" -f - -M "$media" "$device" | gzip > "$label"
