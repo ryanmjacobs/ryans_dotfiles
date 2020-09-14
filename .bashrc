@@ -5,6 +5,7 @@ source ~/.rd/.bash_functions
 
 #export TERMINAL=termite
 
+alias c3="cal -3"
 alias pavu="pavucontrol &"
 
 alias t="tb"
