@@ -28,4 +28,6 @@ case "$HOSTNAME" in
 esac
 
 label="$HOSTNAME.l${level}.$(date +%Y%m%d).xfsdump.xz"
-time xfsdump -p10 -l $level -L "$label" -f - -M "$media" "$device" | xz > "$label"
+nproc="$(nproc)"
+time xfsdump -p10 -l $level -L "$label" -f - -M "$media" "$device"\
+    | xz -v -T $((nproc / 2)) > "$label"
