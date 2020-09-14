@@ -29,5 +29,5 @@ esac
 
 label="$HOSTNAME.l${level}.$(date +%Y%m%d).xfsdump.xz"
 nproc="$(nproc)"
-time xfsdump -p10 -l $level -L "$label" -f - -M "$media" "$device"\
+time xfsdump -p10 -l $level -L "$label" -M "$media" - "$device"\
     | xz -v -T $((nproc / 2)) > "$label"
