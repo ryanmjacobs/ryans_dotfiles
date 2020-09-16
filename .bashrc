@@ -102,6 +102,7 @@ rot13() {
 # ll
 alias lnt="yarn lint --cache --fix"
 alias jt="time yarn just-test"
+alias tc="time yarn type_check"
 
 PATH=$PATH:~/.npm/bin
 
