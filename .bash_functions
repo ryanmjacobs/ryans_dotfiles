@@ -84,7 +84,7 @@ gcr() {
     _gc git@github.com:ryanmjacobs/"$1"
 }
 gcn() {
-    _gc nas:"$1"
+    git clone nas:"$1" && cd "$1"
 }
 
 # Create a default Makefile for C projects
