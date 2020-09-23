@@ -7,6 +7,7 @@ source ~/.rd/.bash_functions
 
 alias c3="cal -3"
 alias pavu="pavucontrol &"
+alias agi="ag -i"
 
 alias t="tb"
 alias tb="(thunderbird &)"
