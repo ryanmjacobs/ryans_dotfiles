@@ -7,7 +7,8 @@ source ~/.rd/.bash_functions
 
 alias c3="cal -3"
 alias pavu="pavucontrol &"
-alias agi="ag -i"
+alias agi="ag -i" # case insensitive
+alias agq="ag -Q" # no regex
 
 alias t="tb"
 alias tb="(thunderbird &)"
