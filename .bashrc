@@ -5,6 +5,8 @@ source ~/.rd/.bash_functions
 
 #export TERMINAL=termite
 
+alias calc=node
+
 alias c3="cal -3"
 alias pavu="pavucontrol &"
 alias agi="ag -i" # case insensitive
