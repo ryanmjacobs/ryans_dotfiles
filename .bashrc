@@ -36,6 +36,10 @@ alias qras='virsh -c qemu:///system list --name --inactive | while read domain; 
 alias vari="cd /var/lib/libvirt/images"
 alias vt="cd /var/tmp"
 
+# apt
+alias au="sudo apt update"
+alias ai="sudo apt install -y"
+
 # yum/dnf
 alias dq="dnf search"
 alias di="sudo dnf install -y"
