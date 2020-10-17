@@ -127,7 +127,7 @@ XTerm*color7: #d3d7cf
 XTerm*color15: #eeeeec
 
 ! dpi = 96 for 1080p
-Xft.dpi: 157
+Xft.dpi: 96
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
