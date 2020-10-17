@@ -126,8 +126,10 @@ XTerm*color14: #00f5e9
 XTerm*color7: #d3d7cf
 XTerm*color15: #eeeeec
 
+! dpi = 125 for thinkpad 1366x768 12.5"
 ! dpi = 96 for 1080p
-Xft.dpi: 96
+! dpi = 157 for for 4K
+Xft.dpi: 125
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
