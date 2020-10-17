@@ -6,6 +6,7 @@ source ~/.rd/.bash_functions
 #export TERMINAL=termite
 
 alias calc=node
+alias mt="make test"
 
 alias c3="cal -3"
 alias pavu="pavucontrol &"
