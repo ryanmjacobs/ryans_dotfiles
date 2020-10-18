@@ -67,9 +67,6 @@ alias ipl="ip --brief --color link"
 alias ipr="ip --brief --color route"
 alias ipa="ip --brief --color address"
 
-# minio
-alias mc=mcli
-
 # sql
 alias lc=litecli
 
