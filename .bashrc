@@ -7,6 +7,8 @@ source ~/.rd/.bash_functions
 
 alias calc=node
 alias mt="make test"
+alias ma="make all"
+alias mc="make clean"
 
 alias c3="cal -3"
 alias pavu="pavucontrol &"
