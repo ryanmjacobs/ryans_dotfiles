@@ -10,6 +10,7 @@ alias mt="make test"
 alias ma="make all"
 alias mc="make clean"
 
+alias ee="exec bash"
 alias c3="cal -3"
 alias pavu="pavucontrol &"
 alias agi="ag -i" # case insensitive
