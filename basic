@@ -8,3 +8,7 @@ done
 umask 077
 mkdir -p $HOME/.ssh
 cp -v $HOME/.rd/.ssh/authorized_keys $HOME/.ssh/
+
+# install rbin
+mkdir -p ~/.bin
+ln -s ~/.rd/rbin ~/.bin/rbin
