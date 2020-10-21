@@ -6,7 +6,12 @@ source ~/.rd/.bash_functions
 #export TERMINAL=termite
 
 alias calc=node
+alias mt="make test"
+alias ma="make all"
+alias mc="make clean"
 
+alias ee="exec bash"
+alias et="exec bash -c 'tmux new'"
 alias c3="cal -3"
 alias pavu="pavucontrol &"
 alias agi="ag -i" # case insensitive
@@ -63,9 +68,6 @@ alias vss="v ss"
 alias ipl="ip --brief --color link"
 alias ipr="ip --brief --color route"
 alias ipa="ip --brief --color address"
-
-# minio
-alias mc=mcli
 
 # sql
 alias lc=litecli

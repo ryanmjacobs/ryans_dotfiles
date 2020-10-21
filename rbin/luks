@@ -1,2 +1,4 @@
 #!/bin/bash
-cryptsetup luksOpen /luks.img luks && sudo mount /dev/mapper/luks /mnt/luks
+
+cryptsetup luksOpen /luks.img luks
+sudo mount /dev/mapper/luks /mnt/luks
