@@ -140,7 +140,7 @@ done
     done
 }
 
-dk() {
+kd() {
     docker stop "$1"
     docker rm "$1"
 }
