@@ -139,3 +139,8 @@ done
         sleep 5m
     done
 }
+
+dk() {
+    docker stop "$1"
+    docker rm "$1"
+}
