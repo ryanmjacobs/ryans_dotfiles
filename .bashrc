@@ -3,6 +3,9 @@
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
 
+# systemctl
+alias sss="sudo systemctl"
+
 #export TERMINAL=termite
 
 alias calc=node
