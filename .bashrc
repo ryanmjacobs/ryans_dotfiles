@@ -46,6 +46,10 @@ alias vt="cd /var/tmp"
 alias au="sudo apt update"
 alias ai="sudo apt install -y"
 
+# pacman
+alias pi="sudo pacman -S"
+alias pu="sudo pacman -Sy"
+
 # yum/dnf
 alias dq="dnf search"
 alias di="sudo dnf install -y"
