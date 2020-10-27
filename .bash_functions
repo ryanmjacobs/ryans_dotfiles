@@ -16,6 +16,11 @@ alias kdn="kubectl describe -n kube-system"
 alias kca="kc get all"
 alias kcna="kcn get all"
 alias dka='docker kill `docker ps -q`'
+alias dk='docker kill`'
+dkr() {
+    docker kill "$1"
+    docker rm "$1"
+}
 kce() {
     kubectl exec -it "$1" bash
 }
