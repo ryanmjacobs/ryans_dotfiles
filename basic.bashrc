@@ -38,7 +38,8 @@ fi
 alias watch="watch --color"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias ls="ls --color=auto --quoting-style=literal"
+[ "$HOSTNAME" != mm ] &&\
+    alias ls="ls --color=auto --quoting-style=literal"
 
 # `ls` colors
 [ -r /etc/DIR_COLORS ] && eval `dircolors /etc/DIR_COLORS`
