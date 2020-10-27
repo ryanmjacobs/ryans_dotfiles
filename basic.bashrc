@@ -21,9 +21,9 @@ HISTCONTROL="ignorespace"
 HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 
 # BASH
-shopt -s globstar     # recursive globbing
 shopt -s histappend   # keep history when BASH exits
 shopt -s checkwinsize # resize window after each command
+[ "$HOTSNAME" != "mm" ] && shopt -s globstar # recursive globbing
 [ -r /usr/share/bash-completion/bash_completion ] &&\
    . /usr/share/bash-completion/bash_completion
 
