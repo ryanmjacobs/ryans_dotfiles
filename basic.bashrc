@@ -23,7 +23,7 @@ HISTTIMEFORMAT="%-m/%d/%y, %r -- "
 # BASH
 shopt -s histappend   # keep history when BASH exits
 shopt -s checkwinsize # resize window after each command
-[ "$HOSTNAME" != "mm" ] && shopt -s globstar # recursive globbing
+[ "$HOSTNAME" != mm ] && shopt -s globstar # recursive globbing
 [ -r /usr/share/bash-completion/bash_completion ] &&\
    . /usr/share/bash-completion/bash_completion
 
@@ -42,8 +42,10 @@ alias diff="diff --color=auto"
     alias ls="ls --color=auto --quoting-style=literal"
 
 # `ls` colors
-[ -r /etc/DIR_COLORS ] && eval `dircolors /etc/DIR_COLORS`
-[ -r ~/.dir_colors ]   && eval `dircolors ~/.dir_colors`
+if [ "$HOSTNAME" != mm ]; then
+    [ -r /etc/DIR_COLORS ] && eval `dircolors /etc/DIR_COLORS`
+    [ -r ~/.dir_colors ]   && eval `dircolors ~/.dir_colors`
+fi
 
 # create ssh-agent instance if dne
 if hash ssh-agent; then
