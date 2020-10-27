@@ -8,6 +8,9 @@ alias sss="sudo systemctl"
 
 #export TERMINAL=termite
 
+# zfs
+alias zl="zfs list -t all"
+
 alias calc=node
 alias mt="make test"
 alias ma="make all"
