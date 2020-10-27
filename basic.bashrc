@@ -65,6 +65,7 @@ export GPG_TTY="$(tty)" # enable tty for GPG and pinentry-curses
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.bin/rbin:$PATH"
+export PATH="$HOME/radious/bin:$PATH"
 export PATH="$HOME/.npm-packges/bin:$PATH"
 export BUNDLE_PATH="$HOME/.bundle/install"
 export XBPS_DISTDIR="$HOME/.void-packages"
