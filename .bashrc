@@ -11,6 +11,7 @@ alias sss="sudo systemctl"
 # zfs
 alias zl="zfs list"
 alias zla="zfs list -t all"
+alias zm="zfs mount"
 
 alias calc=node
 alias mt="make test"
