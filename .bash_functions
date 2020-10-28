@@ -19,7 +19,7 @@ alias dka='docker kill `docker ps -q`; docker system prune -af'
 alias dk='docker kill'
 alias ds='docker service'
 alias dsl='docker service list'
-alias dsi='docker service inspect'
+alias dsi='docker service inspect --pretty'
 dkr() {
     docker kill "$1"
     docker rm "$1"
