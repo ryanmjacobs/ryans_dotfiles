@@ -15,8 +15,9 @@ alias kd="kubectl describe"
 alias kdn="kubectl describe -n kube-system"
 alias kca="kc get all"
 alias kcna="kcn get all"
-alias dka='docker kill `docker ps -q`'
-alias dk='docker kill`'
+alias dka='docker kill `docker ps -q`; docker rm `docker ps -a`'
+alias dk='docker kill'
+alias ds='docker service'
 dkr() {
     docker kill "$1"
     docker rm "$1"
