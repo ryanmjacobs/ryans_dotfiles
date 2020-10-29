@@ -1,11 +1,12 @@
 #!/bin/bash
 
 if [ "$#" -ne 1 ]; then
-    >&2 echo "usage: $(basename "$0") <dataaset>"
+    >&2 echo "usage: $(basename "$0") <dataset> [options]"
     >&2 echo
     >&2 echo "take a snapshot of a zfs dataset."
     exit 1
 fi
 
 dataset="$1"
-zfs snapshot $dataset@$(date -I)_$(date +%s)
+shift
+zfs snapshot $dataset@$(date -I)_$(date +%s) "$@"
