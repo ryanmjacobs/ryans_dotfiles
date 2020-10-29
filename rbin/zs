@@ -9,4 +9,7 @@ fi
 
 dataset="$1"
 shift
-zfs snapshot $dataset@$(date -I)_$(date +%s) "$@"
+name="$dataset@$(date -I)_$(date +%s)"
+
+[ "$(basename "$0")" == "zsr" ] && recursive="-r"
+zfs snapshot "$name" "$@" $recursive
