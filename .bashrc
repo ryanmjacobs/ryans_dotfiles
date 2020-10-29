@@ -59,6 +59,7 @@ alias vt="cd /var/tmp"
 alias au="sudo apt update"
 alias auu="sudo apt update && sudo apt upgrade -y"
 alias ai="sudo apt install -y"
+alias aq="apt search"
 
 # pacman
 alias pi="sudo pacman -S"
