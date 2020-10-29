@@ -7,7 +7,7 @@ source ~/.rd/.bash_functions
 alias sss="sudo systemctl"
 
 #export TERMINAL=termite
-alias cpw="cp `pwd`"
+alias cw='cd "$PWD"'
 
 # zfs
 alias zl="zfs list"
