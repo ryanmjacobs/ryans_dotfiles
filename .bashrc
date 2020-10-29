@@ -57,6 +57,7 @@ alias vt="cd /var/tmp"
 
 # apt
 alias au="sudo apt update"
+alias auu="sudo apt update && sudo apt upgrade -y"
 alias ai="sudo apt install -y"
 
 # pacman
