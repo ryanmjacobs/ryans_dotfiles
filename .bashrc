@@ -12,7 +12,7 @@ alias calc=node
 # zfs
 alias zl="zfs list"
 alias zla="zfs list -t all"
-alias zls="zfs list -t snapshot"
+alias zls="zfs list -t snapshot -o name,used,refer,creation"
 alias zlm="sudo zfs mount"
 alias zp="zpool status"
 alias zd="sudo zfs destroy"
