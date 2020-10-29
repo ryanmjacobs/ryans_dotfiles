@@ -6,17 +6,18 @@ source ~/.rd/.bash_functions
 # systemctl
 alias sss="sudo systemctl"
 
-#export TERMINAL=termite
 alias cw='cd "$PWD"'
+alias calc=node
 
 # zfs
 alias zl="zfs list"
 alias zla="zfs list -t all"
 alias zls="zfs list -t snapshot"
-alias zlm="zfs mount"
+alias zlm="sudo zfs mount"
 alias zp="zpool status"
+alias zd="sudo zfs destroy"
 
-alias calc=node
+# make
 alias mt="make test"
 alias ma="make all"
 alias mc="make clean"
