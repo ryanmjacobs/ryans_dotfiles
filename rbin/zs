@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$#" -ne 1 ]; then
+if [ "$#" -eq 0 ]; then
     >&2 echo "usage: $(basename "$0") <dataset> [options]"
     >&2 echo
     >&2 echo "take a snapshot of a zfs dataset."
