@@ -9,5 +9,7 @@ if ! hash yay; then
     makepkg -si --noconfirm
 fi
 
-# install peervpn
-yay -S peervpn --noconfirm
+# install peervpn (unless directed not to)
+if [ "$1" != "no-peervpn" ]; then
+    yay -S peervpn --noconfirm
+fi
