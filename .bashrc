@@ -1,5 +1,4 @@
 #!/bin/bash
-shopt -s expand_aliases
 
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
