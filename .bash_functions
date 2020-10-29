@@ -20,7 +20,7 @@ alias dk='docker kill'
 alias ds='docker service'
 alias dsl='docker service list'
 alias dsi='docker service inspect --pretty'
-alias dpsa="docker ps -a --format 'table {{.Image}}\t{{.Size}}\t{{.Status}}\t{{.RunningFor}}'"
+alias dpsa="docker ps -a --format 'table {{.Image}}\t{{.Size}}\t{{.Status}}\t{{.RunningFor}}\t{{.Name}}'"
 dkr() {
     docker kill "$1"
     docker rm "$1"
