@@ -13,6 +13,7 @@ alias cw='cd "$PWD"'
 alias zl="zfs list"
 alias zla="zfs list -t all"
 alias zlm="zfs mount"
+alias zp="zpool status"
 
 alias calc=node
 alias mt="make test"
