@@ -12,6 +12,7 @@ alias cw='cd "$PWD"'
 # zfs
 alias zl="zfs list"
 alias zla="zfs list -t all"
+alias zls="zfs list -t snapshot"
 alias zlm="zfs mount"
 alias zp="zpool status"
 
