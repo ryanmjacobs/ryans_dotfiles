@@ -7,4 +7,5 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
+dataset="$1"
 zfs snapshot $dataset@$(date -I)_$(date +%s)
