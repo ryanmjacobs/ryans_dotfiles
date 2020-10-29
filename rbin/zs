@@ -13,3 +13,7 @@ name="$dataset@$(date -I)_$(date +%s)"
 
 [ "$(basename "$0")" == "zsr" ] && recursive="-r"
 zfs snapshot "$name" "$@" $recursive
+
+list="$(zfs list -t snapshot -o name,used,refer,creation "$dataset")"
+echo "$list" | head -n1
+echo "$list" | tail -n1
