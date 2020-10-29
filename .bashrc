@@ -16,6 +16,7 @@ alias zls="zfs list -t snapshot -o name,used,refer,creation"
 alias zlm="sudo zfs mount"
 alias zp="zpool status"
 alias zpl="zpool list"
+alias zlp="zpool list"
 alias zd="sudo zfs destroy"
 
 # make
