@@ -18,7 +18,7 @@ alias zd="sudo zfs destroy"
 alias zp="zpool status -Td"
 alias zpl="zpool list"
 alias zlp="zpool list"
-alias zpi="zpool iostat -n 1"
+alias zpi="zpool iostat -yn 1"
 
 # make
 alias mt="make test"
