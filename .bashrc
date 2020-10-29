@@ -14,11 +14,11 @@ alias zl="zfs list"
 alias zla="zfs list -t all"
 alias zls="zfs list -t snapshot -o name,used,refer,creation"
 alias zlm="sudo zfs mount"
+alias zd="sudo zfs destroy"
 alias zp="zpool status"
 alias zpl="zpool list"
 alias zlp="zpool list"
-alias zd="sudo zfs destroy"
-alias zi="zfs iostat -v"
+alias zpi="zpool iostat -v"
 
 # make
 alias mt="make test"
