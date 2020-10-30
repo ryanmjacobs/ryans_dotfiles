@@ -3,7 +3,7 @@
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
 
-# systemctl
+alias k1="kill %1"
 alias sss="sudo systemctl"
 
 alias cw='cd "$PWD"'
