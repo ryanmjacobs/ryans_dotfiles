@@ -12,6 +12,7 @@ alias ct="column --table"
 
 # zfs
 alias zl="zfs list"
+alias zl="zfs list -o space"
 alias zla="zfs list -t all"
 alias zls="zfs list -t snapshot -o name,used,refer,creation"
 alias zlm="sudo zfs mount"
