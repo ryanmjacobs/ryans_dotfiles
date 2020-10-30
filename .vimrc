@@ -5,6 +5,8 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 
 " Plugins
 call vundle#begin()
+Plugin 'smerrill/vcl-vim-plugin'
+Plugin 'StanAngeloff/php.vim'
 Plugin 'ziglang/zig.vim'
 Plugin 'harenome/vim-mipssyntax'
 Plugin 'tomasr/molokai'
