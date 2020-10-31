@@ -9,11 +9,12 @@ fi
 
 dataset="$1"
 shift
-name="$dataset@$(date -I)_$(date +%s)"
+rhs="$(date -I)_$(date +%s)"
+name="$dataset@$rhs"
 
 [ "$(basename "$0")" == "zsr" ] && recursive="-r"
 zfs snapshot $recursive "$name" "$@"
 
-list="$(zfs list -t snapshot -o name,used,refer,creation "$dataset")"
-echo "$list" | head -n1
-echo "$list" | tail -n1
+list="$(zfs list -r -t snapshot)"
+head -n1    <<< "$list"
+grep "$rhs" <<< "$list"
