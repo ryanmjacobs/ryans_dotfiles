@@ -8,7 +8,7 @@ alias sss="sudo systemctl"
 
 alias cw='cd "$PWD"'
 alias calc=node
-alias ct="column --table"
+alias ct="column -t"
 
 # zfs
 alias zl="zfs list"
