@@ -10,6 +10,8 @@ alias cw='cd "$PWD"'
 alias calc=node
 alias ct="column -t"
 
+alias ms="mosh --predict=experimental newcastle.red"
+
 # zfs
 alias zl="zfs list"
 alias zlo="zfs list -o space"
