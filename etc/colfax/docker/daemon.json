@@ -1,4 +1,4 @@
 {
-  "insecure-registries" : ["colfax-daemons.lan:5000", "colfax-daemons.lan:5001"],
-  "registry-mirrors" : ["http://colfax-daemons.lan:5001"]
+  "insecure-registries" : ["colfax-daemons.colfax:5000", "colfax-daemons.colfax:5001"],
+  "registry-mirrors" : ["http://colfax-daemons.colfax:5001"]
 }
