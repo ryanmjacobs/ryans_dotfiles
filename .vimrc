@@ -42,6 +42,7 @@ Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'BeneCollyridam/futhark-vim'
 Plugin 'ElmCast/elm-vim'
 Plugin 'lifepillar/pgsql.vim'
+Plugin 'chr4/nginx.vim'
 call vundle#end()
 
 if $TERM == 'xterm-256color'
