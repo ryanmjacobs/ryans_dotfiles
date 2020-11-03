@@ -23,7 +23,7 @@ alias dsi='docker service inspect --pretty'
 alias dpsa="docker ps -a --format 'table {{.Image}}\t{{.Size}}\t{{.Status}}\t{{.RunningFor}}\t{{.Names}}'"
 alias dps="docker ps --format='table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'"
 alias dit="docker run --network=host -it --rm"
-alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v lazyteam/lazydocker'
+alias lzd='docker run --rm -it --name lzd -v /var/run/docker.sock:/var/run/docker.sock lazyteam/lazydocker'
 dkr() {
     docker kill "$1"
     docker rm "$1"
