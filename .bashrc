@@ -5,6 +5,7 @@ source ~/.rd/.bash_functions
 
 alias k1="kill %1"
 alias sss="sudo systemctl"
+alias rbin="cd ~/.rd/rbin"
 
 alias cw='cd "$PWD"'
 alias calc=node
