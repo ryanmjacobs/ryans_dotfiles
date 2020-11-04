@@ -1,3 +1,3 @@
 #!/bin/bash
 
-vncviewer -CompressLevel=6 -QualityLevel=0 -LowColorLevel=0 "$@"
+vncviewer -AutoSelect=0 -CompressLevel=6 -QualityLevel=0 -LowColorLevel=0 "$@"
