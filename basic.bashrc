@@ -72,3 +72,5 @@ export PATH="$HOME/radious/bin:$PATH"
 export PATH="$HOME/.npm-packges/bin:$PATH"
 export BUNDLE_PATH="$HOME/.bundle/install"
 export XBPS_DISTDIR="$HOME/.void-packages"
+
+alias ut="date +%s"
