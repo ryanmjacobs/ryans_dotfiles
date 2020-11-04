@@ -8,6 +8,7 @@ url="$1"
 out="${2:-index.html}"
 
 cat <<EOF > "$out"
+<!doctype html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
