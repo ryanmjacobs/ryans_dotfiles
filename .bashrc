@@ -33,8 +33,7 @@ alias mc="make clean"
 alias ee="exec bash"
 alias et="exec bash -c 'tmux new'"
 alias c3="cal -3"
-alias pavu="pavucontrol &"
-alias pvu="pavucontrol &"
+alias pp="pavucontrol &"
 alias agi="ag -i" # case insensitive
 alias agq="ag -Q" # no regex
 
