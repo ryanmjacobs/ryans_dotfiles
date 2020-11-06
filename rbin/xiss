@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo http_proxy=http://daemons.colfax:3142 xbps-install -Syu
