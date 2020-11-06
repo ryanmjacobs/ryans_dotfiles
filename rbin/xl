@@ -1,0 +1,5 @@
+#!/bin/bash
+
+xbps-query -l\
+    | cut -d' ' -f2\
+    | sed -r -e 's/-[0-9]+.*$//g'
