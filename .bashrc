@@ -35,6 +35,7 @@ alias et="exec bash -c 'tmux new'"
 alias c3="cal -3"
 alias pp="pavucontrol &"
 alias agi="ag -i" # case insensitive
+alias agu="ag -u" # hidden files
 alias agq="ag -Q" # no regex
 
 alias t="tb"
