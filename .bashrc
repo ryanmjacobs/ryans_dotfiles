@@ -63,6 +63,7 @@ alias vari="cd /var/lib/libvirt/images"
 alias vv="virsh -c qemu:///system"
 alias vvn="vv net-dhcp-leases default"
 alias vt="cd /var/tmp"
+alias tt="pushd /tmp"
 
 # apt
 alias au="sudo apt update"
