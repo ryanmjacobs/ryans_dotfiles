@@ -73,6 +73,7 @@ alias auu="sudo apt update && sudo apt upgrade -y"
 alias ai="sudo apt install -y"
 alias aq="apt search"
 alias aar="sudo apt autoremove -y"
+alias apr="sudo apt purge -y"
 
 # pacman
 alias pi="sudo pacman -S"
