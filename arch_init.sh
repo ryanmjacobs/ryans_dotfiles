@@ -51,9 +51,11 @@ arch-chroot /mnt systemctl enable --now sshd
 arch-chroot /mnt systemctl enable --now NetworkManager
 
 arch-chroot /mnt groupadd sudo
-arch-chroot /mnt useradd -m ryan
-arch-chroot /mnt usermod -a -G sudo ryan
 arch-chroot /mnt usermod -a -G sudo root
+
+arch-chroot /mnt useradd -m ryan
 arch-chroot /mnt passwd -d ryan
+arch-chroot /mnt usermod -a -G adm  ryan
+arch-chroot /mnt usermod -a -G sudo ryan
 
 arch-chroot /mnt sudo -u ryan bash -xc 'cd /home/ryan; git clone https://github.com/ryanmjacobs/rd .rd; cd .rd; ./basic'
