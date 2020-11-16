@@ -51,4 +51,4 @@ arch-chroot /mnt useradd -m ryan
 arch-chroot /mnt usermod -a -G sudo ryan
 arch-chroot /mnt passwd -d ryan
 
-arch-chroot /mnt -u ryan bash -c 'cd /home/ryan; git clone https://github.com/ryanmjacobs/rd .rd; cd .rd; ./basic'
+arch-chroot -u ryan /mnt bash -c 'cd /home/ryan; git clone https://github.com/ryanmjacobs/rd .rd; cd .rd; ./basic'
