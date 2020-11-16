@@ -39,6 +39,7 @@ echo "en_US.UTF-8 UTF-8" | tee /mnt/etc/locale.gen
 echo "archlinux-$RANDOM" | tee /mnt/etc/hostname
 echo "%sudo ALL=(ALL) NOPASSWD: ALL" | tee /mnt/etc/sudoers
 
+arch-chroot /mnt mkinitcpio -P linux
 arch-chroot /mnt mkdir -p /boot/grub
 arch-chroot /mnt sed -i -e 's/GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 panic=10"/g' /etc/default/grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
