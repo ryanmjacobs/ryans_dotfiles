@@ -44,6 +44,6 @@ arch-chroot /mnt timedatectl set-timezone America/Los_Angeles
 arch-chroot /mnt systemctl enable --now sshd
 
 arch-chroot /mnt groupadd sudo
-arch-chroot /mnt useradd ryan
+arch-chroot /mnt useradd -m ryan
 arch-chroot /mnt usermod -a -G sudo ryan
 arch-chroot /mnt passwd -d ryan
