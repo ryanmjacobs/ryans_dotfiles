@@ -48,6 +48,7 @@ arch-chroot /mnt grub-install /dev/vda
 arch-chroot /mnt locale-gen
 arch-chroot /mnt timedatectl set-timezone America/Los_Angeles
 arch-chroot /mnt systemctl enable --now sshd
+arch-chroot /mnt systemctl enable --now NetworkManager
 
 arch-chroot /mnt groupadd sudo
 arch-chroot /mnt useradd -m ryan
