@@ -5,10 +5,13 @@ for f in .bashrc .bash_profile .dir_colors .tmux.conf\
     ln -vsf "$HOME/.rd/$f" "$HOME/$f"
 done
 
-umask 077
-mkdir -p $HOME/.ssh
-cp -v $HOME/.rd/.ssh/authorized_keys $HOME/.ssh/
-
 # install rbin
 mkdir -pv ~/.bin
 ln -sv ~/.rd/rbin ~/.bin/rbin
+
+# ssh auth hosts
+if [ ! -f ~/.ssh/authorized_keys ]; then
+    umask 077
+    mkdir -p $HOME/.ssh
+    cp -v $HOME/.rd/.ssh/authorized_keys $HOME/.ssh/
+fi
