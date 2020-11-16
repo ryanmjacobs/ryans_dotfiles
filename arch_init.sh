@@ -34,7 +34,7 @@ echo 'Server = http://daemons.colfax.radious.co:7878/$repo/os/$arch' > /etc/pacm
 pacstrap /mnt base linux linux-firmware grub bash-completion vim tmux htop git sudo openssh
 
 genfstab -U /mnt | tee /mnt/etc/fstab
-echo "en_us.UTF-8 UTF-8" | tee /mnt/etc/locale.gen
+echo "en_US.UTF-8 UTF-8" | tee /mnt/etc/locale.gen
 echo "archlinux-$RANDOM" | tee /mnt/etc/hostname
 echo "%sudo ALL=(ALL) NOPASSWD: ALL" | tee /mnt/etc/sudoers
 
