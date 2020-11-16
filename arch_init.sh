@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+set -x
 
 umount /mnt
 fdisk --wipe always --wipe-partitions always /dev/vda <<EOF
