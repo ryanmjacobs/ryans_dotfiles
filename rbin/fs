@@ -1,2 +1,3 @@
 #!/bin/bash
-findmnt --real
+
+findmnt --real -o TARGET,FSTYPE,SIZE,USED,AVAIL,USE%
