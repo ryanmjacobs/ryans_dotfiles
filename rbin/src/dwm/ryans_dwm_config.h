@@ -82,9 +82,9 @@ static const char *maim[]            = { "maim", "-s", "screenshot.png", NULL };
 
 /* lock, sleep, hibernate, (or some combination thereof) */
 static const char *lockcmd[]      = { "sh", "-c", "slock", NULL };
-static const char *sleepcmd[]     = { "sh", "-c", "slock & { sleep 1; sudo zzz; }",    NULL };
-static const char *hibernatecmd[] = { "sh", "-c", "slock & { sleep 1; sudo ZZZ; }",    NULL };
-static const char *hybridcmd[]    = { "sh", "-c", "slock & { sleep 1; sudo ZZZ -H; }", NULL };
+static const char *sleepcmd[]     = { "sh", "-c", "slock & { sleep 1; sudo /usr/bin/zzz; }",    NULL };
+static const char *hibernatecmd[] = { "sh", "-c", "slock & { sleep 1; sudo /usr/bin/ZZZ; }",    NULL };
+static const char *hybridcmd[]    = { "sh", "-c", "slock & { sleep 1; sudo /usr/bin/ZZZ -H; }", NULL };
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
