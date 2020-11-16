@@ -52,4 +52,4 @@ arch-chroot /mnt usermod -a -G sudo ryan
 arch-chroot /mnt usermod -a -G sudo root
 arch-chroot /mnt passwd -d ryan
 
-arch-chroot /mnt bash -xc "sudo -u ryan 'cd /home/ryan; git clone https://github.com/ryanmjacobs/rd .rd; cd .rd; ./basic'"
+arch-chroot /mnt sudo -u ryan bash -xc 'cd /home/ryan; git clone https://github.com/ryanmjacobs/rd .rd; cd .rd; ./basic'
