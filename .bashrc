@@ -11,7 +11,6 @@ alias os="cat /etc/os-release"
 alias cw='cd "$PWD"'
 alias calc=node
 alias ct="column -t"
-alias fs="findmnt --real"
 
 alias ms="mosh --predict=experimental newcastle.red"
 
