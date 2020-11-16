@@ -7,6 +7,9 @@ fi
 level="$1"
 
 case "$HOSTNAME" in
+    aa)
+        device=/dev/sda2
+        media="ryans thinkpad x250 internal ssd - 1366x768 lcd";;
     mu)
         device=/dev/sda1
         media="ryans thinkpad x240 internal ssd - newcastle server supervisor";;
@@ -30,7 +33,8 @@ case "$HOSTNAME" in
         exit 1
 esac
 
-label="$HOSTNAME.l${level}.$(date +%Y%m%d).xfsdump.xz"
-nproc="$(nproc)"
+hash pigz && gzip=pigz || gzip=gzip
+
+label="$HOSTNAME.l${level}.$(date +%Y%m%d).xfsdump"
 time xfsdump -p10 -l $level -L "$label" -M "$media" - "$device"\
-    | xz -v -T $((nproc / 2)) > "$label"
+    | $gzip --verbose > "${label}.gz"
