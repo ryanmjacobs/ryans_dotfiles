@@ -49,6 +49,7 @@ arch-chroot /mnt systemctl enable --now sshd
 arch-chroot /mnt groupadd sudo
 arch-chroot /mnt useradd -m ryan
 arch-chroot /mnt usermod -a -G sudo ryan
+arch-chroot /mnt usermod -a -G sudo root
 arch-chroot /mnt passwd -d ryan
 
-arch-chroot -u ryan /mnt bash -c 'cd /home/ryan; git clone https://github.com/ryanmjacobs/rd .rd; cd .rd; ./basic'
+arch-chroot /mnt bash -xc sudo -u ryan 'cd /home/ryan; git clone https://github.com/ryanmjacobs/rd .rd; cd .rd; ./basic'
