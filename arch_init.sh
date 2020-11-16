@@ -31,7 +31,7 @@ mkfs.xfs -L root /dev/vda2
 mount /dev/vda2 /mnt
 
 echo 'Server = http://daemons.colfax.radious.co:7878/$repo/os/$arch' > /etc/pacman.d/mirrorlist
-pacstrap /mnt base linux linux-firmware grub bash-completion vim tmux htop git sudo openssh
+pacstrap /mnt base linux linux-firmware grub bash-completion vim tmux htop git sudo openssh network-manager
 
 genfstab -U /mnt | tee /mnt/etc/fstab
 echo "en_US.UTF-8 UTF-8" | tee /mnt/etc/locale.gen
@@ -39,6 +39,7 @@ echo "archlinux-$RANDOM" | tee /mnt/etc/hostname
 echo "%sudo ALL=(ALL) NOPASSWD: ALL" | tee /mnt/etc/sudoers
 
 arch-chroot /mnt mkdir -p /boot/grub
+arch-chroot /mnt sed -i -e '/GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 panic=10"/g'
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt grub-install /dev/vda
 
