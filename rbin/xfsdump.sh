@@ -33,7 +33,9 @@ case "$HOSTNAME" in
         exit 1
 esac
 
+hash pigz && gzip=pigz || gzip=gzip
+
 label="$HOSTNAME.l${level}.$(date +%Y%m%d).xfsdump"
 nproc="$(nproc)"
 time xfsdump -p10 -l $level -L "$label" -M "$media" - "$device"\
-    | pigz --verbose > "${label}.gz"
+    | $gzip --verbose > "${label}.gz"
