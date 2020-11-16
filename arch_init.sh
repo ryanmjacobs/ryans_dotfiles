@@ -40,7 +40,7 @@ echo "archlinux-$RANDOM" | tee /mnt/etc/hostname
 echo "%sudo ALL=(ALL) NOPASSWD: ALL" | tee /mnt/etc/sudoers
 
 arch-chroot /mnt mkdir -p /boot/grub
-arch-chroot /mnt sed -i -e '/GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 panic=10"/g' /etc/default/grub
+arch-chroot /mnt sed -i -e 's/GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 panic=10"/g' /etc/default/grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt grub-install /dev/vda
 
