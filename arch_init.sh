@@ -35,6 +35,7 @@ pacstrap /mnt base linux linux-firmware grub bash-completion vim tmux htop git s
 genfstab -U /mnt | tee /mnt/etc/fstab
 echo "en_us.UTF-8 UTF-8" | tee /mnt/etc/locale.gen
 echo "archlinux-$RANDOM" | tee /mnt/etc/hostname
+echo "%sudo ALL=(ALL) NOPASSWD: ALL" | tee /mnt/etc/sudoers
 
 arch-chroot /mnt mkdir -p /boot/grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
