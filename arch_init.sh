@@ -30,6 +30,7 @@ EOF
 mkfs.xfs -L root /dev/vda2
 mount /dev/vda2 /mnt
 
+echo 'Server = http://daemons.colfax.radious.co:7878/$repo/os/$arch' > /etc/pacman.d/mirrorlist
 pacstrap /mnt base linux linux-firmware grub bash-completion vim tmux htop git sudo openssh
 
 genfstab -U /mnt | tee /mnt/etc/fstab
