@@ -58,8 +58,6 @@ alias fu="journalctl -fu"
 alias k=killall
 
 # qemu/libvirt
-alias  qas='virsh -c qemu:///system list --name | while read domain; do [ -n "$domain" ] && virsh -c qemu:///system autostart "$domain"; done'
-alias qras='virsh -c qemu:///system list --name --inactive | while read domain; do [ -n "$domain" ] && virsh -c qemu:///system autostart "$domain" --disable; done'
 alias vari="cd /var/lib/libvirt/images"
 alias vv="virsh -c qemu:///system"
 alias vvn="vv net-dhcp-leases default"
