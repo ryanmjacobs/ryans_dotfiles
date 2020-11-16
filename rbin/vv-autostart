@@ -1,0 +1,4 @@
+#!/bin/bash
+
+virsh -c qemu:///system list --name --all\
+    | xargs -L1 virsh -c qemu:///system autostart 
