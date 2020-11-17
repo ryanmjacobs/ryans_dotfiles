@@ -1,5 +1,6 @@
 #!/bin/bash
 
+unset MAILCHECK
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
 
