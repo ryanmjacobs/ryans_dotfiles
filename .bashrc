@@ -158,3 +158,8 @@ us() {
     sudo chmod +x "$1"
     sudo chmod u+s "$1"
 }
+
+unset http_proxy
+unset https_proxy
+
+echo "rd last updated: $(cd $HOME/.rd; git show -s --format=%cr)"
