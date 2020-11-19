@@ -161,5 +161,3 @@ us() {
 
 unset http_proxy
 unset https_proxy
-
-echo "rd last updated: $(cd $HOME/.rd; git show -s --format=%cr)"
