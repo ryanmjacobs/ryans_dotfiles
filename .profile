@@ -41,4 +41,4 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH" # cargo
 export PATH="$HOME/.deno/bin:$PATH"  # deno
 
-echo "rd last updated: $(cd $HOME/.rd; git show -s --format=%cr)"
+echo "~/.rd last updated: $(cd $HOME/.rd; git show -s --format=%cr)"
