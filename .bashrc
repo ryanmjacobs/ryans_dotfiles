@@ -81,6 +81,8 @@ alias pu="sudo pacman -Sy"
 # yum/dnf
 alias dq="dnf search"
 alias di="sudo dnf install -y"
+alias dr="sudo dnf remove -y"
+alias duu="sudo dnf update -y"
 
 # xbps
 alias xq="xbps-query -Rs"
