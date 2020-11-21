@@ -26,7 +26,7 @@ char *basename(char *path) {
 char *datetime(void) {
     char *buf = malloc(128);
     time_t now = time (0);
-    strftime (buf, 100, "%Y-%m-%d %H:%M:%S.000", localtime (&now));
+    strftime (buf, 100, "%Y-%m-%d %H:%M:%S", localtime (&now));
     return buf;
 }
 
@@ -38,15 +38,20 @@ int main(int argc, char **argv) {
     }
 
     while (1) {
-        unsigned int i;
+        // verbose
+        char *dt = datetime();
+        fprintf(stderr, "%s: file %s: ", dt, argv[1]);
+        free(dt);
 
-        for (i = 1; i < argc; i++) {
+        for (unsigned i = 1; i < argc; i++) {
             if (!(access(argv[i], F_OK) != -1)) {
-                char *dt = datetime();
-                fprintf(stderr, "%s: file does not exist: %s\n", dt, argv[1]);
-                free(dt);
+                fprintf(stderr, "does not exist\n");
                 break;
+            else {
+                fprintf(stderr, "exists.\n");
             }
+
+            // all files exist -> exit 0
             if (i == argc-1) return 0;
         }
 
