@@ -47,7 +47,7 @@ int main(int argc, char **argv) {
             if (!(access(argv[i], F_OK) != -1)) {
                 fprintf(stderr, "does not exist\n");
                 break;
-            else {
+            } else {
                 fprintf(stderr, "exists.\n");
             }
 
