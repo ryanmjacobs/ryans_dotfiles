@@ -53,7 +53,6 @@ alias brave="brave --incognito"
 alias chrom="chromium --incognito"
 alias b="brave"
 alias x="(xterm &)"
-alias dr="docker run -it --rm"
 alias sshr="ssh-keygen -R"
 alias k="killall"
 alias fu="journalctl -fu"
@@ -82,6 +81,8 @@ alias pu="sudo pacman -Sy"
 # yum/dnf
 alias dq="dnf search"
 alias di="sudo dnf install -y"
+alias dr="sudo dnf remove -y"
+alias duu="sudo dnf update -y"
 
 # xbps
 alias xq="xbps-query -Rs"
@@ -158,3 +159,6 @@ us() {
     sudo chmod +x "$1"
     sudo chmod u+s "$1"
 }
+
+unset http_proxy
+unset https_proxy
