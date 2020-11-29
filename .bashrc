@@ -86,10 +86,10 @@ alias duu="sudo dnf update -y"
 
 # xbps
 alias xq="xbps-query -Rs"
-alias xr="sudo xbps-remove -R"
-alias xi="sudo xbps-install"
-alias xis="sudo xbps-install -Suv"
-alias xs="sudo xbps-install -Suv"
+alias xr="sudo  /bin/xbps-remove -R"
+alias xi="sudo  /bin/xbps-install"
+alias xis="sudo /bin/xbps-install -Suv"
+alias xs="sudo  /bin/xbps-install -Suv"
 alias xii="/usr/bin/xi"
 alias zzz="sudo zzz"
 
