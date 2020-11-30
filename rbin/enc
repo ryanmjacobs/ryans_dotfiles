@@ -60,7 +60,7 @@ enc() {
 }
 
 dec() {
-    echo "dec"
+    echo "TODO: enable decryption via pipe"
 }
 
 case "$prog" in
