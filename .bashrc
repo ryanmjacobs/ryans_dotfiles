@@ -102,6 +102,9 @@ alias vss="v ss"
 alias ipl="ip --brief --color link"
 alias ipr="ip --brief --color route"
 alias ipa="ip --brief --color address"
+alias ipl6="ip -6 --brief --color link"
+alias ipr6="ip -6 --brief --color route"
+alias ipa6="ip -6 --brief --color address"
 
 # sql
 alias lc=litecli
