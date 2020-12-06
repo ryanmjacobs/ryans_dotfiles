@@ -16,4 +16,5 @@ if [ ! -f ~/.ssh/authorized_keys ]; then
     cp -v $HOME/.rd/.ssh/authorized_keys $HOME/.ssh/
 fi
 
+mkdir -p ~/.parallel
 touch ~/.parallel/will-cite # ugh
