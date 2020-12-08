@@ -7,3 +7,28 @@ fi
 for f in $@; do
     ipfs add -rw "$f" | tee -a ~/ipfs.log
 done
+
+# postgres notryan upsert
+while read line; do
+       clean="${line//\'/\'\'}"
+      action="$(cut -d' ' -f1 <<< "$clean")"
+       qhash="$(cut -d' ' -f2 <<< "$clean")"
+    filename="$(cut -d' ' -f3 <<< "$clean")"
+
+    source ~/private/notryan_rw.sh
+    (psql "$PG_URL" <<EOF
+CREATE TABLE IF NOT EXISTS ipfs (
+    qhash    TEXT PRIMARY KEY CHECK (LEFT(qhash, 1) = 'Q'),
+    filename TEXT NOT NULL CHECK (LENGTH(filename) > 0),
+    action   TEXT NOT NULL
+);
+
+INSERT INTO ipfs (action, qhash, filename)
+    VALUES ('$action', '$qhash', '$filename')
+    ON CONFLICT DO NOTHING;
+EOF
+) &
+
+done < ~/ipfs.log
+
+time wait

@@ -38,4 +38,9 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH" # cargo
+export PATH="$HOME/.deno/bin:$PATH"  # deno
+
+rd() {
+    echo "~/.rd last updated: $(cd $HOME/.rd; git show -s --format=%cr)"
+}

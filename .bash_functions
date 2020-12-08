@@ -72,6 +72,7 @@ alias gpt="git push --tags"
 alias gd="git checkout --detach"
 alias gdh="git diff HEAD"
 alias gcd="git clean -dfx"
+alias grl="git remote -v"
 cm() {
     # 'git commit -m' with all arguments concatenated
     # e.g. 'cm one two three'

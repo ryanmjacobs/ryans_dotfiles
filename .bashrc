@@ -1,5 +1,6 @@
 #!/bin/bash
 
+unset MAILCHECK
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
 
@@ -7,6 +8,7 @@ alias k1="kill %1"
 alias sss="sudo systemctl"
 alias rbin="cd ~/.rd/rbin"
 alias os="cat /etc/os-release"
+alias g=gnumeric
 
 alias cw='cd "$PWD"'
 alias calc=node
@@ -51,7 +53,6 @@ alias brave="brave --incognito"
 alias chrom="chromium --incognito"
 alias b="brave"
 alias x="(xterm &)"
-alias dr="docker run -it --rm"
 alias sshr="ssh-keygen -R"
 alias k="killall"
 alias fu="journalctl -fu"
@@ -80,13 +81,15 @@ alias pu="sudo pacman -Sy"
 # yum/dnf
 alias dq="dnf search"
 alias di="sudo dnf install -y"
+alias dr="sudo dnf remove -y"
+alias duu="sudo dnf update -y"
 
 # xbps
 alias xq="xbps-query -Rs"
-alias xr="sudo xbps-remove -R"
-alias xi="sudo xbps-install"
-alias xis="sudo xbps-install -Suv"
-alias xs="sudo xbps-install -Suv"
+alias xr="sudo  /bin/xbps-remove -R"
+alias xi="sudo  /bin/xbps-install -y"
+alias xis="sudo /bin/xbps-install -Suv"
+alias xs="sudo  /bin/xbps-install -Suv"
 alias xii="/usr/bin/xi"
 alias zzz="sudo zzz"
 
@@ -99,6 +102,9 @@ alias vss="v ss"
 alias ipl="ip --brief --color link"
 alias ipr="ip --brief --color route"
 alias ipa="ip --brief --color address"
+alias ipl6="ip -6 --brief --color link"
+alias ipr6="ip -6 --brief --color route"
+alias ipa6="ip -6 --brief --color address"
 
 # sql
 alias lc=litecli
@@ -156,3 +162,6 @@ us() {
     sudo chmod +x "$1"
     sudo chmod u+s "$1"
 }
+
+unset http_proxy
+unset https_proxy

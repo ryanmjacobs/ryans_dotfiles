@@ -1,0 +1,71 @@
+#!/bin/bash
+##############################################################################
+# This script contains the source code for the tools: 'enc' and 'dec'.
+# Install the 'enc' script somewhere in your $PATH. Then, create a symlink
+# from 'enc' -> 'dec'. I.e. `ln -s /usr/bin/enc /usr/bin/dec`. The script
+# uses the filename to determine whether or not to run the enc() or dec()
+# routine.
+#
+#  Author : Ryan Jacobs <ryan@rmj.us>
+#    Date : November 18th, 2020
+# License : MIT
+#
+# WARNING: Because the password is passed via a command-line argument,
+#          it is exposed to any user with sudo/root privileges.
+##############################################################################
+
+prog="$(basename "$0")"
+stderr() { >&2 echo "$@"; }
+abort()  { stderr "$@"; exit 1; }
+
+enc() {
+    passwd="$1"
+    ofname="$2"
+
+    if [ "$#" -ne 2 ]; then
+        stderr "usage: tar ... | $prog <password> <output.zip>"
+        stderr
+        stderr "This program accepts a stdin filestream and encrypts it via zip"
+        stderr "with the provided password. Use the program 'dec' to decrypt."
+        stderr
+        stderr "ZIP compression is disabled."
+        stderr "If you want compression, use gzip/xz/etc in your pipeline."
+        stderr
+        stderr 'E.g. `xz <file.tar | enc MyPassword output.zip`'
+        stderr
+        stderr "The .zip file will contain a single entry named '/dev/stdin'."
+        stderr "It is the user's responsibility to remember/store the filename"
+        stderr "and filetype elsewhere."
+        stderr
+        stderr "--------------------------------------------------------------"
+        stderr "WARNING:"
+        stderr "  Because the password is passed via a command-line argument,"
+        stderr "  it is exposed to any user with sudo/root privileges. Use this"
+        stderr "  script for quick n' dirty encryption on personal machines only."
+        exit 2
+    fi
+
+    [ -t 0 ] && abort "error: /dev/stdin is not open."
+    [ "${ofname: -4}" != ".zip" ] && abort "error: filename must end with .zip: '$ofname'"
+
+    rm -vf "$ofname"
+    zip -fz -0 --display-dots --password "$passwd" "$ofname" --fifo /dev/stdin
+
+    # Breakdown of zip flags
+    #   -fz             : Force Zip64 format, to allow filesize > 4GB.
+    #   -0              : Disable compression.
+    #   --display-dots  : Enable progress indicator.
+    #   --password      : Supply a plaintext password for encryption.
+    #   --fifo          : Tell zip to read from stdin.
+}
+
+dec() {
+    echo "TODO: enable decryption via pipe"
+}
+
+case "$prog" in
+    enc) enc "$@";;
+    dec) dec "$@";;
+    *) abort "error: filename must be 'enc' or 'dec'";;
+esac
+
