@@ -41,7 +41,6 @@ alias agi="ag -i" # case insensitive
 alias agu="ag -u" # hidden files
 alias agq="ag -Q" # no regex
 
-alias t="tb"
 alias tb="(thunderbird &)"
 alias ll="ls -lh"
 alias vm="virt-manager"
