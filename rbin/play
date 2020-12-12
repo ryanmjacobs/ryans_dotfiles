@@ -8,6 +8,7 @@ h="$(md5sum <<< "$*" | cut -d' ' -f1)"
 
 _play() {
     if [ -e "$HOME/.ytc/$h"* ]; then
+        echo "playing: $h"
         mpv --vo=null "$HOME/.ytc/$h"*
         exit
     fi

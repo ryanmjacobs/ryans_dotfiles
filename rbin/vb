@@ -1,0 +1,5 @@
+#!/bin/bash
+# edit an executable (in the $path) with vim
+
+loc="$(which "$1")"
+vim "$loc"

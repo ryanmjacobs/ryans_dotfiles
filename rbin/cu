@@ -1,0 +1,6 @@
+#!/bin/bash
+# change file/directory owner to $user:$user
+# (uses sudo only upon failure)
+
+chown -v $UID:$UID "$@" ||
+    sudo chown -v $UID:$UID "$@"
