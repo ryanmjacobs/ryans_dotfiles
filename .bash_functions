@@ -99,6 +99,9 @@ _gc() {
 gcr() {
     _gc git@github.com:ryanmjacobs/"$1"
 }
+gcrs() {
+    _gc git@github.com:radious-subsystems/"$1"
+}
 gcn() {
     git clone nas:git/"$1" && cd "$1"
 }
