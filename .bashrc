@@ -74,8 +74,10 @@ alias aar="sudo apt autoremove -y"
 alias apr="sudo apt purge -y"
 
 # pacman
-alias pi="sudo pacman -S --noconfirm"
+alias pq="pacman -Ss"
 alias pu="sudo pacman -Sy"
+alias pi="sudo pacman -S --noconfirm"
+alias pr="sudo pacman -Rns"
 
 # yum/dnf
 alias dq="dnf search"
