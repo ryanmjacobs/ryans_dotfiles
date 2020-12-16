@@ -78,6 +78,7 @@ alias pq="pacman -Ss"
 alias pu="sudo pacman -Sy"
 alias pi="sudo pacman -S --noconfirm"
 alias pr="sudo pacman -Rns"
+alias yss="yay -Ss"
 
 # yum/dnf
 alias dq="dnf search"
