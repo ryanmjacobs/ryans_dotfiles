@@ -18,3 +18,9 @@ fi
 
 mkdir -p ~/.parallel
 touch ~/.parallel/will-cite # ugh
+
+# .config entries
+mkdir -p ~/.config
+for x in mpv dunst pgcli; do
+    ln -sf ~/.rd/.config/$x ~/.config/$x
+done
