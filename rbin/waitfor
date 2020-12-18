@@ -1,0 +1,7 @@
+#!/bin/bash
+# Wait for a process to finish, then exit.
+
+while pgrep "$@"; do
+    echo "Waiting for: $@; date"
+    sleep 1
+done
