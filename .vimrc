@@ -170,3 +170,4 @@ nnoremap <C-b> :center 80<cr>hhv0r#A<space><esc>40A#<esc>d80<bar>YppVr#kk.
 
 set tabpagemax=1000
 set noswapfile
+set mouse=
