@@ -1,0 +1,2 @@
+Server = http://10.0.10.20:7878/$repo/os/$arch
+Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
