@@ -116,6 +116,9 @@ alias lc=litecli
 alias np="date +%s | tee -a ~/private/np"
 alias meds="date +%s | tee -a ~/private/meds.txt"
 
+# netlify
+alias nw="netlify watch"
+
 _gforth() {
     gforth "$@" -e bye
 }
