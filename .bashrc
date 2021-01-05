@@ -75,7 +75,7 @@ alias apr="sudo apt purge -y"
 
 # pacman
 alias pq="pacman -Ss"
-alias pu="sudo pacman -Sy"
+alias syu="sudo pacman -Syu"
 alias pi="sudo pacman -S --noconfirm"
 alias pr="sudo pacman -Rns"
 alias yq="yay -Ss"
