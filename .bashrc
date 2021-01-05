@@ -156,6 +156,7 @@ alias lnt="yarn lint --cache --fix"
 alias jt="time yarn just-test"
 alias tc="time yarn type_check"
 alias cdc="yarn circular_dependency_check"
+alias nhs="npx http-server"
 
 PATH=$PATH:~/.npm/bin
 
