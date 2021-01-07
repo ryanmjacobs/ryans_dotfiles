@@ -125,7 +125,12 @@ alias f=_gforth
 #[ -f ~/read_only_cred ] && source ~/read_only_cred
 
 otp() {
+    # otp to clipboard
     pass otp -c otp/"$1"
+}
+oo() {
+    # otp printout (no clipboard)
+    pass otp otp/"$1"
 }
 alias p="pass -c"
 pe() {
