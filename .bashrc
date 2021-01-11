@@ -75,7 +75,7 @@ alias apr="sudo apt purge -y"
 
 # pacman
 alias pq="pacman -Ss"
-alias pu="sudo pacman -Sy"
+alias syu="sudo pacman -Syu"
 alias pi="sudo pacman -S --noconfirm"
 alias pr="sudo pacman -Rns"
 alias yq="yay -Ss"
@@ -128,7 +128,12 @@ alias f=_gforth
 #[ -f ~/read_only_cred ] && source ~/read_only_cred
 
 otp() {
+    # otp to clipboard
     pass otp -c otp/"$1"
+}
+oo() {
+    # otp printout (no clipboard)
+    pass otp otp/"$1"
 }
 alias p="pass -c"
 pe() {
@@ -159,6 +164,7 @@ alias lnt="yarn lint --cache --fix"
 alias jt="time yarn just-test"
 alias tc="time yarn type_check"
 alias cdc="yarn circular_dependency_check"
+alias nhs="npx http-server"
 
 PATH=$PATH:~/.npm/bin
 

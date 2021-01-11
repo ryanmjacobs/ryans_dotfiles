@@ -55,6 +55,7 @@ reload_kt
 
 
 # Git
+alias gl="git lg"
 alias cma="git commit --amend"
 alias gp="git push"
 alias gpu='git push --set-upstream origin $(git symbolic-ref --short -q HEAD)'

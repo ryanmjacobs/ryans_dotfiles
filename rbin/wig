@@ -1,5 +1,0 @@
-#!/bin/bash --login
-
-git add .
-git commit -m wig
-git-infect
