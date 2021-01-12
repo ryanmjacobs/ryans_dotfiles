@@ -5,7 +5,7 @@ source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
 
 alias k1="kill %1"
-alias sss="sudo systemctl"
+alias scs="systemctl status"
 alias rbin="cd ~/.rd/rbin"
 alias os="cat /etc/os-release"
 alias g=gnumeric
@@ -115,6 +115,9 @@ alias lc=litecli
 # logs
 alias np="date +%s | tee -a ~/private/np"
 alias meds="date +%s | tee -a ~/private/meds.txt"
+
+# netlify
+alias nw="netlify watch"
 
 _gforth() {
     gforth "$@" -e bye
