@@ -98,7 +98,7 @@ alias zzz="sudo zzz"
 
 # vspm
 alias   v="vpsm"
-alias  vi="v i"
+#alias  vi="v i"
 alias vss="v ss"
 
 # ip
