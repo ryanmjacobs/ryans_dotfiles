@@ -65,6 +65,9 @@ alias vt="cd /var/tmp"
 alias vc="cd /var/cache"
 alias tt="pushd /tmp"
 
+# clostra
+alias ccpg="pgcli -d postgres"
+
 # apt
 alias au="sudo apt update"
 alias auu="sudo apt update && sudo apt upgrade -y"
