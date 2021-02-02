@@ -16,6 +16,8 @@ alias ct="column -t"
 
 alias ms="mosh --predict=experimental newcastle.red"
 
+alias wl="watch --color ls -lh --color"
+
 # zfs
 alias zl="zfs list"
 alias zlo="zfs list -o space"
