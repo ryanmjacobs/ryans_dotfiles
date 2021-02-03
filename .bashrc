@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# MacOS
+# TODO: check darwin
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
 unset MAILCHECK
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
