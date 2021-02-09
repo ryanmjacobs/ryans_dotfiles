@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# MacOS
+# TODO: check darwin
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
 unset MAILCHECK
 source ~/.rd/basic.bashrc
 source ~/.rd/.bash_functions
@@ -15,6 +21,8 @@ alias calc=node
 alias ct="column -t"
 
 alias ms="mosh --predict=experimental newcastle.red"
+
+alias wl="watch --color ls -lh --color"
 
 # zfs
 alias zl="zfs list"
@@ -65,6 +73,9 @@ alias vt="cd /var/tmp"
 alias vc="cd /var/cache"
 alias tt="pushd /tmp"
 
+# clostra
+alias ccpg="pgcli -d postgres"
+
 # apt
 alias au="sudo apt update"
 alias auu="sudo apt update && sudo apt upgrade -y"
@@ -98,7 +109,7 @@ alias zzz="sudo zzz"
 
 # vspm
 alias   v="vpsm"
-alias  vi="v i"
+#alias  vi="v i"
 alias vss="v ss"
 
 # ip
