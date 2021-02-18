@@ -72,6 +72,8 @@ alias vvn="vv net-dhcp-leases default"
 alias vt="cd /var/tmp"
 alias vc="cd /var/cache"
 alias tt="pushd /tmp"
+alias vl="vv list"
+alias vla="vv list --all"
 
 # clostra
 alias ccpg="pgcli -d postgres"
