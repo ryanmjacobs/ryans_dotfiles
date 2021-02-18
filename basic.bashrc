@@ -43,8 +43,8 @@ alias diff="diff --color=auto"
 
 # `ls` colors
 if [ "$HOSTNAME" != mm ]; then
-    [ -r /etc/DIR_COLORS ] && eval `dircolors /etc/DIR_COLORS`
-    [ -r ~/.dir_colors ]   && eval `dircolors ~/.dir_colors`
+    [ -r /etc/DIR_COLORS ] && eval `dircolors --sh /etc/DIR_COLORS`
+    [ -r ~/.dir_colors ]   && eval `dircolors --sh ~/.dir_colors`
 fi
 
 # create ssh-agent instance if dne
