@@ -69,6 +69,7 @@ export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.bin/rbin:$PATH"
 export PATH="$HOME/radious/bin:$PATH"
 export PATH="$HOME/.npm-packges/bin:$PATH"
+export PATH="/sbin:$PATH"
 export BUNDLE_PATH="$HOME/.bundle/install"
 export XBPS_DISTDIR="$HOME/.void-packages"
 
