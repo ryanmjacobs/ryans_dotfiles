@@ -1,0 +1,8 @@
+#!/bin/bash
+
+vv="virsh -c qemu:///system"
+
+for vm in $($vv list --all --name); do
+    $vv managedsave --verbose --domain $vm
+    $vv autostart --disable --domain $vm
+done

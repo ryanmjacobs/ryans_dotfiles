@@ -67,7 +67,6 @@ alias k=killall
 
 # qemu/libvirt
 alias vari="cd /var/lib/libvirt/images"
-alias vv="virsh -c qemu:///system"
 alias vvn="vv net-dhcp-leases default"
 alias vt="cd /var/tmp"
 alias vc="cd /var/cache"
