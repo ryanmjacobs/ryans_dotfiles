@@ -87,7 +87,7 @@ XTerm*highlightSelection: true
 XTerm*termName: xterm-256color
 XTerm*visualBell: false
 XTerm*faceName: DejaVu Sans Mono
-XTerm*faceSize: 9
+XTerm*faceSize: 11
 XTerm*saveLines: 32768
 XTerm*scrollBar: false
 XTerm*geometry: 80x24
@@ -129,8 +129,8 @@ XTerm*color15: #eeeeec
 ! dpi = 96 for thinkpad 1366x768 12.5 inch
 ! dpi = 96 for 1080p
 ! dpi = 157 for for 4K
-Xft.dpi: 157
-!Xft.dpi: 96
+!Xft.dpi: 157
+Xft.dpi: 96
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
