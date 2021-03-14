@@ -191,3 +191,4 @@ unset http_proxy
 unset https_proxy
 
 alias sr="ssh-keygen -R"
+alias ta="tmux a"
