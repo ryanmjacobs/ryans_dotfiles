@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# get current directory
+dir="$(pwd)"
+#echo "begin: $dir"
+#echo
+
+# traverse upwards until we hit the mountpoint
+while true; do
+    #echo "dir:   $dir"
+    is_mp="$(mountpoint "$dir")"
+
+    if [ $? -eq 0 ]; then
+        #echo "is_mp: $is_mp"
+        break
+    fi
+    #echo "is_mp: $is_mp"
+
+    dir="$dir"
+    dir="$(dirname "$dir")"
+    #echo
+done
+
+df -h "$dir"
