@@ -5,6 +5,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 
 " Plugins
 call vundle#begin()
+Plugin 'isobit/vim-caddyfile'
 Plugin 'evanleck/vim-svelte'
 Plugin 'smerrill/vcl-vim-plugin'
 Plugin 'StanAngeloff/php.vim'
