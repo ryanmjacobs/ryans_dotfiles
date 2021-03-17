@@ -192,3 +192,9 @@ unset https_proxy
 
 alias sr="ssh-keygen -R"
 alias ta="tmux a"
+
+function ipi() {
+    http=http
+    hash http &>/dev/null || http=curl
+    $http "https://ipinfo.io/$1"
+}
