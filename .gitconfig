@@ -7,3 +7,5 @@
     df = "!df() { c=$1; [ -z $c ] && c=HEAD; git diff $c~1 $c; }; df"
 [pull]
     rebase = false
+[init]
+	defaultBranch = master
