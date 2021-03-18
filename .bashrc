@@ -76,7 +76,7 @@ alias vla="vv list --all"
 
 # clostra
 alias ccpg="pgcli -d postgres"
-alias ppg="pgcli -d postgres -U postgres"
+alias lpg="pgcli -d postgres -U postgres"
 
 # apt
 alias au="sudo apt update"
