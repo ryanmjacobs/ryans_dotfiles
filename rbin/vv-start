@@ -3,6 +3,7 @@
 vv="virsh -c qemu:///system"
 
 for vm in $($vv list --all --name); do
+    echo "$vm"
     $vv start --domain $vm
     $vv autostart --domain $vm
 done
