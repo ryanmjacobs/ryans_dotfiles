@@ -1,19 +1,20 @@
 /* vim: set syntax=c cindent: */
 
-/**
- * ao - set file to append-only
- *
- * This is equivalent to `chattr +a <file>`.
- * Use setcap to allow unpermissioned users to run this program.
- *
- * $ setcap cap_linux_immutable+ep $(which ao)
- *
- * Note: This is a one-way operation! You will end up
- * with a undeletable file! Unless you have sudo access,
- * this will not be reversable.
- *
- * To reset permissions, run `sudo chattr -a <file>`.
- */
+const char *help =
+"/**"
+"\n * ao - set file to append-only"
+"\n *"
+"\n * This is equivalent to `chattr +a <file>`."
+"\n * Use setcap to allow unpermissioned users to run this program."
+"\n *"
+"\n * $ setcap cap_linux_immutable+ep $(which ao)"
+"\n *"
+"\n * Note: This is a one-way operation! You will end up"
+"\n * with a undeletable file! Unless you have sudo access,"
+"\n * this will not be reversable."
+"\n *"
+"\n * To reset permissions, run `sudo chattr -a <file>`."
+"\n */";
 
 #include <err.h>
 #include <fcntl.h>
@@ -23,7 +24,7 @@
 #include <sys/ioctl.h>
 
 int main(int argc, char **argv) {
-    if (argc != 2) errx(2, "usage: %s <file>", basename(argv[0]));
+    if (argc != 2) errx(2, "usage: %s <file>\n\n%s\n", basename(argv[0]), help);
 
     // Open/Create file
     int fd = open(argv[1], O_CREAT, 0660);
