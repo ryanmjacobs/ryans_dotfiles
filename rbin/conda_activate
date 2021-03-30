@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash --rcfile <(cat ~/.bashrc /opt/anaconda/bin/activate)
