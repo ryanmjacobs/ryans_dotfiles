@@ -44,6 +44,7 @@ alias mc="make clean"
 alias ee="exec bash"
 alias et="exec bash -c 'tmux new'"
 alias c3="cal -3"
+alias cy="cal -y"
 alias pp="pavucontrol &"
 alias agi="ag -i" # case insensitive
 alias agu="ag -u" # hidden files
