@@ -200,3 +200,5 @@ function ipi() {
     hash http &>/dev/null || http=curl
     $http "https://ipinfo.io/$1"
 }
+
+alias sres="source ~/radious/restic/env.sh"
