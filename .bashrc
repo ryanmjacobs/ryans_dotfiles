@@ -201,4 +201,4 @@ function ipi() {
     $http "https://ipinfo.io/$1"
 }
 
-alias sres="source ~/radious/restic/env.sh"
+alias res="source ~/radious/restic/env.sh; restic snapshots"
