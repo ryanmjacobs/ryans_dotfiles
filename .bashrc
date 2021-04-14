@@ -202,3 +202,4 @@ function ipi() {
 }
 
 alias res="source ~/radious/restic/env.sh; restic snapshots"
+alias rb="~/radious/restic/backup_home.sh"
