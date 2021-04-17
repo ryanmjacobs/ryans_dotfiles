@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-power_now=$(cat sys/class/power_supply/BAT0/power_now)
-energy_now=$(cat /sys/class/power_supply/BAT0/energy_now)
+power_now=$(  cat /sys/class/power_supply/BAT0/power_now)
+energy_now=$( cat /sys/class/power_supply/BAT0/energy_now)
 voltage_now=$(cat /sys/class/power_supply/BAT0/voltage_now)
 energy_full=$(cat /sys/class/power_supply/BAT0/energy_full)
