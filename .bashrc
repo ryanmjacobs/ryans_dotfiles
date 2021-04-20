@@ -205,4 +205,5 @@ alias res="source ~/radious/restic/env.sh; restic snapshots"
 alias ress="source ~/radious/restic/env.sh; restic stats"
 alias rb="~/radious/restic/backup_home.sh"
 
-alias ph="python3 -m http.server"
+alias ph="python3 -m http.server 8000"
+alias hs="npx http-server -p 8000"
