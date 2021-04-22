@@ -52,6 +52,7 @@ alias agq="ag -Q" # no regex
 
 alias tb="(thunderbird &)"
 alias ll="ls -lh"
+alias lt="ls -lht"
 alias vm="virt-manager"
 alias lq="vncviewer -QualityLevel 0 -CompressLevel 6 -CustomCompressLevel -AutoSelect=0 -LowColorLevel=1 -FullColor=0 -passwd ~/.vncp localhost:1234"
 alias lqe="lq&exit"
