@@ -208,3 +208,10 @@ alias rb="~/radious/restic/backup_home.sh"
 
 alias ph="python3 -m http.server 8000"
 alias hs="npx http-server -p 8000"
+
+if [ -s "$HOME/.rvm/scripts/rvm" ] && [ "$(type -t rvm)" != "function" ]; then
+    source "$HOME/.rvm/scripts/rvm"
+    export PATH="$PATH:$HOME/.rvm/bin"
+fi
+
+alias ber="bundle exec rails"
