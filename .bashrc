@@ -202,12 +202,9 @@ function ipi() {
     $http "https://ipinfo.io/$1"
 }
 
-alias res="source ~/radious/restic/env.sh; restic snapshots"
-alias ress="source ~/radious/restic/env.sh; restic stats"
-alias rb="~/radious/restic/backup_home.sh"
-
-alias ph="python3 -m http.server 8000"
-alias hs="npx http-server -p 8000"
+alias res="echo restic_list_snapshots; source ~/radious/restic/env.sh; restic snapshots"
+alias resz="echo restic_total_size; source ~/radious/restic/env.sh; restic stats"
+alias resb="echo restic_backup_home; ~/radious/restic/backup_home.sh"
 
 if [ -s "$HOME/.rvm/scripts/rvm" ] && [ "$(type -t rvm)" != "function" ]; then
     source "$HOME/.rvm/scripts/rvm"
