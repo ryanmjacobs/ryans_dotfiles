@@ -212,3 +212,4 @@ if [ -s "$HOME/.rvm/scripts/rvm" ] && [ "$(type -t rvm)" != "function" ]; then
 fi
 
 alias ber="bundle exec rails"
+alias st="speedtest-cli"
